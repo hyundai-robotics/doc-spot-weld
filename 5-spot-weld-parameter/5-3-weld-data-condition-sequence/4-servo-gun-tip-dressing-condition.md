@@ -1,8 +1,12 @@
-# 5.3.4 서보건 팁드레싱 조건
+﻿# 5.3.4 서보건 팁드레싱 조건
 
 서보건에 대해 팁드레싱을 수행하는 경우 이에 대한 각종 조건을 설정합니다.
 
-![](<../../.gitbook/assets/image (61).png>)
+<p align="center">
+ <img src="../../.gitbook/assets/image (61).png"></img>
+</p>
+
+</br>
 
 1.  **용접신호 출력**
 

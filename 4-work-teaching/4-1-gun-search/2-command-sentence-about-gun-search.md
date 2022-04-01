@@ -1,4 +1,4 @@
-# 4.1.2 건서치 관련 명령문
+﻿# 4.1.2 건서치 관련 명령문
 
 ### <mark style="color:green;">gunsea</mark>
 

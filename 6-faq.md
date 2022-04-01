@@ -53,3 +53,4 @@
 *   <mark style="color:green;">**로봇이 핸들링 작업을 하는 동안 이와 독립적으로 정치형 서보건에 대해 팁드레싱 작업 및 건서치 작업을 수행하면 작업 시간을 단축할 수 있을 텐데 방법이 있나요?**</mark>
 
     멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. 별도의 [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
+.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.

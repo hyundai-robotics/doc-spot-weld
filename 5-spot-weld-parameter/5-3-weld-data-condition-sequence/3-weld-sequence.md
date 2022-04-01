@@ -1,8 +1,10 @@
-# 5.3.3 용접시퀀스
+﻿# 5.3.3 용접시퀀스
 
 스폿용접과 관련된 시퀀스를 설정하여 작업환경에 따라 로봇의 동작을 결정합니다.
 
-![](<../../.gitbook/assets/image (1).png>)
+<p align="center">
+ <img src="../../.gitbook/assets/image (1).png"></img>
+</p>
 
 1.  **시퀀스번호**
 

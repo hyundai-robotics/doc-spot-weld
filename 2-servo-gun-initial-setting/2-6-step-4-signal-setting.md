@@ -1,4 +1,4 @@
-# 2.6 Step 4. 신호 설정
+﻿# 2.6 Step 4. 신호 설정
 
 Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동 및 가압이 가능한 상태입니다. 하지만 스폿 용접을 위해서는 스폿 용접기 및 기타 신호의 입출력을 설정해야 합니다. ‘신호 설정’에서는 스폿 용접과 관련된 입력 신호와 출력 신호를 설정합니다.
 
@@ -6,9 +6,9 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 
 ![](<../.gitbook/assets/image (85).png>)
 
-1. **입력 신호 설정**
-   * “[**5.** **스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.4** **입력 신호 할당**](../5-spot-weld-parameter/5-4-input-signal-assign.md)” 챕터를 참고하십시오.
-2. **출력 신호 설정**
-   * “[**5. 스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.5** **출력 신호 할당**](../5-spot-weld-parameter/5-5-output-signal-assign.md)” 챕터를 참고하십시오.
+>1. **입력 신호 설정**
+>   * “[**5.** **스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.4** **입력 신호 할당**](../5-spot-weld-parameter/5-4-input-signal-assign.md)” 챕터를 참고하십시오.
+>2. **출력 신호 설정**
+>   * “[**5. 스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.5** **출력 신호 할당**](../5-spot-weld-parameter/5-5-output-signal-assign.md)” 챕터를 참고하십시오.
 
 &#x20;

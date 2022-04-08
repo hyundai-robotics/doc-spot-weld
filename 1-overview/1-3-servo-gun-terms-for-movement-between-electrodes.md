@@ -2,5 +2,6 @@
 
 
 <p align="center">
- <img src="../.gitbook/assets/image (8).png" height="80%" width="80%"></img>
+ <img src="../.gitbook/assets/image (8).png" width="70%"></img>
+ <em><p align="center">그림 1.3 이동전극과 고정전극 용어</p></em>
 </p>

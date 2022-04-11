@@ -29,7 +29,7 @@
     * [3.1.1 스폿건 축 데이터](3-Related-functions/3-1-monitoring/1-spot-gun-axis-data.md)
     * [3.1.2 입출력 신호](3-Related-functions/3-1-monitoring/2-input-output-signal.md)
     * [3.1.3 가동 정보](3-Related-functions/3-1-monitoring/3-operating-info.md)
-    * [3.1.3 상태플래그](3-Related-functions/3-1-monitoring/4-state-flag.md)
+    * [3.1.4 상태플래그](3-Related-functions/3-1-monitoring/4-state-flag.md)
   * [3.2 서보건 간편 보수](3-Related-functions/3-2-servo-gun-simple-maintenance.md)
   * [3.3 사용자 키](3-Related-functions/3-3-user-key.md)
   * [3.4 용접건 수동 개폐, 가압](3-Related-functions/3-4-weld-gun-manual-open-close-pressure.md)

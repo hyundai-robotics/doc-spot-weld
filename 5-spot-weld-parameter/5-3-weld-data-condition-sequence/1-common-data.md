@@ -3,8 +3,9 @@
 스폿용접시퀀스에 관계없이 공통으로 적용되는 데이터를 설정합니다.
 
 
-<p align="center">
- <img src="../../.gitbook/assets/image (63).png"></img>
+<p align=center>
+<img src="../../.gitbook/assets/image (63).png" width="70%"></img>
+<em><p align="center">그림 5.10 공통데이터 설정</p></em>
 </p>
 
 </br>

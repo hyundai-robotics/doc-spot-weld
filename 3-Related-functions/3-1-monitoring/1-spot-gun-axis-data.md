@@ -4,9 +4,15 @@
 
 (『**선택**』 → 『**스폿**』 → 『**건 데이터**』)
 
-![](<../../.gitbook/assets/image (18).png>)
+<p align="center">
+ <img src="../../.gitbook/assets/image (18).png" width="70%"></img>
+ <em><p align="center">그림 3.1 스폿 모니터링 pane</p></em>
+</p>
 
-![](<../../.gitbook/assets/image (89).png>)
+<p align="center">
+ <img src="../../.gitbook/assets/image (89).png" width="70%"></img>
+ <em><p align="center">그림 3.2 스폿 건 데이터 모니터링</p></em>
+</p>
 
 >*   **전류 데이터(서보건)**
 >

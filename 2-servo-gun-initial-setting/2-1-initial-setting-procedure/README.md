@@ -31,7 +31,7 @@
 
 <p align="center">
  <img src="../../.gitbook/assets/image (3).png" width="70%"></img>
- <em><p align="center">그림 2.2 ‘서보건 자동설정’ 절차</p></em>
+ <em><p align="center">그림 2.1.2 ‘서보건 자동설정’ 절차</p></em>
 </p>
 
 서보건 초기설정의 표준 절차는 아래와 같습니다.

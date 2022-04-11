@@ -4,6 +4,7 @@
 
 <p align="center">
  <img src="../../.gitbook/assets/image (38).png">
+  <em><p align="center">그림 2.3 용접건의 툴 길이와 각도 설정</p></em>
  </img>
 </p>
 

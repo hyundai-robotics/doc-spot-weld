@@ -10,11 +10,13 @@
 <p align="center">
  <img src="../../../.gitbook/assets/image (90).png" ></img>
  <img src="../../../.gitbook/assets/image (2).png" ></img>
+ <em><p align="center">그림 2.12 서보건 리밋 설정</p></em>
 </p>
 
 2. ‘**서보건 자동 설정**’의 기본 설정 화면에서 ‘**소프트 리밋 설정**’의 \[**수동 설정**] 버튼을 누르거나(아래 그림), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**3: 소프트 리밋**』에서 해당 서보건 축을 커서로 선택한 후, \[**적용(Reset)**] 버튼을 누릅니다. 정상적으로 표시되면 \[**완료(OK)**] 버튼을 입력합니다.
 
 
 <p align="center">
- <img src="../../../.gitbook/assets/image (41).png" ></img>
+ <img src="../../../.gitbook/assets/image (41).png" width="80%"></img>
+ <em><p align="center">그림 2.13 서보건 리밋 설정 화면 이동</p></em>
 </p>

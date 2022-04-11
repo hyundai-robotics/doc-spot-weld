@@ -4,7 +4,7 @@
 
 (『**선택**』 → 『**스폿**』 → 『**입출력 신호**』)
 
-</br>
 <p align="center">
- <img src="../../.gitbook/assets/image (40).png"></img>
+ <img src="../../.gitbook/assets/image (40).png" width="70%"></img>
+ <em><p align="center">그림 3.3 스폿 입출력 신호 모니터링</p></em>
 </p>

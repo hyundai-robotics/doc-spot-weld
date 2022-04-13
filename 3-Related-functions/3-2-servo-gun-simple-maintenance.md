@@ -3,7 +3,7 @@
 서보건 고장수리 후, 재가동을 위한 일련의 설정을 하나의 창에서 간편하게 수행할 수 있도록 지원합니다. 초기 화면에서 \[**CTRL**]+\[**GUN**]키를 누르면 간편보수를 위한 대화상자가 출력됩니다.
 
 <p align="center">
- <img src="../.gitbook/assets/image (26).png" width="70%"></img>
+ <img src="../_assets/image (26).png" width="70%"></img>
  <em><p align="center">그림 3.7 서보건 간편 보수</p></em>
 </p>
 

@@ -5,7 +5,7 @@
 기본 설정은 아래 그림과 같이 4가지 항목으로 구성되어 있습니다.
 
 <p align="center">
- <img src="../../.gitbook/assets/image (17).png" width="70%"></img>
+ <img src="../../_assets/image (17).png" width="70%"></img>
  <em><p align="center">그림 2.5 기본 설정 진행 화면</p></em>
 </p>
 

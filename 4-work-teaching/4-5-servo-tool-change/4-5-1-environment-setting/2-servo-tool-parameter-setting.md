@@ -7,7 +7,7 @@
 
 
 <p align="center">
- <img src="../../../.gitbook/assets/image (67).png" width="75%"></img>
+ <img src="../../../_assets/image (67).png" width="75%"></img>
  <em><p align="center">그림 4.15 툴 체인지시 부가축 파라미터 적용</p></em>
 </p>
 
@@ -17,6 +17,6 @@
 
 
 <p align="center">
- <img src="../../../.gitbook/assets/image (88).png" width="70%"></img>
+ <img src="../../../_assets/image (88).png" width="70%"></img>
  <em><p align="center">그림 4.16 부가축 파라미터 설정 화면</p></em>
 </p>

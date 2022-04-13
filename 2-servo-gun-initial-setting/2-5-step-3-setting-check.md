@@ -6,7 +6,7 @@
 
 
 <p align="center">
- <img src="../.gitbook/assets/image (21).png" width=70%></img>
+ <img src="../_assets/image (21).png" width=70%></img>
  <em><p align="center">그림 2.18 서보건 설정 확인 화면</p></em>
 </p>
 

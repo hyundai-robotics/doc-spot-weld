@@ -5,7 +5,7 @@
 당사에서 권장하는 수동 모드 서보건 가압력 - 전류테이블 설정 절차는 아래와 같습니다.
 
 <p align="center">
- <img src="../../../.gitbook/assets/image (84).png" width=70%></img>
+ <img src="../../../_assets/image (84).png" width=70%></img>
  <em><p align="center">그림 2.14 서보건 수동 튜닝 화면</p></em>
 </p>
  

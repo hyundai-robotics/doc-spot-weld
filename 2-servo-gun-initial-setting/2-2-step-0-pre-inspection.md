@@ -15,7 +15,7 @@
 사전 점검 단계에서는 사전 설정들의 완료 여부를 확인 합니다. 사전 설정 미 수행 시 관련된 설정을 할 수 있는 화면으로 이동할 수 있으니 반드시 설정을 완료 한 후에 서보건 초기 설정을 진행하십시오.
 
 <p align="center">
- <img src="../.gitbook/assets/image (27).png" width="90%"></img>
+ <img src="../_assets/image (27).png" width="90%"></img>
  <em><p align="center">그림 2.4 사전 점검 진행 절차</p></em>
 </p>
 

@@ -3,7 +3,7 @@
 스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/))
 
 <p align="center">
- <img src="../../.gitbook/assets/image (38).png">
+ <img src="../../_assets/image (38).png">
   <em><p align="center">그림 2.3 용접건의 툴 길이와 각도 설정</p></em>
  </img>
 </p>

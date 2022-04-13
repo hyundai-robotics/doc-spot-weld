@@ -3,8 +3,8 @@
 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**1: 건번호 대응 툴번호, 건타입 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
 
 <p align="center">
- <img src="../../../.gitbook/assets/image (24).png" width="70%"></img>
- <img src="../../../.gitbook/assets/image (24_).png" width="70%"></img>
+ <img src="../../../_assets/image (24).png" width="70%"></img>
+ <img src="../../../_assets/image (24_).png" width="70%"></img>
  <em><p align="center">그림 4.14 스폿 건 추가</p></em>
 </p>
 

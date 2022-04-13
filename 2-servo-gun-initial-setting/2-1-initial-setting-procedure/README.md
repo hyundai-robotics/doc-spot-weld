@@ -13,7 +13,7 @@
 당사에서는 “**서보건 자동설정**”(『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿 용접**』 → 『**6: 서보건 자동 설정**』) 기능으로 스폿 용접과 서보건 동작환경 설정 및 절차를 제공하고 있습니다.
 
 <p align="center">
- <img src="../../.gitbook/assets/image (60).png" width="70%"></img>
+ <img src="../../_assets/image (60).png" width="70%"></img>
  <em><p align="center">그림 2.1 ‘서보건 자동설정’ 진입 화면</p></em>
 </p>
 
@@ -30,7 +30,7 @@
 
 
 <p align="center">
- <img src="../../.gitbook/assets/image (3).png" width="70%"></img>
+ <img src="../../_assets/image (3).png" width="70%"></img>
  <em><p align="center">그림 2.1.2 ‘서보건 자동설정’ 절차</p></em>
 </p>
 

@@ -3,7 +3,7 @@
 스폿용접과 관련된 사용환경을 설정하여 상황에 맞는 적절한 동작을 수행합니다.
 
 <p align="center">
- <img src="../.gitbook/assets/image (20).png" width="70%"></img>
+ <img src="../_assets/image (20).png" width="70%"></img>
  <em><p align="center">그림 5.1 스폿 사용환경 설정 화면</p></em>
 </p>
 

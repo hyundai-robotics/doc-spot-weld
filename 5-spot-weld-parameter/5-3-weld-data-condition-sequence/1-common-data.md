@@ -4,7 +4,7 @@
 
 
 <p align=center>
-<img src="../../.gitbook/assets/image (63).png" width="70%"></img>
+<img src="../../_assets/image (63).png" width="70%"></img>
 <em><p align="center">그림 5.10 공통데이터 설정</p></em>
 </p>
 

@@ -5,7 +5,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 아래와 그림과 같이 ‘**Step 4. 입력 신호 설정**’이나 ‘**Step 4. 출력 신호 설정**’에 커서를 이동후 \[**엔터**]를 누르거나 이전 항목이 완료된 상태에서 『**설정 전 항목 진행**』을 누르면, 해당 항목을 설정할 수 있는 화면으로 진입합니다.
 
 <p align="center">
- <img src="../.gitbook/assets/image (85).png" width=70%></img>
+ <img src="../_assets/image (85).png" width=70%></img>
  <em><p align="center">그림 2.19 서보건 신호 설정 화면</p></em>
 </p>
 

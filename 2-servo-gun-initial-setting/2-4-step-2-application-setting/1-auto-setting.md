@@ -28,7 +28,7 @@
 
 
 <p align="center">
- <img src="../../.gitbook/assets/image (22).png" width=70%></img>
+ <img src="../../_assets/image (22).png" width=70%></img>
  <em><p align="center">그림 2.16 건서치 조건 설정 화면</p></em>
 </p>
 
@@ -41,7 +41,7 @@
 서보건 응용 설정의 화면의 구성과 기능은 아래와 같습니다.
 
 <p align="center">
- <img src="../../.gitbook/assets/image (55).png" width=70%></img>
+ <img src="../../_assets/image (55).png" width=70%></img>
  <em><p align="center">그림 2.17 서보건 응용 설정 화면</p></em>
 </p>
 

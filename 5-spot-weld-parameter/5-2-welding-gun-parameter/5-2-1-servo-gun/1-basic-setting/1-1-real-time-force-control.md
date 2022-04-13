@@ -3,7 +3,7 @@
 실시간 가압력 제어는 가압력계로 측정한 데이터를 제어에 활용하여 서보건 가압력의 정확도를 향상시키는 기능입니다. 실시간 가압력 제어를 위해 가압력계는 로봇제어기와 통신을 해야 하고, 아래 메뉴로 통신사양을 설정합니다.
 
 <p align=center>
-<img src="../../../../.gitbook/assets/image (30).png" width="70%"></img>
+<img src="../../../../_assets/image (30).png" width="70%"></img>
 <em><p align="center">그림 5.6 실시간 가압력 제어 설정</p></em>
 </p>
 

@@ -4,7 +4,7 @@
 
 
 <p align="center">
- <img src="../.gitbook/assets/image (33).png" width="70%"></img>
+ <img src="../_assets/image (33).png" width="70%"></img>
  <em><p align="center">그림 3.8 스폿 사용자 키</p></em>
 </p>
 

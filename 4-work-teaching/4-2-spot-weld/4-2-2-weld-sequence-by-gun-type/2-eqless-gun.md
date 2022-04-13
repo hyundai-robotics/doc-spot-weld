@@ -3,7 +3,7 @@
 건타입이 Eqless건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
 <p align="center">
- <img src="../../../.gitbook/assets/image (5).png" width="60%"></img>
+ <img src="../../../_assets/image (5).png" width="60%"></img>
  <em><p align="center">그림 4.9 Eqless건 스폿용접의 재생</p></em>
 </p>
 

@@ -3,7 +3,7 @@
 서보건에 대해 팁드레싱을 수행하는 경우 이에 대한 각종 조건을 설정합니다.
 
 <p align="center">
- <img src="../../.gitbook/assets/image (61).png" width="70%"></img>
+ <img src="../../_assets/image (61).png" width="70%"></img>
  <em><p align="center">그림 5.15 서보건 팁드레싱 조건 설정 </p></em>
 </p>
 

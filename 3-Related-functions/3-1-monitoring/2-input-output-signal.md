@@ -5,6 +5,6 @@
 (『**선택**』 → 『**스폿**』 → 『**입출력 신호**』)
 
 <p align="center">
- <img src="../../_assets/image (40).png" width="70%"></img>
+ <img src="../../_assets/image_40.png" width="70%"></img>
  <em><p align="center">그림 3.3 스폿 입출력 신호 모니터링</p></em>
 </p>

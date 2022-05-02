@@ -4,8 +4,8 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 
 
 <p align=center>
- <img src="../../../_assets/image (64).png"></img>
- <img src="../../../_assets/image (34).png" width="55%"></img>
+ <img src="../../../_assets/image_64.png"></img>
+ <img src="../../../_assets/image_34.png" width="55%"></img>
  <em><p align="center">그림 4.7 Eqless 건서치</p></em>
 </p>
 

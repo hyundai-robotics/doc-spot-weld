@@ -5,6 +5,6 @@
 
 
 <p align=center>
-<img src="../../_assets/image (59).png" width="70%"></img>
+<img src="../../_assets/image_59.png" width="70%"></img>
 <em><p align="center">그림 5.9 용접 데이터 설정</p></em>
 </p>

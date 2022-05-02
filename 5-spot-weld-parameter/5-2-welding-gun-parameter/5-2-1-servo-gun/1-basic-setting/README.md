@@ -1,8 +1,8 @@
 ﻿# 5.2.1.1 서보건 기본 설정
 
 <p align=center>
-<img src="../../../../_assets/image (44).png" width="70%"></img>
-<img src="../../../../_assets/image (87).png" width="70%"></img>
+<img src="../../../../_assets/image_44.png" width="70%"></img>
+<img src="../../../../_assets/image_87.png" width="70%"></img>
 <em><p align="center">그림 5.2 서보건 기본 설정 화면</p></em>
 </p>
 
@@ -21,7 +21,7 @@
 
 
 <p align=center>
-<img src="../../../../_assets/image (50).png" ></img>
+<img src="../../../../_assets/image_50.png" ></img>
 <em><p align="center">그림 5.3 건 암 휨량/100Kgf 그래프</p></em>
 </p>
 
@@ -39,7 +39,7 @@
     선택한 서보건의 타입(로봇건, 정치건)을 선택합니다. 정치 서보건을 사용하는 경우에 정치건의 좌표계를 미리 설정해 놓은 사용자 좌표계 번호를 설정합니다.(0인 경우 로봇 좌표계) 고정전극의 진행 방향이 Z(+)방향이 되도록 사용자 좌표계를 설정하십시오.
 
 <p align=center>
-<img src="../../../../_assets/image (81).png" ></img>
+<img src="../../../../_assets/image_81.png" ></img>
 <em><p align="center">그림 5.4 정치건 좌표계</p></em>
 </p>
  
@@ -58,7 +58,7 @@
     이 가압력-전류테이블은 5레벨의 가압력에 대한 전류치를 설정합니다. 각 레벨이 증가할 수록 가압력-전류의 값도 증가하도록 설정합니다. 여기서 입력한 가압력의 상한치와 하한치는 재생 또는 수동조작시의 가압력의 제한 범위로 사용됩니다.
 
 <p align=center>
-<img src="../../../../_assets/image (54).png" ></img>
-<img src="../../../../_assets/image (11).png" ></img>
+<img src="../../../../_assets/image_54.png" ></img>
+<img src="../../../../_assets/image_11.png" ></img>
 <em><p align="center">그림 5.5 중력방향, 반중력방향</p></em>
 </p>

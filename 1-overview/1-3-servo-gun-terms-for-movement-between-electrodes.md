@@ -2,6 +2,6 @@
 
 
 <p align="center">
- <img src="../_assets/image (8).png" width="70%"></img>
+ <img src="../_assets/image_8.png" width="70%"></img>
  <em><p align="center">그림 1.3 이동전극과 고정전극 용어</p></em>
 </p>

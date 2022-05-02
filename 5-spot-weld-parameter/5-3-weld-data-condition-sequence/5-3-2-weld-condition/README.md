@@ -3,7 +3,7 @@
 스폿용접과 관련된 조건을 설정하여 작업 환경에 따라 용접을 수행합니다.
 
 <p align=center>
-<img src="../../../_assets/image (75).png" width="70%"></img>
+<img src="../../../_assets/image_75.png" width="70%"></img>
 <em><p align="center">그림 5.11 용접 조건 설정</p></em>
 </p>
 

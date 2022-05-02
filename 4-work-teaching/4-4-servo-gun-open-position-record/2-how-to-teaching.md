@@ -5,7 +5,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image (83).png" width="70%"></img>
+ <img src="../../_assets/image_83.png" width="70%"></img>
  <em><p align="center">그림 4.13 판넬 두께가 동일한 작업의 작업방식</p></em>
 </p>
 

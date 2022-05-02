@@ -5,6 +5,6 @@
 ---
 
 <p align="center">
- <img src="../../_assets/image (78).png" width="60%"></img>
+ <img src="../../_assets/image_78.png" width="60%"></img>
  <em><p align="center">그림 1.1 서보건 자동 설정 조작 순서</p></em>
 </p>

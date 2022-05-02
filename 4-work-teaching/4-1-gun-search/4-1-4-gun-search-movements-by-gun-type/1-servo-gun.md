@@ -12,8 +12,8 @@
     이동전극으로 고정전극을 가압하여 전극의 전체 마모량을 측정합니다.
 
 <p align="center">
- <img src="../../../_assets/image (47).png"></img>
- <img src="../../../_assets/image (7).png" width="55%"></img>
+ <img src="../../../_assets/image_47.png"></img>
+ <img src="../../../_assets/image_7.png" width="55%"></img>
  <em><p align="center">그림 4.3 건서치 1</p></em>
 </p>
 
@@ -26,7 +26,7 @@
 >5. 건서치 1만 동작하는 환경에서는 아래의 그림과 같이 측정된 전체 마모량을 이동전극과 >고정전극의 비율로 마모량을 각각 분배합니다. (기본값은 50:50)
 
 <p align="center">
-  <img src="../../../_assets/image (70).png" width="70%"></img>
+  <img src="../../../_assets/image_70.png" width="70%"></img>
  <em><p align="center">그림 4.4 건서치 1에 의한 마모량 계산</p></em>
 </p>
 
@@ -40,8 +40,8 @@
     이동전극으로 교정지그를 가압하여 이동전극의 마모량을 측정합니다.
 
 <p align="center">
- <img src="../../../_assets/image (29).png"></img>
- <img src="../../../_assets/image (4).png" width="55%"></img>
+ <img src="../../../_assets/image_29.png"></img>
+ <img src="../../../_assets/image_4.png" width="55%"></img>
  <em><p align="center">그림 4.5 가압력 이용 건서치 2</p></em>
 </p>
 
@@ -58,8 +58,8 @@
 
 
 <p align="center">
- <img src="../../../_assets/image (79).png"></img>
- <img src="../../../_assets/image (73).png" width="55%"></img>
+ <img src="../../../_assets/image_79.png"></img>
+ <img src="../../../_assets/image_73.png" width="55%"></img>
  <em><p align="center">그림 4.6 외부신호 입력 건서치 2</p></em>
 </p>
 

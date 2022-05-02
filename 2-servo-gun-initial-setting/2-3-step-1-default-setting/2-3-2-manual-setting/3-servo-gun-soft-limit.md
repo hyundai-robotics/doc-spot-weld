@@ -8,8 +8,8 @@
 
 
 <p align="center">
- <img src="../../../_assets/image (90).png" ></img>
- <img src="../../../_assets/image (2).png" ></img>
+ <img src="../../../_assets/image_90.png" ></img>
+ <img src="../../../_assets/image_2.png" ></img>
  <em><p align="center">그림 2.12 서보건 리밋 설정</p></em>
 </p>
 
@@ -17,6 +17,6 @@
 
 
 <p align="center">
- <img src="../../../_assets/image (41).png" width="80%"></img>
+ <img src="../../../_assets/image_41.png" width="80%"></img>
  <em><p align="center">그림 2.13 서보건 리밋 설정 화면 이동</p></em>
 </p>

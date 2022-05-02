@@ -4,7 +4,7 @@
 
 
 <p align=center>
-<img src="../_assets/image (15).png" width="70%"></img>
+<img src="../_assets/image_15.png" width="70%"></img>
 <em><p align="center">그림 5.15 입력 신호 할당</p></em>
 </p>
 

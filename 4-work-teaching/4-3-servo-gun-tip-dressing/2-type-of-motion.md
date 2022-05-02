@@ -4,7 +4,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image (77).png" width="60%"></img>
+ <img src="../../_assets/image_77.png" width="60%"></img>
  <em><p align="center">그림 4.11 서보팁 드레싱 동작</p></em>
 </p>
 

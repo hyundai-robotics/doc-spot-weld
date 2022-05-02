@@ -7,7 +7,7 @@
 1) 서보건축을 수동으로 조작하여 아래 그림과 같은 상태가 되도록 합니다.
 
 <p align="center">
- <img src="../../../_assets/image (19).png"></img>
+ <img src="../../../_assets/image_19.png"></img>
  <em><p align="center">그림 2.10 서보건 원점 위치</p></em>
 </p>
 
@@ -15,6 +15,6 @@
 
 
 <p align="center">
- <img src="../../../_assets/image (80).png" width="80%"></img>
+ <img src="../../../_assets/image_80.png" width="80%"></img>
  <em><p align="center">그림 2.11 축 원점 화면 이동</p></em>
 </p>

@@ -4,7 +4,7 @@
 
 
 <p align=center>
-<img src="../../_assets/image (42).png" width="70%"></img>
+<img src="../../_assets/image_42.png" width="70%"></img>
 <em><p align="center">그림 5.8 Eqless 건 설정</p></em>
 </p>
 

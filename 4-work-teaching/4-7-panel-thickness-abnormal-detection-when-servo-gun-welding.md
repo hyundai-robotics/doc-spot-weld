@@ -3,7 +3,7 @@
 서보건 용접 시 판넬 두께를 계측하여 부품의 이상과 소재의 장착 누락을 검지하는 기능으로 아래와 같이 “thickcheck”명령문을 추가하여 간단하게 수행할 수 있습니다. 판넬 두께의 이상 여부는 계측된 값이 정상 범위 내에 있는 지로 판단합니다.
 
 <p align="center">
- <img src="../_assets/image (49).png" width="40%"></img>
+ <img src="../_assets/image_49.png" width="40%"></img>
  <em><p align="center">그림 4.20 서보건 판네두께 검사</p></em>
 </p>
 

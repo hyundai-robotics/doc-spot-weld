@@ -4,7 +4,7 @@
 
 
 <p align=center>
-<img src="../../_assets/image (1).png" width="70%"></img>
+<img src="../../_assets/image_1.png" width="70%"></img>
 <em><p align="center">그림 5.14 용접 시퀀스 설정</p></em>
 </p>
 

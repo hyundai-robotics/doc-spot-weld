@@ -1,7 +1,7 @@
 ﻿# 4.6.1 멀티건 수동 선택
 
 <p align="center">
- <img src="../../_assets/image (32).png" width="30%"></img>
+ <img src="../../_assets/image_32.png" width="30%"></img>
  <em><p align="center">그림 4.19 부가축 파라미터 설정 화면</p></em>
 </p>
 

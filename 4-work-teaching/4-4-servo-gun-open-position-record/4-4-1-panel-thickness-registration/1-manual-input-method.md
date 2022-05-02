@@ -4,6 +4,6 @@
 
 
 <p align="center">
- <img src="../../../_assets/image (14).png" ></img>
+ <img src="../../../_assets/image_14.png" ></img>
  <em><p align="center">그림 4.12 판넬 두께 입력</p></em>
 </p>

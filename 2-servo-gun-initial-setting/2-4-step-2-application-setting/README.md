@@ -5,7 +5,7 @@
 응용 설정은 아래 그림과 같이 3가지 항목으로 구성되어 있습니다.
 
 <p align="center">
- <img src="../../_assets/image (58).png" width=70%></img>
+ <img src="../../_assets/image_58.png" width=70%></img>
  <em><p align="center">그림 2.15 서보건 응용 설정 화면</p></em>
 </p>
 

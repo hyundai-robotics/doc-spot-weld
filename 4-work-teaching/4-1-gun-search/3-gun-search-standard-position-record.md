@@ -11,7 +11,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image (51).png" width="70%"></img>
+ <img src="../../_assets/image_51.png" width="70%"></img>
  <em><p align="center">그림 4.2 사용환경 설정 화면</p></em>
 </p>
 

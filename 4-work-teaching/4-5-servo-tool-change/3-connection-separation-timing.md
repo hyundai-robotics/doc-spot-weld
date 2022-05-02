@@ -2,7 +2,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image (10).png" width="60%"></img>
+ <img src="../../_assets/image_10.png" width="60%"></img>
  <em><p align="center">그림 4.17 접속 분리 타이밍 차트</p></em>
 </p>
 

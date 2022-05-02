@@ -2,7 +2,7 @@
 
 
 <p align=center>
-<img src="../../../_assets/image (6).png" width="70%"></img>
+<img src="../../../_assets/image_6.png" width="70%"></img>
 <em><p align="center">그림 5.7 서보건 응용 설정</p></em>
 </p>
 

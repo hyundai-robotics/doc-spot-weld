@@ -4,7 +4,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image (31).png" width="70%"></img>
+ <img src="../../_assets/image_31.png" width="70%"></img>
  <em><p align="center">그림 2.2 건 기본 설정</p></em>
 </p>
 

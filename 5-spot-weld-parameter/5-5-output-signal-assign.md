@@ -3,7 +3,7 @@
 스폿용접과 관련된 신호를 할당하여 이들의 상태를 외부로 전달합니다.
 
 <p align=center>
-<img src="../_assets/image (45).png" width="70%"></img>
+<img src="../_assets/image_45.png" width="70%"></img>
 <em><p align="center">그림 5.17 출력 신호 할당</p></em>
 </p>
 

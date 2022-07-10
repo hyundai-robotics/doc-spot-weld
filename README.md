@@ -10,4 +10,4 @@
 <br>
 <br>
 
-**Copyright ⓒ 2020 by Hyundai Robotics Co., Ltd**
+**Copyright ⓒ 2020 by Hyundai Robotics**

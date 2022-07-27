@@ -23,6 +23,6 @@
 
 **[필수 설명서]**
 
-- [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)
+- [**Hi6 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/README)
 
-- Hi6 부가축 기능설명서
+- [**Hi6 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)

@@ -7,7 +7,7 @@ If the gun targeted for servo tool change is a servo gun, you need to set the pa
 
 
 <p align="center">
- <img src="../../../_assets/image_67.png" width="75%"></img>
+ <img src="../../../_assets/image_67_eng.png" width="75%"></img>
  <em><p align="center">Figure 4.15 Application of the parameter for the additional axis during tool change</p></em>
 </p>
 
@@ -17,6 +17,6 @@ The setting items of the parameter for the servo tool are mostly the same as the
 
 
 <p align="center">
- <img src="../../../_assets/image_88.png" width="70%"></img>
+ <img src="../../../_assets/image_88_eng.png" width="70%"></img>
  <em><p align="center">Figure 4.16 Additional axis parameter setting screen</p></em>
 </p>

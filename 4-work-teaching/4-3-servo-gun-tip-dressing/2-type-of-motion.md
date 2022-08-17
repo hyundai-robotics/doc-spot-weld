@@ -4,7 +4,7 @@ To perform a tip dressing operation using the servo tip dressing condition, the 
 
 
 <p align="center">
- <img src="../../_assets/image_77.png" width="60%"></img>
+ <img src="../../_assets/image_77_eng.png" width="60%"></img>
  <em><p align="center">Figure 4.11 Servo gun tip dressing operation</p></em>
 </p>
 

@@ -15,7 +15,7 @@ Pre-inspection is an item that must be performed in advance for the initial sett
 Pre-inspection is a step to check whether the pre-setting items have been completed. If they are not performed, you can move to the screen where you can perform relevant settings. You must complete the relevant settings before proceeding with the initial setting of the servo gun.
 
 <p align="center">
- <img src="../_assets/image_27.png" width="90%"></img>
+ <img src="../_assets/image_27_eng.png" width="90%"></img>
  <em><p align="center">Figure 2.4 Pre-inspection proceeding procedure</p></em>
 </p>
 

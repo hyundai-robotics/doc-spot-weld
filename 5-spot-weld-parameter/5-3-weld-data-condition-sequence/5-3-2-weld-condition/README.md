@@ -3,7 +3,7 @@
 Sets the conditions related to spot welding to perform welding in line with the work environment.
 
 <p align=center>
-<img src="../../../_assets/image_75.png" width="70%"></img>
+<img src="../../../_assets/image_75_eng.png" width="70%"></img>
 <em><p align="center">Figure 5.11 Welding condition setting</p></em>
 </p>
 

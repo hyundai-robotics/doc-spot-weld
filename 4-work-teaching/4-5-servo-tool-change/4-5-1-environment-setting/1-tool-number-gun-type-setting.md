@@ -3,7 +3,7 @@
 In『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**』, set the gun type and tool number targeted for the servo tool change.
 
 <p align="center">
- <img src="../../../_assets/image_24.png" width="70%"></img>
+ <img src="../../../_assets/image_24_eng.png" width="70%"></img>
  <img src="../../../_assets/image_24_1png" width="70%"></img>
  <em><p align="center">Figure 4.14 Addition of a spot gun</p></em>
 </p>

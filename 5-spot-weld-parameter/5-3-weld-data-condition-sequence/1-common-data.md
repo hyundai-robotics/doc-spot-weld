@@ -4,7 +4,7 @@ Sets the data to be commonly applied regardless of the sequence of the spot weld
 
 
 <p align=center>
-<img src="../../_assets/image_63.png" width="70%"></img>
+<img src="../../_assets/image_63_eng.png" width="70%"></img>
 <em><p align="center">Figure 5.10 Common data setting</p></em>
 </p>
 

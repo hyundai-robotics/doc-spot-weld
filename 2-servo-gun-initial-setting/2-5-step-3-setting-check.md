@@ -6,7 +6,7 @@ When the application setting is completed, you can check the setting performed s
 
 
 <p align="center">
- <img src="../_assets/image_21.png" width=70%></img>
+ <img src="../_assets/image_21_eng.png" width=70%></img>
  <em><p align="center">Figure 2.18 Servo gun setting check screen</p></em>
 </p>
 

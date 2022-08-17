@@ -5,6 +5,6 @@ Sets various parameters related to spot welding to perform appropriate operation
 
 
 <p align=center>
-<img src="../../_assets/image_59.png" width="70%"></img>
+<img src="../../_assets/image_59_eng.png" width="70%"></img>
 <em><p align="center">Figure 5.9 Welding data setting</p></em>
 </p>

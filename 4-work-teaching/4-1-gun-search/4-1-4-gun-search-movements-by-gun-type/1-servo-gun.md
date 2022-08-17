@@ -12,8 +12,8 @@ If the set value of『**Moving electrode consumption amount/Total consumption am
     Measures the total electrode consumption amount by making the moving electrode squeeze the fixed electrode.
 
 <p align="center">
- <img src="../../../_assets/image_47.png"></img>
- <img src="../../../_assets/image_7.png" width="55%"></img>
+ <img src="../../../_assets/image_47_eng.png"></img>
+ <img src="../../../_assets/image_7_eng.png" width="55%"></img>
  <em><p align="center">Firgure 4.3 Gun search 1</p></em>
 </p>
 
@@ -26,7 +26,7 @@ If the set value of『**Moving electrode consumption amount/Total consumption am
 >5. In an environment where only gun search 1 is operating, the measured total electrode consumption amount is distributed according to the ratio between the moving electrode and fixed electrode as shown in the figure below. (default is 50 : 50.)
 
 <p align="center">
-  <img src="../../../_assets/image_70.png" width="70%"></img>
+  <img src="../../../_assets/image_70_eng.png" width="70%"></img>
  <em><p align="center">Figure 4.4 Calculation of the electrode consumption amount through gun search 1</p></em>
 </p>
 
@@ -40,8 +40,8 @@ Measures the moving electrode consumption amount. The measurement can be perform
     Measures the moving electrode consumption amount by making the moving electrode squeeze the calibration jig.
 
 <p align="center">
- <img src="../../../_assets/image_29.png"></img>
- <img src="../../../_assets/image_4.png" width="55%"></img>
+ <img src="../../../_assets/image_29_eng.png"></img>
+ <img src="../../../_assets/image_4_eng.png" width="55%"></img>
  <em><p align="center">Figure 4.5 Gun search by using a squeezing force</p></em>
 </p>
 
@@ -58,8 +58,8 @@ Measures the moving electrode consumption amount. The measurement can be perform
 
 
 <p align="center">
- <img src="../../../_assets/image_79.png"></img>
- <img src="../../../_assets/image_73.png" width="55%"></img>
+ <img src="../../../_assets/image_79_eng.png"></img>
+ <img src="../../../_assets/image_73_eng.png" width="55%"></img>
  <em><p align="center">Figure 4.6 Gun search 2 that uses an external signal input</p></em>
 </p>
 

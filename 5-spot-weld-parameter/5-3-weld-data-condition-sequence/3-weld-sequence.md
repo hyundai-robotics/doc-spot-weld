@@ -4,7 +4,7 @@ Sets the sequence related to the spot welding to determine the robot operation a
 
 
 <p align=center>
-<img src="../../_assets/image_1.png" width="70%"></img>
+<img src="../../_assets/image_1_eng.png" width="70%"></img>
 <em><p align="center">Figure 5.14 Welding sequence setting</p></em>
 </p>
 

@@ -1,7 +1,7 @@
 ﻿# 4.6.1 Manual selection of multiple guns
 
 <p align="center">
- <img src="../../_assets/image_32.png" width="30%"></img>
+ <img src="../../_assets/image_32_eng.png" width="30%"></img>
  <em><p align="center">Figure 4.19 Additional axis parameter setting screen</p></em>
 </p>
 

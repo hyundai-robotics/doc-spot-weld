@@ -4,7 +4,7 @@ If the gun type is “eqaulizerless gun”, a screen for setting the parameters 
 
 
 <p align=center>
-<img src="../../_assets/image_42.png" width="70%"></img>
+<img src="../../_assets/image_42_eng.png" width="70%"></img>
 <em><p align="center">Figure 5.8 Equalizerless gun setting</p></em>
 </p>
 

@@ -5,7 +5,7 @@ This allows you to check the information of the operating time related to the sp
 (『**Selection**』 → 『**Spot**』 → 『**Operation information**』)
 
 <p align="center">
- <img src="../../_assets/image_91.png" width="70%"></img>
+ <img src="../../_assets/image_91_eng.png" width="70%"></img>
  <em><p align="center">Figure 3.4 Spot welding operation information monitoring</p></em>
 </p>
 
@@ -28,6 +28,6 @@ This allows you to check the information of the operating time related to the sp
 When the spot welding operation information window is activated, the 『Clear』 button will be displayed. Pressing the button will bring up a dialog box for clearing the operation information as shown in Figure 3.5.
 
 <p align="center">
- <img src="../../_assets/image_92.png" width="70%"></img>
+ <img src="../../_assets/image_92_eng.png" width="70%"></img>
  <em><p align="center">Figure 3.5 Spot welding operation information initialization screen</p></em>
 </p>

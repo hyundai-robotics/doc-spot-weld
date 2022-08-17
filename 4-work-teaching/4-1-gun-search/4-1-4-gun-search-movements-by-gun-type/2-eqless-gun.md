@@ -4,8 +4,8 @@ As an equalizerless gun only manages the consumption amount on the fixed electro
 
 
 <p align=center>
- <img src="../../../_assets/image_64.png"></img>
- <img src="../../../_assets/image_34.png" width="55%"></img>
+ <img src="../../../_assets/image_64_eng.png"></img>
+ <img src="../../../_assets/image_34_eng.png" width="55%"></img>
  <em><p align="center">Figure 4.7 Gun search of an equalizerless gun</p></em>
 </p>
 

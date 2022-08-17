@@ -1,8 +1,8 @@
 ﻿# 5.2.1.1 Servo gun default setting
 
 <p align=center>
-<img src="../../../../_assets/image_44.png" width="70%"></img>
-<img src="../../../../_assets/image_87.png" width="70%"></img>
+<img src="../../../../_assets/image_44_eng.png" width="70%"></img>
+<img src="../../../../_assets/image_87_eng.png" width="70%"></img>
 <em><p align="center">Figure 5.2 Servo gun default setting screen</p></em>
 </p>
 
@@ -21,7 +21,7 @@
 
 
 <p align=center>
-<img src="../../../../_assets/image_50.png" ></img>
+<img src="../../../../_assets/image_50_eng.png" ></img>
 <em><p align="center">Figure 5.3 Gun arm deflection amount/100Kgf graph</p></em>
 </p>
 
@@ -39,7 +39,7 @@
     Selects the type (robot gun, stationary gun) of the selected servo gun. In the case of using a stationary servo gun, the user coordinate system number in which the coordinate system of the stationary gun is set in advance should be set. (it will be the robot coordinate system if the value is 0.). The user coordinate system should be set in a way that the travel direction of the fixed electrode becomes the the Z (+) direction.
 
 <p align=center>
-<img src="../../../../_assets/image_81.png" ></img>
+<img src="../../../../_assets/image_81_eng.png" ></img>
 <em><p align="center">Figure 5.4 Stationary gun coordinate system</p></em>
 </p>
  
@@ -58,7 +58,7 @@
     This squeezing force - current table sets the current values for the squeezing values in five levels. The table should be set in a way that the squeezing force - current value increases as the level goes up. The upper and lower limits inputted for the squeezing force will be used as the limiting range of the squeezing force during playback or manual operation.
 
 <p align=center>
-<img src="../../../../_assets/image_54.png" ></img>
-<img src="../../../../_assets/image_11.png" ></img>
+<img src="../../../../_assets/image_54_eng.png" ></img>
+<img src="../../../../_assets/image_11_eng.png" ></img>
 <em><p align="center">Figure 5.5 Gravitation direction and anti-gravitation direction</p></em>
 </p>

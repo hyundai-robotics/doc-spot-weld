@@ -4,7 +4,7 @@ This function sets the tool number and gun type corresponding to the spot weldin
 
 
 <p align="center">
- <img src="../../_assets/image_31.png" width="70%"></img>
+ <img src="../../_assets/image_31_eng.png" width="70%"></img>
  <em><p align="center">Figure 2.2 Gun default setting</p></em>
 </p>
 

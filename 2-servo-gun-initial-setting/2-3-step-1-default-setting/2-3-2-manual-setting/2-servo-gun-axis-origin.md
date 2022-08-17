@@ -7,7 +7,7 @@ The axis origin setting procedure for the axis of the servo gun is as follows.
 1) Manually operate the axis of the servo gun to bring it into the state as shown in the figure below.
 
 <p align="center">
- <img src="../../../_assets/image_19.png"></img>
+ <img src="../../../_assets/image_19_eng.png"></img>
  <em><p align="center">Figure 2.10 Position of the origin of the servo gun</p></em>
 </p>
 
@@ -15,6 +15,6 @@ The axis origin setting procedure for the axis of the servo gun is as follows.
 
 
 <p align="center">
- <img src="../../../_assets/image_80.png" width="80%"></img>
+ <img src="../../../_assets/image_80_eng.png" width="80%"></img>
  <em><p align="center">Figure 2.11 Moving to the axis origin screen</p></em>
 </p>

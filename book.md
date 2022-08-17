@@ -64,7 +64,7 @@
 ---
 
 <p align="center">
- <img src="../../_assets/image_78.png" width="60%"></img>
+ <img src="../../_assets/image_78_eng.png" width="60%"></img>
  <em><p align="center">그림 1.1 서보건 자동 설정 조작 순서</p></em>
 </p># 1.2.2 서보건 수동 설정을 이용한 조작 순서
 
@@ -73,13 +73,13 @@
 ---
 
 <p align="center">
- <img src="../../_assets/image_46.png" width="60%"></img>
+ <img src="../../_assets/image_46_eng.png" width="60%"></img>
  <em><p align="center">그림 1.2 서보건 수동 설정 조작 순서</p></em>
 </p># 1.3 서보건 전극간 이동에 따른 용어
 
 
 <p align="center">
- <img src="../_assets/image_8.png" width="70%"></img>
+ <img src="../_assets/image_8_eng.png" width="70%"></img>
  <em><p align="center">그림 1.3 이동전극과 고정전극 용어</p></em>
 </p># 2. 서보건  초기 설정
 
@@ -98,7 +98,7 @@
 당사에서는 “**서보건 자동설정**”(『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿 용접**』 → 『**6: 서보건 자동 설정**』) 기능으로 스폿 용접과 서보건 동작환경 설정 및 절차를 제공하고 있습니다.
 
 <p align="center">
- <img src="../../_assets/image_60.png" width="70%"></img>
+ <img src="../../_assets/image_60_eng.png" width="70%"></img>
  <em><p align="center">그림 2.1 ‘서보건 자동설정’ 진입 화면</p></em>
 </p>
 
@@ -115,7 +115,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image_3.png" width="70%"></img>
+ <img src="../../_assets/image_3_eng.png" width="70%"></img>
  <em><p align="center">그림 2.1.2 ‘서보건 자동설정’ 절차</p></em>
 </p>
 
@@ -154,7 +154,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image_31.png" width="70%"></img>
+ <img src="../../_assets/image_31_eng.png" width="70%"></img>
  <em><p align="center">그림 2.2 건 기본 설정</p></em>
 </p>
 
@@ -186,7 +186,7 @@
 스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/))
 
 <p align="center">
- <img src="../../_assets/image_38.png">
+ <img src="../../_assets/image_38_eng.png">
   <em><p align="center">그림 2.3 용접건의 툴 길이와 각도 설정</p></em>
  </img>
 </p>
@@ -219,7 +219,7 @@
 사전 점검 단계에서는 사전 설정들의 완료 여부를 확인 합니다. 사전 설정 미 수행 시 관련된 설정을 할 수 있는 화면으로 이동할 수 있으니 반드시 설정을 완료 한 후에 서보건 초기 설정을 진행하십시오.
 
 <p align="center">
- <img src="../_assets/image_27.png" width="90%"></img>
+ <img src="../_assets/image_27_eng.png" width="90%"></img>
  <em><p align="center">그림 2.4 사전 점검 진행 절차</p></em>
 </p>
 
@@ -235,7 +235,7 @@
 기본 설정은 아래 그림과 같이 4가지 항목으로 구성되어 있습니다.
 
 <p align="center">
- <img src="../../_assets/image_17.png" width="70%"></img>
+ <img src="../../_assets/image_17_eng.png" width="70%"></img>
  <em><p align="center">그림 2.5 기본 설정 진행 화면</p></em>
 </p>
 
@@ -301,7 +301,7 @@
 ‘**전체 자동 설정**’ 시 축 원점 위치 이동 후 아래와 같이 사용자에게 축 원점 위치를 확인합니다. 이 때 이동 전극의 위치와 귀환 전류(1A 이하)를 확인하여 살짝 맞닿는 위치에 있으면 ‘**예**’를 눌러 설정을 계속 진행하십시오. 만약 귀환 전류가 높거나 이동 전극과 고정 전극이 맞닿지 않는 상태이면 조그 키를 이용하여 미세 조정 후 ‘예’를 누르십시오. 자동 설정을 원하지 않는 경우 ‘**아니오**’를 눌러 설정을 종료하십시오.
 
 <p align="center">
- <img src="../../_assets/image%20(76).png" width="70%"></img>
+ <img src="../../_assets/image%20(76)_eng.png" width="70%"></img>
  <em><p align="center">그림 2.6 축 원점 위치 사용자 확인</p></em>
 </p>
 
@@ -312,7 +312,7 @@
 서보건 기본 설정의 화면 구성과 기능은 아래와 같습니다.
 
 <p align="center">
- <img src="../../_assets/image%20(62).png" width="70%"></img>
+ <img src="../../_assets/image%20(62)_eng.png" width="70%"></img>
  <em><p align="center">그림 2.7 기본 설정 구성</p></em>
 </p>
 
@@ -343,7 +343,7 @@
 (1) 서보건 축의 브레이크를 수동으로 해제한 후, 이동전극을 최대로 개방합니다.
 
 <p align="center">
- <img src="../../../_assets/image_71.png"></img>
+ <img src="../../../_assets/image_71_eng.png"></img>
  <em><p align="center">그림 2.8 서보건 최대 개방 위치</p></em>
 </p>
 
@@ -351,7 +351,7 @@
 (2) ‘**서보건 자동 설정**’ 의 기본 설정 화면에서 ‘**엔코더 옵셋 보정**’의 [**수동 설정**] 버튼을 누르거나(그림 2.9), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**4: 엔코더 옵셋**』 에서 해당 서보건 축을 커서로 선택한 후, [**적용(Reset)**] 버튼을 누릅니다. 현재 엔코더 값이 “**00400000**”이 되면 [**완료(OK)**] 버튼을 입력합니다.
 
 <p align="center">
- <img src="../../../_assets/image_36.png" width=80%></img>
+ <img src="../../../_assets/image_36_eng.png" width=80%></img>
  <em><p align="center">그림 2.9 엔코더 옵셋 보정 화면 이동</p></em>
 </p># 2.3.2.2 서보건 축 원점
 
@@ -362,7 +362,7 @@
 1) 서보건축을 수동으로 조작하여 아래 그림과 같은 상태가 되도록 합니다.
 
 <p align="center">
- <img src="../../../_assets/image_19.png"></img>
+ <img src="../../../_assets/image_19_eng.png"></img>
  <em><p align="center">그림 2.10 서보건 원점 위치</p></em>
 </p>
 
@@ -370,7 +370,7 @@
 
 
 <p align="center">
- <img src="../../../_assets/image_80.png" width="80%"></img>
+ <img src="../../../_assets/image_80_eng.png" width="80%"></img>
  <em><p align="center">그림 2.11 축 원점 화면 이동</p></em>
 </p>
 # 2.3.2.3 서보건 소프트 리밋
@@ -383,8 +383,8 @@
 
 
 <p align="center">
- <img src="../../../_assets/image_90.png" ></img>
- <img src="../../../_assets/image_2.png" ></img>
+ <img src="../../../_assets/image_90_eng.png" ></img>
+ <img src="../../../_assets/image_2_eng.png" ></img>
  <em><p align="center">그림 2.12 서보건 리밋 설정</p></em>
 </p>
 
@@ -392,7 +392,7 @@
 
 
 <p align="center">
- <img src="../../../_assets/image_41.png" width="80%"></img>
+ <img src="../../../_assets/image_41_eng.png" width="80%"></img>
  <em><p align="center">그림 2.13 서보건 리밋 설정 화면 이동</p></em>
 </p># 2.3.3 서보건 가압력 - 전류 테이블 튜닝
 
@@ -412,7 +412,7 @@
 당사에서 권장하는 수동 모드 서보건 가압력 - 전류테이블 설정 절차는 아래와 같습니다.
 
 <p align="center">
- <img src="../../../_assets/image_84.png" width=70%></img>
+ <img src="../../../_assets/image_84_eng.png" width=70%></img>
  <em><p align="center">그림 2.14 서보건 수동 튜닝 화면</p></em>
 </p>
  
@@ -485,7 +485,7 @@
 응용 설정은 아래 그림과 같이 3가지 항목으로 구성되어 있습니다.
 
 <p align="center">
- <img src="../../_assets/image_58.png" width=70%></img>
+ <img src="../../_assets/image_58_eng.png" width=70%></img>
  <em><p align="center">그림 2.15 서보건 응용 설정 화면</p></em>
 </p>
 
@@ -538,7 +538,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image_22.png" width=70%></img>
+ <img src="../../_assets/image_22_eng.png" width=70%></img>
  <em><p align="center">그림 2.16 건서치 조건 설정 화면</p></em>
 </p>
 
@@ -551,7 +551,7 @@
 서보건 응용 설정의 화면의 구성과 기능은 아래와 같습니다.
 
 <p align="center">
- <img src="../../_assets/image_55.png" width=70%></img>
+ <img src="../../_assets/image_55_eng.png" width=70%></img>
  <em><p align="center">그림 2.17 서보건 응용 설정 화면</p></em>
 </p>
 
@@ -576,7 +576,7 @@
 
 
 <p align="center">
- <img src="../_assets/image_21.png" width=70%></img>
+ <img src="../_assets/image_21_eng.png" width=70%></img>
  <em><p align="center">그림 2.18 서보건 설정 확인 화면</p></em>
 </p>
 
@@ -600,7 +600,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 아래와 그림과 같이 ‘**Step 4. 입력 신호 설정**’이나 ‘**Step 4. 출력 신호 설정**’에 커서를 이동후 \[**엔터**]를 누르거나 이전 항목이 완료된 상태에서 『**설정 전 항목 진행**』을 누르면, 해당 항목을 설정할 수 있는 화면으로 진입합니다.
 
 <p align="center">
- <img src="../_assets/image_85.png" width=70%></img>
+ <img src="../_assets/image_85_eng.png" width=70%></img>
  <em><p align="center">그림 2.19 서보건 신호 설정 화면</p></em>
 </p>
 
@@ -624,12 +624,12 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 (『**선택**』 → 『**스폿**』 → 『**건 데이터**』)
 
 <p align="center">
- <img src="../../_assets/image_18.png" width="70%"></img>
+ <img src="../../_assets/image_18_eng.png" width="70%"></img>
  <em><p align="center">그림 3.1 스폿 모니터링 pane</p></em>
 </p>
 
 <p align="center">
- <img src="../../_assets/image_89.png" width="70%"></img>
+ <img src="../../_assets/image_89_eng.png" width="70%"></img>
  <em><p align="center">그림 3.2 스폿 건 데이터 모니터링</p></em>
 </p>
 
@@ -664,7 +664,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 (『**선택**』 → 『**스폿**』 → 『**입출력 신호**』)
 
 <p align="center">
- <img src="../../_assets/image_40.png" width="70%"></img>
+ <img src="../../_assets/image_40_eng.png" width="70%"></img>
  <em><p align="center">그림 3.3 스폿 입출력 신호 모니터링</p></em>
 </p># 3.1.3 가동 시간 정보
 
@@ -673,7 +673,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 (『**선택**』 → 『**스폿**』 → 『**가동 정보**』)
 
 <p align="center">
- <img src="../../_assets/image_91.png" width="70%"></img>
+ <img src="../../_assets/image_91_eng.png" width="70%"></img>
  <em><p align="center">그림 3.4 스폿 가동 정보 모니터링</p></em>
 </p>
 
@@ -696,14 +696,14 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 스폿용접 가동정보창이 활성화 되면 『클리어』 버튼이 나타나고 이를 누르면 그림3.5와 같이 가동정보 클리어 대화상자가 표시됩니다. 클리어를 원하는 항목의 버튼을 클릭하면 원하는 동작이 수행됩니다.
 
 <p align="center">
- <img src="../../_assets/image_92.png" width="70%"></img>
+ <img src="../../_assets/image_92_eng.png" width="70%"></img>
  <em><p align="center">그림 3.5 스폿 가동 정보 초기화 화면</p></em>
 </p># 3.1.3 상태플래그
 
 스폿용접과 관련하여 필요한 각종 상태는 다음의 화면과 같이 표시됩니다.
 
 <p align="center">
- <img src="../../_assets/image.png" width="70%"></img>
+ <img src="../../_assets/image_eng.png" width="70%"></img>
  <em><p align="center">그림 3.6 스폿 용접 관련 상태 표시</p></em>
 </p>
 
@@ -714,7 +714,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 >-  **툴 번호**
 >       - 현재 선택된 건 번호에 대응되는 툴 번호를 표시합니다. 즉, 건 번호를 변경하면 『**설정]: >시스템**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**1: 건번호 대응 툴 번호, >건타입 설정**』에서 설정된 툴 번호로 자동 변경됩니다.
 >-  **건 번호**
->       - 해당 항목에서는 현재 선택된 건 번호, 멀티건 번호, 서보건 분리상태(![](<../../_assets/image_39.png>))를 표시합니다. 예를 들어 G5,6과 같이 표시된 경우는 정치건 5, 6번이 동시 용접을 위해 선택된 상태라는 것을 의미합니다. 그리고 자물쇠 표시가 되어 있으므로 서보건이 분리 되었음을 알 수 있습니다.&#x20;
+>       - 해당 항목에서는 현재 선택된 건 번호, 멀티건 번호, 서보건 분리상태(![](<../../_assets/image_39_eng.png>))를 표시합니다. 예를 들어 G5,6과 같이 표시된 경우는 정치건 5, 6번이 동시 용접을 위해 선택된 상태라는 것을 의미합니다. 그리고 자물쇠 표시가 되어 있으므로 서보건이 분리 되었음을 알 수 있습니다.&#x20;
 >
 
 # 3.2 서보건 간편 보수
@@ -722,7 +722,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 서보건 고장수리 후, 재가동을 위한 일련의 설정을 하나의 창에서 간편하게 수행할 수 있도록 지원합니다. 초기 화면에서 \[**CTRL**]+\[**GUN**]키를 누르면 간편보수를 위한 대화상자가 출력됩니다.
 
 <p align="center">
- <img src="../_assets/image_26.png" width="70%"></img>
+ <img src="../_assets/image_26_eng.png" width="70%"></img>
  <em><p align="center">그림 3.7 서보건 간편 보수</p></em>
 </p>
 
@@ -742,7 +742,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 
 
 <p align="center">
- <img src="../_assets/image_33.png" width="70%"></img>
+ <img src="../_assets/image_33_eng.png" width="70%"></img>
  <em><p align="center">그림 3.8 스폿 사용자 키</p></em>
 </p>
 
@@ -779,26 +779,26 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 
     |       **대개방**  |       **소개방**    | **수동가압**   |
     | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
-    | <img src="../_assets/image_86.png"></img>|<img src="../_assets/image_16.png"></img> | <img src="../_assets/image_43.png"></img> |
+    | <img src="../_assets/image_86_eng.png"></img>|<img src="../_assets/image_16_eng.png"></img> | <img src="../_assets/image_43_eng.png"></img> |
 
 
 1.  “\[**SHIFT**]와 \[**사용자**]”키를 동시에 누르면 다음의 동작을 수행합니다. 멀티건이 선택된 경우 모든 건이 동일하게 동작합니다.
 
     |                  **서보건**                 |
     | :--------------------------------------: |
-    | <img src="../_assets/image_13.png"></img> |
+    | <img src="../_assets/image_13_eng.png"></img> |
 
 
 
 서보건인 경우 수동개폐, 가압 동작 시 다음과 같은 특징들을 갖습니다.
 
 * 대개방 위치, 소개방 위치, 가압력이 설정치에 도달한 위치에서 자동으로 정지합니다.
-* 이동속도는 『**조건설정**』 ![](<../_assets/image_48.png>) 에서 『**2: 스텝 전/후진시 최고속**』에 입력된 속도입니다.
+* 이동속도는 『**조건설정**』 ![](<../_assets/image_48_eng.png>) 에서 『**2: 스텝 전/후진시 최고속**』에 입력된 속도입니다.
 * 설정한 가압력이 작은 경우에는 조작을 하여도 움직이지 않는 경우가 있으므로 충분한 가압력을 설정하여 주십시오. (R211: 가압력 설정)
 * 멀티건에서 두 건의 이동 거리가 다를 경우 먼저 도달한 건은 정지하고 나머지 건은 남은 거리만큼 더 이동한 후 정지합니다.
 
 <p align="center">
- <img src="../_assets/image_53.png"></img>
+ <img src="../_assets/image_53_eng.png"></img>
  <em><p align="center">그림 3.9 스폿 건 수동 조작</p></em>
 </p>
 # 4. 작업 교시
@@ -839,7 +839,7 @@ Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동
 # 4.1.1 실행 순서
 
 <p align="center">
- <img src="../../_assets/image_23.png" width="70%"></img>
+ <img src="../../_assets/image_23_eng.png" width="70%"></img>
  <em><p align="center">그림 4.1 서보건 건서치 실행 순서</p></em>
 </p># 4.1.2 건서치 관련 명령문
 ---
@@ -914,7 +914,7 @@ egunsea gun=<건번호>,spd=<서치속도>,dist=<서치거리>,di=<입력신호>
 
 
 <p align="center">
- <img src="../../_assets/image_51.png" width="70%"></img>
+ <img src="../../_assets/image_51_eng.png" width="70%"></img>
  <em><p align="center">그림 4.2 사용환경 설정 화면</p></em>
 </p>
 
@@ -938,8 +938,8 @@ egunsea gun=<건번호>,spd=<서치속도>,dist=<서치거리>,di=<입력신호>
     이동전극으로 고정전극을 가압하여 전극의 전체 마모량을 측정합니다.
 
 <p align="center">
- <img src="../../../_assets/image_47.png"></img>
- <img src="../../../_assets/image_7.png" width="55%"></img>
+ <img src="../../../_assets/image_47_eng.png"></img>
+ <img src="../../../_assets/image_7_eng.png" width="55%"></img>
  <em><p align="center">그림 4.3 건서치 1</p></em>
 </p>
 
@@ -952,7 +952,7 @@ egunsea gun=<건번호>,spd=<서치속도>,dist=<서치거리>,di=<입력신호>
 >5. 건서치 1만 동작하는 환경에서는 아래의 그림과 같이 측정된 전체 마모량을 이동전극과 >고정전극의 비율로 마모량을 각각 분배합니다. (기본값은 50:50)
 
 <p align="center">
-  <img src="../../../_assets/image_70.png" width="70%"></img>
+  <img src="../../../_assets/image_70_eng.png" width="70%"></img>
  <em><p align="center">그림 4.4 건서치 1에 의한 마모량 계산</p></em>
 </p>
 
@@ -966,8 +966,8 @@ egunsea gun=<건번호>,spd=<서치속도>,dist=<서치거리>,di=<입력신호>
     이동전극으로 교정지그를 가압하여 이동전극의 마모량을 측정합니다.
 
 <p align="center">
- <img src="../../../_assets/image_29.png"></img>
- <img src="../../../_assets/image_4.png" width="55%"></img>
+ <img src="../../../_assets/image_29_eng.png"></img>
+ <img src="../../../_assets/image_4_eng.png" width="55%"></img>
  <em><p align="center">그림 4.5 가압력 이용 건서치 2</p></em>
 </p>
 
@@ -984,8 +984,8 @@ egunsea gun=<건번호>,spd=<서치속도>,dist=<서치거리>,di=<입력신호>
 
 
 <p align="center">
- <img src="../../../_assets/image_79.png"></img>
- <img src="../../../_assets/image_73.png" width="55%"></img>
+ <img src="../../../_assets/image_79_eng.png"></img>
+ <img src="../../../_assets/image_73_eng.png" width="55%"></img>
  <em><p align="center">그림 4.6 외부신호 입력 건서치 2</p></em>
 </p>
 
@@ -1001,8 +1001,8 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 
 
 <p align=center>
- <img src="../../../_assets/image_64.png"></img>
- <img src="../../../_assets/image_34.png" width="55%"></img>
+ <img src="../../../_assets/image_64_eng.png"></img>
+ <img src="../../../_assets/image_34_eng.png" width="55%"></img>
  <em><p align="center">그림 4.7 Eqless 건서치</p></em>
 </p>
 
@@ -1057,7 +1057,7 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 건타입이 서보건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
 <p align="center">
- <img src="../../../_assets/image_66.png" width="60%"></img>
+ <img src="../../../_assets/image_66_eng.png" width="60%"></img>
  <em><p align="center">그림 4.8 서보건 스폿용접의 재생</p></em>
 </p>
 
@@ -1072,7 +1072,7 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 건타입이 Eqless건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
 <p align="center">
- <img src="../../../_assets/image_5.png" width="60%"></img>
+ <img src="../../../_assets/image_5_eng.png" width="60%"></img>
  <em><p align="center">그림 4.9 Eqless건 스폿용접의 재생</p></em>
 </p>
 
@@ -1086,7 +1086,7 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 건타입이 Eq건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
 <p align="center">
- <img src="../../../_assets/image_82.png" width="60%"></img>
+ <img src="../../../_assets/image_82_eng.png" width="60%"></img>
  <em><p align="center">그림 4.10 Eq건 스폿용접의 재생</p></em>
 </p>
 
@@ -1105,7 +1105,7 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 
 
 <p align="center">
- <img src="../../_assets/image_77.png" width="60%"></img>
+ <img src="../../_assets/image_77_eng.png" width="60%"></img>
  <em><p align="center">그림 4.11 서보팁 드레싱 동작</p></em>
 </p>
 
@@ -1135,7 +1135,7 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 
 
 <p align="center">
- <img src="../../../_assets/image_14.png" ></img>
+ <img src="../../../_assets/image_14_eng.png" ></img>
  <em><p align="center">그림 4.12 판넬 두께 입력</p></em>
 </p># 4.4.1.2 자동 등록 방식
 
@@ -1147,7 +1147,7 @@ Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건�
 
 
 <p align="center">
- <img src="../../_assets/image_83.png" width="70%"></img>
+ <img src="../../_assets/image_83_eng.png" width="70%"></img>
  <em><p align="center">그림 4.13 판넬 두께가 동일한 작업의 작업방식</p></em>
 </p>
 
@@ -1169,7 +1169,7 @@ B.   서보툴 파라미터 설정
 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**1: 건번호 대응 툴번호, 건타입 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
 
 <p align="center">
- <img src="../../../_assets/image_24.png" width="70%"></img>
+ <img src="../../../_assets/image_24_eng.png" width="70%"></img>
  <img src="../../../_assets/image_24_1png" width="70%"></img>
  <em><p align="center">그림 4.14 스폿 건 추가</p></em>
 </p>
@@ -1190,7 +1190,7 @@ B.   서보툴 파라미터 설정
 
 
 <p align="center">
- <img src="../../../_assets/image_67.png" width="75%"></img>
+ <img src="../../../_assets/image_67_eng.png" width="75%"></img>
  <em><p align="center">그림 4.15 툴 체인지시 부가축 파라미터 적용</p></em>
 </p>
 
@@ -1200,7 +1200,7 @@ B.   서보툴 파라미터 설정
 
 
 <p align="center">
- <img src="../../../_assets/image_88.png" width="70%"></img>
+ <img src="../../../_assets/image_88_eng.png" width="70%"></img>
  <em><p align="center">그림 4.16 부가축 파라미터 설정 화면</p></em>
 </p># 4.5.2 접속/분리 명령
 
@@ -1242,7 +1242,7 @@ toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속�
 
 
 <p align="center">
- <img src="../../_assets/image_10.png" width="60%"></img>
+ <img src="../../_assets/image_10_eng.png" width="60%"></img>
  <em><p align="center">그림 4.17 접속 분리 타이밍 차트</p></em>
 </p>
 
@@ -1256,7 +1256,7 @@ toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속�
 
 
 <p align="center">
- <img src="../../_assets/image_74.png" width="70%"></img>
+ <img src="../../_assets/image_74_eng.png" width="70%"></img>
  <em><p align="center">그림 4.18 툴 체인지 프로그램</p></em>
 </p># 4.6 멀티건 동시용접
 
@@ -1264,7 +1264,7 @@ toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속�
 # 4.6.1 멀티건 수동 선택
 
 <p align="center">
- <img src="../../_assets/image_32.png" width="30%"></img>
+ <img src="../../_assets/image_32_eng.png" width="30%"></img>
  <em><p align="center">그림 4.19 부가축 파라미터 설정 화면</p></em>
 </p>
 
@@ -1307,7 +1307,7 @@ toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속�
 서보건 용접 시 판넬 두께를 계측하여 부품의 이상과 소재의 장착 누락을 검지하는 기능으로 아래와 같이 “thickcheck”명령문을 추가하여 간단하게 수행할 수 있습니다. 판넬 두께의 이상 여부는 계측된 값이 정상 범위 내에 있는 지로 판단합니다.
 
 <p align="center">
- <img src="../_assets/image_49.png" width="40%"></img>
+ <img src="../_assets/image_49_eng.png" width="40%"></img>
  <em><p align="center">그림 4.20 서보건 판네두께 검사</p></em>
 </p>
 
@@ -1340,14 +1340,14 @@ toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속�
 크기가 작은 작업물은 별도의 행거 없이 서보건을 이용해서 이송하기 위한 기능입니다.
 
 <p align="center">
- <img src="../_assets/image_52.png" width="50%"></img>
+ <img src="../_assets/image_52_eng.png" width="50%"></img>
  <em><p align="center">그림 4.21 서보건 핸들링 기능</p></em>
 </p>
 
 “**svclamp**”명령문을 이용해서 작업물을 잡는 동작과 개방 동작을 수행할 수 있습니다. svclamp on 상태에서는 서보건이 개방되지 않습니다.
 
 <p align="center">
- <img src="../_assets/image_12.png" width="50%"></img>
+ <img src="../_assets/image_12_eng.png" width="50%"></img>
  <em><p align="center">그림 4.22 svclamp 명령어 프로그램</p></em>
 </p>
 # 4.9 스폿용접 타점 계산
@@ -1414,7 +1414,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 스폿용접과 관련된 사용환경을 설정하여 상황에 맞는 적절한 동작을 수행합니다.
 
 <p align="center">
- <img src="../_assets/image_20.png" width="70%"></img>
+ <img src="../_assets/image_20_eng.png" width="70%"></img>
  <em><p align="center">그림 5.1 스폿 사용환경 설정 화면</p></em>
 </p>
 
@@ -1467,8 +1467,8 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 # 5.2.1.1 서보건 기본 설정
 
 <p align=center>
-<img src="../../../../_assets/image_44.png" width="70%"></img>
-<img src="../../../../_assets/image_87.png" width="70%"></img>
+<img src="../../../../_assets/image_44_eng.png" width="70%"></img>
+<img src="../../../../_assets/image_87_eng.png" width="70%"></img>
 <em><p align="center">그림 5.2 서보건 기본 설정 화면</p></em>
 </p>
 
@@ -1487,7 +1487,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../../../../_assets/image_50.png" ></img>
+<img src="../../../../_assets/image_50_eng.png" ></img>
 <em><p align="center">그림 5.3 건 암 휨량/100Kgf 그래프</p></em>
 </p>
 
@@ -1505,7 +1505,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
     선택한 서보건의 타입(로봇건, 정치건)을 선택합니다. 정치 서보건을 사용하는 경우에 정치건의 좌표계를 미리 설정해 놓은 사용자 좌표계 번호를 설정합니다.(0인 경우 로봇 좌표계) 고정전극의 진행 방향이 Z(+)방향이 되도록 사용자 좌표계를 설정하십시오.
 
 <p align=center>
-<img src="../../../../_assets/image_81.png" ></img>
+<img src="../../../../_assets/image_81_eng.png" ></img>
 <em><p align="center">그림 5.4 정치건 좌표계</p></em>
 </p>
  
@@ -1524,15 +1524,15 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
     이 가압력-전류테이블은 5레벨의 가압력에 대한 전류치를 설정합니다. 각 레벨이 증가할 수록 가압력-전류의 값도 증가하도록 설정합니다. 여기서 입력한 가압력의 상한치와 하한치는 재생 또는 수동조작시의 가압력의 제한 범위로 사용됩니다.
 
 <p align=center>
-<img src="../../../../_assets/image_54.png" ></img>
-<img src="../../../../_assets/image_11.png" ></img>
+<img src="../../../../_assets/image_54_eng.png" ></img>
+<img src="../../../../_assets/image_11_eng.png" ></img>
 <em><p align="center">그림 5.5 중력방향, 반중력방향</p></em>
 </p># 5.2.1.1.1 실시간 가압력 제어
 
 실시간 가압력 제어는 가압력계로 측정한 데이터를 제어에 활용하여 서보건 가압력의 정확도를 향상시키는 기능입니다. 실시간 가압력 제어를 위해 가압력계는 로봇제어기와 통신을 해야 하고, 아래 메뉴로 통신사양을 설정합니다.
 
 <p align=center>
-<img src="../../../../_assets/image_30.png" width="70%"></img>
+<img src="../../../../_assets/image_30_eng.png" width="70%"></img>
 <em><p align="center">그림 5.6 실시간 가압력 제어 설정</p></em>
 </p>
 
@@ -1566,7 +1566,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../../../_assets/image_6.png" width="70%"></img>
+<img src="../../../_assets/image_6_eng.png" width="70%"></img>
 <em><p align="center">그림 5.7 서보건 응용 설정</p></em>
 </p>
 
@@ -1590,7 +1590,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../../_assets/image_42.png" width="70%"></img>
+<img src="../../_assets/image_42_eng.png" width="70%"></img>
 <em><p align="center">그림 5.8 Eqless 건 설정</p></em>
 </p>
 
@@ -1617,7 +1617,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../../_assets/image_59.png" width="70%"></img>
+<img src="../../_assets/image_59_eng.png" width="70%"></img>
 <em><p align="center">그림 5.9 용접 데이터 설정</p></em>
 </p>
 # 5.3.1 공통데이터
@@ -1626,7 +1626,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../../_assets/image_63.png" width="70%"></img>
+<img src="../../_assets/image_63_eng.png" width="70%"></img>
 <em><p align="center">그림 5.10 공통데이터 설정</p></em>
 </p>
 
@@ -1640,7 +1640,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 스폿용접과 관련된 조건을 설정하여 작업 환경에 따라 용접을 수행합니다.
 
 <p align=center>
-<img src="../../../_assets/image_75.png" width="70%"></img>
+<img src="../../../_assets/image_75_eng.png" width="70%"></img>
 <em><p align="center">그림 5.11 용접 조건 설정</p></em>
 </p>
 
@@ -1669,8 +1669,8 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 서보건 스폿 용접에서 가압중인 가압력을 변경하는 기능입니다. 가압력 변경은 정해진 profile을 생성하여 변경시키는 방법과 신호 입력에 의해 변경시키는 방법이 있습니다.
 
 <p align=center>
-<img src="../../../../_assets/image_65.png" width="70%"></img>
-<img src="../../../../_assets/image_37.png" width="70%"></img>
+<img src="../../../../_assets/image_65_eng.png" width="70%"></img>
+<img src="../../../../_assets/image_37_eng.png" width="70%"></img>
 <em><p align="center">그림 5.12 다단 가압 조건 설정</p></em>
 </p>
 
@@ -1710,7 +1710,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 서보건 스폿 용접에서 가압 중에 건을 이동시키는 기능입니다. 설정한 이동시점에 지정한 거리, 속도, 방향으로 로봇이 이동합니다. 본 기능은 툴 좌표계를 기준으로 로봇이 이동하는 기능이기 때문에 서보건 툴 데이터, 마모량, 건 암 휨, 티칭 자세, 로봇 캘리브레이션이 성능에 영향을 줄 수 있습니다. 기능의 효과적인 적용을 위해서는 상기 요소들을 지속적으로 관리해야 합니다.
 
 <p align=center>
-<img src="../../../../_assets/image_57.png" width="70%"></img>
+<img src="../../../../_assets/image_57_eng.png" width="70%"></img>
 <em><p align="center">그림 5.13 피봇 기능 설정</p></em>
 </p>
 
@@ -1741,7 +1741,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../../_assets/image_1.png" width="70%"></img>
+<img src="../../_assets/image_1_eng.png" width="70%"></img>
 <em><p align="center">그림 5.14 용접 시퀀스 설정</p></em>
 </p>
 
@@ -1767,7 +1767,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 서보건에 대해 팁드레싱을 수행하는 경우 이에 대한 각종 조건을 설정합니다.
 
 <p align="center">
- <img src="../../_assets/image_61.png" width="70%"></img>
+ <img src="../../_assets/image_61_eng.png" width="70%"></img>
  <em><p align="center">그림 5.15 서보건 팁드레싱 조건 설정 </p></em>
 </p>
 
@@ -1791,7 +1791,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
 
 <p align=center>
-<img src="../_assets/image_15.png" width="70%"></img>
+<img src="../_assets/image_15_eng.png" width="70%"></img>
 <em><p align="center">그림 5.15 입력 신호 할당</p></em>
 </p>
 
@@ -1809,7 +1809,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 스폿용접과 관련된 신호를 할당하여 이들의 상태를 외부로 전달합니다.
 
 <p align=center>
-<img src="../_assets/image_45.png" width="70%"></img>
+<img src="../_assets/image_45_eng.png" width="70%"></img>
 <em><p align="center">그림 5.17 출력 신호 할당</p></em>
 </p>
 
@@ -1888,7 +1888,7 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 
     작업 프로그램 시작에서 용접수행 횟수를 초기화 후 용접을 정상적으로 수행하면 용접수행 횟수를 증가합니다. 작업수행 완료 시 용접 해야 할 타점수와 용접수행 횟수를 비교하면 되므로 하기와 같이 프로그램 하면 됩니다.
 
-    　　　　　　　　　　　　　　　![](<_assets/image_68.png>)
+    　　　　　　　　　　　　　　　![](<_assets/image_68_eng.png>)
 *   <mark style="color:green;">**로봇이 핸들링 작업을 하는 동안 이와 독립적으로 정치형 서보건에 대해 팁드레싱 작업 및 건서치 작업을 수행하면 작업 시간을 단축할 수 있을 텐데 방법이 있나요?**</mark>
 
     멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. 별도의 [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.

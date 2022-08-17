@@ -4,7 +4,7 @@ This is a description of the user keys related to spot welding. There is a butto
 
 
 <p align="center">
- <img src="../_assets/image_33.png" width="70%"></img>
+ <img src="../_assets/image_33_eng.png" width="70%"></img>
  <em><p align="center">Figure 3.8 Spot welding user keys</p></em>
 </p>
 

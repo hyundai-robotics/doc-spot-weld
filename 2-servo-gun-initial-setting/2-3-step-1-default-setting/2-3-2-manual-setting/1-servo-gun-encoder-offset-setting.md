@@ -1,20 +1,20 @@
-﻿# 2.3.2.1 서보건 엔코더 옵셋 설정
+﻿# 2.3.2.1 Servo gun encoder offset setting
 
-통상적으로 엔코더의 원점은 서보건 모터의 교체 등으로 엔코더 데이터가 변경되었을 때 기구적으로 동일 위치를 일치시킬 수 있는 곳에서 설정을 합니다. 서보건의 경우 이동전극이 기구적으로 최대로 개방한 상태로 설정합니다.
+Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can match the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
 
-서보건 축의 엔코더 보정 절차는 다음과 같습니다.
+The encoder compensation procedure for the axis of the servo gun is as follows.
 
-(1) 서보건 축의 브레이크를 수동으로 해제한 후, 이동전극을 최대로 개방합니다.
+(1) Manually release the brake of the axis of the servo gun and then open the moving electrode to the maximum.
 
 <p align="center">
  <img src="../../../_assets/image_71.png"></img>
- <em><p align="center">그림 2.8 서보건 최대 개방 위치</p></em>
+ <em><p align="center">Figure 2.8 Servo gun's maximum open position</p></em>
 </p>
 
 
-(2) ‘**서보건 자동 설정**’ 의 기본 설정 화면에서 ‘**엔코더 옵셋 보정**’의 [**수동 설정**] 버튼을 누르거나(그림 2.9), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**4: 엔코더 옵셋**』 에서 해당 서보건 축을 커서로 선택한 후, [**적용(Reset)**] 버튼을 누릅니다. 현재 엔코더 값이 “**00400000**”이 되면 [**완료(OK)**] 버튼을 입력합니다.
+(2) In the default setting screen of the‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Encoder offset compensation**’ menu (Figure 2.9), or select the relevant servo gun axis in  『**Setting**』 → 『**3: Robot parameter**』 → 『**4: Encoder offset**』 with the cursor and then press the [**Reset**] button. When the current encoder value becomes “**00400000**”, press the [**OK**] button. 
 
 <p align="center">
  <img src="../../../_assets/image_36.png" width=80%></img>
- <em><p align="center">그림 2.9 엔코더 옵셋 보정 화면 이동</p></em>
+ <em><p align="center">Figure 2.9 Moving to the encoder offset compensation screen</p></em>
 </p>

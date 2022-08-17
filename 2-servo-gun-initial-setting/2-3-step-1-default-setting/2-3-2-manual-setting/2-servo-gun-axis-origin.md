@@ -1,20 +1,20 @@
-﻿# 2.3.2.2 서보건 축 원점
+﻿# 2.3.2.2 Servo gun axis origin
 
-통상적으로 서보건축 원점은 이동전극과 고정전극 모두 새 팁이 부착된 상태에서 서로 만나는 위치에서 설정합니다. 서보건 동작의 대부분은 이 축 원점을 기준으로 이루어지므로 이에 대한 설정은 매우 중요합니다.
+In general, the axis origin of the servo gun should be set at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
 
-서보건축의 축 원점 설정 절차는 다음과 같습니다.
+The axis origin setting procedure for the axis of the servo gun is as follows.
 
-1) 서보건축을 수동으로 조작하여 아래 그림과 같은 상태가 되도록 합니다.
+1) Manually operate the axis of the servo gun to bring it into the state as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_19.png"></img>
- <em><p align="center">그림 2.10 서보건 원점 위치</p></em>
+ <em><p align="center">Figure 2.10 Position of the origin of the servo gun</p></em>
 </p>
 
-1) ‘**서보건 자동 설정**’의 기본 설정 화면에서 ‘**축 원점 설정**’의 \[**수동 설정**] 버튼을 누르거나(아래 그림), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**2: 축 원점**』에서 해당 서보건 축을 커서로 선택한 후, \[**적용(Reset)**] 버튼을 누릅니다. 현재 축위치가 0.0mm로 표시되면 \[**완료(OK)**]버튼을 입력합니다.
+1) In the default setting screen of the ‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Axis origin setting**’ menu (figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**2: Axis origin**』 with the cursor and then press the \[**Reset**] button. When the current position of the axis is indicated as 0.0 mm, input by selecting the \[**OK**] button. 
 
 
 <p align="center">
  <img src="../../../_assets/image_80.png" width="80%"></img>
- <em><p align="center">그림 2.11 축 원점 화면 이동</p></em>
+ <em><p align="center">Figure 2.11 Moving to the axis origin screen</p></em>
 </p>

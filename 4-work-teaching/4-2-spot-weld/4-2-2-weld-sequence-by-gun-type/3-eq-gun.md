@@ -1,13 +1,13 @@
-﻿# 4.2.2.3 Eq건
+﻿# 4.2.2.3 Equalizer-fitted gun
 
-건타입이 Eq건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
+If the gun type is equalizer-fitted gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_82.png" width="60%"></img>
- <em><p align="center">그림 4.10 Eq건 스폿용접의 재생</p></em>
+ <em><p align="center">Figure 4.10 Playback of spot welding by an equalizer-fitted gun</p></em>
 </p>
 
->1. N-1스텝의 위치에서 스텝의 기록위치로 이동합니다.
->2. 용접조건 신호와 함께 용접실행 신호를 출력합니다. 고정전극은 이퀄라이징 설비에 의해서 이동전극은 공압에 의해 판넬을 가압합니다.
->3. 용접완료 신호(WI)가 입력되면, 고정전극은 이퀄라이징 설비가 동작되지 않는 위치로 이동전극은 공압이 공급되지 않은 위치로 이동합니다.
->4. 다음 스텝으로 이동합니다.
+>1.At the N-1 step position, movement to the record position of the step occurs.
+>2. The welding execution signal is outputted together with the welding condition signal. The equalizing facility makes the fixed electrode squeeze the panel and the pneumatic pressure makes the moving electrode squeeze the panel.
+>3. When the welding completion signal (WI) is inputted, the fixed electrode moves to a position where the equalizing facility does not operate and the moving electrode moves to a position where pneumatic pressure is not supplied.
+>4. Movement to the next step occurs.

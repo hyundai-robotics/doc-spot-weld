@@ -1,58 +1,58 @@
-﻿# 2.3.1 자동 설정
+﻿# 2.3.1 Automatic setting
 
-서보건 ‘**기본 설정**’의 자동 설정은 『**전체 자동 설정**』을 눌러 진행합니다. ‘**전체 자동 설정**’은 서보건의 이동전극이 자동으로 움직이기 때문에 아래의 조건이 반드시 만족되어야 합니다.
+Progress the automatic setting of the ‘**default setting**’ of the servo gun by pressing the 『**All automatic setting**』 key. In the case of ‘**all automatic setting**’, the moving electrode of the servo gun moves automatically, so the following conditions must be satisfied.
 
-* 이동전극과 고정전극에 새 팁 부착
-* 서보건 주변 작업자 부재
-* 이동전극과 고정전극 사이에 작업물 부재
-* 수동 모드
-* 모터 온
-* 이동전극 최대개방 금지(최대개방 위치와 일정거리 유격)
+* Moving and fixed electrodes with new tipes attached
+* No worker around the servo gun
+* No workpiece between the moving electrode and fixed electrode
+* Manual mode
+* Motor on
+* Prohibition of maximum opening of the moving electrode (a gap of certain distance from the maximum opening position)
 
-‘**전체 자동 설정**’은 다음과 같은 절차가 자동 진행됩니다.
+In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
 
-    (1) 엔코더 옵셋 보정  
-      - 이동 전극이 최대 개방 위치로 이동.  
-      - 최대 개방 위치에서 정지 후 엔코더 옵셋 보정 실행
-    (2) 축 원점 설정  
-      - 서보건 3회 가압, 2회 개방 동작
-      - 3번째 가압 후 두 전극이 만나는 위치로 이동
-      - 해당 위치 사용자 확인
-      - 축 원점 설정 실행
-    (3) 소프트 리밋 설정  
-      - 축 원점 설정 후 자동 실행
-    (4) 가압력-전류 테이블 설정  
-      - 설정을 위한 메뉴로 자동 이동
+    (1) Encoder offset compensation  
+      - The moving electrode moves to the maximum opening position.  
+      - The servo gun stops at the maximum opening position and then encoder offset compenation will be executed.
+    (2) Axis origin setting
+      - The servo gun performs the squeezing operation three times and opening operation two times.
+      - After the third squeezing operation, the servo gun moves to the position where the two electrodes meet with each other.
+      - Confirms the relevant position with the user.
+      - Executes the setting of the axis origin.
+    (3) Soft limit setting  
+      - Will be automatically executed after the axis origin setting.
+    (4) Squeezing force - current table setting 
+      - Automatic change to the menu for the setting will occur.
 
-서보건 기본 설정의 자동 설정은 서보건의 ‘**엔코더 옵셋 보정**’ 위치와 ‘**축 원점 보정**’ 위치를 자동으로 인식하여 해당 위치에서 ‘**엔코더 옵셋 보정**’, ‘**축 원점 보정**’과 ‘**소프트 리밋 설정**’을 진행합니다. 기본 설정의 자동 설정은 ‘**가압력-전류 테이블 설정**’을 자동 진행하지 않습니다. “[**2.3.3 서보건 가압력 - 전류 테이블 튜닝**](2-3-3-servo-gun-force-current-table-tuning/)” 챕터를 참고하여 설정을 진행하십시오.
+In the case of automatic setting of the servo gun's default setting, the servo gun's ‘**encoder offset compensation**’ position and ‘**axis origin compensation**’ position are automatically recognized, allowing the ‘**encoder offset compensation**’, ‘**axis origin compensation**’ and ‘**soft limit setting**’ to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the ‘**squeeze force - current table setting**’ does not proceed automatically. Please refer to the chapter “[**2.3.3 Squeeze force - current table setting**](2-3-3-3-servo-gun-force-current-table-tuning/)” for setting.
 
-‘**전체 자동 설정**’ 시 축 원점 위치 이동 후 아래와 같이 사용자에게 축 원점 위치를 확인합니다. 이 때 이동 전극의 위치와 귀환 전류(1A 이하)를 확인하여 살짝 맞닿는 위치에 있으면 ‘**예**’를 눌러 설정을 계속 진행하십시오. 만약 귀환 전류가 높거나 이동 전극과 고정 전극이 맞닿지 않는 상태이면 조그 키를 이용하여 미세 조정 후 ‘예’를 누르십시오. 자동 설정을 원하지 않는 경우 ‘**아니오**’를 눌러 설정을 종료하십시오.
+In the case of ‘**all automatic setting**’, the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press ‘**Yes**’ to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press ‘Yes’. If you do not want automatic setting, please click ‘**No**’ to end the setting.
 
 <p align="center">
- <img src="../../_assets/image_76.png" width="70%"></img>
- <em><p align="center">그림 2.6 축 원점 위치 사용자 확인</p></em>
+ <img src="../../_assets/image%20(76).png" width="70%"></img>
+ <em><p align="center">Figure 2.6 Confirmation with the user on the position of the axis origin</p></em>
 </p>
 
 {% hint style="warning" %}
-[**경고**] 서보건 최대 개방 위치에 범퍼와 같은 금속 재질이 아닌 스토퍼가 달려 있는 경우 최대 개방 위치 추정이 어려울 수 있으니, 제거 후 설정하는 것을 권장합니다.
+[**Warning**] If the servo gun has a stopper other than a metal material such as a bumper attached at the maximum opening position of the servo gun, it may be difficult to estimate the maximum opening position. It is recommended to perform setting after removing the stopper.
 {% endhint %}
 
-서보건 기본 설정의 화면 구성과 기능은 아래와 같습니다.
+The configuration and functionality of the servo gun default setting screen is as follows.
 
 <p align="center">
- <img src="../../_assets/image_62.png" width="70%"></img>
- <em><p align="center">그림 2.7 기본 설정 구성</p></em>
+ <img src="../../_assets/image%20(62).png" width="70%"></img>
+ <em><p align="center">Figure 2.7 Configuration of the default setting</p></em>
 </p>
 
->1. **상태**: 현재 서보건 설정 상태 (X:설정 전, O:완료, 변경 됨 중 하나)
->2. **개별 자동 설정**: 전체가 아닌 체크된 항목만 자동으로 설정하는 기능 지원. 『**선택 항목 자동 설정**』을 누르면 체크된 항목만 자동으로 진행됩니다.
->3. **수동설정**: 해당 항목을 설정할 수 있는 화면으로 이동  
-    - 엔코더 옵셋 보정 : **설정**』 → 『**3: 로봇 파라미터**』 → 『**4: 엔코더 옵셋**』화면으로 이동   
-    - 축 원점 설정 : **설정**』 → 『**3: 로봇 파라미터**』 → 『**2: 축 원점**』화면으로 이동   
-    - 소프트 리밋 설정 : **설정**』 → 『**3: 로봇 파라미터**』 → 『**3: 소프트 리밋**』화면으로 이동   
-    - 가압력-전류 테이블 설정 : **설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**7: 서보건 가압력 튜닝**』화면으로 이동  
->4. **가이드**: 현재 설정 상태나 에러 발생 시 원인 및 대처 방안 표기
->5. **모니터링**: 현재 설정 상황 및 서보건의 위치와 귀환 전류, 설정 값 등을 표시
->6. **전체 자동 설정**: 전체 자동 설정 수행 명령
->7. **선택 항목 자동 설정**: 개별 자동 설정 항목으로 지정된 항목만 자동 설정
->8. **실행 정지**: 진행 중인 설정을 정지
+>1. **Status**: Shows the current setting status of the servo gun (X: Before setting, O: Either complete or changed)
+>2. **Individual automatic setting**:  Supports the function of automatically setting the checked items only, not all. Pressing the 『**Selected item automatic setting**』 key will allow automatic setting to be performed only for the checked items.
+>3. **Manual setting**: To move to the screen for setting the relevant items.  
+    - Encoder offset compensation: To move to the screen of 『**Setting**』 → 『**3: Robot parameter**』 → 『**4: Encoder offset**』   
+    - Axis origin setting: To move to the screen of 『**Setting**』 → 『**3: Robot parameter**』 → 『**2: Axis origin**』   
+    - Soft limit setting: To move to the screen of『**Setting**』 → 『**3: Robot parameter**』 → 『**3: Soft limit**』   
+    - Squeeze force - current table setting: To move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**7: Servo gun squeeze force tuning**』  
+>4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+>5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+>6. **All automatic setting**: Commands the execution of all automatic setting of all items
+>7. **Selected item automatic setting**: Automatically sets only the items that are designated as the items of individual automatic setting
+>8. **Execution stop**: Stops the setting that is in progress.

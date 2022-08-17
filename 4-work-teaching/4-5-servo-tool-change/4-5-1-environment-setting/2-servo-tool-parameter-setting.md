@@ -1,22 +1,22 @@
-﻿# 4.5.1.2 서보툴 파라미터 설정
+﻿# 4.5.1.2 Servo tool parameter setting
 
-『**설정**』 → 『**4: 응용 파라미터**』 → 『**11: 서보툴 체인지**』 → 『**2: 서보툴 파라미터 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
+ In『**Setting**』 → 『**4: Application parameter**』 → 『**11: Servo tool change**』 → 『**2: Servo tool parameter setting**』, set the gun type and tool number targeted for the servo tool change.
 
-서보툴 체인지 대상의 건이 서보건인 경우, 현재 설정된 부가축 파라미터와 사용하고자 하는 서보건의 파라미터가 다를 수 있기 때문에 사용하고자 하는 서보건의 파라미터를 설정해야 합니다. 설정된 파라미터는 용접건 체인지 기능으로 다른 용접건을 사용할 때 아래 그림과 같이 기존 부가축 파라미터의 값을 대체하기 때문에 부가축 파라미터와 동일한 설정 항목을 사용합니다.
+If the gun targeted for servo tool change is a servo gun, you need to set the parameter of the servo gun you want to use because the currently set parameter for the additional axis and the parameter of the servo gun you want to use may be different. When another welding gun is used with the welding gun change function, the set parameter will replace the value of the existing parameter for the additional axis, as shown in the figure below, the same setting items as the parameter for the additional axis are used.
 
 
 
 <p align="center">
  <img src="../../../_assets/image_67.png" width="75%"></img>
- <em><p align="center">그림 4.15 툴 체인지시 부가축 파라미터 적용</p></em>
+ <em><p align="center">Figure 4.15 Application of the parameter for the additional axis during tool change</p></em>
 </p>
 
 
-서보툴 파라미터 설정 항목은 부가축 파라미터 설정항목과 대부분 동일합니다. 건번호 대응 툴번호, 건타입 설정 화면에서 설정한 서보건을 추가해야 합니다. OK 버튼을 클릭 시 건번호에 대응되는 부가축 번호가 자동으로 설정됩니다.
+The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
 
 
 
 <p align="center">
  <img src="../../../_assets/image_88.png" width="70%"></img>
- <em><p align="center">그림 4.16 부가축 파라미터 설정 화면</p></em>
+ <em><p align="center">Figure 4.16 Additional axis parameter setting screen</p></em>
 </p>

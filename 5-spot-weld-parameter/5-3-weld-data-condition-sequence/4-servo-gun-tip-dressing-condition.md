@@ -1,22 +1,23 @@
-﻿# 5.3.4 서보건 팁드레싱 조건
+﻿# 5.3.4 Servo gun tip dressing condition
 
-서보건에 대해 팁드레싱을 수행하는 경우 이에 대한 각종 조건을 설정합니다.
+Sets various conditions for the execution of tip dressing for the servo gun
 
 <p align="center">
  <img src="../../_assets/image_61.png" width="70%"></img>
- <em><p align="center">그림 5.15 서보건 팁드레싱 조건 설정 </p></em>
+ <em><p align="center">Figure 5.15 Servo gun tip dressing condition setting </p></em>
 </p>
 
 </br>
 
-(1)  **용접신호 출력**
--  팁드레서 동작을 위해 용접 신호를 출력할지 선택합니다.
+(1)  **Welding signal output**
 
-(2)  **팁드레싱 시간**
--  팁드레싱할 시간을 설정합니다. 팁 드레싱은 spot 명령문을 이용하여 동일하게 수행합니다. 단, 용접시퀀스 번호를 “**64**”로 설정합니다.
+    Selects whether to output the welding signal for the tip dressing operation.
+(2)  **Tip dressing time**
 
-(3)  **팁드레싱 중 건서치 수행**
--  팁드레서 동 건서치를 수행할지 여부를 선택합니다.
+    Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the Spot statement. However, the welding sequence number should be set to “**64**.”
+(3)  **Execution of gun search during tip dressing**
 
-(4)  **팁드레서 두께**
--  팁드레서 두께를 입력합니다.
+    Selects whether to execute gun search during tip dressing.
+(4)  **Tip dresser thickness**
+
+    Inputs the tip dresser thickness.

@@ -1,12 +1,12 @@
-﻿# 4.4 서보건 개방 위치 기록
+﻿# 4.4 Servo gun opening position recording
 
-서보건의 스폿용접 스텝의 기록은 통상적으로 다음의 절차에 의해 수행됩니다.
+The recording of the spot welding step of the servo gun is usually performed according to the following procedure.
 
-1. 원터치 기록 상태(\[GUN]키 LED 점등)임을 확인합니다.
-2. 서보건의 고정전극을 작업물에 접촉합니다.
-3. 수동가압 동작을 수행하여 이동전극을 작업물에 가압시킵니다.
-4. \[**기록**]키를 눌러 스텝과 함께 spot명령문을 기록합니다. -> 판넬두께 자동 등록
-5. 수동개폐 동작으로 이동전극을 작업물과 분리합니다.
-6. 다음 위치로 이동합니다.
+1. Check that the state is the one-touch record state. (\[GUN] key LED turned on.)
+2. Contact the fixed electrode of the servo gun to the workpiece.
+3. Squeeze the moving electrode to the workpiece by performing manual squeezing operation.
+4. Press the \[**Record**] key to record the Spot statement together with the  step. -> Automatic registration of the panel thickness
+5. Separate the moving electrode with a manual closing operation.
+6. Movement to the next position occurs.
 
-서보건 개방 위치 기록이란 위 절차 중 (3)과 (5)를 생략하는 것으로서 상당한 티칭 시간을 절감할 수 있습니다. 이를 위해서는 용접하려는 판넬의 두께를 제어기가 알고 있어야 합니다.
+ Servo gun opening position recording is a procedure without the steps (3) and (5) above, making it possible to save a significant amount of time. For this, the controller should know the thickness of the panel to weld.

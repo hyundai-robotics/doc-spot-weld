@@ -1,65 +1,65 @@
-﻿# 2.1 서보건 초기설정 절차
+﻿# 2.1 Procedure for initial setting of the servo gun
 
-본 기능은 서보건을 이용한 스폿 및 기타 응용에 관련된 내용입니다. 서보건이 아닌 다른 종류의 건(공압건 등)을 이용하는 경우 본 장의 “[**2.1.1 건번호 대응 툴번호, 건타입 설정**](1-tool-number-gun-type-setting.md)”과 “[**2.1.2 툴 각도/거리 설정**](2-tool-angle-distance-setting.md)”만을 참고하시고, 다음 장 “[**3. 관련 기능**](../../3-Related-functions/)”을 참고하십시오.
+This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only “[**2.1.1 Setting of the tool number and gun type corresponding to the gun number**](1-tool-number-gun-type-setting.md)” and “[**2.1.2 Setting of the tool angle/distance**](2-tool-angle-distance-setting.md)” in this chapter, and “[**3. Related functions**](../../3-Related-functions/)” in the next chapter.
 
-서보건 초기설정은 서보건을 이용한 스폿 용접이 가능한 상태를 만들기 위한 필수 과정입니다. 서보건 초기설정 절차를 마친 후에는 아래 사항들이 가능합니다.
+The initial setting of the servo gun is an essential process to makie it possible to perform spot welding using a servo gun. After completing the procedure for the initial setting of the servo gun, the following items will be possible.
 
-* 서보건 이동전극의 조작
-* 지정한 가압력으로의 가압
-* 스폿 용접을 위한 신호 입출력
+* Operation of the moving electrode of the servo gun
+* Squeeze with the specified squeezing force
+* Signal input and output for spot welding
 
-초기설정 절차를 마친 후에는 사용 목적에 맞게 관련 기능과 스폿 용접 파라미터(용접 조건, 시퀀스 등)를 설정 후 작업 교시를 하면 됩니다.
+After completing the procedure for initial setting, you need to set related functions and spot welding parameters (welding conditions, sequence, etc.) according to the purpose of use, and then teach the work.
 
-당사에서는 “**서보건 자동설정**”(『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿 용접**』 → 『**6: 서보건 자동 설정**』) 기능으로 스폿 용접과 서보건 동작환경 설정 및 절차를 제공하고 있습니다.
+Through the “**Servo gun automatic setting**” function (『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**6: Servo gun automatic setting**』), our company provides settings and procedures for the environment for spot welding and servo gun operation.
 
 <p align="center">
  <img src="../../_assets/image_60.png" width="70%"></img>
- <em><p align="center">그림 2.1 ‘서보건 자동설정’ 진입 화면</p></em>
+ <em><p align="center">Figure 2.1 Screen for entering the ‘Servo gun automatic setting’ menu</p></em>
 </p>
 
 {% hint style="warning" %}
-\[**주의**\] 해당 메뉴는 현재 선택된 건 번호가 서보건일 경우에만 진입 가능합니다.
-(“**부가축 파라미터 설정**”, “**부하 추정**”, “**툴 데이터 입력**”, “**건 번호 대응 툴 번호, 건 타입**” 은 서보건의 자동 설정 전 필수로 설정해야 하는 항목입니다.) 멀티 건을 사용하는 경우 건 번호를 변경하면서 각각 설정을 진행하십시오.
+\[**Caution**\] You can enter the menu only when the currently selected gun number is for the servo gun.
+(“**Additional axis parameter setting**”, “**Load estimation**”, “**Tool data inputting**”, “**Tool number and gun type corresponding to the gun number**” are the items that should be essentially set prior to the servo gun automatic setting.) If multiple guns are to be used, their individual settings should be performed by chaning the gun number.
 {% endhint %}
 
 </br>
 
 ---
 
-서보건과 스폿 용접을 위한 초기 설정은 아래와 같이 크게 5단계로 진행되며, 각 단계별로 수행 여부를 표기하여 진행 과정을 모니터링 할 수 있습니다.
+The initial setting for the servo gun and spot welding is performed largely in five steps as shown below, and the progress of each step will be indicated, allowing you to monitor the progress.
 
 
 <p align="center">
  <img src="../../_assets/image_3.png" width="70%"></img>
- <em><p align="center">그림 2.1.2 ‘서보건 자동설정’ 절차</p></em>
+ <em><p align="center">Figure 2.1.2 Procedure for ‘servo gun automatic setting’</p></em>
 </p>
 
-서보건 초기설정의 표준 절차는 아래와 같습니다.
+The standard procedure for the servo gun initial setting is as follows.
 
-* **[**Step 0. 사전점검**](../2-2-step-0-pre-inspection.md)**: 서보건 동작환경 설정을 위한 필수 사전 설정 사항 점검
-  * 부가축 파라미터
-  * 건 번호 대응 툴 번호 설정
-  * 툴 데이터 설정(부하추정 포함)
-  * 서보건 파라미터 설정
-* **[**Step 1. 기본설정**](../2-3-step-1-default-setting/)**: 서보건의 동작환경 설정
-  * 엔코더 옵셋 보정
-  * 축 원점 설정
-  * 소프트 리밋 설정
-  * 가압력-전류 테이블 설정
-* **[**Step 2. 응용설정**](../2-4-step-2-application-setting/)**: 서보건을 이용한 응용 기능을 위한 설정
-  * 건 서치
-  * 건 암 휨량 보정
-  * 판넬 두께 측정 보정
-* **[**Step 3. 설정 확인**](../2-5-step-3-setting-check.md)**: 현재 설정의 확인을 위한 과정
-* **[**Step 4. 신호 설정**](../2-6-step-4-signal-setting.md)**: 스폿응용의 입출력 신호 할당
+* **[**Step 0. Pre-inspection**](../2-2-step-0-pre-inspection.md)**: Inspection of essential pre-setting items for the setting of the servo gun operation environment 
+  * Additional axis parameter
+  * Setting of the tool number corresponding to the gun number
+  * Tool data setting (including load estimation)
+  * Servo gun parameter setting
+* **[**Step 1. Default setting**](../2-3-step-1-default-setting/)**: Setting of the servo gun operation environment
+  * Encoder offset compensation
+  * Axis origin setting
+  * Soft limit setting
+  * Squeezing force-current table setting
+* **[**Step 2. Application setting**](../2-4-step-2-application-setting/)**: Setting of application functions that use the servo gun
+  * Gun search
+  * Gun arm deflection amount compensation
+  * Panel thickness measurement compensation
+* **[**Step 3. Setting check**](../2-5-step-3-setting-check.md)**: Process for checking the current setting
+* **[**Step 4. Signal setting**](../2-6-step-4-signal-setting.md)**: Assignment of input and output signals for spot welding application
 
 </br>
 
-“**서보건 초기설정 표준 절차**” 화면은 단순히 표기 과정과 완료 여부를 보여주는 것 뿐만 아니라 관련된 항목을 진행하거나 관련된 항목을 진행할 수 있는 화면으로 이동 시킵니다.
+The “**Standard procedure for servo gun initial setting**” screen not only shows the indication process and the status about completion, but also makes it possible to proceed with related items or move to the screen where related items can be performed.
 
-즉 서보건과 관련된 초기 설정은 해당 메뉴를 찾아 이동하지 않고 위 화면에서 모두 완료할 수 있습니다. 초기 설정의 진행은 2가지 방법으로 가능합니다.
+In other words, the initial setting related to the servo gun can all be completed from the above screen without going to relevant menus. The initial setting can be proceeded with in the following two ways.
 
-1. 해당 절차로 커서 이동 후 『**Enter**』 입력.
-2. 『**설정 전 항목 진행**』을 눌러 아직 진행되지 않은 초기 설정 자동 진행.
+1. Move the cursor to the relevant procedure and then input by selecting 『**Enter**.』
+2. Press 『**Proceed with the pirot-to-setting items**』 to automatically proceed with the initial setting not yet conducted.
 
-『**설정 전 항목 진행**』키는 전체 절차 중 아직 진행되지 않은 절차를 검사하여 해당 절차를 자동으로 진행할 수 있도록 합니다. 초기 설정 시에는 『**설정 전 항목 진행**』만을 눌러 가이드를 따라 진행하며 설정을 완료할 수 있습니다.
+The 『**Proceed with the pirot-to-setting items**』 key makes it possible to inspect the procedures not yet conducted among all procedures, allowing them to be performed automatically. At the time of initial setting, you can complete the setting by following the guide just by clicking 『**Proceed with the pirot-to-setting items**』.

@@ -1,22 +1,21 @@
-﻿# 2.3.2.3 서보건 소프트 리밋
+﻿# 2.3.2.3 Servo gun soft limit
 
-통상적으로 서보건의 소프트 리밋은 이동전극이 최대로 개방한 상태에서 ‘최소’항목에 설정하며, 팁을 모두 제거한 가장 근접한 위치에서 ‘최대’항목에 설정합니다.
+In general, the soft limit of the servo gun should be set to 'Minimum' while the moving electrode is fully open, and set to 'Maximum' while the moving electrode is at the closest position with all tips removed.
 
-서보건축의 소프트 리밋 설정 절차는 다음과 같습니다.
+The soft limit setting procedure for the axis of the servo gun.
 
-1. 서보건을 수동으로 조작하여 아래 그림과 같은 상태가 되도록 합니다.
+1. Manually operate the servo gun to bring it to the condition as shown in the figure below
 
 
 <p align="center">
  <img src="../../../_assets/image_90.png" ></img>
  <img src="../../../_assets/image_2.png" ></img>
- <em><p align="center">그림 2.12 서보건 리밋 설정</p></em>
+ <em><p align="center">Figure 2.12 Setting of the servo gun soft limit</p></em>
 </p>
 
-2. ‘**서보건 자동 설정**’의 기본 설정 화면에서 ‘**소프트 리밋 설정**’의 \[**수동 설정**] 버튼을 누르거나(아래 그림), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**3: 소프트 리밋**』에서 해당 서보건 축을 커서로 선택한 후, \[**적용(Reset)**] 버튼을 누릅니다. 정상적으로 표시되면 \[**완료(OK)**] 버튼을 입력합니다.
-
+2. In the default setting screen of the ‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Soft limit setting**’ menu (Figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**3: Soft limit**』 with the cursor and then press the \[**Reset**] button. If the indication is performed normally, input by selecting the \[**OK**] button.
 
 <p align="center">
  <img src="../../../_assets/image_41.png" width="80%"></img>
- <em><p align="center">그림 2.13 서보건 리밋 설정 화면 이동</p></em>
+ <em><p align="center">Figure 2.13 Moving to the servo gun soft limit setting screen </p></em>
 </p>

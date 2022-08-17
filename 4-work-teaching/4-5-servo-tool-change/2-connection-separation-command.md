@@ -1,36 +1,36 @@
-﻿# 4.5.2 접속/분리 명령
+﻿# 4.5.2 Connection/separation commands 
 
-서보툴 체인지 환경에서 서보건의 접속/분리는 아래 2가지로 수행할 수 있습니다. 서보건을 접속하면 건번호와 툴번호가 설정된 값에 따라 자동 변경되며, 서보건을 분리하면 건번호와 툴번호가 0으로 자동 변경됩니다.
+In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
 
 (1) R358
 
-R코드에 의한 서보건 체인지 기능으로 수동 모드의 모터 On 상태에서(Enable 스위치 On) 사용합니다.
+This is a function for servo gun change by using a R code, and can be used in the motor on state (the enable switch is on) in manual mode.
 
-조작 = **R358, #1, #2, #3**
+Operation = **R358, #1, #2, #3**
 
-| **파라미터** |   **#1**   | **#2** |    **#3**   |
+| **Parameter** |   **#1**   | **#2** |    **#3**   |
 | :------: | :--------: | :----: | :---------: |
-|    의미    |    접속/분리   |   축사양  |     건번호     |
-|   설정 값   | 접속=1, 분리=0 |  서보건=1 | 체인지할 서보건 번호 |
+|    Meaning    |    Connection/separation   |   Axis specification  |     Gun number     |
+|   Set value   | Connection=1, Separation=0 |  Servo gun=1 | The number of the gun targeted for change |
 
-| 사용 예 | R358,1,1,2 (서보건 G2를 접속) |
+| Example of use | R358,1,1,2 (connects the servo gun G2) |
 | :--: | ----------------------- |
-|      | R358,1,0 (서보건을 분리)      |
+|      | R358,1,0 (separates the servo gun)      |
 
 (2) toolchng
 
-작업 프로그램 실행에 의한 용접건 체인지 기능입니다.
+This is a function for welding gun change through the execution of a work program. 
 
+```
+toolchng on/off,chng=<target for change>,di=<connection complete signal>,wtime=<connection completion wait time>,mchng1=<targe for change>,mchng2=<target for change>,mchng3=<target for change>
+```
 
-toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속완료 대기시간>,mchng1=<체인지 대상>,mchng2=<체인지 대상>,mchng3=<체인지 대상>
-
-
-|                            **on/off**                            |       **on**       |                    서보툴 접속                   |                                               |
+|                            **on/off**                            |       **on**       |                    Connection of the servo tool                    |                                               |
 | :--------------------------------------------------------------: | :----------------: | :-----------------------------------------: | :-------------------------------------------: |
-|                               ****                               |       **off**      |                    서보툴 분리                   |                                               |
-|                            **체인지 대상**                            |     **G1\~G16**    |         <p>접속/분리할 </p><p>용접건 번호</p>         | <mark style="color:red;">해당 부가축의 접속/분리</mark> |
-|                         **기계적 접속완료 확인신호**                        |     **1\~4096**    | <p>기계적인 접속완료</p><p>확인을 위한</p><p>입력신호 번호</p> |          <p>OFF시 무시되는</p><p>파라미터</p>          |
-|     <p><strong>접속완료</strong></p><p><strong>대기시간</strong></p>     | **<0\~5.0> (sec)** | <p>접속완료 대기시간</p><p>(파라미터가 없거나 0이면 무한대기)</p> |          <p>OFF시 무시되는</p><p>파라미터</p>          |
-| <p><strong>체인지 대상</strong></p><p><strong>(동시 접속/분리)</strong></p> |     **G1\~G16**    |                  접속할 용접건 번호                 |          <p>OFF시 무시되는</p><p>파라미터 </p>         |
+|                               ****                               |       **off**      |                    Separation of the servo tool                   |                                               |
+|                            **Target for change**                            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>Welding gun number</p>         | <mark style="color:red;">Connection/separation of the relevant additional axis</mark> |
+|                         **Mechanical connection completion check signal**                        |     **1\–4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |          <p>Parameter to be ignored in off state</p><p></p>          |
+|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **<0\–5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
+| <p><strong>Target for change</strong></p><p><strong>(Simultaneous connection/seperation)</strong></p> |     **G1\–G16**    |                   Number of the welding gun to connect                 |          <p>Parameter to be ignored</p><p>in off state</p>         |
 
-접속완료는 기계적인 접속과 로봇 제어기 내부 처리가 끝나야 완료 처리가 됩니다. 접속완료 대기시간은 위 2가지 과정이 모두 완료될 때까지 대기하는 시간입니다.
+Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.

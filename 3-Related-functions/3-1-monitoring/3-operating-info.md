@@ -1,33 +1,33 @@
-﻿# 3.1.3 가동 시간 정보
+﻿# 3.1.3 Information of the operating time
 
-스폿용접과 관련하여 가동 시간 정보를 확인 할 수 있습니다.
+This allows you to check the information of the operating time related to the spot welding.
 
-(『**선택**』 → 『**스폿**』 → 『**가동 정보**』)
+(『**Selection**』 → 『**Spot**』 → 『**Operation information**』)
 
 <p align="center">
  <img src="../../_assets/image_91.png" width="70%"></img>
- <em><p align="center">그림 3.4 스폿 가동 정보 모니터링</p></em>
+ <em><p align="center">Figure 3.4 Spot welding operation information monitoring</p></em>
 </p>
 
->*   **통산(초기화후)**
+>*   **Total (after initialization)**
 >
->      시스템 초기화부터 각 용접기의 가동 시간 및 용접 회수를 표시합니다.
->*   **통산(전원투입후)**
+>      Indicates the operation time and welding count of each welder since initialization of the system.
+>*   **Total (after input of power)**
 >
->     시스템 전원 투입 후부터 각 용접기의 가동 시간 및 용접 회수를 표시합니다.
->*   **마지막 사이클**
+>     Indicates the operation time and welding count of each welder since input of the power.
+>*   **Latest cycle**
 >
->     바로 직전 사이클의 용접기의 가동 시간 및 용접 회수를 표시합니다.
->*   **현재 사이클**
+>     Indicates the operation time and welding count of each welder of the immediately preceeding cycle.
+>*   **Current cycle**
 >
->     현재 사이클의 각 용접기의 가동 시간 및 용접 회수를 표시합니다.
+>     Indicates the operation time and welding count of each welder of the current cycle.
 
 ---
--	스폿용접 가동정보 클리어
+-	Spot welding operation information clearing
 
-스폿용접 가동정보창이 활성화 되면 『클리어』 버튼이 나타나고 이를 누르면 그림3.5와 같이 가동정보 클리어 대화상자가 표시됩니다. 클리어를 원하는 항목의 버튼을 클릭하면 원하는 동작이 수행됩니다.
+When the spot welding operation information window is activated, the 『Clear』 button will be displayed. Pressing the button will bring up a dialog box for clearing the operation information as shown in Figure 3.5.
 
 <p align="center">
  <img src="../../_assets/image_92.png" width="70%"></img>
- <em><p align="center">그림 3.5 스폿 가동 정보 초기화 화면</p></em>
+ <em><p align="center">Figure 3.5 Spot welding operation information initialization screen</p></em>
 </p>

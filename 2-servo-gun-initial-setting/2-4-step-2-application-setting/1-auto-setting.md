@@ -1,60 +1,61 @@
-﻿# 2.4.1 자동 설정
+﻿# 2.4.1 Automatic setting
 
-서보건 응용 설정의 자동 설정은 『**전체 자동 설정**』을 눌러 진행합니다.  ‘**전체 자동 설정**’은 서보건의 이동전극이 자동으로 움직입니다. 또한 설정 값이 가압력에 영향을 받기 때문에 아래의 조건이 반드시 만족되어야 합니다.
+Progress the automatic setting of the application setting of the servo gun by pressing the 『**All automatic setting**』 key. In the case of ‘**all automatic setting**’, the moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
 
-* 이동전극과 고정전극에 새 팁 부착
-* 서보건 주변 작업자 부재
-* 이동전극과 고정전극 사이에 작업물 부재
-* 수동 모드
-* 모터 온
-* 서보건 기본설정(Step 1)의 완료
+* Moving and fixed electrodes with new tipes attached
+* No worker around the servo gun
+* No workpiece between the moving electrode and fixed electrode
+* Manual mode
+* Motor on
+* Completion of the servo gun's default setting (step 1) 
 
-‘**전체 자동 설정**’은 다음과 같은 절차가 자동 진행됩니다.
 
-1. 건서치
-   * 서보건 2회 가압하며 건서치 실행
-   * 1회: ‘건서치 기준위치 기록’ 유효
-   * 2회: ‘건서치 기준위치 기록’ 무효
-2. 건 암 휨량 보정
-   * 서보건 5회 가압하며 건 암 휨량 보정
-3. 판넬 두께 측정 보정
-   * 서보건 5회 가압하며 건 암 휨량 보정
+In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
+
+1. Gun search
+   * Gun search will be performed while servo gun squeezing occurs two times.
+   * First time: ‘Gun search reference position record’ valid
+   * Second time: ‘Gun search reference position record’ invalid 
+2. Gun arm deflection amount compensation
+   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
+3. Panel thickness measurement compensation  
+   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
 
 {% hint style="info" %}
-\[**주의**] ‘**자동 설정**’으로 진행하는 건서치는 건서치1만 가능합니다. 건서치 1외의 다른 건서치를 사용 시 “[**4.** **작업 교시**](../../4-work-teaching/)”의 “[**4.1** **건서치**](../../4-work-teaching/4-1-gun-search/)” 챕터를 참고하십시오.
+\[**Caution**] The gun search that can be performed through ‘**automatic setting**’ is only for gun search 1. When using other gun searches other than gun search 1, you should refer to “[**4.1** **Gun search**](../../4-work-teaching/4-1-gun-search/)” of “[**4.** **Work teaching**](../../4-work-teaching/).”
 {% endhint %}
 
-&#x20;전체 자동 설정’시 ‘건 암 휨량 보정’과 ‘판넬 두께 측정 보정’을 동시에 수행하여 서보건은 5회만 가압합니다. ‘건서치’를 실행하기 위해서는 가압력과 건서치 속도를 지정해야 합니다. 앞선 ‘응용 설정’ 화면에서 『건서치 조건설정』을 누르면 아래 그림과 같이 건서치 시 사용되는 가압력과 이동속도를 설정할 수 있습니다.
+&#x20;In the case of ‘all automatic setting’, the ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’ will be performed at the same time, so the servo gun performs squeezing only five times. For execution of ‘gun search’, the squeezing force and gun search speed should be designated. If you press the『Gun search condition setting』key in the aformentioned ‘Application setting’ screen, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
 
 
 <p align="center">
  <img src="../../_assets/image_22.png" width=70%></img>
- <em><p align="center">그림 2.16 건서치 조건 설정 화면</p></em>
+ <em><p align="center">Figure 2.16 Gun search condition setting screen</p></em>
 </p>
 
 {% hint style="info" %}
-\[**주의**] ‘**건 암 휨량 보정**’과 ‘**판넬 두께 측정 보정**’은 수동 측정하여 기입하기 어려우므로 자동 설정을 이용하는 것을 권장합니다.
+\[**Caution**] In the case of ‘**gun arm deflection compensation**’ and ‘**panel thickness measurement compensation**’, it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
 
-‘건 암 휨량 보정’은 서보건 파라미터 중 ‘건암휨량/100kgf\[mm]’를 대신하여 사용하는 값으로 ‘건 암 휨량 보정’ 설정 시 이미 설정된 ‘건암휨량/100kgf\[mm]’을 사용하지 않습니다. 반대로 ‘건 암 휨량 보정’이 설정되지 않는 경우 ‘건암휨량/100kgf\[mm]’을 사용합니다.
+The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
 {% endhint %}
 
-서보건 응용 설정의 화면의 구성과 기능은 아래와 같습니다.
+The configuration and functionality of the servo gun application setting screen is as follows.
 
 <p align="center">
  <img src="../../_assets/image_55.png" width=70%></img>
- <em><p align="center">그림 2.17 서보건 응용 설정 화면</p></em>
+ <em><p align="center">Figure 2.17 Servo gun applicaiton setting screen</p></em>
 </p>
 
->1. **상태**: 현재 서보건 설정 상태(설정 전, 완료, 변경 됨 중 하나)
->2. **개별 자동 설정**: 전체가 아닌 체크된 항목만 자동으로 설정하는 기능 지원. 『**선택 항목 자동 설정**』을 누르면 체크된 항목만 자동으로 진행됩니다.
->3. **수동설정**: 해당 항목을 설정할 수 있는 화면으로 이동
->     *   건 암 휨량 보정  
->       『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: 용접건 파라미터**』화면으로 자동 이동
->     *   판넬 두께 측정 보정  
->         『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: >용접건 파라미터**』화면으로 자동 이동
->4. **가이드**: 현재 설정 상태나 에러 발생 시 원인 및 대처 방안 표기
->5. **모니터링**: 현재 설정 상황 및 서보건의 위치와 귀환 전류, 설정 값 등을 표시
->6. **전체 자동 설정**: 전체 자동 설정 수행 명령
->7. **선택 항목 자동 설정**: 개별 자동 설정 항목으로 지정된 항목만 자동 설정
->8. **실행 정지**: 진행 중인 설정을 정지
->9. **건서치 조건 설정**: 건서치를 위한 속도와 가압력 설정
+>1. **Status**: Shows the current setting status of the servo gun (before setting, complete or changed).
+>2. **Individual automatic setting**: Supports the function of automatically setting the checked items only, not all. Pressing the 『**Selected item automatic setting**』 key will allow automatic setting to be performed only for the checked items.
+>3. **Manual setting**: To move to the screen for setting the relevant items
+>     *   Gun arm deflection amount compensation  
+>       To automatically move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Welding gun parameter**』
+>     *   Panel thickness measurement compensation  
+>         To automatically move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: >Welding gun parameter**』
+>4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+>5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+>6. **All automatic setting**: Commands the execution of all automatic setting of all items.
+>7. **Selected item automatic setting**: Automatically sets only the items that are designated as the items of individual automatic setting.
+>8. **Execution stop**: Stops the setting that is in progress.
+>9. **Gun search condition setting**: Sets the speed and squeeze force for gun search.

@@ -1,27 +1,28 @@
-﻿# 5.6 용접기 공통 입출력 신호 할당
+﻿# 5.6 Assignment of input and output signals common to  welders
 
-용접기 번호와 무관한 공통 입출력 신호를 할당하여 이들의 상태를 외부로 출력하거나 입력 받습니다.
+Assigns the common input and output signals, regardless of the welder number, and transfers their state to the outside or receives their input.
 
 <p align=center>
 <img src="../_assets/image_72.png" width="70%"></img>
-<em><p align="center">그림 5.18 용접기별 공통 입출력 신호 할당</p></em>
+<em><p align="center">Figure 5.18 Assignment of input and output signals common to welders</p></em>
 </p>
 
-(1)  **스폿 명령 실행방식(sv)**
--  스폿건 공통 파라미터 설정 메뉴에서 “서보건 스폿용접 출력방식”이 Wd-On으로 설정된 경우 신호가 출력되도록 할 때 사용합니다.
+(1)  **Spot command execution method (sv)**
 
-(2)  **판넬 두께 에러**
--  서보건 용접시 판넬 두께에 이상이 발생하였을 때, 이를 외부로 출력하고자 할 때 사용합니다.
+    To be used to output a signal if the “servo gun spot welding output method” in the spot gun common parameter setting menu is set to Wd-On.
+(2)  **Panel thickness error**
 
-(3)  **이동 전극 마모량 리셋**
--  이동 전극 마모량 리셋 명령을 신호로 입력 받고자 할 때 사용합니다.
+    To be used to output a panel thickness abnormal signal generated during the welding by the servo gun.
+(3)  **Moving electrode consumption amount reset**
 
-(4)  **고정 전극 마모량 리셋**
--  고정 전극 마모량 리셋 명령을 신호로 입력 받고자 할 때 사용합니다.
+    To be used to receive an input of the moving electrode consumption amount reset command as a signal.
+(4)  **Fixed electrode consumption amount reset**
 
-(5)  **대개방 명령**
-- 대개방 명령을 신호로 입력 받고자 할 때 사용합니다.
+    To be used to receive an input of the fixed electrode consumption amount reset command as a signal.
+(5)  **Command for wide opening**
 
-(6)  **소개방 명령**
--  소개방 명령을 신호로 입력 받고자 할 때 사용합니다.
+    To be used to receive an input of the command for wide opening as a signal.
+(6)  **Command for narrow opening**
+
+    To be used to receive an input of the command for narrow opening as a signal.
 

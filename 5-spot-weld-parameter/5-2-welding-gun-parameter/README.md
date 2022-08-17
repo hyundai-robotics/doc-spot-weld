@@ -1,4 +1,4 @@
-﻿# 5.2 용접건 파라미터
+﻿# 5.2 Welding gun parameter
 
-건타입이 서보건 또는 EQless건인 경우는 각각의 건에 대한 개별 파라미터를 설정할 수 있습니다.
+If the gun type is servo gun or equalizerless gun, individual parameters can be set for each gun.
 

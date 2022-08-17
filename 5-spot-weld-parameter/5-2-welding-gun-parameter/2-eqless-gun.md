@@ -1,25 +1,26 @@
-﻿# 5.2.2. Eqless건
+﻿# 5.2.2. Equalizerless gun
 
-건타입이 “Eqless”건이면 아래와 같이 Eqless건과 관련된 파라미터를 설정하는 화면이 표시됩니다.
+If the gun type is “eqaulizerless gun”, a screen for setting the parameters related to the equalizerless gun will be indicated as shown below.
 
 
 <p align=center>
 <img src="../../_assets/image_42.png" width="70%"></img>
-<em><p align="center">그림 5.8 Eqless 건 설정</p></em>
+<em><p align="center">Figure 5.8 Equalizerless gun setting</p></em>
 </p>
 
 
-(1)  **최대 고정전극 마모량(mm)**
-- egunsea에 의해 측정된 마모량이 여기에 설정된 값을 초과할 때 에러가 발생합니다.
+(1)  **Maximum fixed electrode consumption amount (mm)**
 
-(2)  **고정전극 교환 마모량(mm)**
--  egunsea에 의해 측정된 마모량이 여기에 설정된 값을 초과할 때 경고를 출력합니다.
+    If the consumption amount measured by the egunsea statement exceeds the value set here, an error will be generated.
+(2)  **Fixed electrode replacement required consumption amount (mm)**
 
-(3)  **이퀄라이징 속도(mm/s)**
--   로봇의 이퀄라이징 속도를 설정합니다.
+    If the consumption amount measured by the egunsea statement exceeds the value set here, a warining will be outputted.
+(3)  **Equalizing speeed (mm/s)**
 
-(4)  **건타입**
--   선택한 Eqless건이 ‘로봇건’인지 ‘정치건’인지 선택합니다. 『**2.3.1 서보건 파라미터**』를 참고하십시오.
+    Sets the robot's equalizing speed.
+(4)  **Gun type**
 
-(5)  **건암휨량/100\[Kgf]\(mm)**
--   가압력에 의한 건 암의 휨량을 100Kgf에 대한 휨량으로 설정합니다. 스폿용접 수행 시 고정전극의 위치를 이 설정치와 지령 가압력으로부터 건 암 휨량을 산출하고 이를 보정하여 가압합니다.
+    Selects whether the selected equalizerless gun is a ‘robot gun’ or a ‘stationary gun’. Please refer to 『**2.3.1 Servo gun parameter**.』
+(5)  **Gun arm deflection amount/100\[Kgf]\(mm)**
+
+     Sets the deflection amount caused by the squeezing force as the deflection amount for 100 kgf. For the position of the fixed electrode for the execution of spot welding, calculate the gun arm deflection amount both from this value and the command squeezing force and then make some compensation for it and then perform squeezing. 

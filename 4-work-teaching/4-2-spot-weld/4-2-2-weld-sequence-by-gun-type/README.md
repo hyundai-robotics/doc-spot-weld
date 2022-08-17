@@ -1,3 +1,3 @@
-﻿# 4.2.2 건 타입별 용접시퀀스
+﻿# 4.2.2 Welding sequence by gun type
 
-제어기는 프로그램에 spot 명령문을 실행함으로써 용접작업이 이루어지며 스폿용접 펑션의 재생은 다음과 같이 건타입에 따라 차이가 있습니다.
+The controller executes the spot statement in the program to make the welding work take place and the playback of the spot welding function may vary depending on gun type.

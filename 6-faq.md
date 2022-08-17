@@ -1,56 +1,56 @@
-﻿# 6. 자주하는 질문
+# 6. Frequently Asked Questions
 
-*   <mark style="color:green;">**시프트 기능 사용시 서보건 축의 동작은 어떻게 되나요?**</mark>
+*   <mark style="color:green;">**How does the servo gun axis operate when using the shift function?**</mark>
 
-    시프트를 위한 모든 기능(오프라인, 온라인, 서치, 팔레타이즈)은 로봇축에 대해서만 적용되고 서보건축은 기록된 위치로 이동합니다.
-*   <mark style="color:green;">**좌표변환 시 서보건축은 어떻게 되나요?**</mark>
+    All functions for shifting (offline, online, search, palletize) are applied only for the robot axis and the servo gun axis moves to recorded positions.
+*   <mark style="color:green;">**What happens to the servo gun axis in case of coordinate conversion?**</mark>
 
-    로봇에 대한 이동 성분만을 변환하고 서보건축은 변환하지 않습니다.
-*   <mark style="color:green;">**상대 프로그램 호출 기능 시 동작은 어떻게 되나요?**</mark>
+    Only the movement elements for the robot are converted while the servo gun axis will not be converted.
+*   <mark style="color:green;">**How does the operation proceed in case of the counterpart program call function?**</mark>
 
-    로봇에 대한 상대위치만을 적용하여 시프트 합니다.
-*   <mark style="color:green;">**미러이미지 변환 시 서보건축은 어떻게 되나요?**</mark>
+    Shifting occur by applying the relative position for the robot.
+*   <mark style="color:green;">**What happens to the servo gun axis in case of mirror image conversion?**</mark>
 
-    미러이미지 변환 시 부가축에 대해서는 축사양이 베이스이고 축구성이 직동인 경우에만 적용됩니다. 그 이외는 해당되지 않습니다. 따라서 서보건 축은 변환되지 않습니다.
-*   <mark style="color:green;">**현재 선택된 건번호를 변경하고 싶은데요?**</mark>
+    Mirror image conversion will be applied for the additional axis only when the axis specification is base and the axis configuration is linear. So, the servo gun axis will not be converted.
+*   <mark style="color:green;">**How can I change the currently selected gun number?**</mark>
 
-    “**R210: 스폿건 번호 선택**”으로 변경할 수 있습니다. 변경하려는 건이 로봇건인 경우는 건번호 변경시는 건번호 대응 툴번호를 참조하여 툴번호도 자동으로 변경됩니다. 멀티 건 환경에서 R210으로 건번호를 변경 시 선택된 단일 건 환경으로 변경됩니다.
-*   <mark style="color:green;">**멀티건을 선택하여 동시에 수동가압하려고 합니다. 멀티건은 어떻게 선택하나요?**</mark>
+    You can change it by using “**R210: Spot gun number selection.** If the gun you want to change is a robot gun, the tool number will be also automatically changed by referring to the tool number corresponding to the gun number when you change the gun number. When you change a gun number by using R210 in a multi-gun environment, the environment will change to an environment of the selected sole gun.
+*   <mark style="color:green;">**I want to select and manually squeeze multiple guns. How can I select multiple guns?**</mark>
 
-    건타입이 동일한 건들에 대해서만 멀티건 선택이 가능합니다. “**R214: 동시 용접건 선택**”으로 변경할 수 있습니다. 멀티건 선택 후 해당 건을 선택해제 하기 위해서는 R214로 해제하고자 하는 건 번호를 입력하면 됩니다. 단 맨 앞의 건 번호(마스터 건)는 해제할 수 없습니다.
-*   <mark style="color:green;">**서보건 수동가압 시에 가압력을 변경하고 싶은데요?**</mark>
+    You can select multiple guns only when they are the same gun type. You can select them with “**R214: Selection of simultaneous welding guns**.” If you want to deselect a gun after selecting multiple guns, you can input the gun number you want to deselect with R214. However, you cannot deselect the first gun number (master gun). 
+*   <mark style="color:green;">**How can I change the squeezing force during the servo gun squeezing process?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R211: 서보건 가압력 설정**”으로 변경할 수 있습니다.
-*   <mark style="color:green;">**서보건의 이동전극 마모량을 임의로 변경하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R211: Servo gun squeezing force setting.**”
+*   <mark style="color:green;">**How can I arbitrarily change the moving electrode consumption amount of the servo gun?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R212: 서보건 이동전극 마모량 프리셋**”으로 변경할 수 있습니다. 건서치를 수행하면 이 값은 다시 자동으로 갱신됩니다.
-*   <mark style="color:green;">**서보건의 고정전극 마모량을 임의로 변경하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R212: Servo gun moving electrode consumption amount preset.**” When gun search is performed, this value will be automatically updated.
+*   <mark style="color:green;">**How can I arbitrarily change the fixed electrode consumption amount of the servo gun?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R213: 서보건 고정전극 마모량 프리셋**”으로 변경할 수 있습니다. 건서치를 수행하면 이 값은 다시 자동으로 갱신됩니다.
-*   <mark style="color:green;">**Eqless건의 고정전극 마모량을 임의로 변경하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R213: Servo gun fixed electrode consumption amount preset.**” When gun search is performed, this value will be automatically updated.
+*   <mark style="color:green;">**How can I arbitrarily change the fixed electrode consumption amount of the equalizerless gun?**</mark>
 
-    선택된 건의 건타입이 Eqless건인 경우 “**R220: Eqless건 고정전극 마모량 프리셋**”으로 변경할 수 있습니다. 건서치를 수행하면 이 값은 다시 자동으로 갱신됩니다.
-*   <mark style="color:green;">**로봇이 자동운전중인데 용접조건의 가압력을 변경하려 합니다. 어떻게 하나요?**</mark>
+    If the selected gun type is equalizerless gun, you can change it with “**R220: Equalizerless gun fixed electrode consumption amount preset.**” When gun search is performed, this value will be automatically updated.
+*   <mark style="color:green;">**I am now operating a robot in automatic mode and want to change the squeezing force in the welding condition. How can I do it?**</mark>
 
-    “**R215: 스폿용접조건 가압력 설정**”으로 현재 로봇이 자동운전 중이라도 용접조건의 가압력 설정 값을 변경할 수 있습니다.
-*   <mark style="color:green;">**현재 선택된 용접조건, 용접시퀀스 번호를 수동으로 변경 가능하나요?**</mark>
+    With “**R215: Spot welding condition squeezing force setting,**” you can change the value of the squeezing force set in the welding condition even currently in the middle of automatic operation of the robot. 
+*   <mark style="color:green;">**Can I manually change the currently selected welding condition and welding sequence numbers?**</mark>
 
-    용접조건은 사용자키에 \[**cond.sel**]을, 용접시퀀스는 \[**seq.sel**]을 누르고 원하는 번호로 변경할 수 있습니다.
-*   <mark style="color:green;">**『설정』 → 『4: 응용 파라미터』 → 『1: 스폿용접』 메뉴에 진입하기 위한 단축키는 없나요?**</mark>
+    In the case of the welding condition, press \[**cond.sel**] and in the case of welding sequence, press\[**seq.sel**] to change to a desired number.
+*   <mark style="color:green;">**Is there any shortcut key to enter the menu of『Setting』 → 『4: Application parameter』 → 『1: Spot welding』?**</mark>
 
-    수동모드 초기화면에서 스폿용접 관련 명령문(spot, gunsea, igunsea, egunsea)에 커서를 위치하고 \[**속성**]을 누르면 해당 메뉴로 빠르게 진입할 수 있습니다
-*   <mark style="color:green;">**판넬 두께를 수동으로 변경하고 싶은데요?**</mark>
+    You can quickly enter the menu by placing the cursor on the spot welding related command (spot, gunsea, igunsea, and egunsea) on the initial screen of the manual mode and pressing \[**Attribute**.] 
+*   <mark style="color:green;">**How can I manually change the panel thickness?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R220: 판넬 두께 설정 (Sv)**”으로 변경할 수 있습니다.
-*   <mark style="color:green;">**스폿용접 스텝의 기록 위치를 정상 값으로 일괄적으로 수정하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R220: Panel thickness setting (Sv).**”
+*   <mark style="color:green;">**How can I change the record positions of the spot welding steps to normal values once?**</mark>
 
-    『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』→ 『**2: 사용환경 설정**』에서 “**서보건 용접스텝 기록위치 자동조정**”항목을 <**유효**>로 설정한 후, 작업 프로그램을 재생하면 간단하게 수행할 수 있습니다.
-*   <mark style="color:green;">**용접점이 누락되었는지 검출할 수 있나요?**</mark>
+    You can change it simply by setting <**Valid**> for the “**Automatic adjustment of servo gun welding step record position**” item in 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』→ 『**2: Use environment setting**』 and then playing back the work program.
+*   <mark style="color:green;">**Is it possible for any missed welding point to be detected?**</mark>
 
-    작업 프로그램 시작에서 용접수행 횟수를 초기화 후 용접을 정상적으로 수행하면 용접수행 횟수를 증가합니다. 작업수행 완료 시 용접 해야 할 타점수와 용접수행 횟수를 비교하면 되므로 하기와 같이 프로그램 하면 됩니다.
+    When you initialize the number of weldings in the work program start menu and then perform weldings normally, the number of weldings will increase. Considering that you need to compare between the number of spots for completion of welding and the number of weldings performed, you need to create a program as follows.
 
     　　　　　　　　　　　　　　　![](<_assets/image_68.png>)
-*   <mark style="color:green;">**로봇이 핸들링 작업을 하는 동안 이와 독립적으로 정치형 서보건에 대해 팁드레싱 작업 및 건서치 작업을 수행하면 작업 시간을 단축할 수 있을 텐데 방법이 있나요?**</mark>
+*   <mark style="color:green;">**It seems that the working time can be shortened if tip dressing and gun search operations for a stationary servo gun is performed, independently from the handling operation. Is there any way to do this?**</mark>
 
-    멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. 별도의 [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
-.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
+    It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/).
+

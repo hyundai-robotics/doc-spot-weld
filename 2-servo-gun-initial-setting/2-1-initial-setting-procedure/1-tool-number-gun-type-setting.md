@@ -1,34 +1,34 @@
-﻿# 2.1.1 건번호 대응 툴번호, 건타입 설정
+﻿# 2.1.1 Setting of the tool number and gun type corresponding to the gun number
 
-스폿건 번호에 대응되는 툴번호와 건타입을 설정합니다. 다양한 용접건을 개별 용접기와 툴 번호에 용도에 맞게 설정할 수 있도록 지원합니다. 건타입에 따라 용접방식이 상이하므로 반드시 정확하게 설정되어야 합니다. 건의 추가는 우측 '+' 표시로 가능하며 최대 16개까지 가능합니다.
+This function sets the tool number and gun type corresponding to the spot welding gun number. It supports in a way that a vriety of welding guns can be configured to match with the use of individual welders and tool numbers. Because the welding method varies depending on the gun type, the setting must be performed correctly. Guns can be added using the '+' sign on the right and up to 16 guns can be added.
 
 
 <p align="center">
  <img src="../../_assets/image_31.png" width="70%"></img>
- <em><p align="center">그림 2.2 건 기본 설정</p></em>
+ <em><p align="center">Figure 2.2 Gun default setting</p></em>
 </p>
 
 
-‘용접기’는 해당 건 번호에 연결된 용접기를 지정하는 것으로 해당 건으로 용접 시 해당 용접기 설정에 맞는 포트로 신호를 입, 출력 합니다. 다수의 건이 서보 툴 체인지 기능을 통해 공유하여 사용 가능합니다. 
+‘Welder’ is for designating the welder linked with the relevant gun number. When welding is performed with the relevant gun, the signal is inputted to and outputted from the port that matches with the setting of the relevant welder. Multiple guns can be shared and used through the servo tool change function. 
 
-‘툴’이란 로봇의 R1축 선단과 결합되는 물체를 의미하고, 로봇 이 툴의 정보를 알고 있어야 합니다. ‘툴 번호’는 해당 건 번호와 매칭될 툴 번호를 의미하는 것으로, 해당 툴 번호에는 부하 추정과 툴 데이터 입력이 되어 있어야 합니다. 일반적으로 건 마다 다른 형태를 하고 있으므로 건 번호마다 유일한 ‘툴 번호’를 선택합니다. 정치형 건에 대해서는 R1축 선단과 결합되지 않으므로 임의로 설정해도 무방합니다. 작업 교시 시 용접에 사용되는 Spot 명령어의 건 번호와 Move 명령어의 툴 번호가 매칭되지 않을 경우 재생이 불가하니 참고하시기 바랍니다.
+‘Tool’ refers to an object coupled with the tip of the R1 axis of the robot, and the robot should know the tool information. ‘Tool number’ refers to the tool number to be matched with the relevant gun number, and there should be load estimation and tool data inputted in the relelvant tool number. In general, individual gun have different shapes, so a unique ‘tool number’ should be selected for each gun number.As stationary guns are not to be coupled with the tip of the R1 axis, it would be no problem to perform arbitrary setting for them. During the work teaching, if the gun number of the Spot command and the tool number of the Move command are not matched with eath other, playback will not be possible. Please note this.  
 
-건 타입’은 해당 건의 타입으로 3가지 중에 한 가지를 선택합니다. 해당 건의 타입이 서보건인 경우 해당 건에 할당된 부가 축 정보를 같이 입력해야 합니다. 이 부가 축 정보는 서보 툴 체인지 사용 시 여러 건에 동일한 부가 축이 할당될 수 있으니 참고하시기 바랍니다.
+‘Gun type’ refers to the gun type of the relevant gun. You can select one among three types. If the gun type of the relevant gun is servo gun, the information of the additional axis assigned to the relevant gun should be inputted. When it comes to the information of the additional axis, the same additional axis can be assigned to multiple guns during the use of the servo tool change function. Please note this.
 
 </br>
 
-◆【참고사항】◆ 
+◆【Note】◆ 
 
--	툴 번호에 대응되는 건번호가 설정되지 않으면 그 툴 번호는 타용도로 사용이 가능합니다.
+-	If the gun number corresponding to the tool number is not set, the tool number may be used for other purposes.
 
--	건타입을 서보건으로 설정할 때, 건번호에 해당하는 부가축 번호는 다음과 같은 방식으로 설정하십시오.
+-	When setting the gun type as servo gun, it is required to set the additional axis number corresponding to the gun number in the following method.
 
 <center>
 
-|건번호	|건용도|	부가축 번호|
+|Gun number	|Gun usage|	Additional axis number|
 |:---:|:---:|:---:|
-|G1, G2|	서보건을 포함한 용접건 체인지|	부가축 1|
-|G5|	정치형 서보건 1|	부가축 2|
-|G6|	정치형 서보건 2|	부가축 3|
+|G1, G2|	Change of welding guns including the servo gun|	Additional axis 1|
+|G5|	Stationary servo gun 1|	Additional axis 2|
+|G6|	Stationary servo gun 2|	Additional axis 3|
 
 </center>

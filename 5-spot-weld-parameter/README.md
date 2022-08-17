@@ -1,2 +1,2 @@
-﻿# 5. 스폿용접 파라미터
+﻿# 5.  Spot welding parameters
 

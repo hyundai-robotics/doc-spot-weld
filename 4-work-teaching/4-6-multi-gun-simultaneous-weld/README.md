@@ -1,3 +1,3 @@
-﻿# 4.6 멀티건 동시용접
+﻿# 4.6 Simultaneous welding with multiple guns
 
-스폿용접의 일반적인 형태는 한번에 하나의 용접건으로 용접 작업을 수행합니다. 멀티건 동시용접 기능이란 한번에 여러 개의 용접건으로 동시에 용접하는 행위를 말합니다. 이를 위해서는 건의 건타입(서보건, Eqless건, Eq건)이 모두 동일해야 합니다.
+In general, spot welding is performed with one welding gun at a time. The function of simultaneous welding with multiple guns is the act of welding with multiple welding guns at the same time. For this, the gun type (servo gun, equalizerless gun, or equalizer-fitted gun) should be all the same.

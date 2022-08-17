@@ -1,33 +1,37 @@
-﻿# 5.2.1.1.1 실시간 가압력 제어
+﻿# 5.2.1.1.1 Real-time squeezing force control
 
-실시간 가압력 제어는 가압력계로 측정한 데이터를 제어에 활용하여 서보건 가압력의 정확도를 향상시키는 기능입니다. 실시간 가압력 제어를 위해 가압력계는 로봇제어기와 통신을 해야 하고, 아래 메뉴로 통신사양을 설정합니다.
+Real-time squeezing force control is a function to improve the accuracy of servo gun's squeezing force by using the data, measured by the squeezing force gauge, for control. For real-time squeezing force control, the squeezing force gauge should communicate with the robot controller and should be set to relevant communication specifications using the menus below.
 
 <p align=center>
 <img src="../../../../_assets/image_30.png" width="70%"></img>
-<em><p align="center">그림 5.6 실시간 가압력 제어 설정</p></em>
+<em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
 </p>
 
-(1)  **통신 방식**
-- 아날로그와 디지털 중 통신 방식을 설정합니다. 빠르고 안정적인 제어를 위해 디지털 방식을 추천합니다.
+(1)  **Communication method**
 
-(2)  **제어기 필터 추가 사용**
-- 제어기 필터가 추가적으로 필요할 경우 사용합니다.
+    Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
+(2)  **Additional use of controller filter**
 
-(3)  **Cut-off 주파수**
--  제어기 필터 추가 사용을 유효로 설정 할 경우 활성화됩니다. 제어에 필요한 필터의 크기를 설정하십시오.
+    To be used when an additional controller filter is needed.
+(3)  **Cut-off frequency**
 
-(4)  **Reset 신호 출력**
-- 가압력계 reset을 위해 출력할 신호를 할당합니다. 신호 할당 시 서보건이 가압을 할 때마다 신호가 출력됩니다.&#x20;
+    Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
+(4)  **Reset signal output**
 
-(5)  **<아날로그>**
-- 통신 방식을 아날로그로 선택한 경우 활성화됩니다.
-    * 가압력 입력 포트: 입력을 위해 할당된 신호의 번호
-    * 배율: 아날로그 입력값의 배율
+    Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
+(5)  **<Analog>**
 
-(6)  **<디지털>**
-- 통신 방식이 디지털인 경우 활성화됩니다.
+    Will be activated when analog is selected as the communication method.
 
-    * 통신 범위: 할당된 신호의 최소, 최대 범위
-    * 값 범위: 할당된 신호의 최소, 최대 값
-    * 포트: 입력을 위해 할당된 신호의 번호
-    * 포트 할당: 신호에 할당된 비트 수
+    * Squeezing force input port: The number of the signal assigned for input
+    * Magnification: Magnification of the analog input value
+(6)  **<Digital>**
+
+    Will be activated when digital is selected as the communication method.
+
+    * Communication range: Minimum and maximum ranges of the assigned signal
+    * Value range: Minimum and maximum values of the assigned signal
+    * Port: The number of the signal assigned for input
+    * Port assignment: Bit count assigned to a signal
+
+

@@ -1,21 +1,21 @@
-﻿# 4.1.3 건서치 기준위치 기록
+﻿# 4.1.3 Gun search reference position record
 
-전극의 마모량은 마모가 없는 새 팁을 기준으로 측정됩니다. 따라서 새 팁에서 기준위치를 등록해 두는 과정이 초기에 한 번은 반드시 필요하며 이를 건서치 기준위치 기록이라고 합니다.
+The consumption amount of an electrode is measured based on an unconsumed new tip. Therefore, the process of registering the reference position with a new tip is absolutely necessary at least once in the beginning, and this is called gun search reference position record.
 
 {% hint style="info" %}
-[주의]
-**건서치를 수행하기 전에 반드시 한번은 건서치 기준위치를 기록하여야 합니다.**
+[Caution]
+**The gun search reference position must be recorded at least once before the execution of gun search**
 {% endhint %}
 
-건서치 기준위치를 기록하는 방법은 마모되지 않은 새 팁을 부착한 후 다음의 절차에 따라 실행합니다.
+ When it comes to the method of recording a gun search reference position, new tips should be attached first and then the recording should be executed according to the following procedures.
 
 
 <p align="center">
  <img src="../../_assets/image_51.png" width="70%"></img>
- <em><p align="center">그림 4.2 사용환경 설정 화면</p></em>
+ <em><p align="center">Figure 4.2 Use environment setting screen</p></em>
 </p>
 
 
->1. 『**2: 건서치 기준위치 기록**』을 <**유효**>로 설정합니다.
->2. 작성된 건서치 프로그램을 실행합니다. 스폿 모니터링 화면에 건서치 상태가 “**미완료**”로 >초기화됩니다.
->3. 『**2: 건서치 기준위치 기록**』을 <**무효**>로 설정합니다. 이후 건서치 프로그램을 이용하여 기준위치 대비 변화된 양을 마모량으로 계산하게 됩니다.
+>1. Set 『**2: Gun search reference position record**』 to <**Valid**>.
+>2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to “**Incomplete**”.
+>3. Set 『**2: Gun search reference position record**』 to <**Invalid**>. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.

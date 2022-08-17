@@ -1,3 +1,3 @@
-﻿# 5.2.1 서보건
+# 5.2.1 Servo gun
 
-건타입이 서보건이면 아래와 같이 서보건과 관련된 파라미터를 설정하는 화면이 표시됩니다.
+ If the gun type is servo gun, a screen for setting the parameters related to the servo gun will be indicated as shown below.

@@ -1,3 +1,3 @@
-﻿# 4.3.1 조건설정
+﻿# 4.3.1 Condition setting
 
-서보건의 팁드레싱 조건은 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 →『**4: 용접데이터(조건, 시퀀스)**』 → 『**4: 서보건 팁드레싱 조건**』 에서 설정합니다. 해당 메뉴를 참고하십시오.
+The tip dressing condition for the servo gun can be set in 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 →『**4: Welding data (condition, sequence)**』 → 『**4: Servo gun tip dressing condition**.』 Refer to the relevant menus.

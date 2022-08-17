@@ -1,15 +1,15 @@
-﻿# 5.3.1 공통데이터
+﻿# 5.3.1 Common data
 
-스폿용접시퀀스에 관계없이 공통으로 적용되는 데이터를 설정합니다.
+Sets the data to be commonly applied regardless of the sequence of the spot welding.
 
 
 <p align=center>
 <img src="../../_assets/image_63.png" width="70%"></img>
-<em><p align="center">그림 5.10 공통데이터 설정</p></em>
+<em><p align="center">Figure 5.10 Common data setting</p></em>
 </p>
 
 </br>
 
-*  재용접 회수
+*  The number of re-weldings
 
-    설정된 용접완료(WI) 대기시간을 초과하여도 WI가 입력되지 않는 경우에 재용접을 실행합니다. 재용접 회수는 최대 3회까지 지정할 수 있으며 재용접 회수만큼 재시도 후에도 WI가 입력되지 않으면 에러를 발생합니다.
+    If there is no input of WI even when the set welding completion (WI) wait time is exceeded, re-welding will be executed. the number of re-weldings can be set up to three. If there is no input of WI even re-welding is tried as many as the set number of re-weldings, an error will be generated.

@@ -1,14 +1,14 @@
-﻿# 4.4.2 티칭방법
+# 4.4.2 How to teach
 
-(1)  판넬 두께가 등록된 상태에서는 이동전극을 개방한 채 고정전극만 판넬에 접촉한 상태로 교시를 진행합니다.
+(1)  In a state that the panel thickness is registered, proceed with teaching while keeping the moving electrode open and only the fixed electrode in contact with the panel.
 
 
 
 <p align="center">
  <img src="../../_assets/image_83.png" width="70%"></img>
- <em><p align="center">그림 4.13 판넬 두께가 동일한 작업의 작업방식</p></em>
+ <em><p align="center">Figure 4.13 Method of working when the panel thickness is the same</p></em>
 </p>
 
 </br>
 
-(2) 판넬 두께가 변경될 때, 판넬 두께를 다시 등록한 후 교시합니다.
+(2) When the panel thickness is changed, perform teaching after registering the panel thickness again.

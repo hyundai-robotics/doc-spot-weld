@@ -1,26 +1,26 @@
-﻿# 2.2 Step 0. 사전 점검
+﻿# 2.2 Step 0. Pre-inspection
 
-사전 점검은 서보건 초기 설정을 위해 반드시 선 수행되어야 하는 항목으로 본 메뉴 진입 전 다음의 설정이 완료되어 있어야 합니다.
+Pre-inspection is an item that must be performed in advance for the initial setting of the servo gun, and it is required to complete the following setting before entering main menus.
 
-* **부가축 파라미터**
-  * 지정된 부가축에 사용하고자 하는 서보건의 모터 및 Amp 사양 등을 기입
-  * 소프트 리밋은 초기 설정 절차 중 변경하기 때문에 임의로 설정 가능
-* **건 번호 대응 툴 번호 설정**&#x20;
-  * 현재 설정하고자 하는 서보건과 건번호를 지정
-* **툴 데이터 설정**
-  * 부하 추정 및 툴의 각도/길이 등 기입
-* **서보건 파라미터 설정**
-  * 지령값 옵셋, 가압력 허용 오차 등 필요한 항목 설정
+* **Additional axis parameter**
+  * To input the motor and amp specifications, etc. of the motor of the servo gun that is to be used for the designated additional axis.
+  * Soft limit can be set arbitrarily because it is changed during the initial setting procedure.
+* **Setting of the tool number corresponding to the gun number**&#x20;
+  * To designate the servo gun and gun number that you want to set now.
+* **Tool data setting**
+  * To input load estimation, tool angle/length, etc.
+* **Servo gun parameter setting**
+  * To set necessary items such as command value offset, squeezing force permissible error.
 
-사전 점검 단계에서는 사전 설정들의 완료 여부를 확인 합니다. 사전 설정 미 수행 시 관련된 설정을 할 수 있는 화면으로 이동할 수 있으니 반드시 설정을 완료 한 후에 서보건 초기 설정을 진행하십시오.
+Pre-inspection is a step to check whether the pre-setting items have been completed. If they are not performed, you can move to the screen where you can perform relevant settings. You must complete the relevant settings before proceeding with the initial setting of the servo gun.
 
 <p align="center">
  <img src="../_assets/image_27.png" width="90%"></img>
- <em><p align="center">그림 2.4 사전 점검 진행 절차</p></em>
+ <em><p align="center">Figure 2.4 Pre-inspection proceeding procedure</p></em>
 </p>
 
 {% hint style="warning" %}
-\[**주의**]   “**부가축 파라미터 설정**” 화면에서 설정 완료 시 사전 점검 완료 후 재부팅을 요청합니다.
+\[**Caution**]  If you complete the setting on the “**Additional axis parameter setting**” screen, you will be asked to reboot after completing the pre-inspection.
 
-재부팅 후 다시 “**서보건 자동 설정**” 화면으로 다시 진입하여 설정을 계속 하십시오.
+After rebooting, you should enter the “**Servo gun automatic setting**” screen and continue the setting. 
 {% endhint %}

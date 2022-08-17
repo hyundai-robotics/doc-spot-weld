@@ -1,7 +1,7 @@
-﻿# 1.3 서보건 전극간 이동에 따른 용어
+# 1.3 Terms in line with the movement between the electrodes of the servo gun
 
 
 <p align="center">
  <img src="../_assets/image_8.png" width="70%"></img>
- <em><p align="center">그림 1.3 이동전극과 고정전극 용어</p></em>
+ <em><p align="center">Figure 1.3 Terms for the moving and fixed electrodes</p></em>
 </p>

@@ -1,15 +1,15 @@
-﻿# 4.3.2 동작형태
+﻿# 4.3.2 Type of operation
 
-서보건 팁드레싱 조건을 이용하여 팁드레싱 동작을 수행하려면 아래와 같이 spot 명령문의 용접시퀀스 번호는 반드시 64로 지정해야 합니다.
+To perform a tip dressing operation using the servo tip dressing condition, the welding sequence number in the Spot statement must be designated as 64 as shown below.
 
 
 <p align="center">
  <img src="../../_assets/image_77.png" width="60%"></img>
- <em><p align="center">그림 4.11 서보팁 드레싱 동작</p></em>
+ <em><p align="center">Figure 4.11 Servo gun tip dressing operation</p></em>
 </p>
 
->1. N-1스텝의 위치로부터 이동전극은 기록위치로부터 이동전극 Clearance만큼, 고정전극은 기록위치로부터 고정전극 Clearance만큼 떨어진 위치로 이동합니다.
->2. 스텝의 기록위치로 이동합니다.
->3. 용접조건에 설정된 가압력으로 이동전극이 가압 동작을 수행합니다. 가압력 일치가 되면 그 위치에서 용접조건 신호를 출력합니다. 이때 용접실행 신호를 함께 출력할지는 팁드레싱 조건에서 “**용접신호 출력**”설정 상태에 따라 결정됩니다.
->4. 설정된 팁드레싱 시간이 경과되면 이동전극과 고정전극이 각각 Clearance만큼 개방합니다.
->5. 다음 스텝으로 이동합니다.
+>1. At the N-1 step position, the moving electrode moves to the position away from the record position as much as the moving electrode clearance and the fixed electrode moves to the position away from the record position as much as the fixed electrode clerance.
+>2. Movement to the record position of the step occurs.
+>3. The moving electrode performs the squeezing operation with the squeezing force set in the welding condition. When the squeezing force is matched, the welding condition signal is outputted at the position. Whether the welding execution signal is outputted together at this time can be determined by the state of the “**Welding signal output**” setting in the tip dressing condition.
+>4. When the set tip dressing time passes, the moving and fixed electrodes open as much as the clearance of each, respectively.
+>5. Movement to the next step occurs.

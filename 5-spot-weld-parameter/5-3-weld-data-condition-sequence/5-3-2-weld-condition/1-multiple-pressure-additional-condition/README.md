@@ -1,2 +1,2 @@
-﻿# 5.3.2.1. 다단 가압 및 보조 조건
+﻿# 5.3.2.1. Multi-step and auxiliary conditions
 

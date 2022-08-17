@@ -1,25 +1,26 @@
-﻿# 4.10 마모량 설정
+﻿# 4.10 Consumption amount setting
 
-아래의 시스템 변수는 건의 전체 마모량을 임의로 설정하거나, 건서치로 측정한 전체 마모량을 저장하고 있습니다.
+The following system variable sets the gun's total consumption amount arbitrarily, or stores the total consumption amount measured through the gun search function.
+.
 
 ```
-_tipwear[건 번호]
+_tipwear[gun number]
 ```
 
-|      **항목**      | 　　　　　　　　　　**내용**       |
+|      **Item**      | 　　　　　　　　　　**Content**       |
 | :--------------: | ---------------------- |
-| **건 번호\[1\~16]** | 용접건 번호를 지정(총 16개까지 가능) |
+| **Gun number\[1\–16]** | Designates the welding gun number (totally up to 16 numbers) |
 
-위 변수로 마모량을 임의로 설정하는 경우 입력한 전체 마모량은 이동전극 마모량 설정 비율을 적용하여 이동/고정전극에 마모량이 적용됩니다. 이 값은 건서치 수행하기 전까지만 유지됩니다.
+If the consumption amount is arbitrarily set using the above variable, the total consumption amount will apply to the moving and fixed electrodes according to the ratio set for the moving electrode consumption amount. The value will be maintained until the execution of gun search.
 
 ```
-사용 예1)
-V1!=_tipwear[1]  	‘건서치로 측정한1번 건의 마모량을 V1!에 저장
+Use example 1)
+V1!=_tipwear[1]  	Sets the consumption amount of the gun 1, measured through gun search, in V1!
 
-사용 예2)
-_tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
+Use example 2)
+_tipwear[2]=V1!		Sets the total consumption amount of the gun 1 in V1!
 ```
 
 {% hint style="warning" %}
-\[**주의**]: 서보건 및 Eqless 건에만 적용이 가능하며, Eqless건의 경우 전체 마모량은 고정전극 마모량과 같습니다.
+\[**Cautio**]: This variable can apply only to servo and equalizerless guns. In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.
 {% endhint %}

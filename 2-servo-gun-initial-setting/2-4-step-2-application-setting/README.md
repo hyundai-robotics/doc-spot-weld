@@ -1,30 +1,30 @@
-﻿# 2.4 Step 2. 응용 설정
+﻿# 2.4 Step 2. Application setting
 
-기본 설정이 완료되면 응용 설정이 가능합니다. 응용 설정은 ‘**가압력-전류 테이블 튜닝**’ 후에 설정이 가능한 항목으로, 건 서치의 기준 위치를 정하고, 가압 시 서보건 암의 휨량을 추정하고, 정확한 판넬 두께 측정하기 위한 보정 절차로 이루어져 있습니다.
+When the default setting is completed, the application setting can be performed. The application setting is the item that can be performed after the ‘**squeezing force - current table tuning**.’ It consists of a procedure for setting the reference position for the gun search, a procedure for estimating the amount of the servo gun arm deflection during the squeeze operation, and a compensation procedure for accurate measurement of the panel thickness.
 
-응용 설정은 아래 그림과 같이 3가지 항목으로 구성되어 있습니다.
+The application setting consists of three items as shown in the figure below.
 
 <p align="center">
  <img src="../../_assets/image_58.png" width=70%></img>
- <em><p align="center">그림 2.15 서보건 응용 설정 화면</p></em>
+ <em><p align="center">Figure 2.15 Servo gun application setting screen</p></em>
 </p>
 
->1. **건 서치**
->     * 팁의 마모량 측정을 위해 기준이 되는 위치를 설정하고, 마모량 체크를 1회 합니다.
->     * 수동 설정을 위해서는 “[**4.1 건서치**](../../4-work-teaching/4-1-gun-search/)” 챕터를 참고하십시오.
->2. **건 암 휨량 보정**
->      * 건 암 휨량 보정은 서보건 가압 시 건 암이 휘는 정도를 보정하기 위해 설정이 필요합니다. 가압력-전류 테이블에 설정된 가압력에 따른 휨량을 설정합니다.
->      * 수동 설정을 위해서는 위 그림의 수동설정 버튼을 누르거나, 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: 용접건 파라미터**』에서 설정하고자 하는 건 번호 선택 후 『**응용 조건**』을 눌러 진입합니다.
->3. **판넬 두께 측정 보정**
->      * 판넬 두께 측정 보정은 ThickCheck 명령어로 측정된 판넬의 두께 정밀도를 향상 시키기 위한 설정입니다.
->     * 수동 설정을 위해서는 위 그림의 수동설정 버튼을 누르거나, 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: 용접건 파라미터**』에서 설정하고자 하는 건 번호 선택 후 『**응용 조건**』을 눌러 진입합니다.
+>1. **Gun search**
+>     * Sets the reference position for measuring the consumption amount of the tip and checks the consumption amount once.
+>     * For manual setting, refer to “[**4.1 Gun search**](../../4-work-teaching/4-1-gun-search/).”
+>2. **Gun arm deflection amount compensation**
+>      * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force – current table.
+>      * For manual setting, press the Manual setting key in the figure above, or, in the screen of『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Weldin gun parameter**』, set the gun number that needs to be set and then press 『**Application condition**』 to enter.
+>3. **Panel thickness measurement compensation**
+>      * The panel thickness measurement compensation is a setting to improve the accuracy of the panel thickness measured with the ThickCheck command.
+>     * For manual setting, press the Manual setting button in the figure above, or, in the screen of『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Welding gun parameter**』, set the gun number that needs to be set and the press the 『**Application condition**』 key to enter.
 
-응용 설정 중 ‘건서치’ 설정은 필수 설정으로 ‘건서치’설정이 되어 있지 않으면 스폿 용접 관련된 명령어 실행 및 교시가 불가합니다.(예, spot gn=1,…) 반면, ‘**건 암 휨량 보정**’과 ‘**판넬 두께 측정 보정**’은 스폿 용접 관련 명령어 실행 및 교시와는 무관하지만 정확한 동작 및 판넬 두께 측정을 위해 필요한 설정입니다.
+Among the application setting items, the ‘gun search’ setting is essential. If ‘gun search’ is not set, it is impossible to execute and teach commands related to spot welding (for example, spot gn=1,…). On the other hand, '**gun arm deflection amount compensation**' and '**panel thickness measurement compensation**' has nothing to do with the execution and teaching of commands related to spot welding, but are necessary settings for accurate operation and accurate panel thickness measurement.
 
-응용 설정은 자동 설정과 수동 설정으로 진행할 수 있습니다.
+The application setting can be progressed in automatic setting and manual setting.
 
-   (1) **자동 설정**  
-   * 서보건이 자동으로 움직여 ‘**건서치**’, ‘**건 암 휨량 보정**’ 과 ‘**판넬 두께 측정 보정**’을 실행합니다. 응용 설정의 전 항목이 자동으로 설정 가능합니다.  
+   (1) **Automatic setting**  
+   * The servo gun automatically moves to execute ‘**gun search**’, ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’. All items of the application setting can be performed automatically.  
   
-   (2) **수동 설정**  
-   * 사용자가 직접 ‘**건서치**’를 수행하고, ‘**건 암 휨량 보정**’ 과 ‘**판넬 두께 측정 보정**’값을 기입합니다.  
+   (2) **Manual setting**  
+   * The user directly performs ‘**gun search**’ and inputs the ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’ values.  

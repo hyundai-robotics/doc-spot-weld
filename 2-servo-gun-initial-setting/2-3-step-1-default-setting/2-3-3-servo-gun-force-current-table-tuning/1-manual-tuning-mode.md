@@ -1,74 +1,74 @@
-﻿# 2.3.3.1 수동 튜닝 모드
+﻿# 2.3.3.1 Manual tuning mode
 
-수동 튜닝 모드는 서보건 가압력 –전류테이블 설정을 수동으로 수행할 때 사용하는 기능입니다. 서보건 가압 후 측정된 가압력을 사용자가 직접 티칭 펜던트를 이용하여 입력하면 자동으로 최적의 지령전류를 계산합니다. 이 과정을 반복적으로 수행하여 정확도를 높여야 하며 정확도는 수렴 정도 및 테스트 가압으로 확인할 수 있습니다.
+The manual tuning mode is a function to manually perform the servo gun squeezing force – current table setting. After the servo gun squeezing occurs, if the user directly inputs the measured squeezing force by using the teaching pendant, the optimal command current will be automatically calculated. This process should be repeated to increase the accuracy. The accuracy can be verified by the degree of convergence and test squeezing.
 
-당사에서 권장하는 수동 모드 서보건 가압력 - 전류테이블 설정 절차는 아래와 같습니다.
+The procedure for setting the servo gun squeezing force – current table in manual mode, recommended by our company, is as follows.
 
 <p align="center">
  <img src="../../../_assets/image_84.png" width=70%></img>
- <em><p align="center">그림 2.14 서보건 수동 튜닝 화면</p></em>
+ <em><p align="center">Figure 2.14 Servo gun manual tuning screen</p></em>
 </p>
  
 
->1. 튜닝을 원하는 이동전극 방향을 설정(중력 또는 반중력)
->2. \[**Shift**] + \[**서보건 수동압력**] 또는 서보건 축 조그로 이동전극이 가압력계에 맞닿는 위치로 이동하여 가압력계 두께 측정(전극간 거리)
->3. 측정한 두께를 화면 상단 가압력계 두께에 입력
->4. 설정하고자 하는 가압력의 대푯 값을‘**설정 가압력**’에 입력
->5. 가압하고자 하는 설정 가압력 행에서 서보건 가압 (아래 그림에서는 현재 녹색 포커스가 있는 100 kgf로 가압함. svgun man press: \[**Ctrl**]/\[**Shift**] + \[**서보건 수동압력**])
->6. 가압력계로 측정된 가압력을 ‘**측정 가압력**’에 기입
->7. 모든 설정 가압력에 대해 3 \~ 6과정을 반복
->8. 입력 완료 후 \[**지령전류 계산**]을 눌러 설정 가압력에 맞는 지령 전류 계산
->9. 수렴 정도를 확인 및 테스트 가압으로 지령 전류의 반복 계산이 필요한 경우 3 \~ 8 과정을 반복
->10. 특정 가압력의 지령 전류만 계산하기 원하는 경우 측정 가압력 입력 후 \[**지령전류 개별 계산**]을 실행
->11. \[**저장하기**]를 눌러 현재 설정 저장 후 이동 전극 방향 변경 후 1 \~ 8 과정을 반복
+>1. Set the direction of the moving electrode that needs tuning (gravity or anti-gravity).
+>2. With the \[**Shift**] + \[**Servo gun manual pressure**] keys or by jogging the axis of the servo gun, bring the moving electrode to the position where it can contact the squeezing force gauge, and then measure the thickness of the squeezing force gauge (distance between electrodes).
+>3.  Input the measured thickness into the squeezing force gauge thicknes section shown at the upper part of the screen (distance between electrodes).
+>4. Input the desired representative value of the squeezing force that you want to set into the ‘**Set squeezing force**’ section.
+>5. Squeeze the servo gun according to the line that indicates the set squeezing force with which you want to perform squeezing. (In the figure below, squeezing is performed with 100 kfg currently indicated with a green focus. svgun man press: \[**Ctrl**]/\[**Shift**] + \[**Servo gun manual pressure**])
+>6. Input the squeezing force measured with the squeezing force gauge into the ‘**Measured squeezing force**’ section.
+>7. Repeat steps 3–6 for all set squeezing forces.
+>8. After completing the inputting, press the \[**Command current calculation**] button to calculate the command current that matches the set squeezing force.
+>9. When necessary to check the degree of convergence and perform repetead calculation of the command current through test squeezing, repeat steps 3–8.
+>10. If you want to calculate only the command current for a specific squeezing force, input the measured squeezing force and then execute the \[**Command current individual calculation**] process.
+>11. Save the current setting by pressing \[**Save**]. After that, change the direction of the moving electrode and then repeat steps 1–8 above.
 
 </br>
 
-서보건 가압을 위해서는 \[**Shift**] + \[**서보건 수동압력**] 또는 \[**Ctrl**] + \[**서보건 수동압력**]을 눌러야 합니다. \[**Ctrl**] + \[**서보건 수동압력**]이 자동모드와 동일한 제어를 하기 때문에 \[**Ctrl**] + \[**서보건 수동압력**]의 사용을 권장합니다.
+To squeeze the servo gun, you should press \[**Shift**] + \[**Servo gun manual pressure**] keys or \[**Ctrl**] + \[**Servo gun manual pressure**] keys. Considering that with the \[**Ctrl**] + \[**Servo gun manual pressure**] keys, you can perform controlling in the same manner as the automatic mode does, it is recommended to use \[**Ctrl**] + \[**Servo gun manual pressure**] keys. 
 
-아래 그림은 ‘지령 전류 계산’을 2회 수행한 후의 화면입니다. 수렴 정도가 충분히 낮은 경우 설정 가압력으로 가압하여 측정된 가압력과 차이를 확인 후 계속 진행 여부를 결정하십시오.
+The figure below is a screen showing the state after performing ‘command current calculation’ twice. If the degree of convergence is low enough, it is needed to carry out squeezing with the set squeezing force and check the difference with the measured pressure, and then decide whether to continute to proceed.
 
-지령 전류 계산을 위해 1개 이상의 측정 가압력을 입력해야 합니다. 초기 지령 전류가 서보건으로 가압 가능한 범위를 벗어난 경우 1 \~ 2개의 측정 가압력만을 입력 후 ‘지령 전류 계산’을 수행하여 초기 값을 다시 설정할 수 있습니다. 측정 가압력을 모두 입력하지 않고 지령 전류 계산을 수행하면 전반적인 정확도는 낮아지므로 초기 지령 전류 재설정하는 경우 이외에는 측정 가압력을 모두 입력 후 ‘지령 전류 계산’ 수행을 권장합니다.
+At least one measured squeezing force should be inputted for the command current calculation. If the initial command current exceeds the range where the servo gun can perform squeezing, you can reset the initial value by inputting only one or two measured squeezing forces and then performing the ‘command current calculation.’ If the command current calculation is performed without inputting all of the measured squeezing forces, the overall accuracy will be lower. Considering it, it is recommended to perform ‘command current calculation’ after inputting all measured squeezing forces, except for the case of resetting the initial command current.
 
-설정 항목에 대한 설명은 아래와 같습니다.
+The explanation for the setting items is as follow.
 
-*   **이동 전극의 방향**
+*   **Direction of the moving electrode**
 
-    현재 튜닝 중이 서보건의 이동전극 방향으로 중력 방향과 반중력 방향을 각각 1회씩 설정해야 합니다.
-*   **설정 가압력**
+    This is the direction of the moving electrode of the servo gun currently being tuned. The direction should be set once each for the direction of gravity direction of anti-gravity direction.
+*   **Set squeezing force**
 
-    사용하고자 하는 가압력의 대푯값으로 튜닝을 통해 설정 가압력과 대응되는 지령전류를 찾습니다.
-*   **측정 가압력**
+    This is the representative value of the squeezing force that is to be used. This is for finding the command current corresponding to the set squeezing force.
+*   **Measured squeezing force**
 
-    현재 지령 전류로 가압했을 때 측정된 가압력으로 사용자가 가압력계를 이용하여 직접 입력해야 합니다.
-*   **지령 전류**
+    This is the squeezing force measured when squeezing is performed with the current command current. The user should input the value directly by using the squeezing force gauage.
+*   **Command current**
 
-    현재 설정 가압력과 대응되는 지령 전류로 계산을 통해 갱신됩니다.
-*   **수렴 정도**
+    This is the command current corresponding to the currently set sequeeze force.
+*   **Degree of convergence**
 
-    전류 계산 후 이전 지령전류 대비 계산된 지령전류의 변화량으로 이 값이 낮을수록 가압력 튜닝의 정확도가 높습니다.
-*   **설정된 가압력 허용오차**
+   This value is the amount of variation of the calculated command current compared to the previous command current after the current calculation is performed. The lower this value, the higher the accuracy of the tuning of the squeezing force.
+*   **Permissible error for the set squeezing force**
 
-    서보건 파라미터 중 가압력 허용오차로 테스트 가압 후 현재 상태를 점검하는데 사용될 수 있습니다.
-*   **전극간 거리**
+    This is the squeezing force permissible error among the servo gun parameters and can be used to check the current state after the test squeezing.
+*   **Distance between electrodes**
 
-    서보건의 전극간 거리를 모니터링 할 수 있습니다. (가압과 개방 상태 모니터링 가능)
-*   **반복 계산 횟수**
+    This allows you to monitor the distance between the electrodes of the servo gun (possible to monitor the state of squeezing and opening).
+*   **Count of repeated calculations**
 
-    지금까지 ‘지령 전류 계산’을 눌러 지령 전류를 갱신한 횟수 입니다. 수차례 반복 후에도 수렴 정도가 줄어들지 않는다면 ‘지령 전류 개별 계산’을 사용하거나 가압력계와 서보건 상태를 점검하십시오.
-*   **측정 전류**
+    This is the number of times the command current has been updated by pressing the ‘Command current calculation’ key so far. If the degree of convergence does not decrease after several repetitions, use the ‘Command current individual calculation’ key or check the state of the squeezing force gauge and servo gun.
+*   **Measured currrent**
 
-    현재 측정된 전류로 가압 시 지령 전류에 근접하게 모니터링 됩니다.
+    This is the currently measured current and will be monitored in a way that it can get close to the command current when squeezing is performed.
 
-{% hint style="info" %}
-\[**주의**] \[**Ctrl**] + \[**서보건 수동압력**]은 1회 실행으로 가압 완료까지 동작하여, 중간에 버튼을 떼서 멈출 수 없습니다. 그러므로 가압 동작의 정지를 위해서는 인에이블 스위치를 놓거나, 비상정지 버튼을 누르십시오.또한 가압력계 두께가 실제와 다른 경우 자동 모드에서 가압력이 달라질 수 있으므로 정확한 값을 입력하십시오.
+{% hint style="info" %} \[**Caution**]
+The operation by selecting \[**Ctrl**] + \[**Servo gun manual pressure**] keys will work until the squeezing is completed with one execution, making it impossible to stop the operation by releasing the button in the middle. Therefore, stopping the squeeze operation requires you to release the enable switch or press the emergency stop button. Also, if the squeezing force gauge thickness is different from the actual value, the squeezing force will be different in automatic mode. So please input the correct value.
 
-현재 화면 오른쪽의 기능 버튼들로 서보건 설정과 동작이 가능하고 설정과 동작은 아래와 같습니다.
+You can set and operate the servo gun using the function buttons on the right side of the current screen. The related settings and operations are as follows.
 
-* \[**Shift**] + \[**서보건 대개방**]: 서보건 대개방(표시된 개방거리만큼 개방)
-* \[**Shift**] + \[**서보건 소개방**]: 서보건 소개방(표시된 개방거리만큼 개방)
-* \[**Shift**] + \[**서보건 수동압력**]: 서보건 가압(현재 커서가 위치한 가압력으로 가압)
-* \[**Ctrl**] + \[**서보건 대개방**]: 서보건 대개방 거리 설정
-* \[**Ctrl**] + \[**서보건 소개방**]: 서보건 소개방 거리 설정
-* \[**Ctrl**] + \[**서보건 수동압력**]: 서보건 가압(현재 커서가 위치한 가압력으로 가압, 자동모드와 동일 제어)
+* \[**Shift**] + \[**Servo gun wide opening**]: To open the servo gun wide (opening it as much as the indicated opening distance)
+* \[**Shift**] + \[**Servo gun narrow opening**]: To open the servo gun narrow (opening it as much as the indicated opening distance)72 open
+* \[**Shift**] + \[**Servo gun manual pressure**]: To squeeze the servo gun (squeezing with the squeezing force at which the cursor is currently located)
+* \[**Ctrl**] + \[**Servo gun wide opening**]: To set the distance for the servo gun wide opening
+* \[**Ctrl**] + \[**Servo gun narrow opening**]: To set the distance for the servo gun narrow opening
+* \[**Ctrl**] + \[**Servo gun manual pressure**]: To squeeze the servo gun (squeezing with the squeezing force at which the cursor is currently located and performing the same controlling as in automatic mode)
 {% endhint %}

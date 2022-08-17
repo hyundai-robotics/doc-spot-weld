@@ -1,42 +1,43 @@
-﻿# 2.3 Step 1. 기본 설정
+﻿# 2.3 Step 1. Default setting
 
-사전 점검이 완료되면 기본 설정이 가능합니다. 기본 설정은 서보건의 이동 전극의 기준위치를 정하고, 원하는 곳으로 이동 시키며 원하는 가압력을 인가하기 위한 필수 설정 과정입니다.
+After the pre-inspection is completed, the default setting can be performed. The default setting is an essential setting process to determine the reference position of the moving electrode of the servo gun, move the servo gun to a desired position, and supply the desired squeezing force.
 
-기본 설정은 아래 그림과 같이 4가지 항목으로 구성되어 있습니다.
+The default setting consists of four items as shown in the figure below.
 
 <p align="center">
  <img src="../../_assets/image_17.png" width="70%"></img>
- <em><p align="center">그림 2.5 기본 설정 진행 화면</p></em>
+ <em><p align="center">Figure 2.5 Default setting proceeding screen</p></em>
 </p>
 
 </br>
 
-(1) **엔코더 옵셋 보정**
-   * 통상적으로 엔코더의 원점은 서보건 모터의 교체 등으로 엔코더 데이터가 변경되었을 때 기구적으로 동일 위치를 일치시킬 수 있는 곳에서 설정을 합니다. 서보건의 경우 이동전극이 기구적으로 최대로 개방한 상태로 설정합니다.
-   * 수동 설정을 위해서는 “[**2.3.2** **수동 설정**](2-3-2-manual-setting/)”의 “[**2.3.2.1 서보건** **엔코더 옵셋 설정**](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)”을 참고하십시오.
+(1) **Encoder offset compensation**
+   * Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can have the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
+   * For manual setting, refer to “[**2.3.2.1 Servo gun encoder offset setting**](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)” of “[**2.3.2** **Manual setting**](2-3-2-manual-setting/).”
   
-(2) **축 원점 설정**
-   * 통상적으로 서보건축 원점은 이동전극과 고정전극 모두 새 팁이 부착된 상태에서 진행되어야 하며, 두 전극이 서로 만나는 위치에서 설정합니다. 서보건 동작의 대부분은 이 축 원점을 기준으로 이루어지므로 이에 대한 설정은 매우 중요합니다.
-   * 수동 설정을 위해서는 “[**2.3.2** **수동 설정**](2-3-2-manual-setting/)”의 “[**2.3.2.2 서보건 축 원점 설정**](2-3-2-manual-setting/2-servo-gun-axis-origin.md)”을 참고하십시오.
+(2) **Axis origing setting**
+   * In general, the setting of the axis origin of the servo gun should be performed at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
+   * For manual setting, refer to “[**2.3.2.2 Servo gun axis origin**](2-3-2-manual-setting/2-servo-gun-axis-origin.md)” of “[**2.3.2** **Manual setting**](2-3-2-manual-setting/).”
+   
   
-(3) **소프트 리밋 설정**
-   * 통상적으로 서보건의 소프트 리밋은 이동전극이 최대로 개방한 상태에서 ‘**최소**’항목에 설정하며, 팁을 모두 제거한 가장 근접한 위치에서 ‘**최대**’항목에 설정합니다.
-   * 수동 설정을 위해서는 “[**2.3.2** **수동 설정**](2-3-2-manual-setting/)”의 “[**2.3.2.3 서보건 소프트 리밋 설정**](2-3-2-manual-setting/3-servo-gun-soft-limit.md)”을 참고하십시오.
+(3) **Soft limit setting**
+   * In general, the soft limit of the servo gun should be set to ‘**Minimum**’ while the moving electrode is fully open, and set to ‘**Maximum**’ while the moving electrode is at the closest position with all tips removed.
+   * For manual setting, refer to “[**2.3.2.3 Servo gun soft limit**](2-3-2-manual-setting/3-servo-gun-soft-limit.md)” of “[**2.3.2** **Manual setting**](2-3-2-manual-setting/).”
     
-(4) **가압력-전류 테이블 설정**
-   * 로봇에 설치되는 다양한 서보건을 원하는 가압력으로 가압하기 위해서는 서보건에 인가되는 전류와 발생하는 가압력을 대응시키는 작업이 필요합니다. 이를 위해 당사에서는 서보건 가압력 – 전류 테이블을 제공하고 있으며, 이 테이블을 서보건에 맞게 튜닝하는 과정이 필요합니다.
-   * 본 기능을 사용하기 위해서는 사용하고자 하는 가압력 영역 중 5개의 대표값을 선정해야 합니다. 서보건 가압력 – 전류 테이블 튜닝은 이 5개의 대표 가압력과 일치하는 전류를 찾는 과정입니다. 이 테이블은 서보건의 자세에 따라 달라질 수 있으므로 이동 전극의 방향이 중력 방향일 때와 반중력 방향일 때를 각각 튜닝해야 서보건의 다양한 자세에서 높은 정확도로 가압할 수 있습니다.
-   * 자세한 사항은 “[**2.3.3 서보건 가압력 - 전류 테이블 튜닝**](2-3-3-servo-gun-force-current-table-tuning/)”을 참고하십시오.
+(4) **Squeezing force - current table setting**
+   * To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun..
+   * To use this function, it is necessary to select five representative values among the areas of the squeezing force to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the direction of gravity and when it is in direction of anti-gravity, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
+   * For more details, refer to “[**Servo gun squeezing force - current table tunning**](2-3-3-servo-gun-force-current-table-tuning/).”
 
 </br>
 
-기본 설정은 자동 설정과 수동 설정으로 진행할 수 있습니다.
+The default setting can be performed with automatic settng and manual setting.
 
-(1) **자동 설정**: 서보건이 자동으로 움직여 지정된 위치로 이동 후 지정된 설정을 수행.
-   * 자동 설정 가능 항목
-     * 엔코더 옵셋 보정
-     * 축 원점 설정
-     * 소프트 리밋 설정
-   * 가압력-전류 테이블 설정은 가압력계의 설치 등의 사용자 개입이 필요하기 때문에 자동 진행이 불가합니다.
+(1) **Automatic setting**: The servo gun automatically moves to the designated position and then perform the designated setting.
+   * Items that can be automatically set
+     * Encoder offset compensation
+     * Axis origin setting
+     * Soft limit setting
+   * The setting of the squeezing force - current table cann not be automatically performed because it requires user intervention such as the installation of a squeezing force gauge.
    
-(2) **수동 설정**: 사용자의 조작에 의해 서보건을 지정된 위치로 이동시키고, 전용 설정 화면에서 지정된 기능을 수행.
+(2) **Manual setting**: The servo gun needs to be moved to the designated position through the operation by the user and the designated function will be performed on the dedicated setting screen.

@@ -1,33 +1,33 @@
-﻿# 4.7 서보건 용접 시 판넬두께 이상 검출
+﻿# 4.7  Detection of panel thickness abnormality during the welding with servo gun
 
-서보건 용접 시 판넬 두께를 계측하여 부품의 이상과 소재의 장착 누락을 검지하는 기능으로 아래와 같이 “thickcheck”명령문을 추가하여 간단하게 수행할 수 있습니다. 판넬 두께의 이상 여부는 계측된 값이 정상 범위 내에 있는 지로 판단합니다.
+ This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the “thickcheck” statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
 
 <p align="center">
  <img src="../_assets/image_49.png" width="40%"></img>
- <em><p align="center">그림 4.20 서보건 판네두께 검사</p></em>
+ <em><p align="center">Figure 4.20 Inspection of the panel thickness with the servo gun</p></em>
 </p>
 
 * **thick**
 
-    서보건을 가압하여 계측된 판넬 두께를 보관할 변수를 지정합니다.
+    Designates the variable to store the measured panel thickness by squeezing the servo gun.
 * **ref**
 
-    정상 판넬 두께를 지정합니다.
+    Designates the normal panel thickness.
 * **tol**
 
-    허용 편차를 지정합니다.
-* **addr(분기행)**
+    Designates the toleranc.
+* **addr(branch line)**
 
-    판넬 이상 검지 시 처리 방식을 지정합니다. 분기행이 기록되지 않으면 “**E1493 측정된 판넬 두께가 정상범위를 벗어남**”을 발생하여 로봇이 정지되며 “**판넬 두께 이상**”에 설정된 출력신호를 ON 합니다. 분기행이 기록되어 있으면 “**W0152 측정된 판넬 두께가 정상범위를 벗어남**”을 발생하고 분기행으로 점프하여 로봇은 계속 동작합니다. 이 경우는 “**판넬 두께 이상**”에 설정된 출력신호를 200 ms만 ON 합니다.
+   Designates the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation “**E1493 Measured panel thickness exceeded the normal range**” occurs and then the robot stops and the output signal set in the “**Panel thickness abnormal**” section is turned on. If the branch line is recorded, the situation “**W0152 Measured panel thickness exceeded the normal range**” occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the “**Panel thickness abnormal**” section is turned on only for 200 ms.
 
 
 
 {% hint style="warning" %}
-[주의]  
+[Caution]  
 
-판넬의 정확한 측정을 위해서는 아래의 내용이 선수되어야 합니다.
+The following should be in place first for accurate measurement of the panel.
 
-1. 건 서치(이동전극, 고정전극 마모량의 정밀한 관리)
-2. 건 암 휨량 설정(가압력별 건 암 휨량 설정)
-3. 판넬 두께 설정(가압력별 판넬 두께 설정)
+1. Gun search (precise management of the consumption amounts of the moving and fixed electrodes)
+2. Setting of gun arm deflection amount (Setting of the gun arm deflection amount for each squeezing force)
+3. Setting of panel thickness(Setting of the panel thickness for each squeezing force)
 {% endhint %}

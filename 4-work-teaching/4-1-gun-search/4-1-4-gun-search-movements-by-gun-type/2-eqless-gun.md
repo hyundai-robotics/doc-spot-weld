@@ -1,17 +1,17 @@
-﻿# 4.1.4.2 Eqless건
+﻿# 4.1.4.2 Equalizerless gun
 
-Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건서치 기능은 고정전극의 마모량을 측정합니다.
+As an equalizerless gun only manages the consumption amount on the fixed electrode, so the gun search function here measures the fixed electrode consumption amount.
 
 
 <p align=center>
  <img src="../../../_assets/image_64.png"></img>
  <img src="../../../_assets/image_34.png" width="55%"></img>
- <em><p align="center">그림 4.7 Eqless 건서치</p></em>
+ <em><p align="center">Figure 4.7 Gun search of an equalizerless gun</p></em>
 </p>
 
 
->1. 스텝의 기록 위치로 이동합니다.
->2. 고정전극이 서치 속도로 접근하여 광전관 접점신호를 절환합니다.
->3.  광전관에 신호가 검지되면 고정전극 마모량을 측정하고 개방동작을 실행합니다.  
->    **고정전극 마모량 = 센서 검지위치 - 건서치 기록위치**
->4. 개방이 완료되면 고정전극 마모량이 갱신됩니다.
+>1. Movement to the record position of the step occurs.
+>2. The fixed electrode approaches at the search speed and switches the phototube contact signal.
+>3.  When a signal is detected by the photo tube, the fixed electrode consumption amount is measured and the opening operation is executed.  
+ >   **Fixed electrode consumption amount = sensor detection position - gun search record position**  
+>4. When the opening is completed, the fixed electrode consumption amount is updated.

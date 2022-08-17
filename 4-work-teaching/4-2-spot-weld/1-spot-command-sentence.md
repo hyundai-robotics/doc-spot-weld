@@ -1,34 +1,34 @@
-﻿# 4.2.1 spot 명령문
+﻿# 4.2.1 Spot statement
 
-스폿용접이 완료되지 않은 상태에서 정지되었다가 재기동하는 경우에는 스폿용접 스텝을 다시 실행합니다. \[**기록**]키에 의한 스텝 기록시 \[**GUN**] LED가 점등되었다면 MOVE 명령문과 함께 SPOT 명령문이 기록됩니다. (원터치 기록 방식)
+)If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the \[**GUN**] LED is turned on while the step is being recorded with the \[**Record**] key, the Spot statement will be recorded along with the Move statement. (one-touch recording method.)
 
-용접 스텝을 기록할 때 조그 동작으로 고정전극을 판넬에 접촉시킨 후 수동가압 동작으로 판넬을 가압한 상태에서 원터치 기록 방식으로 spot 명령문을 기록하면 판넬 두께가 설정됩니다. 판넬 두께가 설정된 후에는 조그 동작으로 고정전극을 판넬에 접촉시킨 후 수동가압 동작 없이 원터치 기록 방식으로 spot 명령문을 기록하면 판넬 두께와 마모량을 보정한 위치를 자동으로 고려하여 기록됩니다.
+ When recording the welding step, if you make the fixed electrode contact the panel through a jogging operation and then record the Spot statement in one-touch method, while squeezing the panel through a manual squeezing operation, the panel thickness will be set. Once the panel thickness is set, if you make the fixed electrode contact the panel through a jogging operation and then record the Spot statement in one-touch method without a manual squeezing operation, the recording will take place by taking into consideration the position for which the panel thickness and the consumption amount are compensated.
 
-건타입이 서보건인 경우 \[**위치수정**]시 spot 명령문이 존재하면 자동으로 전극의 마모량을 보정한 위치로 수정됩니다.
+While the gun type is servo gun, if the Spot statement exists during \[**Position modification**], the position will be automatically modified to a position for which the electrode consumption amount is compensated.
 
 </br>
 
-**spot** gun=<건번호>,cnd=<조건번호>,seq=<시퀀스번호>,mgun=<멀티건번호>,mcnd=<멀티건 조건번호>,mseq=<멀티건 시퀀스>
+**spot** gun=<gun number>,cnd=<condition number>,seq=<sequence number>,mgun=<numbers of multiple guns>,mcnd=<conditions of multiple guns>,mseq=<sequences of multiple guns>
 
 
 <center>
 
-|   **항목**    | 　    <p align=center>           **내 용**        </p>    |
+|   **Item**    | 　    <p align=center>           **Content**        </p>    |
 | :-----------: |------------------------------------------- |
-|    **건번호**    | 용접건 번호를 지정                                |
-|    **조건번호**   | 용접 조건을 지정                        |
-|   **시퀀스 번호**  | 용접 시퀀스를 지정                     |
-|   **멀티건 번호**  | 멀티건으로 동시 용접을 수행 시, 멀티건 번호를 지정    |
-|  **멀티건 조건번호** | 멀티건으로 동시 용접을 수행 시, 건에 따라 용접 조건을 달리할 때 지정 </br>지정되지 않으면 기본건의 용접조건이 적용  |
-| **멀티건 시퀀스번호** | 멀티건으로 동시 용접을 수행 시, 건에 따라 용접시퀀스를 달리할 때 지정 </br> 지정되지 않으면 기본건의 용접시퀀스가 적용 |
+|    **Gun number**    | Designates the welding gun number                                |
+|    **Condition number**   | Designates the welding condition                        |
+|   **Sequence number**  | Designates the welding sequence                     |
+|   **Numbers of multiple guns**  | Designates the numbers of multiple guns when performing welding simultaneously with multiple guns    |
+|  **Condition numbers of multiple guns** | To be designated when welding is performed simultaneously with multiple guns with individually different welding condition for each gun </br>If they are not designated, the welding condition of the default gun will apply.  |
+| **Sequence numbers of multiple guns** | To be designated when welding is performed simultaneously with multiple guns with invidually different welding sequence for each gun </br> If they are not designated, the welding sequence of the default gun will apply. |
 
 </center>
 
 </br>
 
 {% hint style="info" %}
-\[사용 예\]  
-- 서보건 5,6을 동시에, 용접조건은 각각 7,8, 용접시퀀스는 각각 9, 10으로 스폿용접하는 경우
+\[Example of use\]  
+- When performing spot welding using the servo guns 5 and 6 while applying welding conditions 7 and 8 respectively and welding sequences 9 and 10 respectively.
 
   ```spot gun=5,cnd=7,seq=9,mgun=6,mcnd=8,mseq=10```
 

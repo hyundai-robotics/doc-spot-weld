@@ -1,3 +1,3 @@
-﻿# 4.4.1 판넬 두께 등록
+﻿# 4.4.1 Panel thickness registration
 
-서보건 개방 위치 기록은 미리 지정해 둔 판넬 두께를 이용하여 이동전극의 위치를 계산하므로 판넬 두께를 등록하여야 합니다. 판넬 두께를 등록하는 방식에는 2가지가 있으며, 사용자가 수동으로 입력하는 방식과 판넬을 가압한 상태에서 자동으로 등록하는 방식을 제공합니다.
+When it comes to the servo gun opening position recording, the position of the moving electrode will be calculated by using the pre-designated panel thickness, so the panel thickness should be registered. There are two provided methods of registering the panel thickness. One is that the user inputs it manually and the other is that the panel thickness is automatically registered while the panel is squeezed.

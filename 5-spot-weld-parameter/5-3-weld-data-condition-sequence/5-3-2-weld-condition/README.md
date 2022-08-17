@@ -1,27 +1,27 @@
-﻿# 5.3.2 용접조건
+# 5.3.2 Welding condition
 
-스폿용접과 관련된 조건을 설정하여 작업 환경에 따라 용접을 수행합니다.
+Sets the conditions related to spot welding to perform welding in line with the work environment.
 
 <p align=center>
 <img src="../../../_assets/image_75.png" width="70%"></img>
-<em><p align="center">그림 5.11 용접 조건 설정</p></em>
+<em><p align="center">Figure 5.11 Welding condition setting</p></em>
 </p>
 
-(1)  **조건번호**
--    용접조건을 빠르게 선택합니다.
-  
-(2)  **출력 데이터(바이너리)**
--    spot명령문 실행시 용접조건 번호에 대하여 용접기로 출력할 데이터를 설정합니다.
-  
-(3)  **초기 가압력**
--    spot명령문 실행시 판넬을 가압할 가압력을 설정합니다. 다단 가압 제어 설정시 초기 가압력으로 사용됩니다.
+(1)  **Condition number**
 
-(4)  **다단 가압 및 보조조건**
--   다단 가압 제어 및 피봇의 설정을 관리하는 보조 조건번호입니다. 상세 조건 입력은 별도 설정 페이지를 이용합니다.
+    Sets the welding condition quickly.
+(2)  **Output data (binary)**
 
+    Sets the data, which is to be inputted to the welder, for the welding condition number during the execution of the Spot statement.
+(3)  **Initial squeezing force**
 
-(5)  **이동전극 클리어런스**
--   spot명령문 실행 전, 수행 후 이동전극이 개방하는 위치를 설정합니다.
+    Sets the squeezing force to squeeze the panel during the execution of the Spot statement. This will be used as the initial squeezing force during the setting of the multi-step squeezing force control.
+(4)  **Multi-step squeezing force and auxiliary condition**
 
-(6)  **고정전극 클리어런스**
--   spot명령문 실행 전, 수행 후 고정전극이 개방하는 위치를 설정합니다.
+    This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is inputted, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
+(5)  **Moving electrode clearance**
+
+    Sets the position where the moving electrode opens before and after the execution of the Spot statement.
+(6)  **Fixed electrode clearance**
+
+     Sets the position where the fixed electrode opens before and after the execution of the Spot statement.

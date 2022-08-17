@@ -1,33 +1,33 @@
-﻿# 4.1 건서치
+﻿# 4.1 Gun search
 
-건서치 기능은 전극의 마모량을 측정하는 기능으로 팁 드레싱으로 전극을 연마한 후나 새 팁으로 교체한 후 전극의 마모량을 다시 측정할 필요가 있을 때 사용하십시오. 건타입이 서보건이나 Eqless건은 spot 명령문 실행시에 마모량만큼 가압 위치를 자동으로 보정하므로 마모량 관리가 필수적이며 이 마모량의 정확도가 용접품질에 영향을 줍니다.
+Gun search is a function to measure the consumption amount of an electrode. Use this function when you need to re-measure the consumption amount of the electrode after polishing it through tip dressing or after replacing the existing tip with a new one. If  the gun type is servo gun or equalizerless gun, the gun automatically compensates the squeezing position as much as the consumption amount when executing the spot command, which makes it essential to manage the consumption amount and shows that the accuracy of the consumption amount affects the welding quality.
 
-당사에서 제공하는 건서치 종류와 간단한 특징은 아래와 같습니다.
+ The types of gun search provided by our company and their simple characteristics are as follows.
 
 *   **gunsea**
 
-    서보건 건서치 기능으로 1회 가압 동작으로 실행.
+    This is the gun search function for a servo gun and is executed with one squeezing operation.
 
-    이동전극과 고정전극의 전체 마모량을 측정 후 지정된 비율로 배분.
+     The total consumption amount of the moving and fixed electrodes is measured and distributed according to the designated ratio.
 
-    이동전극과 고정전극의 마모 비율이 동일하거나 고정된 경우 사용.
+    This function is used if the consumption ratio between the moving electrode and fixed electrode is the same or fixed.
 *   **gunsea 2**
 
-    서보건 건서치 기능으로 1회 가압 동작과 1회 이동 동작으로 실행.
+    This is the gun search function for a servo gun and is executed with one squeezing operation and one moving operation.
 
-    이동전극과 고정전극의 전체 마모량을 측정(1회 가압) 후 이동전극 마모량을 별도 측정(1회 이동).
+    The total consumption amount of the moving and fixed electrodes is measured (one squeezing operation) and then the moving electrode consumption amount is measured separately.
 
-    이동전극과 고정전극의 마모량 비율이 고정적이지 않을 경우 사용.
+    This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
 *   **igunsea**
 
-    건서치 2와 동일한 방식으로 서보건 건서치 기능으로 1회 가압 동작과 1회 이동 동작으로 실행하지만, 이동전극 마모량을 센서를 이용하여 측정
+    In the same way as gun search  2, this is the gun search function for a servo gun and executed with one squeezing operation and one moving operation. However, the moving electrode consumption amount is measured using a sensor.
 
-    이동전극과 고정전극의 전체 마모량을 측정(1회 가압) 후 이동전극 마모량을 별도 측정(1회 이동)
+    The total consumption amount of the moving and fixed electrodes is measured (one sequeezing operation) and then the moving electrode consumption amount is measured (one moving operation) separately.
 
-    이동전극과 고정전극의 마모량 비율이 고정적이지 않을 경우 사용.
+    This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
 *   **egunsea**
 
-    Eqless 건의 건서치 기능으로 I건서치와 유사하게 센서 신호를 입력받아 마모량 측정
+    This is the gun search function for an equalizerless gun and, in the same way as the igunsea function, the consumption amount is measured by receiving a sensor signal.
 
 </br>
-건서치 상태는 /모니터링/스폿에서 확인할 수 있습니다.
+The gun search state can be checked from the /Monitoring/Spot section.

@@ -1,33 +1,33 @@
-﻿# 4.6.1 멀티건 수동 선택
+﻿# 4.6.1 Manual selection of multiple guns
 
 <p align="center">
  <img src="../../_assets/image_32.png" width="30%"></img>
- <em><p align="center">그림 4.19 부가축 파라미터 설정 화면</p></em>
+ <em><p align="center">Figure 4.19 Additional axis parameter setting screen</p></em>
 </p>
 
-서보툴 체인지에 의해 G1(마스터), G2(슬래이브)를 멀티건으로 선택하기 위한 절차는 다음과 같습니다.
+The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.
 
-1. \[**R**]+\[**358**] 후 G1을 접속합니다. 접속 완료 후 G1이 할당된 부가축 관련 파라미터들을 설정합니다.
-2. \[**R**]+\[**358**] 후 G2를 접속합니다. 접속 완료 후 G2가 할당된 부가축 관련 파라미터들을 설정합니다.
-3. 선택된 건상태가 다음과 같이 상태플래그에 표시됩니다.
+1. Select \[**R**]+\[**358**] and then connect G1. After the connection is completed, the parameter related to the additional axis to which G1 is assigned should be set.
+2. Select \[**R**]+\[**358**] and then connect G2. After the connection is completed, the parameter related to the additional axis to which G2 is assigned should be set.
+3. The state of the selected gun is indicated in state flag as follows.
 
 {% hint style="info" %}
-[참고]  
-* **\[R]+\[210] 마스터 건 번호 변경**
-  1. 단일 건 환경 → \[R]+\[210]+\[3] → 단일 건 환경(예, G1 → G3)
-  2. 멀티 건 환경 → \[R]+\[210]+\[1] → 단일 건 환경(예, G1,3 → G1)
-* **\[R]+\[214] 멀티 건 선택**
-  1.  설정된 건과 다른 번호 선택 시
+[Note]  
+* **\[R]+\[210] for changing the master gun number**
+  1. Environment with a sole gun → \[R]+\[210]+\[3] → Environment with a sole gun (Example: G1 → G3)
+  2. Environment with multiple guns → \[R]+\[210]+\[1] → Environment with a sole gun (Example: G1 and G3 → G1)
+* **\[R]+\[214] for selecting multiple guns**
+  1.  When selecting another number different from the set gun number
 
-      A. 단일 건 환경 → \[R]+\[214]+\[3] → 멀티 건 환경(예, G1 → G1,3)
+      A. Environment with a sole gun → \[R]+\[214]+\[3] → Environment with multiple guns (Example: G1 → G1 and G3)
 
-      B. 멀티 건 환경 → \[R]+\[214]+\[2] → 멀티 건 환경(예, G1,3 → G1,3,2)
-  2.  설정된 건과 같은 번호 선택 시
+      B. Environment with multiple guns → \[R]+\[214]+\[2] → Environment with multiple guns(Example: G1 and G3 → G1, G3, and G2)
+  2.  When selecting the same number as the set gun number
 
-      A. 멀티 건 환경 → \[R]+\[214]+\[3] → 멀티 건 환경(예, G1,3,2 → G1,2)
+      A. Environment with multiple guns → \[R]+\[214]+\[3] →  Environment with multiple guns(Example: G1, G3 and G2 → G1 and G2)
 
-      B. 멀티 건 환경 → \[R]+\[214]+\[2] → 단일 건 환경(예, G1,2 → G1)
+      B. Environment with multiple guns → \[R]+\[214]+\[2] → Environment with a sole gun (Example: G1 and G2 → G1)
 
-      C. 마스터 건 번호는 변경되지 않음.
+      C. The master gun number does not change.
 {% endhint %}
 

@@ -1,18 +1,19 @@
-﻿# 5.4 용접기별 입력 신호 할당
+# 5.4 Input signal assignment for each welder
 
-스폿용접과 관련된 신호를 할당하여 이들의 상태를 제어기가 감시하고 필요한 처리를 수행합니다.
+Assigns the signals related to spot welding, allowing the controller to monitor their state and perform necessary processing.
 
 
 <p align=center>
 <img src="../_assets/image_15.png" width="70%"></img>
-<em><p align="center">그림 5.15 입력 신호 할당</p></em>
+<em><p align="center">Figure 5.15 Input signal assignment</p></em>
 </p>
 
-(1)  **용접 완료**
--    스폿용접 실행시 이 용접완료 신호가 입력되어야 제어기는 용접완료 처리를 수행합니다. 용접완료 신호는 총 4개로 개별적으로 제어가 됩니다.
+(1)  **Welding completion**
 
-(2)  **용착 에러**
--    건의 용착 신호를 입력 받아 처리하고자 할 때 사용합니다.
+    Only when this welding completion signal is inputted during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
+(2)  **Deposition error**
 
-(3)  **용접기 이상**
--  용접기의 이상 신호가 입력되었을 경우에 로봇의 동작을 정지하고자 할 때 사용합니다.
+    To be used when receiving and handling the input of the gun's deposition signal.
+(3)  **Welder abnormal**
+
+    To be used to stop the operation of the robot when the signal of welder abnormal is inputted.

@@ -1,21 +1,22 @@
-﻿# 5.2.1.2 서보건 응용 설정
+﻿# 5.2.1.2 Servo gun application setting
 
 
 <p align=center>
 <img src="../../../_assets/image_6.png" width="70%"></img>
-<em><p align="center">그림 5.7 서보건 응용 설정</p></em>
+<em><p align="center">Figure 5.7 Servo gun application setting</p></em>
 </p>
 
-(1)  **건 암 휨량(mm)**
 
-- 좌측 설정 가압력에서의 건 암 휨량을 설정합니다. 본 설정은 수동 측정하여 기입하기 어려우므로 서보건 자동 설정을 이용하는 것을 권장합니다. ‘기본 값 계산’을 누르는 경우 100kgf 당 0.31mm의 기본 값으로 설정이 됩니다.
+(1)  **Gun arm deflection amount (mm)**
 
+     Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press ‘Default value calculation’, the value of 0.31 mm per 100 kgf will be set as the default value.
+ 
+(2)  **Panel thickness compensation(mm)**
 
-(2)  **판넬 두께 보정(mm)**
-- 좌측 설정 가압력에서의 판넬 두께 보정량을 설정합니다. 본 설정은 수동 측정하여 >기입하기 어려우므로 서보건 자동 설정을 이용하는 것을 권장합니다.
+      Sets the panel thickness compensation amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
 
 {% hint style="warning" %}
-[**주의**]   ‘건 암 휨량 보정’과 ‘판넬 두께 측정 보정’은 수동 측정하여 기입하기 어려우므로 자동 설정을 이용하는 것을 권장합니다.
+[**Caution**]   When it comes to ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’, it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
 
-‘건 암 휨량 보정’은 서보건 파라미터 중 ‘건암휨량/100kgf\[mm]’를 대신하여 사용하는 값으로 ‘건 암 휨량 보정’ 설정 시 이미 설정된 ‘건암휨량/100kgf\[mm]’을 사용하지 않습니다. 반대로 ‘건 암 휨량 보정’이 설정되지 않는 경우 ‘건암휨량/100kgf\[mm]’을 사용합니다.
+The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
 {% endhint %}

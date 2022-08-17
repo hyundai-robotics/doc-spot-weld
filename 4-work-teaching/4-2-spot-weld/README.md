@@ -1,3 +1,3 @@
-﻿# 4.2 스폿용접
+﻿# 4.2 Spot welding
 
-고정전극과 이동전극이 가압한 상태로 용접기에서 용접전류를 흘려 스폿용접 작업을 수행합니다.
+While the fixed and moving electrodes are squeezing, the current flows from the welder, allowing the spot welding to be performed.

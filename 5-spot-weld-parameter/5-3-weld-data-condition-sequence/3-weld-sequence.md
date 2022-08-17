@@ -1,25 +1,27 @@
-﻿# 5.3.3 용접시퀀스
+﻿# 5.3.3 Welding sequence
 
-스폿용접과 관련된 시퀀스를 설정하여 작업환경에 따라 로봇의 동작을 결정합니다.
+Sets the sequence related to the spot welding to determine the robot operation according to the work environment.
 
 
 <p align=center>
 <img src="../../_assets/image_1.png" width="70%"></img>
-<em><p align="center">그림 5.14 용접 시퀀스 설정</p></em>
+<em><p align="center">Figure 5.14 Welding sequence setting</p></em>
 </p>
 
-(1)  **시퀀스번호**
--    용접시퀀스중 원하는 용접시퀀스를 빠르게 선택합니다.
-  
-(2)  **용접신호 출력 지연시간(GWT)**
--    서보건의 경우는 가압일치 후에 용접 신호를 출력할 때까지의 대기시간입니다.
-    공압건의 경우는 spot 명령문 실행 후 용접 신호를 출력할 때까지의 대기시간입니다.
+(1)  **Sequence number**
 
-(3)  **용접신호 펄스출력(0=레벨)**
--   용접 신호를 일정시간 동안만 출력하기 위한 항목입니다. “0”으로 설정하면 용접완료(WI) 신호가 입력될 때까지 계속 출력합니다.
-  
-(4)  **용접완료(WI) 대기시간**
--   용접완료(WI) 신호가 입력되기까지 대기하는 시간입니다. 이 값을 “0”으로 설정하면 입력될 때까지 계속 대기합니다.
-  
-(5)  **용접완료 후 로봇 대기시간 (RWT)**
--   통상 용접완료(WI) 신호가 입력 후 용착 검출을 대기하는 시간입니다. “0.0”으로 설정될 경우 용착 검출을 하지 않습니다. 용착 검출 신호를 사용할 때에는 “0.3초(300 msec)” 이상의 값을 입력하기를 권장합니다. 그러나 이 값이 크면 용접시간이 길어지고 사이클타임이 증가하게 됩니다.
+    Selects the desired welding sequence quickly among the welding sequences.
+(2)  **Welding signal output delay time (GWT)**
+
+    In the case of the servo gun, this refers to the time of waiting until the welding signal is outputted after the squeezing force matching occurs
+
+    In the case of a pneumatic gun, this refers to a time of waiting until the welding signal is outputted after the execution of the Spot statement.
+(3)  **Welding signal pulse output (0=level)**
+
+    This is to allow the welding signal to be outputted for a certain period of time. If the value is set to “0”, the welding signal continues to be outputted until the welding completion (WI) signal is inputted.
+(4)  **Welding completion (WI) wait time**
+
+    This is the time of waiting until the welding completion signal is inputted. If this value is set to “0”, waiting continues until there is an input.
+(5)  **Robot wait time after welding completion (RWT)**
+
+    In general, this the time of waiting for deposition detection after the welding completion (WI) signal is inputted. If the value is set to “0.0”, the deposition detection does not occur. When the deposition detection signal is to be used, it is recommended to use a value greater than “0.3 secs (300 msec).” However, if the value is large, the welding time will get longer and the cycle time will increase. 

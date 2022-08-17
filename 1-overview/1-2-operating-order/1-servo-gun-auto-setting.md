@@ -1,10 +1,10 @@
-﻿# 1.2.1 서보건 자동 설정을 이용한 조작 순서
+# 1.2.1  Operation sequence that uses the servo gun automatic setting
 
-서보건 자동 설정을 위한 절차는 아래 순서도와 같습니다.
+The procedure for the servo gun automatic setting is as shown in the flowchart below.
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_78.png" width="60%"></img>
- <em><p align="center">그림 1.1 서보건 자동 설정 조작 순서</p></em>
+ <em><p align="center">Figure 1.1 Operation sequence of the servo gun automatic setting </p></em>
 </p>

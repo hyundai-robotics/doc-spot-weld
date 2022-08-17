@@ -1,21 +1,21 @@
-﻿# 2.1.2 툴 각도/거리 설정
+﻿# 2.1.2 Setting of the tool angle/distance
 
-스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/))
+When spot welding is performed, the equalizing operation (operation in which the fixed electrode contacts the panel after passing through the clearance position) is absolutely necessary. This operation requires the correct setting of the tool coordinate system. The +Z axis of the tool coordinate system should be set correctly in the direction from the fixed electrode to the moving electrode (Note: [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)).
 
 <p align="center">
  <img src="../../_assets/image_38.png">
-  <em><p align="center">그림 2.3 용접건의 툴 길이와 각도 설정</p></em>
+  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun</p></em>
  </img>
 </p>
 
-*   **툴 길이**
+*   **Tool length**
 
-    툴 길이는 마모되지 않은 새 전극을 부착한 상태에서 로봇 R1축 플랜지 중심에서 툴 선단 (고정전극 상단)까지의 길이를 입력합니다. 상기 그림의 기준 툴 좌표계의 좌표방향을 정(+)으로 하고 측정된 길이 X, Y, Z값을 입력하거나, 자동 캘리브레이션 기능을 이용하여 툴 길이를 설정합니다.
-*   **툴 각도**
+    When it comes to tool length, input the length from the center of the flange of the robot's R1 axis to the tip of the tool (the upper part of the fixed electrode), measured with a new, unconsumed electrode attached. Set the coordinate direction of the reference tool coordinate system as positive (+) and input the measured length X, Y, and Z values, or set the tool length using the automatic calibration function.
+*   **Tool angle**
 
-    플랜지 좌표계를 기준으로 3방향의 회전 각도 (Rx,Ry,Rz)를 입력하거나, ‘각도보정’ 기능을 이용합니다. 고정전극의 윗방향이 +Z가 되도록 툴 각도를 설정합니다. 확인 방법은 티치팬던드의 \[**좌표계**]를 『**툴**』에 놓고, 조그키 \[**상**]키를 눌렀을 때 Z+방향(고정전극의 가압방향)과 일치하면 됩니다.
+    Input the rotation angles (Rx, Ry, Rz) in three directions based on the flange coordinate system, or use the ‘Angle compensation’ function. Set the tool angle in a way that the upward direction of the fixed electrode can be +Z. To check it, set \[**Coordinate system**] of the teach pendant to 『**Tool**』, and press the \[**Up**] key of the jog key. Then, if thus set direction matches with the Z+ direction (the squeezing direction of the fixed electrode), the setting would suffice.
 
 </br>
 
->    **상기 그림과 같은 경우, 툴 각도는 {0deg, 180deg, 0deg}로 설정합니다.**
+>    **In the case of the above figure, set the tool angle as {0 deg, 180 deg, 0 deg}.**
 

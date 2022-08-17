@@ -1,3 +1,3 @@
-﻿# 4.4.1.2 자동 등록 방식
+﻿# 4.4.1.2 Auto registration method
 
-“**\[GUN] LED**”가 점등되어 있는 상태에서 수동 가압한 후 \[**기록**]키를 누르면 판넬 두께가 자동 등록됩니다.
+While the “**\[GUN] LED**” is turned on, perform manual squeezing and then press the \[**Record**] key. Then the panel thickness will be automatically registered.

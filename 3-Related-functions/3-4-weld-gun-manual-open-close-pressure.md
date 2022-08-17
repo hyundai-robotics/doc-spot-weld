@@ -1,44 +1,44 @@
-﻿# 3.4 용접건 수동 개폐, 가압
+﻿# 3.4 Welding gun manual closing and squeezing
 
-용접건의 수동 개폐, 가압 동작을 위한 절차는 다음과 같습니다.
+The procedure for manual closing and squeezing of the welding gun is as follows.
 
 </br>
 
-1. 수동모드를 확인합니다. 서보건인 경우는 서보건축을 구동하기 위해 운전준비를 투입합니다.
-2.  수동 개폐 또는 가압 동작을 위한 건번호를 선택합니다. 건번호를 선택하는 방법은 다음과 같습니다.
+1. Check whether the mode is manual. In the case of the servo gun, input the operation preparation signal to drive the axis of the servo gun. 
+2.  Select the gun number for the manual closing or squeezing operation. The method to select a gun number is as follows.
 
-    | **건종류** |   체인지 여부  | R 코드 |
+    | **Gun type** |   Whether to change  | R code |
     | :-----: | :---------: | :--------------: |
-    | 단독건 |   용접건 체인지용  | R358 (용접건 접속/분리) |
-    |    단독건     | 용접건 체인지용 아님 |   R210 (용접건 선택)  |
-    | 멀티건 |      -       |  R214 (동시용접건 선택) |
+    | Sole gun |    For change of the welding gun  | R358 (welding gun connection/separation) |
+    |    Sole gun     | Not for change of the welding gun |   R210 (welding gun selection)  |
+    | Multiple guns |      -       |  R214 (selection of guns for simultaneous welding) |
 
 
-3.  다음의 \[**사용자**]키가 등록되어 있는지 확인합니다.
+3.  Check whether the following \[**user**] keys are registerd.
 
 
 
-    |       **대개방**  |       **소개방**    | **수동가압**   |
+    |       **Wide opening**  |       **Narrow opening**    | **Manual squeezing**   |
     | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
     | <img src="../_assets/image_86.png"></img>|<img src="../_assets/image_16.png"></img> | <img src="../_assets/image_43.png"></img> |
 
 
-1.  “\[**SHIFT**]와 \[**사용자**]”키를 동시에 누르면 다음의 동작을 수행합니다. 멀티건이 선택된 경우 모든 건이 동일하게 동작합니다.
+1.  When you press the “\[**SHIFT**] and \[**user**]” keys at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
 
-    |                  **서보건**                 |
+    |                  **Servo gun**                 |
     | :--------------------------------------: |
     | <img src="../_assets/image_13.png"></img> |
 
 
 
-서보건인 경우 수동개폐, 가압 동작 시 다음과 같은 특징들을 갖습니다.
+The servo gun has the following characteristics during the manual closing and squeezing operations.
 
-* 대개방 위치, 소개방 위치, 가압력이 설정치에 도달한 위치에서 자동으로 정지합니다.
-* 이동속도는 『**조건설정**』 ![](<../_assets/image_48.png>) 에서 『**2: 스텝 전/후진시 최고속**』에 입력된 속도입니다.
-* 설정한 가압력이 작은 경우에는 조작을 하여도 움직이지 않는 경우가 있으므로 충분한 가압력을 설정하여 주십시오. (R211: 가압력 설정)
-* 멀티건에서 두 건의 이동 거리가 다를 경우 먼저 도달한 건은 정지하고 나머지 건은 남은 거리만큼 더 이동한 후 정지합니다.
+* The servo gun automatically stops at the wide opening position, the narrow opening position, and the position where the squeezing force reaches the set value.
+* The moving speed is the speed inputted in 『**2: Maximum speed during step forward/backward**』 in 『**Condition setting**.』 ![](<../_assets/image_48.png>)
+* If the set squeezing force is small, the servo gun will not move even when it is operated. Considering it, set a sufficient squeezing force (R211: Squeezing force setting).
+* When it comes to multiple guns, if there is a difference in the moving distance between two guns, the gun that reaches first will stop while the other gun will stop after moving as much as the remaining distance.
 
 <p align="center">
  <img src="../_assets/image_53.png"></img>
- <em><p align="center">그림 3.9 스폿 건 수동 조작</p></em>
+ <em><p align="center">Figure 3.9 Spot gun manual operation</p></em>
 </p>

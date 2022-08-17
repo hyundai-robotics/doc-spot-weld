@@ -1,19 +1,17 @@
-﻿# 4.5.1.1 건 번호 대응 툴번호, 건타입 설정
+﻿# 4.5.1.1 Setting of the tool number and gun type corresponding to the gun number
 
-『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**1: 건번호 대응 툴번호, 건타입 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
+In『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**』, set the gun type and tool number targeted for the servo tool change.
 
 <p align="center">
  <img src="../../../_assets/image_24.png" width="70%"></img>
  <img src="../../../_assets/image_24_1png" width="70%"></img>
- <em><p align="center">그림 4.14 스폿 건 추가</p></em>
+ <em><p align="center">Figure 4.14 Addition of a spot gun</p></em>
 </p>
 
 
-그림4.14는 아래와 같이 2개의 서보건을 설정한 예입니다.
+The figure 4.14 shows a case in which two servo guns are set as below.
 
-* **Gun1**: 용접기 1, 툴 번호 1, 서보건, 부가축 1 -> 서보툴 파라미터를 설정 필요
-* **Gun2**: 용접기 1, 툴 번호 2, 서보건, 부가축 1 -> 서보툴 파라미터를 설정 필요
-* **Gun3**: 용접기 1, 툴 번호 3, 서보건, 부가축 X -> 서보툴 파라미터를 설정 필요 X
-* **Gun4**: 용접기 1, 툴 번호 4, 서보건, 부가축 1 -> 서보툴 파라미터를 설정 필요
+* **Gun1**: Welder 1, tool number 0, servo gun, additional axis 2 -> Required to set the servo tool parameters
+* **Gun2**: Welder 1, tool number 1, servo gun, additional axis 1 -> Required to set the servo tool parameters
 
-서보툴 체인지 대상 중 서보건으로 설정된 건은 다음 장과 같이 해당 서보건의 서보툴 파라미터를 설정해야 합니다.
+ In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.

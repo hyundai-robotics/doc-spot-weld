@@ -1,28 +1,28 @@
-﻿# 1. 개요
+﻿# 1. Overview
 
-본 설명서에서는 아래의 시스템을 기반으로 설명을 진행합니다. 현장에서 사용하는 시스템이 이와 다를 경우 현장 작업자는 본 설명서를 참고하여 현장 시스템에 맞게 사용하십시오.
+This manual provides explanations based on the systems below. If the system used in the field is different from the ones described here, the worker on the site should refer to and use this manual according to the on-site system.
 
-*   **설명서에서 다루는 시스템 사양**
+*   **System specifications described in the manual**
 
-    로봇건(용접건 체인지) : 서보건(G1), 서보건(G2), EQless건(G3), Eq건(G4)
+    Robot guns (for change of welding guns): A servo gun (G1), a servo gun (G2), an equalizerless gun (G3), and an equalizer-fitted gun (G4)
 
-    정치건 : 서보건(G5), 서보건(G6), EQless건(G7)
+    Stationary guns: Servo gun (G5), servo gun (G6), and equalizerless gun (G7)
 
-1.  서보건
+1.  Servo gun
 
-    서보 모터(servo motor)의 회전력을 볼 스크류(ball screw)에 전달하여 GUN TIP을 동작시켜 가압과 개방 동작을 제어하는 방식으로 로봇의 부가축으로 설정하여 사용함. 용접 시 이퀄라이징 동작은 로봇에 의해 수행함.
-2.  Eq건
+    The servo gun is set as an additional axis of the robot. It is used in a way that the rotational force of the servo motor is transmitted to the ball screw to operate the gun tips, thereby controlling the squeezing and opening operations.
+2.  Equalizer-fitted gun
 
-    공압에 의한 가압과 개방운동을 하는 스폿건이며 용접조건 및 용접(통전) 출력 신호로 제어하고 용접 시 이퀄라이징 동작을 기계적으로 수행하는 방식임.
-3.  EQless건
+     This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signals, and is based on a method of mechanically performing the equalizing operation during welding.
+3.  Equalizerless gun
 
-    공압에 의한 가압과 개방운동을 하는 스폿건으로 용접조건 및 용접(통전) 출력 신호로 제어하고 용접 시 이퀄라이징 동작을 위한 실린더가 없기 때문에 로봇에 의해 그 동작을 수행 하도록 하는 방식임.
+    This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signal, and is based on a method in which the equalizing operation is performed by the robot as the gun has no cylinder for the equalizing operation for the welding.
    
 </br>
 </br>
 
-**[필수 설명서]**
+**[Essential manuals]**
 
-- [**Hi6 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/README)
+- [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)
 
-- [**Hi6 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)
+- Hi6 Additional Axis Function Manual

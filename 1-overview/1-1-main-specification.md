@@ -1,14 +1,14 @@
-﻿# 1.1 주요 사양
+﻿# 1.1 Main specifications
 
-|       **항목**       |                          **사양**                          |
+|       **Item**       |                          **Specification**                          |
 | :----------------: | :------------------------------------------------------: |
-|     스폿용접 설정 파일     |           spotweld.json            |
-|      용접기 최대 개수     |              4대                 |
-| 멀티건 동시용접수</br>(동일 건타입) |           4대                   |
-|      용접건 체인지수      |                 16대                   |
-|       용접조건 번호      |                         1 ~ 1024                        |
-|   용접조건에 따른 출력데이터   |                         1 ~ 1024                        |
-|      용접시퀀스 번호      |                   1 ~ 63(64는 팁드레싱 전용)                   |
-|     위치 수정 (서보건)    | SPOT 명령 스텝 –마모량 자동 보정위치</br>그외 스텝 –마모량 고려 않은 위치 |
-|    건번호 대응 툴번호 검사   |                     로봇건은 검사, 정치건은 미검사                    |
-|     용접조건 신호 출력     |   용접실행 신호 출력 시 동기 하여 출력</br>용접조건 신호만 출력할 수 없음   |
+|     Spot welding setting file     |           spotweld.json            |
+|      Maximum welder count     |              4 units                 |
+| Count of multiple guns for simultaneous welding</br>(the same gun type) |           4 units                   |
+|            |                 16 units                   |
+|       Welding condition number      |                         1 – 1024                        |
+|   Output data dependent on welding condition   |                         1 – 1024                        |
+|       Welding sequence number      |                   1 –  63 (64 is exclusively for tip dressing)                   |
+|     Position modification (servo gun)    | SPOT command step – Consumption amount automatic compensation position</br>Other steps – Positions that do not consider the consumption amount |
+|    Inspection of the tool number corresponding to the gun umber   |                     Inspection of robot guns and no inspection of stationary guns                    |
+|     Welding condition signal output     |   To be outputted in sync with the output of the welding execution signal</br>Impossible to output only the welding condition signal   |

@@ -1,7 +1,7 @@
-﻿# 4.5.1 환경설정
+﻿# 4.5.1 Environment setting
 
-서보툴 체인지 환경설정은 다음과 같은 순서로 진행합니다.
+The environment setting for servo tool change can be progressed according to the following order.
 
-A.   건 번호 대응 툴번호, 건타입 설정
+A.   Setting the tool number and gun type corresponding to the gun number
 
-B.   서보툴 파라미터 설정
+B.   Setting the servo tool parameter

@@ -1,40 +1,40 @@
-﻿# 3.1.1 스폿건 축 데이터
+﻿# 3.1.1 Spot gun axis data
 
-현재 선택된 스폿건에 대한 데이터를 실시간으로 표시합니다.
+This indicates the data of the currently selected spot gun in real time.
 
-(『**선택**』 → 『**스폿**』 → 『**건 데이터**』)
+(『**Selection**』 → 『**Spot**』 → 『**Gun data**』)
 
 <p align="center">
  <img src="../../_assets/image_18.png" width="70%"></img>
- <em><p align="center">그림 3.1 스폿 모니터링 pane</p></em>
+ <em><p align="center">Figure 3.1 Spot monitoring pane</p></em>
 </p>
 
 <p align="center">
  <img src="../../_assets/image_89.png" width="70%"></img>
- <em><p align="center">그림 3.2 스폿 건 데이터 모니터링</p></em>
+ <em><p align="center">Figure 3.2 Spot gun data monitoring</p></em>
 </p>
 
->*   **전류 데이터(서보건)**
+>*   **Current data (servo gun)**
 >
->      Cur은 서보건축의 피드백 전류를 Cmd는 전류제한 지령 값(A)을 표시합니다.
->*   **가압력 데이터(서보건)**
+>      Cur indicates the feedback current of the axis of the servo gun and Cmd indicates the current limit command value (A).
+>*   **Squeezing force data (servo gun)**
 >
->     ‘**용접건 파라미터의 가압력 - 전류 테이블**’을 이용하여 지령 전류와 피드백 전류를 가압력으로 환산하여 표시합니다. Cmd에는 지령 가압력이 표시되고, Cur에는 피드백된 가압력이 표시됩니다.&#x20;
->*   **용접시 실가압력(서보건)**
+>     ‘**The command current and feedback current are converted into squeezing force and displayed using the “squeezing force - current table**” of the welding gun parameter. Cmd indicates the command squeezing force and Cur indicates the feedback squeeze.&#x20;
+>*   **Actual squeezing force during weling (servo gun)**
 >
->     가압일치 시점부터 개방시점까지의 평균가압력을 표시합니다.
->*   **전극간 거리(서보건)**
+>     Indicates the average squeezing force from the point of the matching of the squeezing force to the time of opening.
+>*   **Distance between electrodes (servo gun)**
 >
->     축 원점으로부터 이동전극간의 거리(mm)를 표시합니다.
->*   **전극 마모량(서보건, Eqless건)**
+>     Indicates the distance (mm) from the axis origin to the moving electrode.
+>*   **Electrode consumption amount (servo gun, equalizerless gun)**
 >
->     건서치로 검출한 마모량(mm)을 표시합니다. (Eqless건은 고정측 전극의 마모량만 관리)
->*   **건서치 상태(서보건, Eqless건)**
+>     Inidicates the consumption amount (mm) detected through gun search. (In the case of the equalizerless gun, only the consumption amount of the fixed electrode is managed.)
+>*   **Gun search status (servo gun, equalizerless gun)**
 >
->     건서치 수행 여부를 표시합니다.
->*   **용접기 번호**
+>     Indicates whether gun search is performed.
+>*   **Welder number**
 >
->     현재 선택된 건번호에 대한 용접기 번호를 표시합니다.
->*   **SvClamp(서보건)**
+>     Indicates the welder number corredponding to the currently selected gun number.
+>*   **SvClamp (servo gun)**
 >
->     현재 선택된 건의 클램핑 동작 상태를 표시합니다.
+>     Indicates the status of the clamping operation of the currently selected gun.

@@ -1,2 +1,2 @@
-﻿# 2. 서보건  초기 설정
+﻿# 2. Initial setting of the servo gun
 

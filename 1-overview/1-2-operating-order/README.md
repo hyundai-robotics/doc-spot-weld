@@ -1,3 +1,3 @@
-﻿# 1.2 조작 순서
+# 1.2 Operation sequence
 
-서보건의 설정은 수동 설정과 자동 설정, 두 가지 절차가 제공됩니다.
+Two procedures are provided for the servo gun setting: manual setting and automatic setting.

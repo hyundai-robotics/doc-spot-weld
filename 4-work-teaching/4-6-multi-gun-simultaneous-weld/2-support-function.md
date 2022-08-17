@@ -1,8 +1,8 @@
-﻿# 4.6.2 지원기능
+﻿# 4.6.2 Support functions
 
-멀티건 동시용접을 위해 제공되는 기능은 다음과 같습니다.
+The functions to be provided for simultaneous weldig with multiple guns is as follows.
 
-1. 수동개폐
-2. 수동가압
-3. spot 명령문
-4. gunsea 명령문
+1. Manual closing
+2. Manual squeezing
+3. spot statement
+4. gunsea statement

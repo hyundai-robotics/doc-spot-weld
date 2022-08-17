@@ -1,16 +1,16 @@
-﻿# 2.6 Step 4. 신호 설정
+﻿# 2.6 Step 4. Signal setting
 
-Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동 및 가압이 가능한 상태입니다. 하지만 스폿 용접을 위해서는 스폿 용접기 및 기타 신호의 입출력을 설정해야 합니다. ‘신호 설정’에서는 스폿 용접과 관련된 입력 신호와 출력 신호를 설정합니다.
+Step 3. When Step 3. ‘Setting check’ is completed, it is now possible to move and squeeze the servo gun normally. However, for spot welding, it is necessary to set the inputs and outputs of the spot welding machine signals and other signals. In ‘Signal setting’, input and output signals related to spot welding can be set.
 
-아래와 그림과 같이 ‘**Step 4. 입력 신호 설정**’이나 ‘**Step 4. 출력 신호 설정**’에 커서를 이동후 \[**엔터**]를 누르거나 이전 항목이 완료된 상태에서 『**설정 전 항목 진행**』을 누르면, 해당 항목을 설정할 수 있는 화면으로 진입합니다.
+As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \[**Enter**] key or, while previous items are completed, if you press the 『**Proceed with the prior-to-setting items**』 key, you can enter the screen for setting relevant items.
 
 <p align="center">
  <img src="../_assets/image_85.png" width=70%></img>
- <em><p align="center">그림 2.19 서보건 신호 설정 화면</p></em>
+ <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
 </p>
 
->1. **입력 신호 설정**
->       * “[**5.** **스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.4** **입력 신호 할당**](../5-spot-weld-parameter/5-4-input-signal-assign.md)” 챕터를 참고하십시오.
->2. **출력 신호 설정**
->       * “[**5. 스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.5** **출력 신호 할당**](../5-spot-weld-parameter/5-5-output-signal-assign.md)” 챕터를 참고하십시오.
+>1. **Input signal setting**
+>       * Refer to “[**5.4** **Input signal assignment**](../5-spot-weld-parameter/5-4-input-signal-assign.md)” of “[**5.** **Spot welding parameter**](../5-spot-weld-parameter/).”
+>2. **Output signal setting**
+>       * Refer to “[**5.5** **Output signal assignment**](../5-spot-weld-parameter/5-5-output-signal-assign.md)” of “[**5. Spot welding parameter**](../5-spot-weld-parameter/).”
 > 

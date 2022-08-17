@@ -1,15 +1,15 @@
-﻿# 4.2.2.1 서보건
+﻿# 4.2.2.1 Servo gun
 
-건타입이 서보건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
+If the gun type is servo gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_66.png" width="60%"></img>
- <em><p align="center">그림 4.8 서보건 스폿용접의 재생</p></em>
+ <em><p align="center">Figure 4.8 Playback of servo gun spot welding</p></em>
 </p>
 
 
->1. N-1스텝의 위치에서 이동전극과 고정전극은 각각 기록위치에서 ‘이동전극 Clearance’와 ‘고정전극 Clearance’만큼 떨어진 위치로 이동합니다.
->2. 로봇 이퀄라이징 모션에 의해 고정전극은 스텝의 기록위치로 이동하며 이동전극은 마모량만큼 쉬프트하여 스텝의 기록위치로 이동합니다.
->3. 설정된 가압력으로 이동전극이 가압 동작을 수행합니다. 가압력 일치가 되면 그 위치에서 용접조건 신호와 함께 용접실행 신호를 출력합니다.
->4. 용접완료 신호(WI)가 입력되면, 이동전극과 고정전극이 각각 Clearance만큼 개방합니다.
->5. 다음 스텝으로 이동합니다.
+>1. At the N-1 step position, the moving and fixed electrodes move to the positions away from the record positions as much as the ‘moving electrode clearance’ and ‘fixed electrode clearance’, respectively.
+>2. With the robot equalizing operation, the fixed electrode moves to the record position of the step, and the moving electrode moves to the record position of the step by shifting as much as the consumption amount.
+>3. The moving electrode performs the squeezing operation with the set squeezing force. When the squeezing force is matched, the welding execution signal is outputted together with the welding condition signal at the position.
+>4. When the welding completion signal (WI) is inputted, the moving and fixed electrodes open as much as the individual clearances.
+>5. Movement to the next step occurs.

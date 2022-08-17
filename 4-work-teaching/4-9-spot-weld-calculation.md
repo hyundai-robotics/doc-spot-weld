@@ -1,32 +1,31 @@
-﻿# 4.9 스폿용접 타점 계산
+﻿# 4.9 Calculation of spots in spot welding
 
-아래의 시스템 변수는 spot 용접 명령어 수행 중 WI가 입력된 횟수를 저장하고 있습니다.
+The following system variable stores the count of the inputs of WI during the execution of the spot welding command.
 
 ```
-_spotrunno[용접기 번호]
+_spotrunno[welder number]
 ```
 
-|       **항목**      | 　　　　　　　　　　**내용**      |
+|       **Item**      | 　　　　　　　　　　**Content**      |
 | :---------------: | --------------------- |
-| **용접기 번호\[1\~4]** | 용접기 번호를 지정(총 4개까지 가능) |
+| **Welder number\[1\–4]** | Designates the welder number (totally up to four numbers) |
 
 </br>
 
-위 변수는 job 프로그램 1 cycle이 완료 후 새로운 job 프로그램이 실행되거나, \[**R**]+\[**Enter**]를 눌러 강제로 job 프로그램의 첫 행으로 이동 시 0으로 초기화 됩니다.
+The above variable will be initialized to 0 when a new job program is executed after one cycle of the job program is completed, or when \[**R**]+\[**Enter**] is pressed to make a forced shifting to the first line of the job program..
 
 ```
-사용 예1)
-V1%=_spotrunno[1]  ‘지금까지 1번 용접기를 통해 입력된 WI 수를 V1%에 저장
+Use example 1)
+V1%=_spotrunno[1]  ‘Stores the number of WIs inputted through the welder 1 up to now into V1%
 
-사용 예2)
-IF 10<>_spotrunno[1]	‘지금까지 1번 용접기를 통해 입력된 WI수가 10이 아니면
-PRINT #0,“용접 회수(“; _spotrunno[1];”) 오류 !!”	‘오류 메시지 프린트
-STOP						 	‘정지
+Use example 2 )
+IF 10<>_spotrunno[1]	‘PRINT #0 if the number of WIs inputted throug the welder 1 up to now is not 10,“Welding count (“; _spotrunno[1];”) error !!”	‘Error message print
+STOP						 	‘Stop
 ENDIF
 END
 ```
 
 {% hint style="warning" %}
-\[**주의**]: 서브 태스크에서 수행한 spot 명령어는 계산되지 않습니다.
+\[**Caution**]: The spot command executed in the sub task will not be calculated.
 {% endhint %}
 

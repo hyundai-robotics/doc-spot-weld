@@ -1,45 +1,48 @@
-﻿# 5.1 사용환경 설정
+﻿# 5.1 Use environment setting
 
-스폿용접과 관련된 사용환경을 설정하여 상황에 맞는 적절한 동작을 수행합니다.
+Sets the use environment related to spot welding to perform appropriate operation for given situations.
 
 <p align="center">
  <img src="../_assets/image_20.png" width="70%"></img>
- <em><p align="center">그림 5.1 스폿 사용환경 설정 화면</p></em>
+ <em><p align="center">Figure 5.1 Spot use environment setting screen</p></em>
 </p>
 
 </br>
 
-(1)  **서보건 스폿명령 실행 방식**
-- spot 명령문을 실행할 때 해당 건의 타입이 서보건인 경우는 용접시퀀스의 설정에 관계없이 가압동작 실행과 용접신호의 출력을 금지할 수 있습니다. 따라서, 이 기능은 티칭 위치 확인에 유용하게 사용할 수 있습니다. 이 설정 상태에 따라 스폿용접을 실행하는 시퀀스가 다음과 같이 동작됩니다.
+(1)  **Servo gun spot statement execution method**
+    
+    During the execution of the Spot statement, if the type of the relevant gun is servo gun, it is possible to prohibit the squeezing operation from being executed and the welding signal from being outputted regardless of the welding sequence. Accordingly, this function can be usefully applied to check the teaching position. The sequence for execution of the spot welding will be as follows depending on the state of this setting. 
 
 
 
 <center>
 
-|출력방식| <p align=center> 내용 </p>|  
+|Output method| <p align=center> Content </p>|  
 |:---:|----------------------------------------------------|  
-|Wd-On|스폿용접 펑션에 지정한 용접시퀀스를 모두 실행합니다. </br> 클리어런스 위치 → 가압 → 가압일치 검사 → </br> 용접신호 출력 →용접완료 대기 → 클리어런스 위치 |
-|Sq-On|용접과 관련된 신호를 제외하고 용접시퀀스를 실행합니다. </br> 클리어런스 위치 → 가압 → 가압일치 검사 → 클리어런스 위치|
-|Sq-Off|가압동작, 통전신호출력, WI대기등을 모두 하지 않습니다.</br>클리어런스 위치|
+|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position → Squeezing → Squeezing force matching inspection → Welding signal output </br> → Welding completion wait → Clearance position |
+|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position → Squeezing → Squeezing force matching inspection → Clerance position|
+|Sq-Off|Does not perform squeezing operation, electrification signal output, WI wait, etc.</br>Clearance position|
 
 </center>
 
 
 </br>
 
-(2)  **건서치 기준위치 기록**
-- 팁의 마모량을 제어기가 관리하는 건타입(서보건, EQless건)인 경우는 마모량을 산출하기 위한 기준 위치가 결정되어야 하며 이를 기준으로 실제 마모량을 산출합니다.
+(2)  **Gun search reference position record**
+
+    In the case of a gun type (servo gun, equalizerless gun) for which the controller manages the tip consumption amount, the reference position should be determined first, and then the actual c35onsumption amount will be calculated based on it.
     
-  -   무효
+-   Invalid
   
-      결정된 기준위치를 바탕으로 마모된 실제 마모량을 산출합니다.
-  -   유효
-      마모량 산출을 위한 기준위치를 결정하므로 새팁을 부착한 상태에서 초기에 한번만 수행하면 됩니다.
+      The actual consumption amount is calculated based on the determined reference position.
+-   Valid
+      As the reference position is to be determined to calculate the consumption amount, >>> it would be no problem to perform recording once initially while new tips are attached.
 
 
-(3)  **서보건 가압력 단위**
--  서보건 제어를 위한 가압력의 단위를 선택합니다.
+(3)  **Unit of the servo gun force**
 
-(4)  **서보건 용접스텝 기록위치 자동조정**
--  spot 명령 수행 시 건을 가압한 상태에서 측정된 판넬 두께와 마모량을 고려하여 기록된 move문의 서보건 위치를 조정할 지 여부를 선택합니다. 티칭을 완료한 후 또는 서보건에 변형이 생긴 경우에“유효”로 설정하고 작업 프로그램을 1회 자동 재생하면 간단하게 최적의 조건으로 기록위치를 조정해 주기 때문에 유용하게 활용할 수 있습니다.
+    Selects the unit of the squeezing force for the control of the servo gun.
+(4)  **Automatic adjustment of servo gun welding step record position**
+
+    Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “Valid” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
 

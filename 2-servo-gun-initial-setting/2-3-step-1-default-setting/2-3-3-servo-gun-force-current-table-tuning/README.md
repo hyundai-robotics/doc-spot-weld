@@ -1,11 +1,11 @@
-﻿# 2.3.3 서보건 가압력 - 전류 테이블 튜닝
+# 2.3.3 Servo gun squeezing force - current table tunning
 
-로봇에 설치되는 다양한 서보건을 원하는 가압력으로 가압하기 위해서는 서보건에 인가되는 전류와 발생하는 가압력을 대응시키는 작업이 필요합니다. 이를 위해 당사에서는 서보건 가압력 – 전류 테이블을 제공하고 있으며, 이 테이블을 서보건에 맞게 튜닝하는 과정이 필요합니다. 이 튜닝 정확도에 따라 서보건 가압력의 정확도가 결정되므로 서보건 사용 전 반드시 설정해야 합니다.
+To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun. The accuracy of this tuning determines the accuracy of the servo gun squeezing force. In consideratin of it, tuning must be performed before using the servo gun.
 
-본 기능을 사용하기 위해서는 사용하고자 하는 가압력 영역 중 5개의 대표값을 선정해야 합니다. 서보건 가압력 – 전류 테이블 튜닝은 이 5개의 대표 가압력과 일치하는 전류를 찾는 과정입니다. 이 테이블은 서보건의 자세에 따라 달라질 수 있으므로 이동 전극의 방향이 중력 방향일 때와 반중력 방향일 때를 각각 튜닝해야 서보건의 다양한 자세에서 높은 정확도로 가압할 수 있습니다.
+To use this function, it is necessary to select five representative values among the squeezing forces to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the gravity direction and in anti-gravity direction, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
 
-당사에서는 서보건 가압력 – 전류 테이블 튜닝을 위해 수동 모드를 제공합니다.
+Our company provide manual mode for the tuning of the servo gun squeezing force - current table.
 
-*   수동 모드 튜닝
+*   Tuning in manual mode
 
-    가압력계의 통신 여부와 무관하게 튜닝 가능하며 측정된 가압력을 사용자가 직접 입력하여 테이블을 튜닝
+    Tuning can be performed regardless of the communication with the squeezing force gauge, and the user can directly tune the table by inputting the measured squeezing force.

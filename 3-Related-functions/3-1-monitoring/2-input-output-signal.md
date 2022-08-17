@@ -1,10 +1,10 @@
-﻿# 3.1.2 입출력 신호
+﻿# 3.1.2 Input and output signals
 
-스폿용접과 관련하여 할당한 신호들의 입출력 상태가 정리되어 모니터링 되므로 편리하게 사용할 수 있습니다.
+The input/output status of the assigned signals related to spot welding is organized and monitored for convenient use.
 
-(『**선택**』 → 『**스폿**』 → 『**입출력 신호**』)
+(『**Selection**』 → 『**Spot**』 → 『**Input and output signals**』)
 
 <p align="center">
  <img src="../../_assets/image_40.png" width="70%"></img>
- <em><p align="center">그림 3.3 스폿 입출력 신호 모니터링</p></em>
+ <em><p align="center">Figure 3.3 Spot welding input/output signal monitoring</p></em>
 </p>

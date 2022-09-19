@@ -49,7 +49,7 @@
 
     When you initialize the number of weldings in the work program start menu and then perform weldings normally, the number of weldings will increase. Considering that you need to compare between the number of spots for completion of welding and the number of weldings performed, you need to create a program as follows.
 
-    　　　　　　　　　　　　　　　![](<_assets/image_68_eng.png>)
+    　　　　　　　　　　　　　　　![](<_assets/image_68_eng.PNG>)
 *   <mark style="color:green;">**It seems that the working time can be shortened if tip dressing and gun search operations for a stationary servo gun is performed, independently from the handling operation. Is there any way to do this?**</mark>
 
     It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/).

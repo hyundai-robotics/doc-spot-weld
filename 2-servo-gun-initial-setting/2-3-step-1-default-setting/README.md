@@ -5,7 +5,7 @@ After the pre-inspection is completed, the default setting can be performed. The
 The default setting consists of four items as shown in the figure below.
 
 <p align="center">
- <img src="../../_assets/image_17_eng.png" width="70%"></img>
+ <img src="../../_assets/image_17_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 2.5 Default setting proceeding screen</p></em>
 </p>
 

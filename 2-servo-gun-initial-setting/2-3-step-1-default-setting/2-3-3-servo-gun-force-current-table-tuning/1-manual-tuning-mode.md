@@ -5,7 +5,7 @@ The manual tuning mode is a function to manually perform the servo gun squeezing
 The procedure for setting the servo gun squeezing force – current table in manual mode, recommended by our company, is as follows.
 
 <p align="center">
- <img src="../../../_assets/image_84_eng.png" width=70%></img>
+ <img src="../../../_assets/image_84_eng.PNG" width=70%></img>
  <em><p align="center">Figure 2.14 Servo gun manual tuning screen</p></em>
 </p>
  

@@ -3,7 +3,7 @@
 This provides support to simply conduct a series of settings to restart the servo gun from a single window after repairing it. When you press the \[**CTRL**]+\[**GUN**] keys on the initial screen, a dialog box for simple maintenance will be displayed.
 
 <p align="center">
- <img src="../_assets/image_26_eng.png" width="70%"></img>
+ <img src="../_assets/image_26_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 3.7 Simple maintenance of the servo gun</p></em>
 </p>
 

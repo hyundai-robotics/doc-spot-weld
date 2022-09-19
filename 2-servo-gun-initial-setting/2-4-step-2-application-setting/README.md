@@ -5,7 +5,7 @@ When the default setting is completed, the application setting can be performed.
 The application setting consists of three items as shown in the figure below.
 
 <p align="center">
- <img src="../../_assets/image_58_eng.png" width=70%></img>
+ <img src="../../_assets/image_58_eng.PNG" width=70%></img>
  <em><p align="center">Figure 2.15 Servo gun application setting screen</p></em>
 </p>
 

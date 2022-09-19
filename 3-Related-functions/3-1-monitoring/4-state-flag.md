@@ -3,7 +3,7 @@
 Various necessary states related to spot welding will be indicate as shown in the screen below.
 
 <p align="center">
- <img src="../../_assets/image_eng.png" width="70%"></img>
+ <img src="../../_assets/image_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 3.6 Indication of spot welding related states</p></em>
 </p>
 
@@ -14,6 +14,6 @@ Various necessary states related to spot welding will be indicate as shown in th
 >-  **Tool number**
 >       - Indicates the tool number corresponding to the currently selected gun number. In other words, if you change the gun number, the tool number will automatically change to the tool number set in『**Setting]: >System**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**.
 >-  **Gun number**
->       - This indicates the currently selected gun number, numbers of multiple guns, and servo gun separation state (![](<../../_assets/image_39_eng.png>)). For example, if G5 and G6 are indicated, it means that stationary guns G5 and G6 are selected for simultaneous welding. In addition , there is a mark of a lock, so you can konw that the servo gun is disconnected.&#x20;
+>       - This indicates the currently selected gun number, numbers of multiple guns, and servo gun separation state (![](<../../_assets/image_39_eng.PNG>)). For example, if G5 and G6 are indicated, it means that stationary guns G5 and G6 are selected for simultaneous welding. In addition , there is a mark of a lock, so you can konw that the servo gun is disconnected.&#x20;
 >
 

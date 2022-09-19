@@ -5,12 +5,12 @@ This indicates the data of the currently selected spot gun in real time.
 (『**Selection**』 → 『**Spot**』 → 『**Gun data**』)
 
 <p align="center">
- <img src="../../_assets/image_18_eng.png" width="70%"></img>
+ <img src="../../_assets/image_18_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 3.1 Spot monitoring pane</p></em>
 </p>
 
 <p align="center">
- <img src="../../_assets/image_89_eng.png" width="70%"></img>
+ <img src="../../_assets/image_89_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 3.2 Spot gun data monitoring</p></em>
 </p>
 

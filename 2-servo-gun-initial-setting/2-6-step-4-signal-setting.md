@@ -5,7 +5,7 @@ Step 3. When Step 3. ‘Setting check’ is completed, it is now possible to mov
 As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \[**Enter**] key or, while previous items are completed, if you press the 『**Proceed with the prior-to-setting items**』 key, you can enter the screen for setting relevant items.
 
 <p align="center">
- <img src="../_assets/image_85_eng.png" width=70%></img>
+ <img src="../_assets/image_85_eng.PNG" width=70%></img>
  <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
 </p>
 

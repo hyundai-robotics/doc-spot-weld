@@ -3,7 +3,7 @@
 Sets the use environment related to spot welding to perform appropriate operation for given situations.
 
 <p align="center">
- <img src="../_assets/image_20_eng.png" width="70%"></img>
+ <img src="../_assets/image_20_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 5.1 Spot use environment setting screen</p></em>
 </p>
 

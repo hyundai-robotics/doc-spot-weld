@@ -13,7 +13,7 @@ After completing the procedure for initial setting, you need to set related func
 Through the “**Servo gun automatic setting**” function (『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**6: Servo gun automatic setting**』), our company provides settings and procedures for the environment for spot welding and servo gun operation.
 
 <p align="center">
- <img src="../../_assets/image_60_eng.png" width="70%"></img>
+ <img src="../../_assets/image_60_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 2.1 Screen for entering the ‘Servo gun automatic setting’ menu</p></em>
 </p>
 
@@ -30,7 +30,7 @@ The initial setting for the servo gun and spot welding is performed largely in f
 
 
 <p align="center">
- <img src="../../_assets/image_3_eng.png" width="70%"></img>
+ <img src="../../_assets/image_3_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 2.1.2 Procedure for ‘servo gun automatic setting’</p></em>
 </p>
 

@@ -3,7 +3,7 @@
 If the gun type is servo gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
- <img src="../../../_assets/image_66_eng.png" width="60%"></img>
+ <img src="../../../_assets/image_66_eng.PNG" width="60%"></img>
  <em><p align="center">Figure 4.8 Playback of servo gun spot welding</p></em>
 </p>
 

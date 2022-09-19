@@ -4,7 +4,7 @@ Assigns the signals related to spot welding, allowing the controller to monitor 
 
 
 <p align=center>
-<img src="../_assets/image_15_eng.png" width="70%"></img>
+<img src="../_assets/image_15_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 5.15 Input signal assignment</p></em>
 </p>
 

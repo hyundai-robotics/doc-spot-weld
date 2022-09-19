@@ -3,7 +3,7 @@
  This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the “thickcheck” statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
 
 <p align="center">
- <img src="../_assets/image_49_eng.png" width="40%"></img>
+ <img src="../_assets/image_49_eng.PNG" width="40%"></img>
  <em><p align="center">Figure 4.20 Inspection of the panel thickness with the servo gun</p></em>
 </p>
 

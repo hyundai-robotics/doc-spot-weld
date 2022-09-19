@@ -3,7 +3,7 @@
 Assigns the common input and output signals, regardless of the welder number, and transfers their state to the outside or receives their input.
 
 <p align=center>
-<img src="../_assets/image_72_eng.png" width="70%"></img>
+<img src="../_assets/image_72_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 5.18 Assignment of input and output signals common to welders</p></em>
 </p>
 

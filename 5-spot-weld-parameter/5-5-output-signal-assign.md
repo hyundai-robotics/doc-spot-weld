@@ -3,7 +3,7 @@
 Assigns the signals related to spot welding and transfers their state to the outside.
 
 <p align=center>
-<img src="../_assets/image_45_eng.png" width="70%"></img>
+<img src="../_assets/image_45_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 5.17 Output signal assignment</p></em>
 </p>
 

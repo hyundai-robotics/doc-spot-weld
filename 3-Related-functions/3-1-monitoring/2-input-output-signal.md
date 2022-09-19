@@ -5,6 +5,6 @@ The input/output status of the assigned signals related to spot welding is organ
 (『**Selection**』 → 『**Spot**』 → 『**Input and output signals**』)
 
 <p align="center">
- <img src="../../_assets/image_40_eng.png" width="70%"></img>
+ <img src="../../_assets/image_40_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 3.3 Spot welding input/output signal monitoring</p></em>
 </p>

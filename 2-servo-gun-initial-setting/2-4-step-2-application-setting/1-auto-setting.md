@@ -29,7 +29,7 @@ In the case of ‘**all automatic setting**’, the following procedures will pr
 
 
 <p align="center">
- <img src="../../_assets/image_22_eng.png" width=70%></img>
+ <img src="../../_assets/image_22_eng.PNG" width=70%></img>
  <em><p align="center">Figure 2.16 Gun search condition setting screen</p></em>
 </p>
 
@@ -42,7 +42,7 @@ The ‘gun arm deflection amount compensation’ value is a value used instead o
 The configuration and functionality of the servo gun application setting screen is as follows.
 
 <p align="center">
- <img src="../../_assets/image_55_eng.png" width=70%></img>
+ <img src="../../_assets/image_55_eng.PNG" width=70%></img>
  <em><p align="center">Figure 2.17 Servo gun applicaiton setting screen</p></em>
 </p>
 

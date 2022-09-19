@@ -3,7 +3,7 @@
 If the gun type is equalizer-fitted gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
- <img src="../../../_assets/image_82_eng.png" width="60%"></img>
+ <img src="../../../_assets/image_82_eng.PNG" width="60%"></img>
  <em><p align="center">Figure 4.10 Playback of spot welding by an equalizer-fitted gun</p></em>
 </p>
 

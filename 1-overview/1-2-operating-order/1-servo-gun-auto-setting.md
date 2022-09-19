@@ -5,6 +5,6 @@ The procedure for the servo gun automatic setting is as shown in the flowchart b
 ---
 
 <p align="center">
- <img src="../../_assets/image_78_eng.png" width="60%"></img>
+ <img src="../../_assets/image_78_eng.PNG" width="60%"></img>
  <em><p align="center">Figure 1.1 Operation sequence of the servo gun automatic setting </p></em>
 </p>

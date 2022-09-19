@@ -3,7 +3,7 @@
 Sets various conditions for the execution of tip dressing for the servo gun
 
 <p align="center">
- <img src="../../_assets/image_61_eng.png" width="70%"></img>
+ <img src="../../_assets/image_61_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 5.15 Servo gun tip dressing condition setting </p></em>
 </p>
 

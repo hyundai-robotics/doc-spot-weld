@@ -2,7 +2,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image_10_eng.png" width="60%"></img>
+ <img src="../../_assets/image_10_eng.PNG" width="60%"></img>
  <em><p align="center">Figure 4.17 Connection and seperation timing chart</p></em>
 </p>
 

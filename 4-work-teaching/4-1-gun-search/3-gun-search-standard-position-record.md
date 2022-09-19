@@ -11,7 +11,7 @@ The consumption amount of an electrode is measured based on an unconsumed new ti
 
 
 <p align="center">
- <img src="../../_assets/image_51_eng.png" width="70%"></img>
+ <img src="../../_assets/image_51_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 4.2 Use environment setting screen</p></em>
 </p>
 

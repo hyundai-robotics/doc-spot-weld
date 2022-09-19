@@ -5,7 +5,7 @@
 
 
 <p align="center">
- <img src="../../_assets/image_83_eng.png" width="70%"></img>
+ <img src="../../_assets/image_83_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 4.13 Method of working when the panel thickness is the same</p></em>
 </p>
 

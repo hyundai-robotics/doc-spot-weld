@@ -3,7 +3,7 @@
 Real-time squeezing force control is a function to improve the accuracy of servo gun's squeezing force by using the data, measured by the squeezing force gauge, for control. For real-time squeezing force control, the squeezing force gauge should communicate with the robot controller and should be set to relevant communication specifications using the menus below.
 
 <p align=center>
-<img src="../../../../_assets/image_30_eng.png" width="70%"></img>
+<img src="../../../../_assets/image_30_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
 </p>
 

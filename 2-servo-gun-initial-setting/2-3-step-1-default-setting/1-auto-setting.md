@@ -29,7 +29,7 @@ In the case of automatic setting of the servo gun's default setting, the servo g
 In the case of ‘**all automatic setting**’, the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press ‘**Yes**’ to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press ‘Yes’. If you do not want automatic setting, please click ‘**No**’ to end the setting.
 
 <p align="center">
- <img src="../../_assets/image%20(76)_eng.png" width="70%"></img>
+ <img src="../../_assets/image_76_eng.png" width="70%"></img>
  <em><p align="center">Figure 2.6 Confirmation with the user on the position of the axis origin</p></em>
 </p>
 
@@ -40,7 +40,7 @@ In the case of ‘**all automatic setting**’, the servo gun moves to the posit
 The configuration and functionality of the servo gun default setting screen is as follows.
 
 <p align="center">
- <img src="../../_assets/image%20(62)_eng.png" width="70%"></img>
+ <img src="../../_assets/image_62_eng.png" width="70%"></img>
  <em><p align="center">Figure 2.7 Configuration of the default setting</p></em>
 </p>
 

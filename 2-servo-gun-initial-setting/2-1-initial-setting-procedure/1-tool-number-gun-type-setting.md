@@ -17,11 +17,12 @@ This function sets the tool number and gun type corresponding to the spot weldin
 
 </br>
 
-◆【Note】◆ 
-
+{% hint style="info" %}
 -	If the gun number corresponding to the tool number is not set, the tool number may be used for other purposes.
 
--	When setting the gun type as servo gun, it is required to set the additional axis number corresponding to the gun number in the following method.
+-	When setting the gun type as servo gun, it is required to set the additional axis number corresponding to the gun number in the following method.  
+
+{% endhint %}
 
 <center>
 

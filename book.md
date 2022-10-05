@@ -1,869 +1,868 @@
-﻿# Hi6 로봇제어기 기능설명서 - 스폿 용접
+﻿# Hi6 Robot Controller Function Manual - Spot Welding
 
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
+The information provided in this manual is the property of Hyundai Robotics.
 
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
+It cannot be reproduced or redistributed in whole or in part without the written consent of Hyundai Robotics, and cannot be provided to a third party or used for other purposes.
 
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
-<br>
-
-[Spot Welding Robot - HS220](https://www.youtube.com/watch?v=zPMYsYAPDrE&t=1s)
+This manual is subject to change without prior notice.
 
 <br>
 <br>
+<br>
 
-**Copyright ⓒ 2020 by Hyundai Robotics**# 1. 개요
+**Copyright ⓒ 2020 by Hyundai Robotics Co., Ltd**# 1. Overview
 
-본 설명서에서는 아래의 시스템을 기반으로 설명을 진행합니다. 현장에서 사용하는 시스템이 이와 다를 경우 현장 작업자는 본 설명서를 참고하여 현장 시스템에 맞게 사용하십시오.
+This manual provides explanations based on the systems below. If the system used in the field is different from the ones described here, the worker on the site should refer to and use this manual according to the on-site system.
 
-*   **설명서에서 다루는 시스템 사양**
+*   **System specifications described in the manual**
 
-    로봇건(용접건 체인지) : 서보건(G1), 서보건(G2), EQless건(G3), Eq건(G4)
+    Robot guns (for change of welding guns): A servo gun (G1), a servo gun (G2), an equalizerless gun (G3), and an equalizer-fitted gun (G4)
 
-    정치건 : 서보건(G5), 서보건(G6), EQless건(G7)
+    Stationary guns: Servo gun (G5), servo gun (G6), and equalizerless gun (G7)
 
-1.  서보건
+1.  Servo gun
 
-    서보 모터(servo motor)의 회전력을 볼 스크류(ball screw)에 전달하여 GUN TIP을 동작시켜 가압과 개방 동작을 제어하는 방식으로 로봇의 부가축으로 설정하여 사용함. 용접 시 이퀄라이징 동작은 로봇에 의해 수행함.
-2.  Eq건
+    The servo gun is set as an additional axis of the robot. It is used in a way that the rotational force of the servo motor is transmitted to the ball screw to operate the gun tips, thereby controlling the squeezing and opening operations.
+2.  Equalizer-fitted gun
 
-    공압에 의한 가압과 개방운동을 하는 스폿건이며 용접조건 및 용접(통전) 출력 신호로 제어하고 용접 시 이퀄라이징 동작을 기계적으로 수행하는 방식임.
-3.  EQless건
+     This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signals, and is based on a method of mechanically performing the equalizing operation during welding.
+3.  Equalizerless gun
 
-    공압에 의한 가압과 개방운동을 하는 스폿건으로 용접조건 및 용접(통전) 출력 신호로 제어하고 용접 시 이퀄라이징 동작을 위한 실린더가 없기 때문에 로봇에 의해 그 동작을 수행 하도록 하는 방식임.
+    This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signal, and is based on a method in which the equalizing operation is performed by the robot as the gun has no cylinder for the equalizing operation for the welding.
    
 </br>
 </br>
 
-**[필수 설명서]**
+**[Essential manuals]**
 
-- [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)
+- [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)
 
-- Hi6 부가축 기능설명서
-# 1.1 주요 사양
+- Hi6 Additional Axis Function Manual
+# 1.1 Main specifications
 
-|       **항목**       |                          **사양**                          |
+|       **Item**       |                          **Specification**                          |
 | :----------------: | :------------------------------------------------------: |
-|     스폿용접 설정 파일     |           spotweld.json            |
-|      용접기 최대 개수     |              4대                 |
-| 멀티건 동시용접수</br>(동일 건타입) |           4대                   |
-|      용접건 체인지수      |                 16대                   |
-|       용접조건 번호      |                         1 ~ 1024                        |
-|   용접조건에 따른 출력데이터   |                         1 ~ 1024                        |
-|      용접시퀀스 번호      |                   1 ~ 63(64는 팁드레싱 전용)                   |
-|     위치 수정 (서보건)    | SPOT 명령 스텝 –마모량 자동 보정위치</br>그외 스텝 –마모량 고려 않은 위치 |
-|    건번호 대응 툴번호 검사   |                     로봇건은 검사, 정치건은 미검사                    |
-|     용접조건 신호 출력     |   용접실행 신호 출력 시 동기 하여 출력</br>용접조건 신호만 출력할 수 없음   |
-# 1.2 조작 순서
+|     Spot welding setting file     |           spotweld.json            |
+|      Maximum welder count     |              4 units                 |
+| Count of multiple guns for simultaneous welding</br>(the same gun type) |           4 units                   |
+|            |                 16 units                   |
+|       Welding condition number      |                         1 – 1024                        |
+|   Output data dependent on welding condition   |                         1 – 1024                        |
+|       Welding sequence number      |                   1 –  63 (64 is exclusively for tip dressing)                   |
+|     Position modification (servo gun)    | SPOT command step – Consumption amount automatic compensation position</br>Other steps – Positions that do not consider the consumption amount |
+|    Inspection of the tool number corresponding to the gun umber   |                     Inspection of robot guns and no inspection of stationary guns                    |
+|     Welding condition signal output     |   To be outputted in sync with the output of the welding execution signal</br>Impossible to output only the welding condition signal   |
+# 1.2 Operation sequence
 
-서보건의 설정은 수동 설정과 자동 설정, 두 가지 절차가 제공됩니다.# 1.2.1 서보건 자동 설정을 이용한 조작 순서
+Two procedures are provided for the servo gun setting: manual setting and automatic setting.# 1.2.1  Operation sequence that uses the servo gun automatic setting
 
-서보건 자동 설정을 위한 절차는 아래 순서도와 같습니다.
+The procedure for the servo gun automatic setting is as shown in the flowchart below.
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_78_eng.PNG" width="60%"></img>
- <em><p align="center">그림 1.1 서보건 자동 설정 조작 순서</p></em>
-</p># 1.2.2 서보건 수동 설정을 이용한 조작 순서
+ <em><p align="center">Figure 1.1 Operation sequence of the servo gun automatic setting </p></em>
+</p># 1.2.2 Operation sequence that uses the servo gun manual setting
 
-서보건 수동 설정을 위한 절차는 아래 순서도와 같습니다.
+The procedure for the servo gun manual setting is as shown in the flowchart below.
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_46_eng.PNG" width="60%"></img>
- <em><p align="center">그림 1.2 서보건 수동 설정 조작 순서</p></em>
-</p># 1.3 서보건 전극간 이동에 따른 용어
+ <em><p align="center">Figure 1.2 Operation sequence of the servo gun manual setting</p></em>
+</p># 1.3 Terms in line with the movement between the electrodes of the servo gun
 
 
 <p align="center">
  <img src="../_assets/image_8_eng.PNG" width="70%"></img>
- <em><p align="center">그림 1.3 이동전극과 고정전극 용어</p></em>
-</p># 2. 서보건  초기 설정
+ <em><p align="center">Figure 1.3 Terms for the moving and fixed electrodes</p></em>
+</p># 2. Initial setting of the servo gun
 
-# 2.1 서보건 초기설정 절차
+# 2.1 Procedure for initial setting of the servo gun
 
-본 기능은 서보건을 이용한 스폿 및 기타 응용에 관련된 내용입니다. 서보건이 아닌 다른 종류의 건(공압건 등)을 이용하는 경우 본 장의 “[**2.1.1 건번호 대응 툴번호, 건타입 설정**](1-tool-number-gun-type-setting.md)”과 “[**2.1.2 툴 각도/거리 설정**](2-tool-angle-distance-setting.md)”만을 참고하시고, 다음 장 “[**3. 관련 기능**](../../3-Related-functions/)”을 참고하십시오.
+This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only “[**2.1.1 Setting of the tool number and gun type corresponding to the gun number**](1-tool-number-gun-type-setting.md)” and “[**2.1.2 Setting of the tool angle/distance**](2-tool-angle-distance-setting.md)” in this chapter, and “[**3. Related functions**](../../3-Related-functions/)” in the next chapter.
 
-서보건 초기설정은 서보건을 이용한 스폿 용접이 가능한 상태를 만들기 위한 필수 과정입니다. 서보건 초기설정 절차를 마친 후에는 아래 사항들이 가능합니다.
+The initial setting of the servo gun is an essential process to makie it possible to perform spot welding using a servo gun. After completing the procedure for the initial setting of the servo gun, the following items will be possible.
 
-* 서보건 이동전극의 조작
-* 지정한 가압력으로의 가압
-* 스폿 용접을 위한 신호 입출력
+* Operation of the moving electrode of the servo gun
+* Squeeze with the specified squeezing force
+* Signal input and output for spot welding
 
-초기설정 절차를 마친 후에는 사용 목적에 맞게 관련 기능과 스폿 용접 파라미터(용접 조건, 시퀀스 등)를 설정 후 작업 교시를 하면 됩니다.
+After completing the procedure for initial setting, you need to set related functions and spot welding parameters (welding conditions, sequence, etc.) according to the purpose of use, and then teach the work.
 
-당사에서는 “**서보건 자동설정**”(『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿 용접**』 → 『**6: 서보건 자동 설정**』) 기능으로 스폿 용접과 서보건 동작환경 설정 및 절차를 제공하고 있습니다.
+Through the “**Servo gun automatic setting**” function (『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**6: Servo gun automatic setting**』), our company provides settings and procedures for the environment for spot welding and servo gun operation.
 
 <p align="center">
  <img src="../../_assets/image_60_eng.PNG" width="70%"></img>
- <em><p align="center">그림 2.1 ‘서보건 자동설정’ 진입 화면</p></em>
+ <em><p align="center">Figure 2.1 Screen for entering the ‘Servo gun automatic setting’ menu</p></em>
 </p>
 
 {% hint style="warning" %}
-\[**주의**\] 해당 메뉴는 현재 선택된 건 번호가 서보건일 경우에만 진입 가능합니다.
-(“**부가축 파라미터 설정**”, “**부하 추정**”, “**툴 데이터 입력**”, “**건 번호 대응 툴 번호, 건 타입**” 은 서보건의 자동 설정 전 필수로 설정해야 하는 항목입니다.) 멀티 건을 사용하는 경우 건 번호를 변경하면서 각각 설정을 진행하십시오.
+\[**Caution**\] You can enter the menu only when the currently selected gun number is for the servo gun.
+(“**Additional axis parameter setting**”, “**Load estimation**”, “**Tool data inputting**”, “**Tool number and gun type corresponding to the gun number**” are the items that should be essentially set prior to the servo gun automatic setting.) If multiple guns are to be used, their individual settings should be performed by chaning the gun number.
 {% endhint %}
 
 </br>
 
 ---
 
-서보건과 스폿 용접을 위한 초기 설정은 아래와 같이 크게 5단계로 진행되며, 각 단계별로 수행 여부를 표기하여 진행 과정을 모니터링 할 수 있습니다.
+The initial setting for the servo gun and spot welding is performed largely in five steps as shown below, and the progress of each step will be indicated, allowing you to monitor the progress.
 
 
 <p align="center">
  <img src="../../_assets/image_3_eng.PNG" width="70%"></img>
- <em><p align="center">그림 2.1.2 ‘서보건 자동설정’ 절차</p></em>
+ <em><p align="center">Figure 2.1.2 Procedure for ‘servo gun automatic setting’</p></em>
 </p>
 
-서보건 초기설정의 표준 절차는 아래와 같습니다.
+The standard procedure for the servo gun initial setting is as follows.
 
-* **[**Step 0. 사전점검**](../2-2-step-0-pre-inspection.md)**: 서보건 동작환경 설정을 위한 필수 사전 설정 사항 점검
-  * 부가축 파라미터
-  * 건 번호 대응 툴 번호 설정
-  * 툴 데이터 설정(부하추정 포함)
-  * 서보건 파라미터 설정
-* **[**Step 1. 기본설정**](../2-3-step-1-default-setting/)**: 서보건의 동작환경 설정
-  * 엔코더 옵셋 보정
-  * 축 원점 설정
-  * 소프트 리밋 설정
-  * 가압력-전류 테이블 설정
-* **[**Step 2. 응용설정**](../2-4-step-2-application-setting/)**: 서보건을 이용한 응용 기능을 위한 설정
-  * 건 서치
-  * 건 암 휨량 보정
-  * 판넬 두께 측정 보정
-* **[**Step 3. 설정 확인**](../2-5-step-3-setting-check.md)**: 현재 설정의 확인을 위한 과정
-* **[**Step 4. 신호 설정**](../2-6-step-4-signal-setting.md)**: 스폿응용의 입출력 신호 할당
+* **[**Step 0. Pre-inspection**](../2-2-step-0-pre-inspection.md)**: Inspection of essential pre-setting items for the setting of the servo gun operation environment 
+  * Additional axis parameter
+  * Setting of the tool number corresponding to the gun number
+  * Tool data setting (including load estimation)
+  * Servo gun parameter setting
+* **[**Step 1. Default setting**](../2-3-step-1-default-setting/)**: Setting of the servo gun operation environment
+  * Encoder offset compensation
+  * Axis origin setting
+  * Soft limit setting
+  * Squeezing force-current table setting
+* **[**Step 2. Application setting**](../2-4-step-2-application-setting/)**: Setting of application functions that use the servo gun
+  * Gun search
+  * Gun arm deflection amount compensation
+  * Panel thickness measurement compensation
+* **[**Step 3. Setting check**](../2-5-step-3-setting-check.md)**: Process for checking the current setting
+* **[**Step 4. Signal setting**](../2-6-step-4-signal-setting.md)**: Assignment of input and output signals for spot welding application
 
 </br>
 
-“**서보건 초기설정 표준 절차**” 화면은 단순히 표기 과정과 완료 여부를 보여주는 것 뿐만 아니라 관련된 항목을 진행하거나 관련된 항목을 진행할 수 있는 화면으로 이동 시킵니다.
+The “**Standard procedure for servo gun initial setting**” screen not only shows the indication process and the status about completion, but also makes it possible to proceed with related items or move to the screen where related items can be performed.
 
-즉 서보건과 관련된 초기 설정은 해당 메뉴를 찾아 이동하지 않고 위 화면에서 모두 완료할 수 있습니다. 초기 설정의 진행은 2가지 방법으로 가능합니다.
+In other words, the initial setting related to the servo gun can all be completed from the above screen without going to relevant menus. The initial setting can be proceeded with in the following two ways.
 
-1. 해당 절차로 커서 이동 후 『**Enter**』 입력.
-2. 『**설정 전 항목 진행**』을 눌러 아직 진행되지 않은 초기 설정 자동 진행.
+1. Move the cursor to the relevant procedure and then input by selecting 『**Enter**.』
+2. Press 『**Proceed with the pirot-to-setting items**』 to automatically proceed with the initial setting not yet conducted.
 
-『**설정 전 항목 진행**』키는 전체 절차 중 아직 진행되지 않은 절차를 검사하여 해당 절차를 자동으로 진행할 수 있도록 합니다. 초기 설정 시에는 『**설정 전 항목 진행**』만을 눌러 가이드를 따라 진행하며 설정을 완료할 수 있습니다.
-# 2.1.1 건번호 대응 툴번호, 건타입 설정
+The 『**Proceed with the pirot-to-setting items**』 key makes it possible to inspect the procedures not yet conducted among all procedures, allowing them to be performed automatically. At the time of initial setting, you can complete the setting by following the guide just by clicking 『**Proceed with the pirot-to-setting items**』.
+# 2.1.1 Setting of the tool number and gun type corresponding to the gun number
 
-스폿건 번호에 대응되는 툴번호와 건타입을 설정합니다. 다양한 용접건을 개별 용접기와 툴 번호에 용도에 맞게 설정할 수 있도록 지원합니다. 건타입에 따라 용접방식이 상이하므로 반드시 정확하게 설정되어야 합니다. 건의 추가는 우측 '+' 표시로 가능하며 최대 16개까지 가능합니다.
+This function sets the tool number and gun type corresponding to the spot welding gun number. It supports in a way that a vriety of welding guns can be configured to match with the use of individual welders and tool numbers. Because the welding method varies depending on the gun type, the setting must be performed correctly. Guns can be added using the '+' sign on the right and up to 16 guns can be added.
 
 
 <p align="center">
  <img src="../../_assets/image_31_eng.PNG" width="70%"></img>
- <em><p align="center">그림 2.2 건 기본 설정</p></em>
+ <em><p align="center">Figure 2.2 Gun default setting</p></em>
 </p>
 
 
-‘용접기’는 해당 건 번호에 연결된 용접기를 지정하는 것으로 해당 건으로 용접 시 해당 용접기 설정에 맞는 포트로 신호를 입, 출력 합니다. 다수의 건이 서보 툴 체인지 기능을 통해 공유하여 사용 가능합니다. 
+‘Welder’ is for designating the welder linked with the relevant gun number. When welding is performed with the relevant gun, the signal is inputted to and outputted from the port that matches with the setting of the relevant welder. Multiple guns can be shared and used through the servo tool change function. 
 
-‘툴’이란 로봇의 R1축 선단과 결합되는 물체를 의미하고, 로봇 이 툴의 정보를 알고 있어야 합니다. ‘툴 번호’는 해당 건 번호와 매칭될 툴 번호를 의미하는 것으로, 해당 툴 번호에는 부하 추정과 툴 데이터 입력이 되어 있어야 합니다. 일반적으로 건 마다 다른 형태를 하고 있으므로 건 번호마다 유일한 ‘툴 번호’를 선택합니다. 정치형 건에 대해서는 R1축 선단과 결합되지 않으므로 임의로 설정해도 무방합니다. 작업 교시 시 용접에 사용되는 Spot 명령어의 건 번호와 Move 명령어의 툴 번호가 매칭되지 않을 경우 재생이 불가하니 참고하시기 바랍니다.
+‘Tool’ refers to an object coupled with the tip of the R1 axis of the robot, and the robot should know the tool information. ‘Tool number’ refers to the tool number to be matched with the relevant gun number, and there should be load estimation and tool data inputted in the relelvant tool number. In general, individual gun have different shapes, so a unique ‘tool number’ should be selected for each gun number.As stationary guns are not to be coupled with the tip of the R1 axis, it would be no problem to perform arbitrary setting for them. During the work teaching, if the gun number of the Spot command and the tool number of the Move command are not matched with eath other, playback will not be possible. Please note this.  
 
-건 타입’은 해당 건의 타입으로 3가지 중에 한 가지를 선택합니다. 해당 건의 타입이 서보건인 경우 해당 건에 할당된 부가 축 정보를 같이 입력해야 합니다. 이 부가 축 정보는 서보 툴 체인지 사용 시 여러 건에 동일한 부가 축이 할당될 수 있으니 참고하시기 바랍니다.
+‘Gun type’ refers to the gun type of the relevant gun. You can select one among three types. If the gun type of the relevant gun is servo gun, the information of the additional axis assigned to the relevant gun should be inputted. When it comes to the information of the additional axis, the same additional axis can be assigned to multiple guns during the use of the servo tool change function. Please note this.
 
 </br>
 
-◆【참고사항】◆ 
+{% hint style="info" %}
+-	If the gun number corresponding to the tool number is not set, the tool number may be used for other purposes.
 
--	툴 번호에 대응되는 건번호가 설정되지 않으면 그 툴 번호는 타용도로 사용이 가능합니다.
+-	When setting the gun type as servo gun, it is required to set the additional axis number corresponding to the gun number in the following method.  
 
--	건타입을 서보건으로 설정할 때, 건번호에 해당하는 부가축 번호는 다음과 같은 방식으로 설정하십시오.
+{% endhint %}
 
 <center>
 
-|건번호	|건용도|	부가축 번호|
+|Gun number	|Gun usage|	Additional axis number|
 |:---:|:---:|:---:|
-|G1, G2|	서보건을 포함한 용접건 체인지|	부가축 1|
-|G5|	정치형 서보건 1|	부가축 2|
-|G6|	정치형 서보건 2|	부가축 3|
+|G1, G2|	Change of welding guns including the servo gun|	Additional axis 1|
+|G5|	Stationary servo gun 1|	Additional axis 2|
+|G6|	Stationary servo gun 2|	Additional axis 3|
 
-</center># 2.1.2 툴 각도/거리 설정
+</center># 2.1.2 Setting of the tool angle/distance
 
-스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/))
+When spot welding is performed, the equalizing operation (operation in which the fixed electrode contacts the panel after passing through the clearance position) is absolutely necessary. This operation requires the correct setting of the tool coordinate system. The +Z axis of the tool coordinate system should be set correctly in the direction from the fixed electrode to the moving electrode (Note: [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)).
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
-  <em><p align="center">그림 2.3 용접건의 툴 길이와 각도 설정</p></em>
+  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun</p></em>
  </img>
 </p>
 
-*   **툴 길이**
+*   **Tool length**
 
-    툴 길이는 마모되지 않은 새 전극을 부착한 상태에서 로봇 R1축 플랜지 중심에서 툴 선단 (고정전극 상단)까지의 길이를 입력합니다. 상기 그림의 기준 툴 좌표계의 좌표방향을 정(+)으로 하고 측정된 길이 X, Y, Z값을 입력하거나, 자동 캘리브레이션 기능을 이용하여 툴 길이를 설정합니다.
-*   **툴 각도**
+    When it comes to tool length, input the length from the center of the flange of the robot's R1 axis to the tip of the tool (the upper part of the fixed electrode), measured with a new, unconsumed electrode attached. Set the coordinate direction of the reference tool coordinate system as positive (+) and input the measured length X, Y, and Z values, or set the tool length using the automatic calibration function.
+*   **Tool angle**
 
-    플랜지 좌표계를 기준으로 3방향의 회전 각도 (Rx,Ry,Rz)를 입력하거나, ‘각도보정’ 기능을 이용합니다. 고정전극의 윗방향이 +Z가 되도록 툴 각도를 설정합니다. 확인 방법은 티치팬던드의 \[**좌표계**]를 『**툴**』에 놓고, 조그키 \[**상**]키를 눌렀을 때 Z+방향(고정전극의 가압방향)과 일치하면 됩니다.
+    Input the rotation angles (Rx, Ry, Rz) in three directions based on the flange coordinate system, or use the ‘Angle compensation’ function. Set the tool angle in a way that the upward direction of the fixed electrode can be +Z. To check it, set \[**Coordinate system**] of the teach pendant to 『**Tool**』, and press the \[**Up**] key of the jog key. Then, if thus set direction matches with the Z+ direction (the squeezing direction of the fixed electrode), the setting would suffice.
 
 </br>
 
->    **상기 그림과 같은 경우, 툴 각도는 {0deg, 180deg, 0deg}로 설정합니다.**
+>    **In the case of the above figure, set the tool angle as {0 deg, 180 deg, 0 deg}.**
 
-# 2.2 Step 0. 사전 점검
+# 2.2 Step 0. Pre-inspection
 
-사전 점검은 서보건 초기 설정을 위해 반드시 선 수행되어야 하는 항목으로 본 메뉴 진입 전 다음의 설정이 완료되어 있어야 합니다.
+Pre-inspection is an item that must be performed in advance for the initial setting of the servo gun, and it is required to complete the following setting before entering main menus.
 
-* **부가축 파라미터**
-  * 지정된 부가축에 사용하고자 하는 서보건의 모터 및 Amp 사양 등을 기입
-  * 소프트 리밋은 초기 설정 절차 중 변경하기 때문에 임의로 설정 가능
-* **건 번호 대응 툴 번호 설정**&#x20;
-  * 현재 설정하고자 하는 서보건과 건번호를 지정
-* **툴 데이터 설정**
-  * 부하 추정 및 툴의 각도/길이 등 기입
-* **서보건 파라미터 설정**
-  * 지령값 옵셋, 가압력 허용 오차 등 필요한 항목 설정
+* **Additional axis parameter**
+  * To input the motor and amp specifications, etc. of the motor of the servo gun that is to be used for the designated additional axis.
+  * Soft limit can be set arbitrarily because it is changed during the initial setting procedure.
+* **Setting of the tool number corresponding to the gun number**&#x20;
+  * To designate the servo gun and gun number that you want to set now.
+* **Tool data setting**
+  * To input load estimation, tool angle/length, etc.
+* **Servo gun parameter setting**
+  * To set necessary items such as command value offset, squeezing force permissible error.
 
-사전 점검 단계에서는 사전 설정들의 완료 여부를 확인 합니다. 사전 설정 미 수행 시 관련된 설정을 할 수 있는 화면으로 이동할 수 있으니 반드시 설정을 완료 한 후에 서보건 초기 설정을 진행하십시오.
+Pre-inspection is a step to check whether the pre-setting items have been completed. If they are not performed, you can move to the screen where you can perform relevant settings. You must complete the relevant settings before proceeding with the initial setting of the servo gun.
 
 <p align="center">
  <img src="../_assets/image_27_eng.PNG" width="90%"></img>
- <em><p align="center">그림 2.4 사전 점검 진행 절차</p></em>
+ <em><p align="center">Figure 2.4 Pre-inspection proceeding procedure</p></em>
 </p>
 
 {% hint style="warning" %}
-\[**주의**]   “**부가축 파라미터 설정**” 화면에서 설정 완료 시 사전 점검 완료 후 재부팅을 요청합니다.
+\[**Caution**]  If you complete the setting on the “**Additional axis parameter setting**” screen, you will be asked to reboot after completing the pre-inspection.
 
-재부팅 후 다시 “**서보건 자동 설정**” 화면으로 다시 진입하여 설정을 계속 하십시오.
+After rebooting, you should enter the “**Servo gun automatic setting**” screen and continue the setting. 
 {% endhint %}
-# 2.3 Step 1. 기본 설정
+# 2.3 Step 1. Default setting
 
-사전 점검이 완료되면 기본 설정이 가능합니다. 기본 설정은 서보건의 이동 전극의 기준위치를 정하고, 원하는 곳으로 이동 시키며 원하는 가압력을 인가하기 위한 필수 설정 과정입니다.
+After the pre-inspection is completed, the default setting can be performed. The default setting is an essential setting process to determine the reference position of the moving electrode of the servo gun, move the servo gun to a desired position, and supply the desired squeezing force.
 
-기본 설정은 아래 그림과 같이 4가지 항목으로 구성되어 있습니다.
+The default setting consists of four items as shown in the figure below.
 
 <p align="center">
  <img src="../../_assets/image_17_eng.PNG" width="70%"></img>
- <em><p align="center">그림 2.5 기본 설정 진행 화면</p></em>
+ <em><p align="center">Figure 2.5 Default setting proceeding screen</p></em>
 </p>
 
 </br>
 
-(1) **엔코더 옵셋 보정**
-   * 통상적으로 엔코더의 원점은 서보건 모터의 교체 등으로 엔코더 데이터가 변경되었을 때 기구적으로 동일 위치를 일치시킬 수 있는 곳에서 설정을 합니다. 서보건의 경우 이동전극이 기구적으로 최대로 개방한 상태로 설정합니다.
-   * 수동 설정을 위해서는 “[**2.3.2** **수동 설정**](2-3-2-manual-setting/)”의 “[**2.3.2.1 서보건** **엔코더 옵셋 설정**](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)”을 참고하십시오.
+(1) **Encoder offset compensation**
+   * Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can have the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
+   * For manual setting, refer to “[**2.3.2.1 Servo gun encoder offset setting**](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)” of “[**2.3.2** **Manual setting**](2-3-2-manual-setting/).”
   
-(2) **축 원점 설정**
-   * 통상적으로 서보건축 원점은 이동전극과 고정전극 모두 새 팁이 부착된 상태에서 진행되어야 하며, 두 전극이 서로 만나는 위치에서 설정합니다. 서보건 동작의 대부분은 이 축 원점을 기준으로 이루어지므로 이에 대한 설정은 매우 중요합니다.
-   * 수동 설정을 위해서는 “[**2.3.2** **수동 설정**](2-3-2-manual-setting/)”의 “[**2.3.2.2 서보건 축 원점 설정**](2-3-2-manual-setting/2-servo-gun-axis-origin.md)”을 참고하십시오.
+(2) **Axis origing setting**
+   * In general, the setting of the axis origin of the servo gun should be performed at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
+   * For manual setting, refer to “[**2.3.2.2 Servo gun axis origin**](2-3-2-manual-setting/2-servo-gun-axis-origin.md)” of “[**2.3.2** **Manual setting**](2-3-2-manual-setting/).”
+   
   
-(3) **소프트 리밋 설정**
-   * 통상적으로 서보건의 소프트 리밋은 이동전극이 최대로 개방한 상태에서 ‘**최소**’항목에 설정하며, 팁을 모두 제거한 가장 근접한 위치에서 ‘**최대**’항목에 설정합니다.
-   * 수동 설정을 위해서는 “[**2.3.2** **수동 설정**](2-3-2-manual-setting/)”의 “[**2.3.2.3 서보건 소프트 리밋 설정**](2-3-2-manual-setting/3-servo-gun-soft-limit.md)”을 참고하십시오.
+(3) **Soft limit setting**
+   * In general, the soft limit of the servo gun should be set to ‘**Minimum**’ while the moving electrode is fully open, and set to ‘**Maximum**’ while the moving electrode is at the closest position with all tips removed.
+   * For manual setting, refer to “[**2.3.2.3 Servo gun soft limit**](2-3-2-manual-setting/3-servo-gun-soft-limit.md)” of “[**2.3.2** **Manual setting**](2-3-2-manual-setting/).”
     
-(4) **가압력-전류 테이블 설정**
-   * 로봇에 설치되는 다양한 서보건을 원하는 가압력으로 가압하기 위해서는 서보건에 인가되는 전류와 발생하는 가압력을 대응시키는 작업이 필요합니다. 이를 위해 당사에서는 서보건 가압력 – 전류 테이블을 제공하고 있으며, 이 테이블을 서보건에 맞게 튜닝하는 과정이 필요합니다.
-   * 본 기능을 사용하기 위해서는 사용하고자 하는 가압력 영역 중 5개의 대표값을 선정해야 합니다. 서보건 가압력 – 전류 테이블 튜닝은 이 5개의 대표 가압력과 일치하는 전류를 찾는 과정입니다. 이 테이블은 서보건의 자세에 따라 달라질 수 있으므로 이동 전극의 방향이 중력 방향일 때와 반중력 방향일 때를 각각 튜닝해야 서보건의 다양한 자세에서 높은 정확도로 가압할 수 있습니다.
-   * 자세한 사항은 “[**2.3.3 서보건 가압력 - 전류 테이블 튜닝**](2-3-3-servo-gun-force-current-table-tuning/)”을 참고하십시오.
+(4) **Squeezing force - current table setting**
+   * To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun..
+   * To use this function, it is necessary to select five representative values among the areas of the squeezing force to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the direction of gravity and when it is in direction of anti-gravity, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
+   * For more details, refer to “[**Servo gun squeezing force - current table tunning**](2-3-3-servo-gun-force-current-table-tuning/).”
 
 </br>
 
-기본 설정은 자동 설정과 수동 설정으로 진행할 수 있습니다.
+The default setting can be performed with automatic settng and manual setting.
 
-(1) **자동 설정**: 서보건이 자동으로 움직여 지정된 위치로 이동 후 지정된 설정을 수행.
-   * 자동 설정 가능 항목
-     * 엔코더 옵셋 보정
-     * 축 원점 설정
-     * 소프트 리밋 설정
-   * 가압력-전류 테이블 설정은 가압력계의 설치 등의 사용자 개입이 필요하기 때문에 자동 진행이 불가합니다.
+(1) **Automatic setting**: The servo gun automatically moves to the designated position and then perform the designated setting.
+   * Items that can be automatically set
+     * Encoder offset compensation
+     * Axis origin setting
+     * Soft limit setting
+   * The setting of the squeezing force - current table cann not be automatically performed because it requires user intervention such as the installation of a squeezing force gauge.
    
-(2) **수동 설정**: 사용자의 조작에 의해 서보건을 지정된 위치로 이동시키고, 전용 설정 화면에서 지정된 기능을 수행.
-# 2.3.1 자동 설정
+(2) **Manual setting**: The servo gun needs to be moved to the designated position through the operation by the user and the designated function will be performed on the dedicated setting screen.
+# 2.3.1 Automatic setting
 
-서보건 ‘**기본 설정**’의 자동 설정은 『**전체 자동 설정**』을 눌러 진행합니다. ‘**전체 자동 설정**’은 서보건의 이동전극이 자동으로 움직이기 때문에 아래의 조건이 반드시 만족되어야 합니다.
+Progress the automatic setting of the ‘**default setting**’ of the servo gun by pressing the 『**All automatic setting**』 key. In the case of ‘**all automatic setting**’, the moving electrode of the servo gun moves automatically, so the following conditions must be satisfied.
 
-* 이동전극과 고정전극에 새 팁 부착
-* 서보건 주변 작업자 부재
-* 이동전극과 고정전극 사이에 작업물 부재
-* 수동 모드
-* 모터 온
-* 이동전극 최대개방 금지(최대개방 위치와 일정거리 유격)
+* Moving and fixed electrodes with new tipes attached
+* No worker around the servo gun
+* No workpiece between the moving electrode and fixed electrode
+* Manual mode
+* Motor on
+* Prohibition of maximum opening of the moving electrode (a gap of certain distance from the maximum opening position)
 
-‘**전체 자동 설정**’은 다음과 같은 절차가 자동 진행됩니다.
+In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
 
-    (1) 엔코더 옵셋 보정  
-      - 이동 전극이 최대 개방 위치로 이동.  
-      - 최대 개방 위치에서 정지 후 엔코더 옵셋 보정 실행
-    (2) 축 원점 설정  
-      - 서보건 3회 가압, 2회 개방 동작
-      - 3번째 가압 후 두 전극이 만나는 위치로 이동
-      - 해당 위치 사용자 확인
-      - 축 원점 설정 실행
-    (3) 소프트 리밋 설정  
-      - 축 원점 설정 후 자동 실행
-    (4) 가압력-전류 테이블 설정  
-      - 설정을 위한 메뉴로 자동 이동
+    (1) Encoder offset compensation  
+      - The moving electrode moves to the maximum opening position.  
+      - The servo gun stops at the maximum opening position and then encoder offset compenation will be executed.
+    (2) Axis origin setting
+      - The servo gun performs the squeezing operation three times and opening operation two times.
+      - After the third squeezing operation, the servo gun moves to the position where the two electrodes meet with each other.
+      - Confirms the relevant position with the user.
+      - Executes the setting of the axis origin.
+    (3) Soft limit setting  
+      - Will be automatically executed after the axis origin setting.
+    (4) Squeezing force - current table setting 
+      - Automatic change to the menu for the setting will occur.
 
-서보건 기본 설정의 자동 설정은 서보건의 ‘**엔코더 옵셋 보정**’ 위치와 ‘**축 원점 보정**’ 위치를 자동으로 인식하여 해당 위치에서 ‘**엔코더 옵셋 보정**’, ‘**축 원점 보정**’과 ‘**소프트 리밋 설정**’을 진행합니다. 기본 설정의 자동 설정은 ‘**가압력-전류 테이블 설정**’을 자동 진행하지 않습니다. “[**2.3.3 서보건 가압력 - 전류 테이블 튜닝**](2-3-3-servo-gun-force-current-table-tuning/)” 챕터를 참고하여 설정을 진행하십시오.
+In the case of automatic setting of the servo gun's default setting, the servo gun's ‘**encoder offset compensation**’ position and ‘**axis origin compensation**’ position are automatically recognized, allowing the ‘**encoder offset compensation**’, ‘**axis origin compensation**’ and ‘**soft limit setting**’ to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the ‘**squeeze force - current table setting**’ does not proceed automatically. Please refer to the chapter “[**2.3.3 Squeeze force - current table setting**](2-3-3-3-servo-gun-force-current-table-tuning/)” for setting.
 
-‘**전체 자동 설정**’ 시 축 원점 위치 이동 후 아래와 같이 사용자에게 축 원점 위치를 확인합니다. 이 때 이동 전극의 위치와 귀환 전류(1A 이하)를 확인하여 살짝 맞닿는 위치에 있으면 ‘**예**’를 눌러 설정을 계속 진행하십시오. 만약 귀환 전류가 높거나 이동 전극과 고정 전극이 맞닿지 않는 상태이면 조그 키를 이용하여 미세 조정 후 ‘예’를 누르십시오. 자동 설정을 원하지 않는 경우 ‘**아니오**’를 눌러 설정을 종료하십시오.
+In the case of ‘**all automatic setting**’, the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press ‘**Yes**’ to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press ‘Yes’. If you do not want automatic setting, please click ‘**No**’ to end the setting.
 
 <p align="center">
- <img src="../../_assets/image%20(76)_eng.PNG" width="70%"></img>
- <em><p align="center">그림 2.6 축 원점 위치 사용자 확인</p></em>
+ <img src="../../_assets/image_76_eng.PNG" width="70%"></img>
+ <em><p align="center">Figure 2.6 Confirmation with the user on the position of the axis origin</p></em>
 </p>
 
 {% hint style="warning" %}
-[**경고**] 서보건 최대 개방 위치에 범퍼와 같은 금속 재질이 아닌 스토퍼가 달려 있는 경우 최대 개방 위치 추정이 어려울 수 있으니, 제거 후 설정하는 것을 권장합니다.
+[**Warning**] If the servo gun has a stopper other than a metal material such as a bumper attached at the maximum opening position of the servo gun, it may be difficult to estimate the maximum opening position. It is recommended to perform setting after removing the stopper.
 {% endhint %}
 
-서보건 기본 설정의 화면 구성과 기능은 아래와 같습니다.
+The configuration and functionality of the servo gun default setting screen is as follows.
 
 <p align="center">
- <img src="../../_assets/image%20(62)_eng.PNG" width="70%"></img>
- <em><p align="center">그림 2.7 기본 설정 구성</p></em>
+ <img src="../../_assets/image_62_eng.PNG" width="70%"></img>
+ <em><p align="center">Figure 2.7 Configuration of the default setting</p></em>
 </p>
 
->1. **상태**: 현재 서보건 설정 상태 (X:설정 전, O:완료, 변경 됨 중 하나)
->2. **개별 자동 설정**: 전체가 아닌 체크된 항목만 자동으로 설정하는 기능 지원. 『**선택 항목 자동 설정**』을 누르면 체크된 항목만 자동으로 진행됩니다.
->3. **수동설정**: 해당 항목을 설정할 수 있는 화면으로 이동  
-    - 엔코더 옵셋 보정 : **설정**』 → 『**3: 로봇 파라미터**』 → 『**4: 엔코더 옵셋**』화면으로 이동   
-    - 축 원점 설정 : **설정**』 → 『**3: 로봇 파라미터**』 → 『**2: 축 원점**』화면으로 이동   
-    - 소프트 리밋 설정 : **설정**』 → 『**3: 로봇 파라미터**』 → 『**3: 소프트 리밋**』화면으로 이동   
-    - 가압력-전류 테이블 설정 : **설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**7: 서보건 가압력 튜닝**』화면으로 이동  
->4. **가이드**: 현재 설정 상태나 에러 발생 시 원인 및 대처 방안 표기
->5. **모니터링**: 현재 설정 상황 및 서보건의 위치와 귀환 전류, 설정 값 등을 표시
->6. **전체 자동 설정**: 전체 자동 설정 수행 명령
->7. **선택 항목 자동 설정**: 개별 자동 설정 항목으로 지정된 항목만 자동 설정
->8. **실행 정지**: 진행 중인 설정을 정지# 2.3.2 수동 설정
+>1. **Status**: Shows the current setting status of the servo gun (X: Before setting, O: Either complete or changed)
+>2. **Individual automatic setting**:  Supports the function of automatically setting the checked items only, not all. Pressing the 『**Selected item automatic setting**』 key will allow automatic setting to be performed only for the checked items.
+>3. **Manual setting**: To move to the screen for setting the relevant items.  
+    - Encoder offset compensation: To move to the screen of 『**Setting**』 → 『**3: Robot parameter**』 → 『**4: Encoder offset**』   
+    - Axis origin setting: To move to the screen of 『**Setting**』 → 『**3: Robot parameter**』 → 『**2: Axis origin**』   
+    - Soft limit setting: To move to the screen of『**Setting**』 → 『**3: Robot parameter**』 → 『**3: Soft limit**』   
+    - Squeeze force - current table setting: To move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**7: Servo gun squeeze force tuning**』  
+>4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+>5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+>6. **All automatic setting**: Commands the execution of all automatic setting of all items
+>7. **Selected item automatic setting**: Automatically sets only the items that are designated as the items of individual automatic setting
+>8. **Execution stop**: Stops the setting that is in progress.# 2.3.2 Manual setting
 
-서보건의 기본 설정을 수동으로 설정하기 위한 절차는 아래와 같습니다.
+The procedure for manually performing the default setting of the servo gun is as follows.
 
-1. 서보건 엔코더 옵셋 설정
-2. 서보건 축 원점 설정
-3. 서보건 소프트 리밋 설정
-# 2.3.2.1 서보건 엔코더 옵셋 설정
+1. Servo gun encoder offset setting
+2. Servo gun axis orign setting
+3. Servo gun soft limit setting
+# 2.3.2.1 Servo gun encoder offset setting
 
-통상적으로 엔코더의 원점은 서보건 모터의 교체 등으로 엔코더 데이터가 변경되었을 때 기구적으로 동일 위치를 일치시킬 수 있는 곳에서 설정을 합니다. 서보건의 경우 이동전극이 기구적으로 최대로 개방한 상태로 설정합니다.
+Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can match the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
 
-서보건 축의 엔코더 보정 절차는 다음과 같습니다.
+The encoder compensation procedure for the axis of the servo gun is as follows.
 
-(1) 서보건 축의 브레이크를 수동으로 해제한 후, 이동전극을 최대로 개방합니다.
+(1) Manually release the brake of the axis of the servo gun and then open the moving electrode to the maximum.
 
 <p align="center">
  <img src="../../../_assets/image_71_eng.PNG"></img>
- <em><p align="center">그림 2.8 서보건 최대 개방 위치</p></em>
+ <em><p align="center">Figure 2.8 Servo gun's maximum open position</p></em>
 </p>
 
 
-(2) ‘**서보건 자동 설정**’ 의 기본 설정 화면에서 ‘**엔코더 옵셋 보정**’의 [**수동 설정**] 버튼을 누르거나(그림 2.9), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**4: 엔코더 옵셋**』 에서 해당 서보건 축을 커서로 선택한 후, [**적용(Reset)**] 버튼을 누릅니다. 현재 엔코더 값이 “**00400000**”이 되면 [**완료(OK)**] 버튼을 입력합니다.
+(2) In the default setting screen of the‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Encoder offset compensation**’ menu (Figure 2.9), or select the relevant servo gun axis in  『**Setting**』 → 『**3: Robot parameter**』 → 『**4: Encoder offset**』 with the cursor and then press the [**Reset**] button. When the current encoder value becomes “**00400000**”, press the [**OK**] button. 
 
 <p align="center">
  <img src="../../../_assets/image_36_eng.PNG" width=80%></img>
- <em><p align="center">그림 2.9 엔코더 옵셋 보정 화면 이동</p></em>
-</p># 2.3.2.2 서보건 축 원점
+ <em><p align="center">Figure 2.9 Moving to the encoder offset compensation screen</p></em>
+</p># 2.3.2.2 Servo gun axis origin
 
-통상적으로 서보건축 원점은 이동전극과 고정전극 모두 새 팁이 부착된 상태에서 서로 만나는 위치에서 설정합니다. 서보건 동작의 대부분은 이 축 원점을 기준으로 이루어지므로 이에 대한 설정은 매우 중요합니다.
+In general, the axis origin of the servo gun should be set at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
 
-서보건축의 축 원점 설정 절차는 다음과 같습니다.
+The axis origin setting procedure for the axis of the servo gun is as follows.
 
-1) 서보건축을 수동으로 조작하여 아래 그림과 같은 상태가 되도록 합니다.
+1) Manually operate the axis of the servo gun to bring it into the state as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_19_eng.PNG"></img>
- <em><p align="center">그림 2.10 서보건 원점 위치</p></em>
+ <em><p align="center">Figure 2.10 Position of the origin of the servo gun</p></em>
 </p>
 
-1) ‘**서보건 자동 설정**’의 기본 설정 화면에서 ‘**축 원점 설정**’의 \[**수동 설정**] 버튼을 누르거나(아래 그림), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**2: 축 원점**』에서 해당 서보건 축을 커서로 선택한 후, \[**적용(Reset)**] 버튼을 누릅니다. 현재 축위치가 0.0mm로 표시되면 \[**완료(OK)**]버튼을 입력합니다.
+1) In the default setting screen of the ‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Axis origin setting**’ menu (figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**2: Axis origin**』 with the cursor and then press the \[**Reset**] button. When the current position of the axis is indicated as 0.0 mm, input by selecting the \[**OK**] button. 
 
 
 <p align="center">
  <img src="../../../_assets/image_80_eng.PNG" width="80%"></img>
- <em><p align="center">그림 2.11 축 원점 화면 이동</p></em>
+ <em><p align="center">Figure 2.11 Moving to the axis origin screen</p></em>
 </p>
-# 2.3.2.3 서보건 소프트 리밋
+# 2.3.2.3 Servo gun soft limit
 
-통상적으로 서보건의 소프트 리밋은 이동전극이 최대로 개방한 상태에서 ‘최소’항목에 설정하며, 팁을 모두 제거한 가장 근접한 위치에서 ‘최대’항목에 설정합니다.
+In general, the soft limit of the servo gun should be set to 'Minimum' while the moving electrode is fully open, and set to 'Maximum' while the moving electrode is at the closest position with all tips removed.
 
-서보건축의 소프트 리밋 설정 절차는 다음과 같습니다.
+The soft limit setting procedure for the axis of the servo gun.
 
-1. 서보건을 수동으로 조작하여 아래 그림과 같은 상태가 되도록 합니다.
+1. Manually operate the servo gun to bring it to the condition as shown in the figure below
 
 
 <p align="center">
  <img src="../../../_assets/image_90_eng.PNG" ></img>
  <img src="../../../_assets/image_2_eng.PNG" ></img>
- <em><p align="center">그림 2.12 서보건 리밋 설정</p></em>
+ <em><p align="center">Figure 2.12 Setting of the servo gun soft limit</p></em>
 </p>
 
-2. ‘**서보건 자동 설정**’의 기본 설정 화면에서 ‘**소프트 리밋 설정**’의 \[**수동 설정**] 버튼을 누르거나(아래 그림), 『**설정**』 → 『**3: 로봇 파라미터**』 → 『**3: 소프트 리밋**』에서 해당 서보건 축을 커서로 선택한 후, \[**적용(Reset)**] 버튼을 누릅니다. 정상적으로 표시되면 \[**완료(OK)**] 버튼을 입력합니다.
-
+2. In the default setting screen of the ‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Soft limit setting**’ menu (Figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**3: Soft limit**』 with the cursor and then press the \[**Reset**] button. If the indication is performed normally, input by selecting the \[**OK**] button.
 
 <p align="center">
  <img src="../../../_assets/image_41_eng.PNG" width="80%"></img>
- <em><p align="center">그림 2.13 서보건 리밋 설정 화면 이동</p></em>
-</p># 2.3.3 서보건 가압력 - 전류 테이블 튜닝
+ <em><p align="center">Figure 2.13 Moving to the servo gun soft limit setting screen </p></em>
+</p># 2.3.3 Servo gun squeezing force - current table tunning
 
-로봇에 설치되는 다양한 서보건을 원하는 가압력으로 가압하기 위해서는 서보건에 인가되는 전류와 발생하는 가압력을 대응시키는 작업이 필요합니다. 이를 위해 당사에서는 서보건 가압력 – 전류 테이블을 제공하고 있으며, 이 테이블을 서보건에 맞게 튜닝하는 과정이 필요합니다. 이 튜닝 정확도에 따라 서보건 가압력의 정확도가 결정되므로 서보건 사용 전 반드시 설정해야 합니다.
+To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun. The accuracy of this tuning determines the accuracy of the servo gun squeezing force. In consideratin of it, tuning must be performed before using the servo gun.
 
-본 기능을 사용하기 위해서는 사용하고자 하는 가압력 영역 중 5개의 대표값을 선정해야 합니다. 서보건 가압력 – 전류 테이블 튜닝은 이 5개의 대표 가압력과 일치하는 전류를 찾는 과정입니다. 이 테이블은 서보건의 자세에 따라 달라질 수 있으므로 이동 전극의 방향이 중력 방향일 때와 반중력 방향일 때를 각각 튜닝해야 서보건의 다양한 자세에서 높은 정확도로 가압할 수 있습니다.
+To use this function, it is necessary to select five representative values among the squeezing forces to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the gravity direction and in anti-gravity direction, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
 
-당사에서는 서보건 가압력 – 전류 테이블 튜닝을 위해 수동 모드를 제공합니다.
+Our company provide manual mode for the tuning of the servo gun squeezing force - current table.
 
-*   수동 모드 튜닝
+*   Tuning in manual mode
 
-    가압력계의 통신 여부와 무관하게 튜닝 가능하며 측정된 가압력을 사용자가 직접 입력하여 테이블을 튜닝
-# 2.3.3.1 수동 튜닝 모드
+    Tuning can be performed regardless of the communication with the squeezing force gauge, and the user can directly tune the table by inputting the measured squeezing force.
+# 2.3.3.1 Manual tuning mode
 
-수동 튜닝 모드는 서보건 가압력 –전류테이블 설정을 수동으로 수행할 때 사용하는 기능입니다. 서보건 가압 후 측정된 가압력을 사용자가 직접 티칭 펜던트를 이용하여 입력하면 자동으로 최적의 지령전류를 계산합니다. 이 과정을 반복적으로 수행하여 정확도를 높여야 하며 정확도는 수렴 정도 및 테스트 가압으로 확인할 수 있습니다.
+The manual tuning mode is a function to manually perform the servo gun squeezing force – current table setting. After the servo gun squeezing occurs, if the user directly inputs the measured squeezing force by using the teaching pendant, the optimal command current will be automatically calculated. This process should be repeated to increase the accuracy. The accuracy can be verified by the degree of convergence and test squeezing.
 
-당사에서 권장하는 수동 모드 서보건 가압력 - 전류테이블 설정 절차는 아래와 같습니다.
+The procedure for setting the servo gun squeezing force – current table in manual mode, recommended by our company, is as follows.
 
 <p align="center">
  <img src="../../../_assets/image_84_eng.PNG" width=70%></img>
- <em><p align="center">그림 2.14 서보건 수동 튜닝 화면</p></em>
+ <em><p align="center">Figure 2.14 Servo gun manual tuning screen</p></em>
 </p>
  
 
->1. 튜닝을 원하는 이동전극 방향을 설정(중력 또는 반중력)
->2. \[**Shift**] + \[**서보건 수동압력**] 또는 서보건 축 조그로 이동전극이 가압력계에 맞닿는 위치로 이동하여 가압력계 두께 측정(전극간 거리)
->3. 측정한 두께를 화면 상단 가압력계 두께에 입력
->4. 설정하고자 하는 가압력의 대푯 값을‘**설정 가압력**’에 입력
->5. 가압하고자 하는 설정 가압력 행에서 서보건 가압 (아래 그림에서는 현재 녹색 포커스가 있는 100 kgf로 가압함. svgun man press: \[**Ctrl**]/\[**Shift**] + \[**서보건 수동압력**])
->6. 가압력계로 측정된 가압력을 ‘**측정 가압력**’에 기입
->7. 모든 설정 가압력에 대해 3 \~ 6과정을 반복
->8. 입력 완료 후 \[**지령전류 계산**]을 눌러 설정 가압력에 맞는 지령 전류 계산
->9. 수렴 정도를 확인 및 테스트 가압으로 지령 전류의 반복 계산이 필요한 경우 3 \~ 8 과정을 반복
->10. 특정 가압력의 지령 전류만 계산하기 원하는 경우 측정 가압력 입력 후 \[**지령전류 개별 계산**]을 실행
->11. \[**저장하기**]를 눌러 현재 설정 저장 후 이동 전극 방향 변경 후 1 \~ 8 과정을 반복
+>1. Set the direction of the moving electrode that needs tuning (gravity or anti-gravity).
+>2. With the \[**Shift**] + \[**Servo gun manual pressure**] keys or by jogging the axis of the servo gun, bring the moving electrode to the position where it can contact the squeezing force gauge, and then measure the thickness of the squeezing force gauge (distance between electrodes).
+>3.  Input the measured thickness into the squeezing force gauge thicknes section shown at the upper part of the screen (distance between electrodes).
+>4. Input the desired representative value of the squeezing force that you want to set into the ‘**Set squeezing force**’ section.
+>5. Squeeze the servo gun according to the line that indicates the set squeezing force with which you want to perform squeezing. (In the figure below, squeezing is performed with 100 kfg currently indicated with a green focus. svgun man press: \[**Ctrl**]/\[**Shift**] + \[**Servo gun manual pressure**])
+>6. Input the squeezing force measured with the squeezing force gauge into the ‘**Measured squeezing force**’ section.
+>7. Repeat steps 3–6 for all set squeezing forces.
+>8. After completing the inputting, press the \[**Command current calculation**] button to calculate the command current that matches the set squeezing force.
+>9. When necessary to check the degree of convergence and perform repetead calculation of the command current through test squeezing, repeat steps 3–8.
+>10. If you want to calculate only the command current for a specific squeezing force, input the measured squeezing force and then execute the \[**Command current individual calculation**] process.
+>11. Save the current setting by pressing \[**Save**]. After that, change the direction of the moving electrode and then repeat steps 1–8 above.
 
 </br>
 
-서보건 가압을 위해서는 \[**Shift**] + \[**서보건 수동압력**] 또는 \[**Ctrl**] + \[**서보건 수동압력**]을 눌러야 합니다. \[**Ctrl**] + \[**서보건 수동압력**]이 자동모드와 동일한 제어를 하기 때문에 \[**Ctrl**] + \[**서보건 수동압력**]의 사용을 권장합니다.
+To squeeze the servo gun, you should press \[**Shift**] + \[**Servo gun manual pressure**] keys or \[**Ctrl**] + \[**Servo gun manual pressure**] keys. Considering that with the \[**Ctrl**] + \[**Servo gun manual pressure**] keys, you can perform controlling in the same manner as the automatic mode does, it is recommended to use \[**Ctrl**] + \[**Servo gun manual pressure**] keys. 
 
-아래 그림은 ‘지령 전류 계산’을 2회 수행한 후의 화면입니다. 수렴 정도가 충분히 낮은 경우 설정 가압력으로 가압하여 측정된 가압력과 차이를 확인 후 계속 진행 여부를 결정하십시오.
+The figure below is a screen showing the state after performing ‘command current calculation’ twice. If the degree of convergence is low enough, it is needed to carry out squeezing with the set squeezing force and check the difference with the measured pressure, and then decide whether to continute to proceed.
 
-지령 전류 계산을 위해 1개 이상의 측정 가압력을 입력해야 합니다. 초기 지령 전류가 서보건으로 가압 가능한 범위를 벗어난 경우 1 \~ 2개의 측정 가압력만을 입력 후 ‘지령 전류 계산’을 수행하여 초기 값을 다시 설정할 수 있습니다. 측정 가압력을 모두 입력하지 않고 지령 전류 계산을 수행하면 전반적인 정확도는 낮아지므로 초기 지령 전류 재설정하는 경우 이외에는 측정 가압력을 모두 입력 후 ‘지령 전류 계산’ 수행을 권장합니다.
+At least one measured squeezing force should be inputted for the command current calculation. If the initial command current exceeds the range where the servo gun can perform squeezing, you can reset the initial value by inputting only one or two measured squeezing forces and then performing the ‘command current calculation.’ If the command current calculation is performed without inputting all of the measured squeezing forces, the overall accuracy will be lower. Considering it, it is recommended to perform ‘command current calculation’ after inputting all measured squeezing forces, except for the case of resetting the initial command current.
 
-설정 항목에 대한 설명은 아래와 같습니다.
+The explanation for the setting items is as follow.
 
-*   **이동 전극의 방향**
+*   **Direction of the moving electrode**
 
-    현재 튜닝 중이 서보건의 이동전극 방향으로 중력 방향과 반중력 방향을 각각 1회씩 설정해야 합니다.
-*   **설정 가압력**
+    This is the direction of the moving electrode of the servo gun currently being tuned. The direction should be set once each for the direction of gravity direction of anti-gravity direction.
+*   **Set squeezing force**
 
-    사용하고자 하는 가압력의 대푯값으로 튜닝을 통해 설정 가압력과 대응되는 지령전류를 찾습니다.
-*   **측정 가압력**
+    This is the representative value of the squeezing force that is to be used. This is for finding the command current corresponding to the set squeezing force.
+*   **Measured squeezing force**
 
-    현재 지령 전류로 가압했을 때 측정된 가압력으로 사용자가 가압력계를 이용하여 직접 입력해야 합니다.
-*   **지령 전류**
+    This is the squeezing force measured when squeezing is performed with the current command current. The user should input the value directly by using the squeezing force gauage.
+*   **Command current**
 
-    현재 설정 가압력과 대응되는 지령 전류로 계산을 통해 갱신됩니다.
-*   **수렴 정도**
+    This is the command current corresponding to the currently set sequeeze force.
+*   **Degree of convergence**
 
-    전류 계산 후 이전 지령전류 대비 계산된 지령전류의 변화량으로 이 값이 낮을수록 가압력 튜닝의 정확도가 높습니다.
-*   **설정된 가압력 허용오차**
+   This value is the amount of variation of the calculated command current compared to the previous command current after the current calculation is performed. The lower this value, the higher the accuracy of the tuning of the squeezing force.
+*   **Permissible error for the set squeezing force**
 
-    서보건 파라미터 중 가압력 허용오차로 테스트 가압 후 현재 상태를 점검하는데 사용될 수 있습니다.
-*   **전극간 거리**
+    This is the squeezing force permissible error among the servo gun parameters and can be used to check the current state after the test squeezing.
+*   **Distance between electrodes**
 
-    서보건의 전극간 거리를 모니터링 할 수 있습니다. (가압과 개방 상태 모니터링 가능)
-*   **반복 계산 횟수**
+    This allows you to monitor the distance between the electrodes of the servo gun (possible to monitor the state of squeezing and opening).
+*   **Count of repeated calculations**
 
-    지금까지 ‘지령 전류 계산’을 눌러 지령 전류를 갱신한 횟수 입니다. 수차례 반복 후에도 수렴 정도가 줄어들지 않는다면 ‘지령 전류 개별 계산’을 사용하거나 가압력계와 서보건 상태를 점검하십시오.
-*   **측정 전류**
+    This is the number of times the command current has been updated by pressing the ‘Command current calculation’ key so far. If the degree of convergence does not decrease after several repetitions, use the ‘Command current individual calculation’ key or check the state of the squeezing force gauge and servo gun.
+*   **Measured currrent**
 
-    현재 측정된 전류로 가압 시 지령 전류에 근접하게 모니터링 됩니다.
+    This is the currently measured current and will be monitored in a way that it can get close to the command current when squeezing is performed.
 
-{% hint style="info" %}
-\[**주의**] \[**Ctrl**] + \[**서보건 수동압력**]은 1회 실행으로 가압 완료까지 동작하여, 중간에 버튼을 떼서 멈출 수 없습니다. 그러므로 가압 동작의 정지를 위해서는 인에이블 스위치를 놓거나, 비상정지 버튼을 누르십시오.또한 가압력계 두께가 실제와 다른 경우 자동 모드에서 가압력이 달라질 수 있으므로 정확한 값을 입력하십시오.
+{% hint style="info" %} \[**Caution**]
+The operation by selecting \[**Ctrl**] + \[**Servo gun manual pressure**] keys will work until the squeezing is completed with one execution, making it impossible to stop the operation by releasing the button in the middle. Therefore, stopping the squeeze operation requires you to release the enable switch or press the emergency stop button. Also, if the squeezing force gauge thickness is different from the actual value, the squeezing force will be different in automatic mode. So please input the correct value.
 
-현재 화면 오른쪽의 기능 버튼들로 서보건 설정과 동작이 가능하고 설정과 동작은 아래와 같습니다.
+You can set and operate the servo gun using the function buttons on the right side of the current screen. The related settings and operations are as follows.
 
-* \[**Shift**] + \[**서보건 대개방**]: 서보건 대개방(표시된 개방거리만큼 개방)
-* \[**Shift**] + \[**서보건 소개방**]: 서보건 소개방(표시된 개방거리만큼 개방)
-* \[**Shift**] + \[**서보건 수동압력**]: 서보건 가압(현재 커서가 위치한 가압력으로 가압)
-* \[**Ctrl**] + \[**서보건 대개방**]: 서보건 대개방 거리 설정
-* \[**Ctrl**] + \[**서보건 소개방**]: 서보건 소개방 거리 설정
-* \[**Ctrl**] + \[**서보건 수동압력**]: 서보건 가압(현재 커서가 위치한 가압력으로 가압, 자동모드와 동일 제어)
-{% endhint %}# 2.4 Step 2. 응용 설정
+* \[**Shift**] + \[**Servo gun wide opening**]: To open the servo gun wide (opening it as much as the indicated opening distance)
+* \[**Shift**] + \[**Servo gun narrow opening**]: To open the servo gun narrow (opening it as much as the indicated opening distance)72 open
+* \[**Shift**] + \[**Servo gun manual pressure**]: To squeeze the servo gun (squeezing with the squeezing force at which the cursor is currently located)
+* \[**Ctrl**] + \[**Servo gun wide opening**]: To set the distance for the servo gun wide opening
+* \[**Ctrl**] + \[**Servo gun narrow opening**]: To set the distance for the servo gun narrow opening
+* \[**Ctrl**] + \[**Servo gun manual pressure**]: To squeeze the servo gun (squeezing with the squeezing force at which the cursor is currently located and performing the same controlling as in automatic mode)
+{% endhint %}# 2.4 Step 2. Application setting
 
-기본 설정이 완료되면 응용 설정이 가능합니다. 응용 설정은 ‘**가압력-전류 테이블 튜닝**’ 후에 설정이 가능한 항목으로, 건 서치의 기준 위치를 정하고, 가압 시 서보건 암의 휨량을 추정하고, 정확한 판넬 두께 측정하기 위한 보정 절차로 이루어져 있습니다.
+When the default setting is completed, the application setting can be performed. The application setting is the item that can be performed after the ‘**squeezing force - current table tuning**.’ It consists of a procedure for setting the reference position for the gun search, a procedure for estimating the amount of the servo gun arm deflection during the squeeze operation, and a compensation procedure for accurate measurement of the panel thickness.
 
-응용 설정은 아래 그림과 같이 3가지 항목으로 구성되어 있습니다.
+The application setting consists of three items as shown in the figure below.
 
 <p align="center">
  <img src="../../_assets/image_58_eng.PNG" width=70%></img>
- <em><p align="center">그림 2.15 서보건 응용 설정 화면</p></em>
+ <em><p align="center">Figure 2.15 Servo gun application setting screen</p></em>
 </p>
 
->1. **건 서치**
->     * 팁의 마모량 측정을 위해 기준이 되는 위치를 설정하고, 마모량 체크를 1회 합니다.
->     * 수동 설정을 위해서는 “[**4.1 건서치**](../../4-work-teaching/4-1-gun-search/)” 챕터를 참고하십시오.
->2. **건 암 휨량 보정**
->      * 건 암 휨량 보정은 서보건 가압 시 건 암이 휘는 정도를 보정하기 위해 설정이 필요합니다. 가압력-전류 테이블에 설정된 가압력에 따른 휨량을 설정합니다.
->      * 수동 설정을 위해서는 위 그림의 수동설정 버튼을 누르거나, 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: 용접건 파라미터**』에서 설정하고자 하는 건 번호 선택 후 『**응용 조건**』을 눌러 진입합니다.
->3. **판넬 두께 측정 보정**
->      * 판넬 두께 측정 보정은 ThickCheck 명령어로 측정된 판넬의 두께 정밀도를 향상 시키기 위한 설정입니다.
->     * 수동 설정을 위해서는 위 그림의 수동설정 버튼을 누르거나, 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: 용접건 파라미터**』에서 설정하고자 하는 건 번호 선택 후 『**응용 조건**』을 눌러 진입합니다.
+>1. **Gun search**
+>     * Sets the reference position for measuring the consumption amount of the tip and checks the consumption amount once.
+>     * For manual setting, refer to “[**4.1 Gun search**](../../4-work-teaching/4-1-gun-search/).”
+>2. **Gun arm deflection amount compensation**
+>      * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force – current table.
+>      * For manual setting, press the Manual setting key in the figure above, or, in the screen of『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Weldin gun parameter**』, set the gun number that needs to be set and then press 『**Application condition**』 to enter.
+>3. **Panel thickness measurement compensation**
+>      * The panel thickness measurement compensation is a setting to improve the accuracy of the panel thickness measured with the ThickCheck command.
+>     * For manual setting, press the Manual setting button in the figure above, or, in the screen of『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Welding gun parameter**』, set the gun number that needs to be set and the press the 『**Application condition**』 key to enter.
 
-응용 설정 중 ‘건서치’ 설정은 필수 설정으로 ‘건서치’설정이 되어 있지 않으면 스폿 용접 관련된 명령어 실행 및 교시가 불가합니다.(예, spot gn=1,…) 반면, ‘**건 암 휨량 보정**’과 ‘**판넬 두께 측정 보정**’은 스폿 용접 관련 명령어 실행 및 교시와는 무관하지만 정확한 동작 및 판넬 두께 측정을 위해 필요한 설정입니다.
+Among the application setting items, the ‘gun search’ setting is essential. If ‘gun search’ is not set, it is impossible to execute and teach commands related to spot welding (for example, spot gn=1,…). On the other hand, '**gun arm deflection amount compensation**' and '**panel thickness measurement compensation**' has nothing to do with the execution and teaching of commands related to spot welding, but are necessary settings for accurate operation and accurate panel thickness measurement.
 
-응용 설정은 자동 설정과 수동 설정으로 진행할 수 있습니다.
+The application setting can be progressed in automatic setting and manual setting.
 
-   (1) **자동 설정**  
-   * 서보건이 자동으로 움직여 ‘**건서치**’, ‘**건 암 휨량 보정**’ 과 ‘**판넬 두께 측정 보정**’을 실행합니다. 응용 설정의 전 항목이 자동으로 설정 가능합니다.  
+   (1) **Automatic setting**  
+   * The servo gun automatically moves to execute ‘**gun search**’, ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’. All items of the application setting can be performed automatically.  
   
-   (2) **수동 설정**  
-   * 사용자가 직접 ‘**건서치**’를 수행하고, ‘**건 암 휨량 보정**’ 과 ‘**판넬 두께 측정 보정**’값을 기입합니다.  
-# 2.4.1 자동 설정
+   (2) **Manual setting**  
+   * The user directly performs ‘**gun search**’ and inputs the ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’ values.  
+# 2.4.1 Automatic setting
 
-서보건 응용 설정의 자동 설정은 『**전체 자동 설정**』을 눌러 진행합니다.  ‘**전체 자동 설정**’은 서보건의 이동전극이 자동으로 움직입니다. 또한 설정 값이 가압력에 영향을 받기 때문에 아래의 조건이 반드시 만족되어야 합니다.
+Progress the automatic setting of the application setting of the servo gun by pressing the 『**All automatic setting**』 key. In the case of ‘**all automatic setting**’, the moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
 
-* 이동전극과 고정전극에 새 팁 부착
-* 서보건 주변 작업자 부재
-* 이동전극과 고정전극 사이에 작업물 부재
-* 수동 모드
-* 모터 온
-* 서보건 기본설정(Step 1)의 완료
+* Moving and fixed electrodes with new tipes attached
+* No worker around the servo gun
+* No workpiece between the moving electrode and fixed electrode
+* Manual mode
+* Motor on
+* Completion of the servo gun's default setting (step 1) 
 
-‘**전체 자동 설정**’은 다음과 같은 절차가 자동 진행됩니다.
 
-1. 건서치
-   * 서보건 2회 가압하며 건서치 실행
-   * 1회: ‘건서치 기준위치 기록’ 유효
-   * 2회: ‘건서치 기준위치 기록’ 무효
-2. 건 암 휨량 보정
-   * 서보건 5회 가압하며 건 암 휨량 보정
-3. 판넬 두께 측정 보정
-   * 서보건 5회 가압하며 건 암 휨량 보정
+In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
+
+1. Gun search
+   * Gun search will be performed while servo gun squeezing occurs two times.
+   * First time: ‘Gun search reference position record’ valid
+   * Second time: ‘Gun search reference position record’ invalid 
+2. Gun arm deflection amount compensation
+   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
+3. Panel thickness measurement compensation  
+   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
 
 {% hint style="info" %}
-\[**주의**] ‘**자동 설정**’으로 진행하는 건서치는 건서치1만 가능합니다. 건서치 1외의 다른 건서치를 사용 시 “[**4.** **작업 교시**](../../4-work-teaching/)”의 “[**4.1** **건서치**](../../4-work-teaching/4-1-gun-search/)” 챕터를 참고하십시오.
+\[**Caution**] The gun search that can be performed through ‘**automatic setting**’ is only for gun search 1. When using other gun searches other than gun search 1, you should refer to “[**4.1** **Gun search**](../../4-work-teaching/4-1-gun-search/)” of “[**4.** **Work teaching**](../../4-work-teaching/).”
 {% endhint %}
 
-&#x20;전체 자동 설정’시 ‘건 암 휨량 보정’과 ‘판넬 두께 측정 보정’을 동시에 수행하여 서보건은 5회만 가압합니다. ‘건서치’를 실행하기 위해서는 가압력과 건서치 속도를 지정해야 합니다. 앞선 ‘응용 설정’ 화면에서 『건서치 조건설정』을 누르면 아래 그림과 같이 건서치 시 사용되는 가압력과 이동속도를 설정할 수 있습니다.
+&#x20;In the case of ‘all automatic setting’, the ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’ will be performed at the same time, so the servo gun performs squeezing only five times. For execution of ‘gun search’, the squeezing force and gun search speed should be designated. If you press the『Gun search condition setting』key in the aformentioned ‘Application setting’ screen, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
 
 
 <p align="center">
  <img src="../../_assets/image_22_eng.PNG" width=70%></img>
- <em><p align="center">그림 2.16 건서치 조건 설정 화면</p></em>
+ <em><p align="center">Figure 2.16 Gun search condition setting screen</p></em>
 </p>
 
 {% hint style="info" %}
-\[**주의**] ‘**건 암 휨량 보정**’과 ‘**판넬 두께 측정 보정**’은 수동 측정하여 기입하기 어려우므로 자동 설정을 이용하는 것을 권장합니다.
+\[**Caution**] In the case of ‘**gun arm deflection compensation**’ and ‘**panel thickness measurement compensation**’, it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
 
-‘건 암 휨량 보정’은 서보건 파라미터 중 ‘건암휨량/100kgf\[mm]’를 대신하여 사용하는 값으로 ‘건 암 휨량 보정’ 설정 시 이미 설정된 ‘건암휨량/100kgf\[mm]’을 사용하지 않습니다. 반대로 ‘건 암 휨량 보정’이 설정되지 않는 경우 ‘건암휨량/100kgf\[mm]’을 사용합니다.
+The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
 {% endhint %}
 
-서보건 응용 설정의 화면의 구성과 기능은 아래와 같습니다.
+The configuration and functionality of the servo gun application setting screen is as follows.
 
 <p align="center">
  <img src="../../_assets/image_55_eng.PNG" width=70%></img>
- <em><p align="center">그림 2.17 서보건 응용 설정 화면</p></em>
+ <em><p align="center">Figure 2.17 Servo gun applicaiton setting screen</p></em>
 </p>
 
->1. **상태**: 현재 서보건 설정 상태(설정 전, 완료, 변경 됨 중 하나)
->2. **개별 자동 설정**: 전체가 아닌 체크된 항목만 자동으로 설정하는 기능 지원. 『**선택 항목 자동 설정**』을 누르면 체크된 항목만 자동으로 진행됩니다.
->3. **수동설정**: 해당 항목을 설정할 수 있는 화면으로 이동
->     *   건 암 휨량 보정  
->       『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: 용접건 파라미터**』화면으로 자동 이동
->     *   판넬 두께 측정 보정  
->         『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**3: >용접건 파라미터**』화면으로 자동 이동
->4. **가이드**: 현재 설정 상태나 에러 발생 시 원인 및 대처 방안 표기
->5. **모니터링**: 현재 설정 상황 및 서보건의 위치와 귀환 전류, 설정 값 등을 표시
->6. **전체 자동 설정**: 전체 자동 설정 수행 명령
->7. **선택 항목 자동 설정**: 개별 자동 설정 항목으로 지정된 항목만 자동 설정
->8. **실행 정지**: 진행 중인 설정을 정지
->9. **건서치 조건 설정**: 건서치를 위한 속도와 가압력 설정
-# 2.5 Step 3. 설정 확인
+>1. **Status**: Shows the current setting status of the servo gun (before setting, complete or changed).
+>2. **Individual automatic setting**: Supports the function of automatically setting the checked items only, not all. Pressing the 『**Selected item automatic setting**』 key will allow automatic setting to be performed only for the checked items.
+>3. **Manual setting**: To move to the screen for setting the relevant items
+>     *   Gun arm deflection amount compensation  
+>       To automatically move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Welding gun parameter**』
+>     *   Panel thickness measurement compensation  
+>         To automatically move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: >Welding gun parameter**』
+>4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+>5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+>6. **All automatic setting**: Commands the execution of all automatic setting of all items.
+>7. **Selected item automatic setting**: Automatically sets only the items that are designated as the items of individual automatic setting.
+>8. **Execution stop**: Stops the setting that is in progress.
+>9. **Gun search condition setting**: Sets the speed and squeeze force for gun search.
+# 2.5 Step 3. Setting check
 
-응용 설정이 완료되면 지금까지 ‘설정 확인’ 절차를 통해 설정된 내용을 점검할 수 있습니다. 설정 확인은 기본 설정과 응용 설정이 완료된 상태에서만 실행 가능합니다.
+When the application setting is completed, you can check the setting performed so far through the ‘setting check’ procedure. The setting check procedure can be executed only when the default and application settings are completed.
 
-아래와 같이 ‘**Step0. 사전 점검**’, ‘**Step 1. 기본 설정**’, ‘**Step 2. 응용 설정**’이 완료된 상태에서 『**설정 전 항목 진행**』을 누르거나, ‘**Step 3. 설정 확인**’에 포커스를 놓고 엔터를 누르면 설정 확인이 진행됩니다.
+ As shown below, When ‘**Step 0. Pre-inspection**', '**Step 1. Default setting**', and '**Step 2. Application setting**' are completed, press the 『**Proceed with the prior-to-setting items**』 key or bring the focus onto the '**Step 3. Setting check**' section and then press the Enter key to progress the setting check procedure.
 
 
 <p align="center">
  <img src="../_assets/image_21_eng.PNG" width=70%></img>
- <em><p align="center">그림 2.18 서보건 설정 확인 화면</p></em>
+ <em><p align="center">Figure 2.18 Servo gun setting check screen</p></em>
 </p>
 
->설정 확인은 서보건을 이동하며 진행되기 때문에 아래 그림과 같이 사전 조건이 반드시 만족되어야 합니다.
+>The setting check will proceed while the servo gun is moving, so the following conditions must be satisfie.
 >
->* 설정 시 사용한 팁과 동일한 상태의 팁 부착(새 팁 부착 후 팁 드레싱 실행 시 정확한 확인 불가)
->* 서보건 주변 작업자 부재
->* 이동전극과 고정전극 사이에 작업물 부재
->* 수동 모드
->* 모터 온
->* 서보건 기본 설정 완료
->* 서보건 응용 설정 완료
+>* Attachment of a tip that is in the same state as the tip used for the setting (impossible to check correctly if a new tip is attached and tip dressing is performed)
+>* No worker around the servo gun
+>* No workpiece between the moving electrode and fixed electrode
+>* Manual mode
+>* Motor on
+>* Completion of the default setting of the servo gun
+>* Completion of the application setting of the servo gun
 
-위 조건이 만족되어 설정확인이 진행되면 ‘응용 설정’ 화면으로 이동하여 서보건의 이동 상태 등을 모니터링 할 수 있도록 합니다.
+When the setting check proceeds as the above conditions are satisfied, the screen changes to the ‘Application Setting’ screen to make it possible to monitor the movement status of the servo gun.
 
-‘설정 확인’이 완료되면 검증 중 추정된 오차를 표시합니다. 표시되는 값은 오차이므로 0에 가까운 값이 나오면 정상적인 설정으로 볼 수 있습니다. 오차가 0보다 큰 값이 나오는 경우 설정을 다시 진행하거나 서보건 및 주변 환경의 변화를 검토해야 합니다. 설정 확인 결과가 만족스러우면 ‘예’를 눌러 ‘설정 확인’ 절차를 종료하십시오. 만약 불만족스러우면 ‘아니요’를 눌러 재설정 하거나 서보건 및 주변 환경의 변화를 점검하십시오.
-# 2.6 Step 4. 신호 설정
+When the ‘setting check’ is completed, the error estimated during verification will be displayed. Considering that the displayed value is an error, if a value close to 0 is indicated, the setting can be regarded as normal. If the error is a value greater than zero, the setting should be performed again or it is needed to check for any change with the servo gun or surrounding environment. If the setting check result is satisfactory, press ‘Yes’ to end the ‘setting check’ procedure. If the result is unsastisfactory, press ‘No’ to perform resetting or check the servo gun or surrounding environment.
+# 2.6 Step 4. Signal setting
 
-Step 3. 설정 확인’을 완료한 상태이면 정상적인 서보건 이동 및 가압이 가능한 상태입니다. 하지만 스폿 용접을 위해서는 스폿 용접기 및 기타 신호의 입출력을 설정해야 합니다. ‘신호 설정’에서는 스폿 용접과 관련된 입력 신호와 출력 신호를 설정합니다.
+Step 3. When Step 3. ‘Setting check’ is completed, it is now possible to move and squeeze the servo gun normally. However, for spot welding, it is necessary to set the inputs and outputs of the spot welding machine signals and other signals. In ‘Signal setting’, input and output signals related to spot welding can be set.
 
-아래와 그림과 같이 ‘**Step 4. 입력 신호 설정**’이나 ‘**Step 4. 출력 신호 설정**’에 커서를 이동후 \[**엔터**]를 누르거나 이전 항목이 완료된 상태에서 『**설정 전 항목 진행**』을 누르면, 해당 항목을 설정할 수 있는 화면으로 진입합니다.
+As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \[**Enter**] key or, while previous items are completed, if you press the 『**Proceed with the prior-to-setting items**』 key, you can enter the screen for setting relevant items.
 
 <p align="center">
  <img src="../_assets/image_85_eng.PNG" width=70%></img>
- <em><p align="center">그림 2.19 서보건 신호 설정 화면</p></em>
+ <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
 </p>
 
->1. **입력 신호 설정**
->       * “[**5.** **스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.4** **입력 신호 할당**](../5-spot-weld-parameter/5-4-input-signal-assign.md)” 챕터를 참고하십시오.
->2. **출력 신호 설정**
->       * “[**5. 스폿 용접 파라미터**](../5-spot-weld-parameter/)”의 “[**5.5** **출력 신호 할당**](../5-spot-weld-parameter/5-5-output-signal-assign.md)” 챕터를 참고하십시오.
+>1. **Input signal setting**
+>       * Refer to “[**5.4** **Input signal assignment**](../5-spot-weld-parameter/5-4-input-signal-assign.md)” of “[**5.** **Spot welding parameter**](../5-spot-weld-parameter/).”
+>2. **Output signal setting**
+>       * Refer to “[**5.5** **Output signal assignment**](../5-spot-weld-parameter/5-5-output-signal-assign.md)” of “[**5. Spot welding parameter**](../5-spot-weld-parameter/).”
 > 
-# 3. 관련 기능
+# 3. Related functions
 
-# 3.1 모니터링
+# 3.1 Monitoring
 
-스폿 용접에서 사용되는 현재의 각종 데이터 및 설정 상태를 모니터링 가능하도록 사용자에게 제공합니다. 스폿 용접과 관련된 모니터링 화면은 아래와 같습니다.
+Various current data and setting states that are used in spot welding are provided to the user in a way that they can be monitored. The monitoring screen related to spot welding is as follow.
 
-* 스폿건 축 데이터
-* 스폿 용접 입출력 신호
-* 스폿 용접 가동 정보# 3.1.1 스폿건 축 데이터
+* Spot welding gun axis data
+* Spot welding input and output signals
+* Spot welding operation information# 3.1.1 Spot gun axis data
 
-현재 선택된 스폿건에 대한 데이터를 실시간으로 표시합니다.
+This indicates the data of the currently selected spot gun in real time.
 
-(『**선택**』 → 『**스폿**』 → 『**건 데이터**』)
+(『**Selection**』 → 『**Spot**』 → 『**Gun data**』)
 
 <p align="center">
  <img src="../../_assets/image_18_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.1 스폿 모니터링 pane</p></em>
+ <em><p align="center">Figure 3.1 Spot monitoring pane</p></em>
 </p>
 
 <p align="center">
  <img src="../../_assets/image_89_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.2 스폿 건 데이터 모니터링</p></em>
+ <em><p align="center">Figure 3.2 Spot gun data monitoring</p></em>
 </p>
 
->*   **전류 데이터(서보건)**
+>*   **Current data (servo gun)**
 >
->      Cur은 서보건축의 피드백 전류를 Cmd는 전류제한 지령 값(A)을 표시합니다.
->*   **가압력 데이터(서보건)**
+>      Cur indicates the feedback current of the axis of the servo gun and Cmd indicates the current limit command value (A).
+>*   **Squeezing force data (servo gun)**
 >
->     ‘**용접건 파라미터의 가압력 - 전류 테이블**’을 이용하여 지령 전류와 피드백 전류를 가압력으로 환산하여 표시합니다. Cmd에는 지령 가압력이 표시되고, Cur에는 피드백된 가압력이 표시됩니다.&#x20;
->*   **용접시 실가압력(서보건)**
+>     ‘**The command current and feedback current are converted into squeezing force and displayed using the “squeezing force - current table**” of the welding gun parameter. Cmd indicates the command squeezing force and Cur indicates the feedback squeeze.&#x20;
+>*   **Actual squeezing force during weling (servo gun)**
 >
->     가압일치 시점부터 개방시점까지의 평균가압력을 표시합니다.
->*   **전극간 거리(서보건)**
+>     Indicates the average squeezing force from the point of the matching of the squeezing force to the time of opening.
+>*   **Distance between electrodes (servo gun)**
 >
->     축 원점으로부터 이동전극간의 거리(mm)를 표시합니다.
->*   **전극 마모량(서보건, Eqless건)**
+>     Indicates the distance (mm) from the axis origin to the moving electrode.
+>*   **Electrode consumption amount (servo gun, equalizerless gun)**
 >
->     건서치로 검출한 마모량(mm)을 표시합니다. (Eqless건은 고정측 전극의 마모량만 관리)
->*   **건서치 상태(서보건, Eqless건)**
+>     Inidicates the consumption amount (mm) detected through gun search. (In the case of the equalizerless gun, only the consumption amount of the fixed electrode is managed.)
+>*   **Gun search status (servo gun, equalizerless gun)**
 >
->     건서치 수행 여부를 표시합니다.
->*   **용접기 번호**
+>     Indicates whether gun search is performed.
+>*   **Welder number**
 >
->     현재 선택된 건번호에 대한 용접기 번호를 표시합니다.
->*   **SvClamp(서보건)**
+>     Indicates the welder number corredponding to the currently selected gun number.
+>*   **SvClamp (servo gun)**
 >
->     현재 선택된 건의 클램핑 동작 상태를 표시합니다.
-# 3.1.2 입출력 신호
+>     Indicates the status of the clamping operation of the currently selected gun.
+# 3.1.2 Input and output signals
 
-스폿용접과 관련하여 할당한 신호들의 입출력 상태가 정리되어 모니터링 되므로 편리하게 사용할 수 있습니다.
+The input/output status of the assigned signals related to spot welding is organized and monitored for convenient use.
 
-(『**선택**』 → 『**스폿**』 → 『**입출력 신호**』)
+(『**Selection**』 → 『**Spot**』 → 『**Input and output signals**』)
 
 <p align="center">
  <img src="../../_assets/image_40_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.3 스폿 입출력 신호 모니터링</p></em>
-</p># 3.1.3 가동 시간 정보
+ <em><p align="center">Figure 3.3 Spot welding input/output signal monitoring</p></em>
+</p># 3.1.3 Information of the operating time
 
-스폿용접과 관련하여 가동 시간 정보를 확인 할 수 있습니다.
+This allows you to check the information of the operating time related to the spot welding.
 
-(『**선택**』 → 『**스폿**』 → 『**가동 정보**』)
+(『**Selection**』 → 『**Spot**』 → 『**Operation information**』)
 
 <p align="center">
  <img src="../../_assets/image_91_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.4 스폿 가동 정보 모니터링</p></em>
+ <em><p align="center">Figure 3.4 Spot welding operation information monitoring</p></em>
 </p>
 
->*   **통산(초기화후)**
+>*   **Total (after initialization)**
 >
->      시스템 초기화부터 각 용접기의 가동 시간 및 용접 회수를 표시합니다.
->*   **통산(전원투입후)**
+>      Indicates the operation time and welding count of each welder since initialization of the system.
+>*   **Total (after input of power)**
 >
->     시스템 전원 투입 후부터 각 용접기의 가동 시간 및 용접 회수를 표시합니다.
->*   **마지막 사이클**
+>     Indicates the operation time and welding count of each welder since input of the power.
+>*   **Latest cycle**
 >
->     바로 직전 사이클의 용접기의 가동 시간 및 용접 회수를 표시합니다.
->*   **현재 사이클**
+>     Indicates the operation time and welding count of each welder of the immediately preceeding cycle.
+>*   **Current cycle**
 >
->     현재 사이클의 각 용접기의 가동 시간 및 용접 회수를 표시합니다.
+>     Indicates the operation time and welding count of each welder of the current cycle.
 
 ---
--	스폿용접 가동정보 클리어
+-	Spot welding operation information clearing
 
-스폿용접 가동정보창이 활성화 되면 『클리어』 버튼이 나타나고 이를 누르면 그림3.5와 같이 가동정보 클리어 대화상자가 표시됩니다. 클리어를 원하는 항목의 버튼을 클릭하면 원하는 동작이 수행됩니다.
+When the spot welding operation information window is activated, the 『Clear』 button will be displayed. Pressing the button will bring up a dialog box for clearing the operation information as shown in Figure 3.5.
 
 <p align="center">
  <img src="../../_assets/image_92_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.5 스폿 가동 정보 초기화 화면</p></em>
-</p># 3.1.3 상태플래그
+ <em><p align="center">Figure 3.5 Spot welding operation information initialization screen</p></em>
+</p># 3.1.3 State flag
 
-스폿용접과 관련하여 필요한 각종 상태는 다음의 화면과 같이 표시됩니다.
+Various necessary states related to spot welding will be indicate as shown in the screen below.
 
 <p align="center">
  <img src="../../_assets/image_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.6 스폿 용접 관련 상태 표시</p></em>
+ <em><p align="center">Figure 3.6 Indication of spot welding related states</p></em>
 </p>
 
 
->-  **용접조건, 용접시퀀스 (판넬 두께)**
->       - 현재 선택된 용접조건 번호와 용접시퀀스 번호를 표시합니다.
->       - 현재 설정된 판넬 두께를 표시합니다. 서보건 용접스텝 기록시 서보건 축의 위치가 설정된 판넬 두께를 기준으로 자동으로 생성되기 때문에 정확하게 설정되어야 합니다. R220으로 수동으로 설정할 수도 있으며 \[**수동가압**]후 용접스텝 기록시에는 현재 건의 위치를 고려하여 자동으로 설정됩니다.
->-  **툴 번호**
->       - 현재 선택된 건 번호에 대응되는 툴 번호를 표시합니다. 즉, 건 번호를 변경하면 『**설정]: >시스템**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**1: 건번호 대응 툴 번호, >건타입 설정**』에서 설정된 툴 번호로 자동 변경됩니다.
->-  **건 번호**
->       - 해당 항목에서는 현재 선택된 건 번호, 멀티건 번호, 서보건 분리상태(![](<../../_assets/image_39_eng.PNG>))를 표시합니다. 예를 들어 G5,6과 같이 표시된 경우는 정치건 5, 6번이 동시 용접을 위해 선택된 상태라는 것을 의미합니다. 그리고 자물쇠 표시가 되어 있으므로 서보건이 분리 되었음을 알 수 있습니다.&#x20;
+>-  **Welding condition and welding sequence (panel thickness)**
+>       - Indicates the currently selected welding condition number and welding sequence number.
+>       - Indicates the currently set panel thickness. Accurate setting is required because the position of the axis of the servo gun will be automatically created based on the set panel thickness during the recording of the welding steps of the servo gun. It is also possible to perform manual setting with R220. When the recording of the welding steps is performed after the \[**manual squeezing**] operation, the setting will be automatically performed by taking into consideration the current position of the servo gun.
+>-  **Tool number**
+>       - Indicates the tool number corresponding to the currently selected gun number. In other words, if you change the gun number, the tool number will automatically change to the tool number set in『**Setting]: >System**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**.
+>-  **Gun number**
+>       - This indicates the currently selected gun number, numbers of multiple guns, and servo gun separation state (![](<../../_assets/image_39_eng.PNG>)). For example, if G5 and G6 are indicated, it means that stationary guns G5 and G6 are selected for simultaneous welding. In addition , there is a mark of a lock, so you can konw that the servo gun is disconnected.&#x20;
 >
 
-# 3.2 서보건 간편 보수
+# 3.2 Simple maintenance of the servo gun
 
-서보건 고장수리 후, 재가동을 위한 일련의 설정을 하나의 창에서 간편하게 수행할 수 있도록 지원합니다. 초기 화면에서 \[**CTRL**]+\[**GUN**]키를 누르면 간편보수를 위한 대화상자가 출력됩니다.
+This provides support to simply conduct a series of settings to restart the servo gun from a single window after repairing it. When you press the \[**CTRL**]+\[**GUN**] keys on the initial screen, a dialog box for simple maintenance will be displayed.
 
 <p align="center">
  <img src="../_assets/image_26_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.7 서보건 간편 보수</p></em>
+ <em><p align="center">Figure 3.7 Simple maintenance of the servo gun</p></em>
 </p>
 
->*   **시리얼 엔코더 리셋**  
->    서보건 모터에 부착된 시리얼 엔코더에 대해서 “**엔코더 리셋**” 또는 “**에러 해제**” 동작을 >수행합니다. 변경된 설정이 적용되려면 반드시 전원을 재투입하여야 합니다. “엔코더 리셋”수행후에는 엔코더 정보가 초기화되므로 엔코더 옵셋 설정, 축 원점 설정, 건서치 기준위치 기록을 새롭게 수행하여야 합니다.
->*   **엔코더 옵셋**  
->    서보건 축의 엔코더 원점을 설정합니다. 서보건 축의 엔코더 원점은 수동으로 브레이크를해제하여 이동전극이 최대로 개방된 위치에서 설정합니다.
->*   **축 원점**  
->    서보건 축의 축 원점을 설정합니다. 서보건 축의 축 원점은 마모가 없는 새 전극을 장착한 후, 전극이 서로 맞닿는 위치에서 설정합니다.
->*   **건서치 실행**  
->    현재 위치에서 서보건 축만 동작하여 gunsea 명령을 수행합니다.
->*   **용접 실행**  
->    현재 위치에서 서보건 축만 동작하여 spot 명령을 수행합니다.
-# 3.3 사용자 키
+>*   **Serial encoder reset**  
+>    Executes the “**encoder reset**” or “**error clear**” operation for the serial encoder attached to the servo gun motor. Power must be supplied again for the changed setting to be applied. When “encoder reset” is performed, the encoder information will be initialized after that, requiring you to newly perform the encoder offset setting, axis origin setting, and gun search reference position recording.
+>*   **Encoder offset**  
+>    Sets the encoder origin of the axis of the servo gun.  It should be set at the position where the moving electrode is maximally opened through the releasing of the brake manually.
+>*   **Axis origin**  
+>    Sets the axis origin of the servo gun. The axis origin of the servo gun should be set at the poistion where electrodes are in contact with each other after new electrodes are installed.
+>*   **Gun search execution**  
+>    Executes the gunsea command only by operating the axis of the servo gun at the current position.
+>*   **Welding execution**  
+>    Executes the spot command only by operating the axis of the servo gun at the current position.
+# 3.3 User keys
 
-스폿용접과 관련된 사용자 키에 대한 설명입니다. 첫 메인화면 우측 하단에 사용자키 버튼이 있습니다. 버튼을 누를 때마다 등록된 메뉴가 변경됩니다. 스폿관련 사용자키는 2회 누르면 해당 메뉴로 진입하게 됩니다.
+This is a description of the user keys related to spot welding. There is a button for the user keys at the bottom right of the initial main screen. Each time you press the button, the registered menu changes. Press each user key related to spot welding twice to enter the relevant menu.
 
 
 <p align="center">
  <img src="../_assets/image_33_eng.PNG" width="70%"></img>
- <em><p align="center">그림 3.8 스폿 사용자 키</p></em>
+ <em><p align="center">Figure 3.8 Spot welding user keys</p></em>
 </p>
 
 
->*   **서보건 대개방**  
->    서보건을 수동으로 대개방 위치로 이동합니다.
->*   **서보건 수동개폐**  
->    서보건을 수동으로 소개방 위치로 이동합니다.
->*   **서보건 수동가압**  
->    서보건을 수동으로 가압합니다.
->*   **용접조건 변경**  
->    현재 선택된 용접조건 번호를 수동으로 변경합니다.
->*   **용접시퀀스 변경**  
->    현재 선택된 용접시퀀스 번호를 수동으로 변경합니다.
-# 3.4 용접건 수동 개폐, 가압
+>*   **Servo gun wide opening **  
+>    Manually moves the servo gun to the wide opening position.
+>*   **Servo gun manual closing**  
+>    Manually moves the servo gun to the narrow opening position.
+>*   **Servo gun manual squeezing**  
+>    Manually spueezes the servo gun. 
+>*   **Welding condition change**  
+>    Manually changes the currently selected welding condition number.
+>*   **Welding sequence change**  
+>    Manually changes the currently selected welding sequence number.
+# 3.4 Welding gun manual closing and squeezing
 
-용접건의 수동 개폐, 가압 동작을 위한 절차는 다음과 같습니다.
+The procedure for manual closing and squeezing of the welding gun is as follows.
 
 </br>
 
-1. 수동모드를 확인합니다. 서보건인 경우는 서보건축을 구동하기 위해 운전준비를 투입합니다.
-2.  수동 개폐 또는 가압 동작을 위한 건번호를 선택합니다. 건번호를 선택하는 방법은 다음과 같습니다.
+1. Check whether the mode is manual. In the case of the servo gun, input the operation preparation signal to drive the axis of the servo gun. 
+2.  Select the gun number for the manual closing or squeezing operation. The method to select a gun number is as follows.
 
-    | **건종류** |   체인지 여부  | R 코드 |
+    | **Gun type** |   Whether to change  | R code |
     | :-----: | :---------: | :--------------: |
-    | 단독건 |   용접건 체인지용  | R358 (용접건 접속/분리) |
-    |    단독건     | 용접건 체인지용 아님 |   R210 (용접건 선택)  |
-    | 멀티건 |      -       |  R214 (동시용접건 선택) |
+    | Sole gun |    For change of the welding gun  | R358 (welding gun connection/separation) |
+    |    Sole gun     | Not for change of the welding gun |   R210 (welding gun selection)  |
+    | Multiple guns |      -       |  R214 (selection of guns for simultaneous welding) |
 
 
-3.  다음의 \[**사용자**]키가 등록되어 있는지 확인합니다.
+3.  Check whether the following \[**user**] keys are registerd.
 
 
 
-    |       **대개방**  |       **소개방**    | **수동가압**   |
+    |       **Wide opening**  |       **Narrow opening**    | **Manual squeezing**   |
     | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
     | <img src="../_assets/image_86_eng.PNG"></img>|<img src="../_assets/image_16_eng.PNG"></img> | <img src="../_assets/image_43_eng.PNG"></img> |
 
 
-1.  “\[**SHIFT**]와 \[**사용자**]”키를 동시에 누르면 다음의 동작을 수행합니다. 멀티건이 선택된 경우 모든 건이 동일하게 동작합니다.
+1.  When you press the “\[**SHIFT**] and \[**user**]” keys at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
 
-    |                  **서보건**                 |
+    |                  **Servo gun**                 |
     | :--------------------------------------: |
     | <img src="../_assets/image_13_eng.PNG"></img> |
 
 
 
-서보건인 경우 수동개폐, 가압 동작 시 다음과 같은 특징들을 갖습니다.
+The servo gun has the following characteristics during the manual closing and squeezing operations.
 
-* 대개방 위치, 소개방 위치, 가압력이 설정치에 도달한 위치에서 자동으로 정지합니다.
-* 이동속도는 『**조건설정**』 ![](<../_assets/image_48_eng.PNG>) 에서 『**2: 스텝 전/후진시 최고속**』에 입력된 속도입니다.
-* 설정한 가압력이 작은 경우에는 조작을 하여도 움직이지 않는 경우가 있으므로 충분한 가압력을 설정하여 주십시오. (R211: 가압력 설정)
-* 멀티건에서 두 건의 이동 거리가 다를 경우 먼저 도달한 건은 정지하고 나머지 건은 남은 거리만큼 더 이동한 후 정지합니다.
+* The servo gun automatically stops at the wide opening position, the narrow opening position, and the position where the squeezing force reaches the set value.
+* The moving speed is the speed inputted in 『**2: Maximum speed during step forward/backward**』 in 『**Condition setting**.』 ![](<../_assets/image_48_eng.PNG>)
+* If the set squeezing force is small, the servo gun will not move even when it is operated. Considering it, set a sufficient squeezing force (R211: Squeezing force setting).
+* When it comes to multiple guns, if there is a difference in the moving distance between two guns, the gun that reaches first will stop while the other gun will stop after moving as much as the remaining distance.
 
 <p align="center">
  <img src="../_assets/image_53_eng.PNG"></img>
- <em><p align="center">그림 3.9 스폿 건 수동 조작</p></em>
+ <em><p align="center">Figure 3.9 Spot gun manual operation</p></em>
 </p>
-# 4. 작업 교시
+# 4. Work teaching
 
-# 4.1 건서치
+# 4.1 Gun search
 
-건서치 기능은 전극의 마모량을 측정하는 기능으로 팁 드레싱으로 전극을 연마한 후나 새 팁으로 교체한 후 전극의 마모량을 다시 측정할 필요가 있을 때 사용하십시오. 건타입이 서보건이나 Eqless건은 spot 명령문 실행시에 마모량만큼 가압 위치를 자동으로 보정하므로 마모량 관리가 필수적이며 이 마모량의 정확도가 용접품질에 영향을 줍니다.
+Gun search is a function to measure the consumption amount of an electrode. Use this function when you need to re-measure the consumption amount of the electrode after polishing it through tip dressing or after replacing the existing tip with a new one. If  the gun type is servo gun or equalizerless gun, the gun automatically compensates the squeezing position as much as the consumption amount when executing the spot command, which makes it essential to manage the consumption amount and shows that the accuracy of the consumption amount affects the welding quality.
 
-당사에서 제공하는 건서치 종류와 간단한 특징은 아래와 같습니다.
+ The types of gun search provided by our company and their simple characteristics are as follows.
 
 *   **gunsea**
 
-    서보건 건서치 기능으로 1회 가압 동작으로 실행.
+    This is the gun search function for a servo gun and is executed with one squeezing operation.
 
-    이동전극과 고정전극의 전체 마모량을 측정 후 지정된 비율로 배분.
+     The total consumption amount of the moving and fixed electrodes is measured and distributed according to the designated ratio.
 
-    이동전극과 고정전극의 마모 비율이 동일하거나 고정된 경우 사용.
+    This function is used if the consumption ratio between the moving electrode and fixed electrode is the same or fixed.
 *   **gunsea 2**
 
-    서보건 건서치 기능으로 1회 가압 동작과 1회 이동 동작으로 실행.
+    This is the gun search function for a servo gun and is executed with one squeezing operation and one moving operation.
 
-    이동전극과 고정전극의 전체 마모량을 측정(1회 가압) 후 이동전극 마모량을 별도 측정(1회 이동).
+    The total consumption amount of the moving and fixed electrodes is measured (one squeezing operation) and then the moving electrode consumption amount is measured separately.
 
-    이동전극과 고정전극의 마모량 비율이 고정적이지 않을 경우 사용.
+    This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
 *   **igunsea**
 
-    건서치 2와 동일한 방식으로 서보건 건서치 기능으로 1회 가압 동작과 1회 이동 동작으로 실행하지만, 이동전극 마모량을 센서를 이용하여 측정
+    In the same way as gun search  2, this is the gun search function for a servo gun and executed with one squeezing operation and one moving operation. However, the moving electrode consumption amount is measured using a sensor.
 
-    이동전극과 고정전극의 전체 마모량을 측정(1회 가압) 후 이동전극 마모량을 별도 측정(1회 이동)
+    The total consumption amount of the moving and fixed electrodes is measured (one sequeezing operation) and then the moving electrode consumption amount is measured (one moving operation) separately.
 
-    이동전극과 고정전극의 마모량 비율이 고정적이지 않을 경우 사용.
+    This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
 *   **egunsea**
 
-    Eqless 건의 건서치 기능으로 I건서치와 유사하게 센서 신호를 입력받아 마모량 측정
+    This is the gun search function for an equalizerless gun and, in the same way as the igunsea function, the consumption amount is measured by receiving a sensor signal.
 
 </br>
-건서치 상태는 /모니터링/스폿에서 확인할 수 있습니다.
-# 4.1.1 실행 순서
+The gun search state can be checked from the /Monitoring/Spot section.
+# 4.1.1 Execution sequence
 
 <p align="center">
  <img src="../../_assets/image_23_eng.PNG" width="70%"></img>
- <em><p align="center">그림 4.1 서보건 건서치 실행 순서</p></em>
-</p># 4.1.2 건서치 관련 명령문
+ <em><p align="center">Figure 4.1 Gun search execution sequence of the servo gun</p></em>
+</p># 4.1.2 Commands related to gun search
 ---
 (1) gunsea
 
-    건타입이 서보건인 경우 건서치1 수행 시 또는 가압력 이용 건서치2 수행 시 사용되는 명령문입니다.
+    This is a statement to be used for executing gun search 1 when the gun type is servo gun or executing gun search 2 by using the squeezing force.
 
 ```
-gunsea gun=<건번호>,sea=<서치번호>,pre=<가압력>,spd=<서치속도>,mgun=<멀티건번호>,mpre=<멀티건가압력>
+gunsea gun=<gun number>,sea=<search number>,pre=<squeezing force>,spd=<search speed>,mgun=<numbers of multiple guns>,mpre=<squeezing force for multiple guns>
 ```
 
-|   **항목**   | <p align="center">   **내 용**   </p>| 
+|   **Item**   | <p align="center">   **Content**   </p>| 
 |:--------: | ----------------------------------------------------------------- |
-|   **건번호**  | 서치 할 건번호를 지정                |
-|  **서치번호**  | 건서치1 동작 또는 건서치2 동작을 지정                 |
-|   **가압력**  | 가압 일치를 검출하기 위한 지령 가압력을 지정            |
-|  **서치속도**  | <p>서치동작 시 건축의 동작속도를 지정</p><p>서치속도는 안전속도를 기준으로 하며 권장속도는 10mm/s 입니다.</p>         |
-|  **멀티건번호** | 멀티 서보건에 대해 동시에 건서치를 수행하고자 할 때 멀티건 번호를 지정                                                   |
-| **멀티건가압력** | <p>멀티 서보건에 대해 동시에 건서치를 수행하고자 할 때 각 건에 가압력을 달리할 필요가 있을 때 지정</p><p>지정되지 않으면 기본건의 가압력이 적용</p> |
+|   **Gun number**  | Designates the gun number to search.                |
+|  **Search number**  | Designates the gun search 1 operation or gun search operation 2.                 |
+|   **Squeezing force**  | Designates the command squeezing force for detection of squeezing force matching.            |
+|  **Search speed**  | <p>Designates the operation speed of the gun's axis for the search operation.</p><p>The search speed is based on safe speed and the recommended speed is 10 mm/s.</p>         |
+|  **Numbers of multiple guns** | Designates the numbers for multiple guns when executing gun search for multiple servo guns at the same time.                                                   |
+| **Squeezing force for multiple guns** | <p>Designates the squeezing force when required to apply a different squeezing force for each servo gun when executing gun search for multiple servo guns at the same time</p><p>If it is not designated, the squeezing force of the default gun will apply.</p> |
 
 {% hint style="info" %}
-[사용 예]
+[Use example]
 
-서보건 5,6을 동시에, 가압력은 각각 100, 200kgf로 건서치 1을 수행하는 경우
+A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing force 100 kgf and 200 kgf respectively
 
 → ```gunsea gun=5,sea=1,pre=100,mgun=6,mpre=200```
 
@@ -872,839 +871,839 @@ gunsea gun=<건번호>,sea=<서치번호>,pre=<가압력>,spd=<서치속도>,mgu
 ---
 (2) igunsea
 
-    건타입이 서보건인 경우 입력신호에 의한 건서치2 수행시 사용되는 명령문입니다.
+    This is a statement to be used for executing gun search 2 based on the input signal when the gun type is servo gun.
 
 ```
-igunsea gun=<건번호>,spd=<서치속도>,di=<입력신호>
+igunsea gun=<gun number>,spd=<search speed>,di=<input signal>
 ```
 
-|  **항목**  |   <p align="center">   **내 용**   </p>  |
+|  **Item**  |   <p align="center">   **Content**   </p>  |
 | :------: | ---------------------------------------------------------------------- |
-|  **건번호** | 서치할 건번호를 지정                                                            |
-| **서치속도** | <p>서치동작 시 건축의 동작속도를 지정</p><p>서치속도는 안전속도를 기준으로 하며 권장속도는 10mm/s 입니다.</p> |
-| **입력신호** | 광전관 출력을 전달받을 입력신호 번호를 지정                                               |
+| **Gun number** | Designates the gun number to search                                                              |
+| **Search speed** | <p>Designates the operation speed of the gun's axis for the search operation.</p><p>The search speed is based on safe speed and the recommended speed is 10mm/s.</p>    
+| **Input signal** | Designates the input signal number for the reception of the phottube output.                                               |
 
 </br>
 
 ---
 (2) egunsea
 
-    건타입이 Eqless건인 경우 사용합니다.
+    This is used when the gun type is equalizerless gun.
 
 ```
-egunsea gun=<건번호>,spd=<서치속도>,dist=<서치거리>,di=<입력신호>
+egunsea gun=<gun number>,spd=<search speed>,dist=<search distance>,di=<input signal>
 ```
 
-|  **항목**  |  <p align="center">   **내 용**   </p>   |
+|  **Item**  |  <p align="center">   **Content**   </p>   |
 | :------: | ---------------------------------------------------------------------- |
-|  **건번호** | 서치할 건번호를 지정                                                            |
-| **서치속도** | <p>서치동작 시 건축의 동작속도를 지정</p><p>서치속도는 안전속도를 기준으로 하며 권장속도는 10mm/s 입니다.</p> |
-| **서치거리** | 서치동작 시 건축의 동작거리를 지정                                                    |
-| **입력신호** | 광전관 출력을 전달받을 입력신호 번호를 지정                                               |
-# 4.1.3 건서치 기준위치 기록
+| **Gun number** |  Designates the gun number to search                                                            |
+| **Search speed** | <p>Designates the operation speed of the gun's axis for the search operation.</p><p>The search speed is based on safe speed and the recommended speed is 10 mm/s.</p>    
+| **Input signal** | Designates the input signal number for reception of the phot tube output.         # 4.1.3 Gun search reference position record
 
-전극의 마모량은 마모가 없는 새 팁을 기준으로 측정됩니다. 따라서 새 팁에서 기준위치를 등록해 두는 과정이 초기에 한 번은 반드시 필요하며 이를 건서치 기준위치 기록이라고 합니다.
+The consumption amount of an electrode is measured based on an unconsumed new tip. Therefore, the process of registering the reference position with a new tip is absolutely necessary at least once in the beginning, and this is called gun search reference position record.
 
 {% hint style="info" %}
-[주의]
-**건서치를 수행하기 전에 반드시 한번은 건서치 기준위치를 기록하여야 합니다.**
+[Caution]
+**The gun search reference position must be recorded at least once before the execution of gun search**
 {% endhint %}
 
-건서치 기준위치를 기록하는 방법은 마모되지 않은 새 팁을 부착한 후 다음의 절차에 따라 실행합니다.
+ When it comes to the method of recording a gun search reference position, new tips should be attached first and then the recording should be executed according to the following procedures.
 
 
 <p align="center">
  <img src="../../_assets/image_51_eng.PNG" width="70%"></img>
- <em><p align="center">그림 4.2 사용환경 설정 화면</p></em>
+ <em><p align="center">Figure 4.2 Use environment setting screen</p></em>
 </p>
 
 
->1. 『**2: 건서치 기준위치 기록**』을 <**유효**>로 설정합니다.
->2. 작성된 건서치 프로그램을 실행합니다. 스폿 모니터링 화면에 건서치 상태가 “**미완료**”로 >초기화됩니다.
->3. 『**2: 건서치 기준위치 기록**』을 <**무효**>로 설정합니다. 이후 건서치 프로그램을 이용하여 기준위치 대비 변화된 양을 마모량으로 계산하게 됩니다.
-# 4.1.4 건 타입별 건서치 동작
+>1. Set 『**2: Gun search reference position record**』 to <**Valid**>.
+>2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to “**Incomplete**”.
+>3. Set 『**2: Gun search reference position record**』 to <**Invalid**>. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.
+# 4.1.4 Gun search operation by gun type
 
-# 4.1.4.1 서보건
+# 4.1.4.1 Servo gun
 
-서보건의 건서치 기능은 총 전극 마모량을 고정전극과 이동전극이 50%씩 반영하도록 초기 설정되어 있습니다. 따라서 건서치 1만을 사용하여 마모량을 계산할 수 있습니다. 만일 고정전극과 이동전극의 마모량을 각각 계산하고자 하는 경우에는 건서치 2 설명을 참고하십시오.
+The gun search function of the servo gun is initially set in a way that the total electrode consumption amount reflects 50% of each of the fixed electrode consumption amount and moving electrode consumption amount. Therefore, the electrode consumption amount can be calculated by using only gun search 1. If you want to calculate the consumption amounts of the fixed and moving electrodes respectively, please refer to the description of gun search 2.
 
 {% hint style="info" %}
-\[주의\]  
-『**이동전극 마모량/전체 마모량(%)**』 설정 값이 “0”이면 건서치 2 동작이 반드시 필요하며, “0”이 아니면 건서치 1 동작에 의한 전체 마모량을 설정 비율로 각각 분배합니다.
+\[Caution\]  
+If the set value of『**Moving electrode consumption amount/Total consumption amount (%)**』 is “0”, the gun search 2 operation must be performed. If it is not “0”, the total consumption amount will be distributed according to the set ratio through the gun search 1 operation.
 {% endhint %}
 
-(1) 건서치 1
+(1) Gun search 1
 
-    이동전극으로 고정전극을 가압하여 전극의 전체 마모량을 측정합니다.
+    Measures the total electrode consumption amount by making the moving electrode squeeze the fixed electrode.
 
 <p align="center">
  <img src="../../../_assets/image_47_eng.PNG"></img>
  <img src="../../../_assets/image_7_eng.PNG" width="55%"></img>
- <em><p align="center">그림 4.3 건서치 1</p></em>
+ <em><p align="center">Firgure 4.3 Gun search 1</p></em>
 </p>
 
 
->1. 스텝의 기록 위치로 이동합니다.
->2. 설정된 가압력에 도달할 때까지 이동전극으로 고정전극을 가압합니다.
->3.  가압 일치가 검지되면 전극의 전체 마모량을 측정하고 개방동작을 실행합니다.  
->    전극의 전마모량 = 가압일치 검지위치 - 건서치1 기준위치
->4. 스텝의 기록 위치까지 개방합니다.
->5. 건서치 1만 동작하는 환경에서는 아래의 그림과 같이 측정된 전체 마모량을 이동전극과 >고정전극의 비율로 마모량을 각각 분배합니다. (기본값은 50:50)
+>1. The servo gun moves to the record position of the step. 
+>2. The fixed electrode is squeezed with the moving electrode until the set squeeze force is reached.
+>3.  When the squeezing force matching is detected, the total electrode consumption amount is measured and the opening operation is executed.  
+>    Total electrode consumption amount = Squeezing force matching detection position  - gun search 1 reference position
+>4. The servo gun opens up to the record position of the step.
+>5. In an environment where only gun search 1 is operating, the measured total electrode consumption amount is distributed according to the ratio between the moving electrode and fixed electrode as shown in the figure below. (default is 50 : 50.)
 
 <p align="center">
   <img src="../../../_assets/image_70_eng.PNG" width="70%"></img>
- <em><p align="center">그림 4.4 건서치 1에 의한 마모량 계산</p></em>
+ <em><p align="center">Figure 4.4 Calculation of the electrode consumption amount through gun search 1</p></em>
 </p>
 
 
-(2) 건서치 2
+(2) Gun search 2
 
-이동전극의 마모량을 측정합니다. 측정방법은 가압력을 이용하는 방법과 외부신호를 이용하는 방법을 사용할 수 있습니다.
+Measures the moving electrode consumption amount. The measurement can be performed by using a squeezing force or an external signal.
 
-*   **가압력을 이용하는 방법**
+*   **By using a squeezing force**
 
-    이동전극으로 교정지그를 가압하여 이동전극의 마모량을 측정합니다.
+    Measures the moving electrode consumption amount by making the moving electrode squeeze the calibration jig.
 
 <p align="center">
  <img src="../../../_assets/image_29_eng.PNG"></img>
  <img src="../../../_assets/image_4_eng.PNG" width="55%"></img>
- <em><p align="center">그림 4.5 가압력 이용 건서치 2</p></em>
+ <em><p align="center">Figure 4.5 Gun search by using a squeezing force</p></em>
 </p>
 
->1. 스텝의 기록 위치로 이동합니다.
->2. 설정된 가압력에 도달할 때까지 이동전극으로 서치 교정지그를 가압합니다.
->3.  가압일치가 검지되면, 이동전극 마모량을 검출하고, 개방동작을 실행합니다.  
->    **이동전극 마모량 = 가압일치 검지위치 –가압력 이용 방식 건서치 2 기준위치**  
->    **고정전극 마모량 = 건서치1로 검지한 전체 마모량 – 이동전극 마모량**  
->4. 개방이 완료되면 이동전극 및 고정전극 마모량이 갱신됩니다.
+>1. Movement to the record position of the step occurs.
+>2. The calibration jig is squeezed with the moving electrode through searching unitil the set squeezing force is reached.
+>3.  When the squeezing force matching is detected, the moving electrode consumption amount is detected and the opening operation is executed.   
+>    **Moving electrode consumption amount = Squeezing force matching detection position - reference position for gun search 2 that uses the squeezing force**  
+>    **Fixed electrode consumption amount = total consumption amount detected by gun search 1 – moving electrode consumption amount**
+>4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated. 
 
-*   **외부신호를 이용하는 방법**
+*   **By using an external signal**
 
-    이동전극을 센서가 있는 위치로 이동하여 센서 입력이 감지되면 이동전극의 마모량을 측정합니다.
+    When the moving electrode moves to the position where the sensor is located and then the input from the sensor is detected, the moving electrode consumption amount is measured.
 
 
 <p align="center">
  <img src="../../../_assets/image_79_eng.PNG"></img>
  <img src="../../../_assets/image_73_eng.PNG" width="55%"></img>
- <em><p align="center">그림 4.6 외부신호 입력 건서치 2</p></em>
+ <em><p align="center">Figure 4.6 Gun search 2 that uses an external signal input</p></em>
 </p>
 
->1. 스텝의 기록 위치로 이동합니다.
->2. 이동전극이 서치 속도로 접근하여 광전관 접점신호를 절환합니다.
->3.  광전관에 신호가 검지되면 이동전극 마모량을 검출하고 개방동작을 실행합니다.  
- >   **이동전극 마모량 = 외부신호 검지위치 - 외부신호 입력 방식의 건서치2 기준위치**  
- >   **고정전극 마모량 = 건서치1로 검지한 전체 마모량 - 이동전극 마모량**  
->4. 개방이 완료되면 이동전극 및 고정전극 마모량이 갱신됩니다.
-# 4.1.4.2 Eqless건
+>1. Movement to the record position of the step occurs.
+>2. The moving electrode approaches at the search speed and switches the phototube contact signal.
+>3.  When a signal is detected by the photo tube, the moving electrode consumption amount is detected and the opening operation is executed.  
+ >   **Moving electrode consumption amount = External signal detection position - reference position for gun search 2 that uses the external signal**  
+ >   **Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount**  
+>4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated.
+# 4.1.4.2 Equalizerless gun
 
-Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건서치 기능은 고정전극의 마모량을 측정합니다.
+As an equalizerless gun only manages the consumption amount on the fixed electrode, so the gun search function here measures the fixed electrode consumption amount.
 
 
 <p align=center>
  <img src="../../../_assets/image_64_eng.PNG"></img>
  <img src="../../../_assets/image_34_eng.PNG" width="55%"></img>
- <em><p align="center">그림 4.7 Eqless 건서치</p></em>
+ <em><p align="center">Figure 4.7 Gun search of an equalizerless gun</p></em>
 </p>
 
 
->1. 스텝의 기록 위치로 이동합니다.
->2. 고정전극이 서치 속도로 접근하여 광전관 접점신호를 절환합니다.
->3.  광전관에 신호가 검지되면 고정전극 마모량을 측정하고 개방동작을 실행합니다.  
->    **고정전극 마모량 = 센서 검지위치 - 건서치 기록위치**
->4. 개방이 완료되면 고정전극 마모량이 갱신됩니다.
-# 4.2 스폿용접
+>1. Movement to the record position of the step occurs.
+>2. The fixed electrode approaches at the search speed and switches the phototube contact signal.
+>3.  When a signal is detected by the photo tube, the fixed electrode consumption amount is measured and the opening operation is executed.  
+ >   **Fixed electrode consumption amount = sensor detection position - gun search record position**  
+>4. When the opening is completed, the fixed electrode consumption amount is updated.
+# 4.2 Spot welding
 
-고정전극과 이동전극이 가압한 상태로 용접기에서 용접전류를 흘려 스폿용접 작업을 수행합니다.
-# 4.2.1 spot 명령문
+While the fixed and moving electrodes are squeezing, the current flows from the welder, allowing the spot welding to be performed.
+# 4.2.1 Spot statement
 
-스폿용접이 완료되지 않은 상태에서 정지되었다가 재기동하는 경우에는 스폿용접 스텝을 다시 실행합니다. \[**기록**]키에 의한 스텝 기록시 \[**GUN**] LED가 점등되었다면 MOVE 명령문과 함께 SPOT 명령문이 기록됩니다. (원터치 기록 방식)
+)If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the \[**GUN**] LED is turned on while the step is being recorded with the \[**Record**] key, the Spot statement will be recorded along with the Move statement. (one-touch recording method.)
 
-용접 스텝을 기록할 때 조그 동작으로 고정전극을 판넬에 접촉시킨 후 수동가압 동작으로 판넬을 가압한 상태에서 원터치 기록 방식으로 spot 명령문을 기록하면 판넬 두께가 설정됩니다. 판넬 두께가 설정된 후에는 조그 동작으로 고정전극을 판넬에 접촉시킨 후 수동가압 동작 없이 원터치 기록 방식으로 spot 명령문을 기록하면 판넬 두께와 마모량을 보정한 위치를 자동으로 고려하여 기록됩니다.
+ When recording the welding step, if you make the fixed electrode contact the panel through a jogging operation and then record the Spot statement in one-touch method, while squeezing the panel through a manual squeezing operation, the panel thickness will be set. Once the panel thickness is set, if you make the fixed electrode contact the panel through a jogging operation and then record the Spot statement in one-touch method without a manual squeezing operation, the recording will take place by taking into consideration the position for which the panel thickness and the consumption amount are compensated.
 
-건타입이 서보건인 경우 \[**위치수정**]시 spot 명령문이 존재하면 자동으로 전극의 마모량을 보정한 위치로 수정됩니다.
+While the gun type is servo gun, if the Spot statement exists during \[**Position modification**], the position will be automatically modified to a position for which the electrode consumption amount is compensated.
 
 </br>
 
-**spot** gun=<건번호>,cnd=<조건번호>,seq=<시퀀스번호>,mgun=<멀티건번호>,mcnd=<멀티건 조건번호>,mseq=<멀티건 시퀀스>
+**spot** gun=<gun number>,cnd=<condition number>,seq=<sequence number>,mgun=<numbers of multiple guns>,mcnd=<conditions of multiple guns>,mseq=<sequences of multiple guns>
 
 
 <center>
 
-|   **항목**    | 　    <p align=center>           **내 용**        </p>    |
+|   **Item**    | 　    <p align=center>           **Content**        </p>    |
 | :-----------: |------------------------------------------- |
-|    **건번호**    | 용접건 번호를 지정                                |
-|    **조건번호**   | 용접 조건을 지정                        |
-|   **시퀀스 번호**  | 용접 시퀀스를 지정                     |
-|   **멀티건 번호**  | 멀티건으로 동시 용접을 수행 시, 멀티건 번호를 지정    |
-|  **멀티건 조건번호** | 멀티건으로 동시 용접을 수행 시, 건에 따라 용접 조건을 달리할 때 지정 </br>지정되지 않으면 기본건의 용접조건이 적용  |
-| **멀티건 시퀀스번호** | 멀티건으로 동시 용접을 수행 시, 건에 따라 용접시퀀스를 달리할 때 지정 </br> 지정되지 않으면 기본건의 용접시퀀스가 적용 |
+|    **Gun number**    | Designates the welding gun number                                |
+|    **Condition number**   | Designates the welding condition                        |
+|   **Sequence number**  | Designates the welding sequence                     |
+|   **Numbers of multiple guns**  | Designates the numbers of multiple guns when performing welding simultaneously with multiple guns    |
+|  **Condition numbers of multiple guns** | To be designated when welding is performed simultaneously with multiple guns with individually different welding condition for each gun </br>If they are not designated, the welding condition of the default gun will apply.  |
+| **Sequence numbers of multiple guns** | To be designated when welding is performed simultaneously with multiple guns with invidually different welding sequence for each gun </br> If they are not designated, the welding sequence of the default gun will apply. |
 
 </center>
 
 </br>
 
 {% hint style="info" %}
-\[사용 예\]  
-- 서보건 5,6을 동시에, 용접조건은 각각 7,8, 용접시퀀스는 각각 9, 10으로 스폿용접하는 경우
+\[Example of use\]  
+- When performing spot welding using the servo guns 5 and 6 while applying welding conditions 7 and 8 respectively and welding sequences 9 and 10 respectively.
 
   ```spot gun=5,cnd=7,seq=9,mgun=6,mcnd=8,mseq=10```
 
-{% endhint %}# 4.2.2 건 타입별 용접시퀀스
+{% endhint %}# 4.2.2 Welding sequence by gun type
 
-제어기는 프로그램에 spot 명령문을 실행함으로써 용접작업이 이루어지며 스폿용접 펑션의 재생은 다음과 같이 건타입에 따라 차이가 있습니다.
-# 4.2.2.1 서보건
+The controller executes the spot statement in the program to make the welding work take place and the playback of the spot welding function may vary depending on gun type.
+# 4.2.2.1 Servo gun
 
-건타입이 서보건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
+If the gun type is servo gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_66_eng.PNG" width="60%"></img>
- <em><p align="center">그림 4.8 서보건 스폿용접의 재생</p></em>
+ <em><p align="center">Figure 4.8 Playback of servo gun spot welding</p></em>
 </p>
 
 
->1. N-1스텝의 위치에서 이동전극과 고정전극은 각각 기록위치에서 ‘이동전극 Clearance’와 ‘고정전극 Clearance’만큼 떨어진 위치로 이동합니다.
->2. 로봇 이퀄라이징 모션에 의해 고정전극은 스텝의 기록위치로 이동하며 이동전극은 마모량만큼 쉬프트하여 스텝의 기록위치로 이동합니다.
->3. 설정된 가압력으로 이동전극이 가압 동작을 수행합니다. 가압력 일치가 되면 그 위치에서 용접조건 신호와 함께 용접실행 신호를 출력합니다.
->4. 용접완료 신호(WI)가 입력되면, 이동전극과 고정전극이 각각 Clearance만큼 개방합니다.
->5. 다음 스텝으로 이동합니다.
-# 4.2.2.2 Eqless건
+>1. At the N-1 step position, the moving and fixed electrodes move to the positions away from the record positions as much as the ‘moving electrode clearance’ and ‘fixed electrode clearance’, respectively.
+>2. With the robot equalizing operation, the fixed electrode moves to the record position of the step, and the moving electrode moves to the record position of the step by shifting as much as the consumption amount.
+>3. The moving electrode performs the squeezing operation with the set squeezing force. When the squeezing force is matched, the welding execution signal is outputted together with the welding condition signal at the position.
+>4. When the welding completion signal (WI) is inputted, the moving and fixed electrodes open as much as the individual clearances.
+>5. Movement to the next step occurs.
+# 4.2.2.2 Equalizerless gun
 
-건타입이 Eqless건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
+If the gun type is equalizerless gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_5_eng.PNG" width="60%"></img>
- <em><p align="center">그림 4.9 Eqless건 스폿용접의 재생</p></em>
+ <em><p align="center">Figure 4.9 Playback of spot welding by ann equalizerless gun</p></em>
 </p>
 
->1. N-1스텝 위치에서 고정전극이 기록위치로부터 ‘고정전극 Clearance’만큼 떨어진 위치로 이동합니다.
->2. 로봇 이퀄라이징 모션에 의해 고정전극은 용접 스텝의 기록위치로 이동하며, 이동전극은 공압에 의해 판넬을 가압합니다.
->3. 가압력 일치가 되면 그 위치에서 용접조건 신호와 함께 용접실행 신호를 출력합니다.
->4. 용접완료 신호(WI)가 입력되면, 고정전극은 기록위치에서 ‘고정전극 Clearance’만큼 떨어진 위치로 이동하며 이동전극은 공압이 공급되지 않는 위치로 이동합니다.
->5. 다음 스텝으로 이동합니다.
-# 4.2.2.3 Eq건
+>1. At the N-1 step position, the fixed electrode moves to the position away from the record position as much as the ‘fixed electrode clearance.’
+>2. With the robot equalizing operation, the fixed electrode moves to the recordd position of the step, and the pneumatic presssure makes the moving electrode squeeze the panel.
+>3. When the squeezing force is matched, the welding execution signal is outputted together with the welding condition signal at the position.
+>4. When the welding completion signal (WI) is inputted, the fixed electrode moves to the position away from the record position as much as the ‘fixed electrode clearance’ and the moving electrode moves to a position where pneumatic pressure is not supplied.
+>5. Movement to the next step occurs.
+# 4.2.2.3 Equalizer-fitted gun
 
-건타입이 Eq건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
+If the gun type is equalizer-fitted gun, the spot welding function is played back as shown in the figure below.
 
 <p align="center">
  <img src="../../../_assets/image_82_eng.PNG" width="60%"></img>
- <em><p align="center">그림 4.10 Eq건 스폿용접의 재생</p></em>
+ <em><p align="center">Figure 4.10 Playback of spot welding by an equalizer-fitted gun</p></em>
 </p>
 
->1. N-1스텝의 위치에서 스텝의 기록위치로 이동합니다.
->2. 용접조건 신호와 함께 용접실행 신호를 출력합니다. 고정전극은 이퀄라이징 설비에 의해서 이동전극은 공압에 의해 판넬을 가압합니다.
->3. 용접완료 신호(WI)가 입력되면, 고정전극은 이퀄라이징 설비가 동작되지 않는 위치로 이동전극은 공압이 공급되지 않은 위치로 이동합니다.
->4. 다음 스텝으로 이동합니다.
-# 4.3 서보건 팁드레싱
+>1.At the N-1 step position, movement to the record position of the step occurs.
+>2. The welding execution signal is outputted together with the welding condition signal. The equalizing facility makes the fixed electrode squeeze the panel and the pneumatic pressure makes the moving electrode squeeze the panel.
+>3. When the welding completion signal (WI) is inputted, the fixed electrode moves to a position where the equalizing facility does not operate and the moving electrode moves to a position where pneumatic pressure is not supplied.
+>4. Movement to the next step occurs.# 4.3 Servo gun trip dressing
 
-# 4.3.1 조건설정
+# 4.3.1 Condition setting
 
-서보건의 팁드레싱 조건은 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 →『**4: 용접데이터(조건, 시퀀스)**』 → 『**4: 서보건 팁드레싱 조건**』 에서 설정합니다. 해당 메뉴를 참고하십시오.
-# 4.3.2 동작형태
+The tip dressing condition for the servo gun can be set in 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 →『**4: Welding data (condition, sequence)**』 → 『**4: Servo gun tip dressing condition**.』 Refer to the relevant menus.
+# 4.3.2 Type of operation
 
-서보건 팁드레싱 조건을 이용하여 팁드레싱 동작을 수행하려면 아래와 같이 spot 명령문의 용접시퀀스 번호는 반드시 64로 지정해야 합니다.
+To perform a tip dressing operation using the servo tip dressing condition, the welding sequence number in the Spot statement must be designated as 64 as shown below.
 
 
 <p align="center">
  <img src="../../_assets/image_77_eng.PNG" width="60%"></img>
- <em><p align="center">그림 4.11 서보팁 드레싱 동작</p></em>
+ <em><p align="center">Figure 4.11 Servo gun tip dressing operation</p></em>
 </p>
 
->1. N-1스텝의 위치로부터 이동전극은 기록위치로부터 이동전극 Clearance만큼, 고정전극은 기록위치로부터 고정전극 Clearance만큼 떨어진 위치로 이동합니다.
->2. 스텝의 기록위치로 이동합니다.
->3. 용접조건에 설정된 가압력으로 이동전극이 가압 동작을 수행합니다. 가압력 일치가 되면 그 위치에서 용접조건 신호를 출력합니다. 이때 용접실행 신호를 함께 출력할지는 팁드레싱 조건에서 “**용접신호 출력**”설정 상태에 따라 결정됩니다.
->4. 설정된 팁드레싱 시간이 경과되면 이동전극과 고정전극이 각각 Clearance만큼 개방합니다.
->5. 다음 스텝으로 이동합니다.
-# 4.4 서보건 개방 위치 기록
+>1. At the N-1 step position, the moving electrode moves to the position away from the record position as much as the moving electrode clearance and the fixed electrode moves to the position away from the record position as much as the fixed electrode clerance.
+>2. Movement to the record position of the step occurs.
+>3. The moving electrode performs the squeezing operation with the squeezing force set in the welding condition. When the squeezing force is matched, the welding condition signal is outputted at the position. Whether the welding execution signal is outputted together at this time can be determined by the state of the “**Welding signal output**” setting in the tip dressing condition.
+>4. When the set tip dressing time passes, the moving and fixed electrodes open as much as the clearance of each, respectively.
+>5. Movement to the next step occurs.
+# 4.4 Servo gun opening position recording
 
-서보건의 스폿용접 스텝의 기록은 통상적으로 다음의 절차에 의해 수행됩니다.
+The recording of the spot welding step of the servo gun is usually performed according to the following procedure.
 
-1. 원터치 기록 상태(\[GUN]키 LED 점등)임을 확인합니다.
-2. 서보건의 고정전극을 작업물에 접촉합니다.
-3. 수동가압 동작을 수행하여 이동전극을 작업물에 가압시킵니다.
-4. \[**기록**]키를 눌러 스텝과 함께 spot명령문을 기록합니다. -> 판넬두께 자동 등록
-5. 수동개폐 동작으로 이동전극을 작업물과 분리합니다.
-6. 다음 위치로 이동합니다.
+1. Check that the state is the one-touch record state. (\[GUN] key LED turned on.)
+2. Contact the fixed electrode of the servo gun to the workpiece.
+3. Squeeze the moving electrode to the workpiece by performing manual squeezing operation.
+4. Press the \[**Record**] key to record the Spot statement together with the  step. -> Automatic registration of the panel thickness
+5. Separate the moving electrode with a manual closing operation.
+6. Movement to the next position occurs.
 
-서보건 개방 위치 기록이란 위 절차 중 (3)과 (5)를 생략하는 것으로서 상당한 티칭 시간을 절감할 수 있습니다. 이를 위해서는 용접하려는 판넬의 두께를 제어기가 알고 있어야 합니다.
-# 4.4.1 판넬 두께 등록
+ Servo gun opening position recording is a procedure without the steps (3) and (5) above, making it possible to save a significant amount of time. For this, the controller should know the thickness of the panel to weld.
+# 4.4.1 Panel thickness registration
 
-서보건 개방 위치 기록은 미리 지정해 둔 판넬 두께를 이용하여 이동전극의 위치를 계산하므로 판넬 두께를 등록하여야 합니다. 판넬 두께를 등록하는 방식에는 2가지가 있으며, 사용자가 수동으로 입력하는 방식과 판넬을 가압한 상태에서 자동으로 등록하는 방식을 제공합니다.
-# 4.4.1.1 수동 입력 방식
+When it comes to the servo gun opening position recording, the position of the moving electrode will be calculated by using the pre-designated panel thickness, so the panel thickness should be registered. There are two provided methods of registering the panel thickness. One is that the user inputs it manually and the other is that the panel thickness is automatically registered while the panel is squeezed.
+# 4.4.1.1 Manual input method
 
-“**R220 : 판넬 두께 설정**”를 실행하여 판넬 두께를 입력합니다.
+Execute “**R220: Set the panel thickness**” to input the panel thickness.
 
 
 <p align="center">
  <img src="../../../_assets/image_14_eng.PNG" ></img>
- <em><p align="center">그림 4.12 판넬 두께 입력</p></em>
-</p># 4.4.1.2 자동 등록 방식
+ <em><p align="center">Figure 4.12 Panel thickness input</p></em>
+</p># 4.4.1.2 Auto registration method
 
-“**\[GUN] LED**”가 점등되어 있는 상태에서 수동 가압한 후 \[**기록**]키를 누르면 판넬 두께가 자동 등록됩니다.
-# 4.4.2 티칭방법
+While the “**\[GUN] LED**” is turned on, perform manual squeezing and then press the \[**Record**] key. Then the panel thickness will be automatically registered.
+# 4.4.2 How to teach
 
-(1)  판넬 두께가 등록된 상태에서는 이동전극을 개방한 채 고정전극만 판넬에 접촉한 상태로 교시를 진행합니다.
+(1)  In a state that the panel thickness is registered, proceed with teaching while keeping the moving electrode open and only the fixed electrode in contact with the panel.
 
 
 
 <p align="center">
  <img src="../../_assets/image_83_eng.PNG" width="70%"></img>
- <em><p align="center">그림 4.13 판넬 두께가 동일한 작업의 작업방식</p></em>
+ <em><p align="center">Figure 4.13 Method of working when the panel thickness is the same</p></em>
 </p>
 
 </br>
 
-(2) 판넬 두께가 변경될 때, 판넬 두께를 다시 등록한 후 교시합니다.
-# 4.5 서보툴 체인지
+(2) When the panel thickness is changed, perform teaching after registering the panel thickness again.
+# 4.5 Servo tool change
 
-로봇 R1축과 결합하여 작업할 건이 2개 이상일 때 로봇 R1 축과 용접건을 접속하고 분리할 때 서보툴 체인지 기능을 사용합니다. 보다 자세한 내용은 Hi6 서보툴 체인지 기능설명서를 참고하십시오.
-# 4.5.1 환경설정
+The servo tool change function is used to connect and separate the robot R1 axis and welding gun if there are two or more guns to perform work in combination with the robot R1 axis. For more details, refer to the Hi6 Servo Tool Change Function Manual.
+# 4.5.1 Environment setting
 
-서보툴 체인지 환경설정은 다음과 같은 순서로 진행합니다.
+The environment setting for servo tool change can be progressed according to the following order.
 
-A.   건 번호 대응 툴번호, 건타입 설정
+A.   Setting the tool number and gun type corresponding to the gun number
 
-B.   서보툴 파라미터 설정
-# 4.5.1.1 건 번호 대응 툴번호, 건타입 설정
+B.   Setting the servo tool parameter
+# 4.5.1.1 Setting of the tool number and gun type corresponding to the gun number
 
-『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**1: 건번호 대응 툴번호, 건타입 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
+In『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**』, set the gun type and tool number targeted for the servo tool change.
 
 <p align="center">
  <img src="../../../_assets/image_24_eng.PNG" width="70%"></img>
  <img src="../../../_assets/image_24_1png" width="70%"></img>
- <em><p align="center">그림 4.14 스폿 건 추가</p></em>
+ <em><p align="center">Figure 4.14 Addition of a spot gun</p></em>
 </p>
 
 
-그림4.14는 아래와 같이 2개의 서보건을 설정한 예입니다.
+The figure 4.14 shows a case in which two servo guns are set as below.
 
-* **Gun1**: 용접기 1, 툴 번호 0, 서보건, 부가축 2 -> 서보툴 파라미터를 설정 필요
-* **Gun2**: 용접기 1, 툴 번호 1, 서보건, 부가축 1 -> 서보툴 파라미터를 설정 필요
+* **Gun1**: Welder 1, tool number 0, servo gun, additional axis 2 -> Required to set the servo tool parameters
+* **Gun2**: Welder 1, tool number 1, servo gun, additional axis 1 -> Required to set the servo tool parameters
 
-서보툴 체인지 대상 중 서보건으로 설정된 건은 다음 장과 같이 해당 서보건의 서보툴 파라미터를 설정해야 합니다.
-# 4.5.1.2 서보툴 파라미터 설정
+ In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.
+# 4.5.1.2 Servo tool parameter setting
 
-『**설정**』 → 『**4: 응용 파라미터**』 → 『**11: 서보툴 체인지**』 → 『**2: 서보툴 파라미터 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
+ In『**Setting**』 → 『**4: Application parameter**』 → 『**11: Servo tool change**』 → 『**2: Servo tool parameter setting**』, set the gun type and tool number targeted for the servo tool change.
 
-서보툴 체인지 대상의 건이 서보건인 경우, 현재 설정된 부가축 파라미터와 사용하고자 하는 서보건의 파라미터가 다를 수 있기 때문에 사용하고자 하는 서보건의 파라미터를 설정해야 합니다. 설정된 파라미터는 용접건 체인지 기능으로 다른 용접건을 사용할 때 아래 그림과 같이 기존 부가축 파라미터의 값을 대체하기 때문에 부가축 파라미터와 동일한 설정 항목을 사용합니다.
+If the gun targeted for servo tool change is a servo gun, you need to set the parameter of the servo gun you want to use because the currently set parameter for the additional axis and the parameter of the servo gun you want to use may be different. When another welding gun is used with the welding gun change function, the set parameter will replace the value of the existing parameter for the additional axis, as shown in the figure below, the same setting items as the parameter for the additional axis are used.
 
 
 
 <p align="center">
  <img src="../../../_assets/image_67_eng.PNG" width="75%"></img>
- <em><p align="center">그림 4.15 툴 체인지시 부가축 파라미터 적용</p></em>
+ <em><p align="center">Figure 4.15 Application of the parameter for the additional axis during tool change</p></em>
 </p>
 
 
-서보툴 파라미터 설정 항목은 부가축 파라미터 설정항목과 대부분 동일합니다. 건번호 대응 툴번호, 건타입 설정 화면에서 설정한 서보건을 추가해야 합니다. OK 버튼을 클릭 시 건번호에 대응되는 부가축 번호가 자동으로 설정됩니다.
+The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
 
 
 
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>
- <em><p align="center">그림 4.16 부가축 파라미터 설정 화면</p></em>
-</p># 4.5.2 접속/분리 명령
+ <em><p align="center">Figure 4.16 Additional axis parameter setting screen</p></em>
+</p># 4.5.2 Connection/separation commands 
 
-서보툴 체인지 환경에서 서보건의 접속/분리는 아래 2가지로 수행할 수 있습니다. 서보건을 접속하면 건번호와 툴번호가 설정된 값에 따라 자동 변경되며, 서보건을 분리하면 건번호와 툴번호가 0으로 자동 변경됩니다.
+In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
 
 (1) R358
 
-R코드에 의한 서보건 체인지 기능으로 수동 모드의 모터 On 상태에서(Enable 스위치 On) 사용합니다.
+This is a function for servo gun change by using a R code, and can be used in the motor on state (the enable switch is on) in manual mode.
 
-조작 = **R358, #1, #2, #3**
+Operation = **R358, #1, #2, #3**
 
-| **파라미터** |   **#1**   | **#2** |    **#3**   |
+| **Parameter** |   **#1**   | **#2** |    **#3**   |
 | :------: | :--------: | :----: | :---------: |
-|    의미    |    접속/분리   |   축사양  |     건번호     |
-|   설정 값   | 접속=1, 분리=0 |  서보건=1 | 체인지할 서보건 번호 |
+|    Meaning    |    Connection/separation   |   Axis specification  |     Gun number     |
+|   Set value   | Connection=1, Separation=0 |  Servo gun=1 | The number of the gun targeted for change |
 
-| 사용 예 | R358,1,1,2 (서보건 G2를 접속) |
+| Example of use | R358,1,1,2 (connects the servo gun G2) |
 | :--: | ----------------------- |
-|      | R358,1,0 (서보건을 분리)      |
+|      | R358,1,0 (separates the servo gun)      |
 
 (2) toolchng
 
-작업 프로그램 실행에 의한 용접건 체인지 기능입니다.
+This is a function for welding gun change through the execution of a work program. 
 
 ```
-toolchng on/off,chng=<체인지 대상>,di=<접속완료 신호>,wtime=<접속완료 대기시간>,mchng1=<체인지 대상>,mchng2=<체인지 대상>,mchng3=<체인지 대상>
+toolchng on/off,chng=<target for change>,di=<connection complete signal>,wtime=<connection completion wait time>,mchng1=<targe for change>,mchng2=<target for change>,mchng3=<target for change>
 ```
 
-|                            **on/off**                            |       **on**       |                    서보툴 접속                   |                                               |
+|                            **on/off**                            |       **on**       |                    Connection of the servo tool                    |                                               |
 | :--------------------------------------------------------------: | :----------------: | :-----------------------------------------: | :-------------------------------------------: |
-|                               ****                               |       **off**      |                    서보툴 분리                   |                                               |
-|                            **체인지 대상**                            |     **G1\~G16**    |         <p>접속/분리할 </p><p>용접건 번호</p>         | <mark style="color:red;">해당 부가축의 접속/분리</mark> |
-|                         **기계적 접속완료 확인신호**                        |     **1\~4096**    | <p>기계적인 접속완료</p><p>확인을 위한</p><p>입력신호 번호</p> |          <p>OFF시 무시되는</p><p>파라미터</p>          |
-|     <p><strong>접속완료</strong></p><p><strong>대기시간</strong></p>     | **<0\~5.0> (sec)** | <p>접속완료 대기시간</p><p>(파라미터가 없거나 0이면 무한대기)</p> |          <p>OFF시 무시되는</p><p>파라미터</p>          |
-| <p><strong>체인지 대상</strong></p><p><strong>(동시 접속/분리)</strong></p> |     **G1\~G16**    |                  접속할 용접건 번호                 |          <p>OFF시 무시되는</p><p>파라미터 </p>         |
+|                               ****                               |       **off**      |                    Separation of the servo tool                   |                                               |
+|                            **Target for change**                            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>Welding gun number</p>         | <mark style="color:red;">Connection/separation of the relevant additional axis</mark> |
+|                         **Mechanical connection completion check signal**                        |     **1\–4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |          <p>Parameter to be ignored in off state</p><p></p>          |
+|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **<0\–5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
+| <p><strong>Target for change</strong></p><p><strong>(Simultaneous connection/seperation)</strong></p> |     **G1\–G16**    |                   Number of the welding gun to connect                 |          <p>Parameter to be ignored</p><p>in off state</p>         |
 
-접속완료는 기계적인 접속과 로봇 제어기 내부 처리가 끝나야 완료 처리가 됩니다. 접속완료 대기시간은 위 2가지 과정이 모두 완료될 때까지 대기하는 시간입니다.
-# 4.5.3 접속/분리 타이밍
+Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.
+# 4.5.3 Connection/separation timing
 
 
 <p align="center">
  <img src="../../_assets/image_10_eng.PNG" width="60%"></img>
- <em><p align="center">그림 4.17 접속 분리 타이밍 차트</p></em>
+ <em><p align="center">Figure 4.17 Connection and seperation timing chart</p></em>
 </p>
 
-*   접속
+*   Connection
 
-    접속명령(toolchng on)을 실행 중 로봇과 서보건이 기계적으로 접속이 되면 접속완료 신호가 입력되고 제어기 내부적으로 접속 처리 및 서보건축 구동을 위한 엔코더 전원 투입과 모터 ON 동작을 수행합니다.
-*   분리
+    If the robot and servo gun are mechanically connected during the execution of the connection command (toolchng on), the connection completion signal will be inputted, the connection will be processed inside the controller, the encoder power for driving the axis of the servo gun will be inputted, and the motor on operation will be executed.
+*   Separation
 
-    분리명령(toolchng off)은 접속과 상반되는 시퀀스를 가지고 분리 처리를 수행합니다.
-# 4.5.4 샘플 프로그램
+     The separation command will execute the processing of the separation according to the sequence opposite to that of the connection command.
+# 4.5.4 Sanple program
 
 
 <p align="center">
  <img src="../../_assets/image_74_eng.PNG" width="70%"></img>
- <em><p align="center">그림 4.18 툴 체인지 프로그램</p></em>
-</p># 4.6 멀티건 동시용접
+ <em><p align="center">Figure 4.18 Tool change program</p></em>
+</p># 4.6 Simultaneous welding with multiple guns
 
-스폿용접의 일반적인 형태는 한번에 하나의 용접건으로 용접 작업을 수행합니다. 멀티건 동시용접 기능이란 한번에 여러 개의 용접건으로 동시에 용접하는 행위를 말합니다. 이를 위해서는 건의 건타입(서보건, Eqless건, Eq건)이 모두 동일해야 합니다.
-# 4.6.1 멀티건 수동 선택
+In general, spot welding is performed with one welding gun at a time. The function of simultaneous welding with multiple guns is the act of welding with multiple welding guns at the same time. For this, the gun type (servo gun, equalizerless gun, or equalizer-fitted gun) should be all the same.
+# 4.6.1 Manual selection of multiple guns
 
 <p align="center">
  <img src="../../_assets/image_32_eng.PNG" width="30%"></img>
- <em><p align="center">그림 4.19 부가축 파라미터 설정 화면</p></em>
+ <em><p align="center">Figure 4.19 Additional axis parameter setting screen</p></em>
 </p>
 
-서보툴 체인지에 의해 G1(마스터), G2(슬래이브)를 멀티건으로 선택하기 위한 절차는 다음과 같습니다.
+The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.
 
-1. \[**R**]+\[**358**] 후 G1을 접속합니다. 접속 완료 후 G1이 할당된 부가축 관련 파라미터들을 설정합니다.
-2. \[**R**]+\[**358**] 후 G2를 접속합니다. 접속 완료 후 G2가 할당된 부가축 관련 파라미터들을 설정합니다.
-3. 선택된 건상태가 다음과 같이 상태플래그에 표시됩니다.
+1. Select \[**R**]+\[**358**] and then connect G1. After the connection is completed, the parameter related to the additional axis to which G1 is assigned should be set.
+2. Select \[**R**]+\[**358**] and then connect G2. After the connection is completed, the parameter related to the additional axis to which G2 is assigned should be set.
+3. The state of the selected gun is indicated in state flag as follows.
 
 {% hint style="info" %}
-[참고]  
-* **\[R]+\[210] 마스터 건 번호 변경**
-  1. 단일 건 환경 → \[R]+\[210]+\[3] → 단일 건 환경(예, G1 → G3)
-  2. 멀티 건 환경 → \[R]+\[210]+\[1] → 단일 건 환경(예, G1,3 → G1)
-* **\[R]+\[214] 멀티 건 선택**
-  1.  설정된 건과 다른 번호 선택 시
+[Note]  
+* **\[R]+\[210] for changing the master gun number**
+  1. Environment with a sole gun → \[R]+\[210]+\[3] → Environment with a sole gun (Example: G1 → G3)
+  2. Environment with multiple guns → \[R]+\[210]+\[1] → Environment with a sole gun (Example: G1 and G3 → G1)
+* **\[R]+\[214] for selecting multiple guns**
+  1.  When selecting another number different from the set gun number
 
-      A. 단일 건 환경 → \[R]+\[214]+\[3] → 멀티 건 환경(예, G1 → G1,3)
+      A. Environment with a sole gun → \[R]+\[214]+\[3] → Environment with multiple guns (Example: G1 → G1 and G3)
 
-      B. 멀티 건 환경 → \[R]+\[214]+\[2] → 멀티 건 환경(예, G1,3 → G1,3,2)
-  2.  설정된 건과 같은 번호 선택 시
+      B. Environment with multiple guns → \[R]+\[214]+\[2] → Environment with multiple guns(Example: G1 and G3 → G1, G3, and G2)
+  2.  When selecting the same number as the set gun number
 
-      A. 멀티 건 환경 → \[R]+\[214]+\[3] → 멀티 건 환경(예, G1,3,2 → G1,2)
+      A. Environment with multiple guns → \[R]+\[214]+\[3] →  Environment with multiple guns(Example: G1, G3 and G2 → G1 and G2)
 
-      B. 멀티 건 환경 → \[R]+\[214]+\[2] → 단일 건 환경(예, G1,2 → G1)
+      B. Environment with multiple guns → \[R]+\[214]+\[2] → Environment with a sole gun (Example: G1 and G2 → G1)
 
-      C. 마스터 건 번호는 변경되지 않음.
+      C. The master gun number does not change.
 {% endhint %}
 
-# 4.6.2 지원기능
+# 4.6.2 Support functions
 
-멀티건 동시용접을 위해 제공되는 기능은 다음과 같습니다.
+The functions to be provided for simultaneous weldig with multiple guns is as follows.
 
-1. 수동개폐
-2. 수동가압
-3. spot 명령문
-4. gunsea 명령문
-# 4.7 서보건 용접 시 판넬두께 이상 검출
+1. Manual closing
+2. Manual squeezing
+3. spot statement
+4. gunsea statement
+# 4.7  Detection of panel thickness abnormality during the welding with servo gun
 
-서보건 용접 시 판넬 두께를 계측하여 부품의 이상과 소재의 장착 누락을 검지하는 기능으로 아래와 같이 “thickcheck”명령문을 추가하여 간단하게 수행할 수 있습니다. 판넬 두께의 이상 여부는 계측된 값이 정상 범위 내에 있는 지로 판단합니다.
+ This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the “thickcheck” statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
 
 <p align="center">
  <img src="../_assets/image_49_eng.PNG" width="40%"></img>
- <em><p align="center">그림 4.20 서보건 판네두께 검사</p></em>
+ <em><p align="center">Figure 4.20 Inspection of the panel thickness with the servo gun</p></em>
 </p>
 
 * **thick**
 
-    서보건을 가압하여 계측된 판넬 두께를 보관할 변수를 지정합니다.
+    Designates the variable to store the measured panel thickness by squeezing the servo gun.
 * **ref**
 
-    정상 판넬 두께를 지정합니다.
+    Designates the normal panel thickness.
 * **tol**
 
-    허용 편차를 지정합니다.
-* **addr(분기행)**
+    Designates the toleranc.
+* **addr(branch line)**
 
-    판넬 이상 검지 시 처리 방식을 지정합니다. 분기행이 기록되지 않으면 “**E1493 측정된 판넬 두께가 정상범위를 벗어남**”을 발생하여 로봇이 정지되며 “**판넬 두께 이상**”에 설정된 출력신호를 ON 합니다. 분기행이 기록되어 있으면 “**W0152 측정된 판넬 두께가 정상범위를 벗어남**”을 발생하고 분기행으로 점프하여 로봇은 계속 동작합니다. 이 경우는 “**판넬 두께 이상**”에 설정된 출력신호를 200 ms만 ON 합니다.
+   Designates the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation “**E1493 Measured panel thickness exceeded the normal range**” occurs and then the robot stops and the output signal set in the “**Panel thickness abnormal**” section is turned on. If the branch line is recorded, the situation “**W0152 Measured panel thickness exceeded the normal range**” occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the “**Panel thickness abnormal**” section is turned on only for 200 ms.
 
 
 
 {% hint style="warning" %}
-[주의]  
+[Caution]  
 
-판넬의 정확한 측정을 위해서는 아래의 내용이 선수되어야 합니다.
+The following should be in place first for accurate measurement of the panel.
 
-1. 건 서치(이동전극, 고정전극 마모량의 정밀한 관리)
-2. 건 암 휨량 설정(가압력별 건 암 휨량 설정)
-3. 판넬 두께 설정(가압력별 판넬 두께 설정)
+1. Gun search (precise management of the consumption amounts of the moving and fixed electrodes)
+2. Setting of gun arm deflection amount (Setting of the gun arm deflection amount for each squeezing force)
+3. Setting of panel thickness(Setting of the panel thickness for each squeezing force)
 {% endhint %}
-# 4.8 서보건 기반 작업물 핸들링
+# 4.8 Handling of workpieces with the servo gun
 
-크기가 작은 작업물은 별도의 행거 없이 서보건을 이용해서 이송하기 위한 기능입니다.
+ This is a function to transport a workpiece in small size without using a separate hanger.
 
 <p align="center">
  <img src="../_assets/image_52_eng.PNG" width="50%"></img>
- <em><p align="center">그림 4.21 서보건 핸들링 기능</p></em>
+ <em><p align="center">Figure 4.21 Servo gun's handling function</p></em>
 </p>
 
-“**svclamp**”명령문을 이용해서 작업물을 잡는 동작과 개방 동작을 수행할 수 있습니다. svclamp on 상태에서는 서보건이 개방되지 않습니다.
+The “**svclamp**” statement can be used to hold a workpiece and perform opening operation. In the svclamp on state, the servo gun does not open.
 
 <p align="center">
  <img src="../_assets/image_12_eng.PNG" width="50%"></img>
- <em><p align="center">그림 4.22 svclamp 명령어 프로그램</p></em>
+ <em><p align="center">Figure 4.22 svclamp command program</p></em>
 </p>
-# 4.9 스폿용접 타점 계산
+# 4.9 Calculation of spots in spot welding
 
-아래의 시스템 변수는 spot 용접 명령어 수행 중 WI가 입력된 횟수를 저장하고 있습니다.
+The following system variable stores the count of the inputs of WI during the execution of the spot welding command.
 
 ```
-_spotrunno[용접기 번호]
+_spotrunno[welder number]
 ```
 
-|       **항목**      | 　　　　　　　　　　**내용**      |
+|       **Item**      | 　　　　　　　　　　**Content**      |
 | :---------------: | --------------------- |
-| **용접기 번호\[1\~4]** | 용접기 번호를 지정(총 4개까지 가능) |
+| **Welder number\[1\–4]** | Designates the welder number (totally up to four numbers) |
 
 </br>
 
-위 변수는 job 프로그램 1 cycle이 완료 후 새로운 job 프로그램이 실행되거나, \[**R**]+\[**Enter**]를 눌러 강제로 job 프로그램의 첫 행으로 이동 시 0으로 초기화 됩니다.
+The above variable will be initialized to 0 when a new job program is executed after one cycle of the job program is completed, or when \[**R**]+\[**Enter**] is pressed to make a forced shifting to the first line of the job program..
 
 ```
-사용 예1)
-V1%=_spotrunno[1]  ‘지금까지 1번 용접기를 통해 입력된 WI 수를 V1%에 저장
+Use example 1)
+V1%=_spotrunno[1]  ‘Stores the number of WIs inputted through the welder 1 up to now into V1%
 
-사용 예2)
-IF 10<>_spotrunno[1]	‘지금까지 1번 용접기를 통해 입력된 WI수가 10이 아니면
-PRINT #0,“용접 회수(“; _spotrunno[1];”) 오류 !!”	‘오류 메시지 프린트
-STOP						 	‘정지
+Use example 2 )
+IF 10<>_spotrunno[1]	‘PRINT #0 if the number of WIs inputted throug the welder 1 up to now is not 10,“Welding count (“; _spotrunno[1];”) error !!”	‘Error message print
+STOP						 	‘Stop
 ENDIF
 END
 ```
 
 {% hint style="warning" %}
-\[**주의**]: 서브 태스크에서 수행한 spot 명령어는 계산되지 않습니다.
+\[**Caution**]: The spot command executed in the sub task will not be calculated.
 {% endhint %}
 
-# 4.10 마모량 설정
+# 4.10 Consumption amount setting
 
-아래의 시스템 변수는 건의 전체 마모량을 임의로 설정하거나, 건서치로 측정한 전체 마모량을 저장하고 있습니다.
+The following system variable sets the gun's total consumption amount arbitrarily, or stores the total consumption amount measured through the gun search function.
+.
 
 ```
-_tipwear[건 번호]
+_tipwear[gun number]
 ```
 
-|      **항목**      | 　　　　　　　　　　**내용**       |
+|      **Item**      | 　　　　　　　　　　**Content**       |
 | :--------------: | ---------------------- |
-| **건 번호\[1\~16]** | 용접건 번호를 지정(총 16개까지 가능) |
+| **Gun number\[1\–16]** | Designates the welding gun number (totally up to 16 numbers) |
 
-위 변수로 마모량을 임의로 설정하는 경우 입력한 전체 마모량은 이동전극 마모량 설정 비율을 적용하여 이동/고정전극에 마모량이 적용됩니다. 이 값은 건서치 수행하기 전까지만 유지됩니다.
+If the consumption amount is arbitrarily set using the above variable, the total consumption amount will apply to the moving and fixed electrodes according to the ratio set for the moving electrode consumption amount. The value will be maintained until the execution of gun search.
 
 ```
-사용 예1)
-V1!=_tipwear[1]  	‘건서치로 측정한1번 건의 마모량을 V1!에 저장
+Use example 1)
+V1!=_tipwear[1]  	Sets the consumption amount of the gun 1, measured through gun search, in V1!
 
-사용 예2)
-_tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
+Use example 2)
+_tipwear[2]=V1!		Sets the total consumption amount of the gun 1 in V1!
 ```
 
 {% hint style="warning" %}
-\[**주의**]: 서보건 및 Eqless 건에만 적용이 가능하며, Eqless건의 경우 전체 마모량은 고정전극 마모량과 같습니다.
+\[**Cautio**]: This variable can apply only to servo and equalizerless guns. In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.
 {% endhint %}
-# 5. 스폿용접 파라미터
+# 5.  Spot welding parameters
 
-# 5.1 사용환경 설정
+# 5.1 Use environment setting
 
-스폿용접과 관련된 사용환경을 설정하여 상황에 맞는 적절한 동작을 수행합니다.
+Sets the use environment related to spot welding to perform appropriate operation for given situations.
 
 <p align="center">
  <img src="../_assets/image_20_eng.PNG" width="70%"></img>
- <em><p align="center">그림 5.1 스폿 사용환경 설정 화면</p></em>
+ <em><p align="center">Figure 5.1 Spot use environment setting screen</p></em>
 </p>
 
 </br>
 
-(1)  **서보건 스폿명령 실행 방식**
+(1)  **Servo gun spot statement execution method**
     
-    spot 명령문을 실행할 때 해당 건의 타입이 서보건인 경우는 용접시퀀스의 설정에 관계없이 가압동작 실행과 용접신호의 출력을 금지할 수 있습니다. 따라서, 이 기능은 티칭 위치 확인에 유용하게 사용할 수 있습니다. 이 설정 상태에 따라 스폿용접을 실행하는 시퀀스가 다음과 같이 동작됩니다.
+    During the execution of the Spot statement, if the type of the relevant gun is servo gun, it is possible to prohibit the squeezing operation from being executed and the welding signal from being outputted regardless of the welding sequence. Accordingly, this function can be usefully applied to check the teaching position. The sequence for execution of the spot welding will be as follows depending on the state of this setting. 
 
 
 
 <center>
 
-|출력방식| <p align=center> 내용 </p>|  
+|Output method| <p align=center> Content </p>|  
 |:---:|----------------------------------------------------|  
-|Wd-On|스폿용접 펑션에 지정한 용접시퀀스를 모두 실행합니다. </br> 클리어런스 위치 → 가압 → 가압일치 검사 → </br> 용접신호 출력 →용접완료 대기 → 클리어런스 위치 |
-|Sq-On|용접과 관련된 신호를 제외하고 용접시퀀스를 실행합니다. </br> 클리어런스 위치 → 가압 → 가압일치 검사 → 클리어런스 위치|
-|Sq-Off|가압동작, 통전신호출력, WI대기등을 모두 하지 않습니다.</br>클리어런스 위치|
+|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position → Squeezing → Squeezing force matching inspection → Welding signal output </br> → Welding completion wait → Clearance position |
+|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position → Squeezing → Squeezing force matching inspection → Clerance position|
+|Sq-Off|Does not perform squeezing operation, electrification signal output, WI wait, etc.</br>Clearance position|
 
 </center>
 
 
 </br>
 
-(2)  **건서치 기준위치 기록**
+(2)  **Gun search reference position record**
 
-    팁의 마모량을 제어기가 관리하는 건타입(서보건, EQless건)인 경우는 마모량을 산출하기 위한 기준 위치가 결정되어야 하며 이를 기준으로 실제 마모량을 산출합니다.
+    In the case of a gun type (servo gun, equalizerless gun) for which the controller manages the tip consumption amount, the reference position should be determined first, and then the actual c35onsumption amount will be calculated based on it.
     
--   무효
+-   Invalid
   
-      결정된 기준위치를 바탕으로 마모된 실제 마모량을 산출합니다.
--   유효
-      마모량 산출을 위한 기준위치를 결정하므로 새팁을 부착한 상태에서 초기에 한번만 수행하면 됩니다.
+      The actual consumption amount is calculated based on the determined reference position.
+-   Valid
+      As the reference position is to be determined to calculate the consumption amount, >>> it would be no problem to perform recording once initially while new tips are attached.
 
 
-(3)  **서보건 가압력 단위**
+(3)  **Unit of the servo gun force**
 
-    서보건 제어를 위한 가압력의 단위를 선택합니다.
-(4)  **서보건 용접스텝 기록위치 자동조정**
+    Selects the unit of the squeezing force for the control of the servo gun.
+(4)  **Automatic adjustment of servo gun welding step record position**
 
-    spot 명령 수행 시 건을 가압한 상태에서 측정된 판넬 두께와 마모량을 고려하여 기록된 move문의 서보건 위치를 조정할 지 여부를 선택합니다. 티칭을 완료한 후 또는 서보건에 변형이 생긴 경우에“유효”로 설정하고 작업 프로그램을 1회 자동 재생하면 간단하게 최적의 조건으로 기록위치를 조정해 주기 때문에 유용하게 활용할 수 있습니다.
+    Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “Valid” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
 
-# 5.2 용접건 파라미터
+# 5.2 Welding gun parameter
 
-건타입이 서보건 또는 EQless건인 경우는 각각의 건에 대한 개별 파라미터를 설정할 수 있습니다.
+If the gun type is servo gun or equalizerless gun, individual parameters can be set for each gun.
 
-# 5.2.1 서보건
+# 5.2.1 Servo gun
 
-건타입이 서보건이면 아래와 같이 서보건과 관련된 파라미터를 설정하는 화면이 표시됩니다.
-# 5.2.1.1 서보건 기본 설정
+ If the gun type is servo gun, a screen for setting the parameters related to the servo gun will be indicated as shown below.
+# 5.2.1.1 Servo gun default setting
 
 <p align=center>
 <img src="../../../../_assets/image_44_eng.PNG" width="70%"></img>
 <img src="../../../../_assets/image_87_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.2 서보건 기본 설정 화면</p></em>
+<em><p align="center">Figure 5.2 Servo gun default setting screen</p></em>
 </p>
 
-(1)  **수동 개방 동작시 거리(mm)**
+(1)  **Distance during manual opening operation (mm)**
 
-    사용자 키에 의한 서보건 대개방과 소개방 동작에서 목표 위치를 지정합니다.
-(2)  **최대 전극 마모량(mm)**
+    Designates the target position in performing wide and narrow opening operations of the servo gun by using the user key.
+(2)  **Maximum electrode consumption amount (mm)**
 
-    건서치로 검출한 이동전극 또는 고정전극의 마모량이 설정된 값을 넘으면 에러를 출력하고 정지합니다.
-(3)  **전극 교환 마모량(mm)**
+    If the moving or fixed electrode consumption amount detected through gun search exceeds the set value, an error will be outputted and the operation will stop.
+(3)  **Electrode replacement required consumption amount (mm)**
 
-    건서치로 검출한 이동전극 또는 고정전극의 마모량이 여기서 설정한 값을 넘으면 경고메시지와 함께 전극마모 경보신호를 출력하여 전극의 교환을 알립니다. 0.0mm로 설정하면, 이상 검출을 하지 않습니다.
-(4)  **건암휨량/100\[Kgf]\(mm)**
+    If the moving or fixed electrode consumption amount detected by gun search exceeds the value set here, an electrode consumption alarm signal, together with a warning message, will be outputted to notify the need for replacement of the electrode. When it is set to 0.0 mm, abnormality will not be detected.
+(4)  **Gun arm deflection amount/100\[Kgf]\(mm)**
 
-    가압력에 의한 건 암의 휨량을 100Kgf에 대한 휨량으로 설정합니다. 스폿용접 수행 시 고정전극의 위치를 이 설정치와 지령 가압력으로부터 건 암 휨량을 산출하고 이를 보정하여 가압합니다.
+    Sets the amount of gun arm deflection caused by the squeezing force to a deflection amount for 100 kgf. During the spot welding, squeezing will be performed by calculating the gun arm deflection amount not only from this set value and also from the command squeezing force.
 
 
 <p align=center>
 <img src="../../../../_assets/image_50_eng.PNG" ></img>
-<em><p align="center">그림 5.3 건 암 휨량/100Kgf 그래프</p></em>
+<em><p align="center">Figure 5.3 Gun arm deflection amount/100Kgf graph</p></em>
 </p>
 
-(5)  **가압력 정도(%)**
+(5)  **Degree of squeezing force (%)**
 
-    가압 일치 검지시에 실 가압력이 지령 가압력과 비교하여, 가압력정도 범위내에 도달하면, 가압일치로 검지합니다. 0으로 설정되어 있으면, 『W0110 가압력 검지 않는 조건으로 설정됨』를 출력하고 가압 일치 검지를 하지 않습니다.
-(6)  **가압력이상 검출시간(s)**
+    During the squeezing force matching process, squeezing force matching detection will occur if the real squeezing force reaches within the range of the accuracy of squeezing force, in comparison to the command squeezing force. If this value is set to 0, the notification 『W0110 Set in a way that squeezing force detection does not occur』 will be outputted and squeezing force matching will not be performed.
+(6)  **Time for detection of abnormal squeezing force (s)**
 
-    가압동작 개시부터 가압 일치까지의 시간을 설정합니다. 이 시간 내에 가압일치가 되는 경우 즉시 용접신호를 출력합니다. 만약, 이 시간 내에 가압일치가 되지 않으면 『**E1314 가압력 일치 검지시간 초과입니다.**』를 출력하고 정지합니다. 0.0초로 설정하면, 가압 일치 검지를 계속 대기합니다.
-(7)  **지령값 Offset(mm)**
+    Sets the time from the start of squeezing to the matching of squeezing force. If squeezing force matching occurs within this time, the welding signal will be outputted immediately. If squeezing force matching does not occur, the notification 『**E1314 Exceeds the time for detection of abnormal squeezing force**』 will be outputted and stopping will occur. If the time is set to 0.0 sec, the squeezing force matching detection will continue to wait.
+(7)  **Command value offset (mm)**
 
-    spot 명령문 실행 시 서보건에 의한 가압력을 발생시켜야 합니다. 이를 위해 이동전극을 가압위치로 이동하도록 명령합니다. 가압위치는 기록위치에 ‘지령값 offset’을 가압방향으로 더한 위치를 의미합니다.
-(8)  **건타입**
+    When the Spot statement is executed, a squeezing force should be generated by the servo gun. For this, the moving electrode will be commanded to move to the squeezing position. The squeezing position refers to a position where the ‘command value offset’ is added to the record position in the direction of squeezing.
+(8)  **Gun type**
 
-    선택한 서보건의 타입(로봇건, 정치건)을 선택합니다. 정치 서보건을 사용하는 경우에 정치건의 좌표계를 미리 설정해 놓은 사용자 좌표계 번호를 설정합니다.(0인 경우 로봇 좌표계) 고정전극의 진행 방향이 Z(+)방향이 되도록 사용자 좌표계를 설정하십시오.
+    Selects the type (robot gun, stationary gun) of the selected servo gun. In the case of using a stationary servo gun, the user coordinate system number in which the coordinate system of the stationary gun is set in advance should be set. (it will be the robot coordinate system if the value is 0.). The user coordinate system should be set in a way that the travel direction of the fixed electrode becomes the the Z (+) direction.
 
 <p align=center>
 <img src="../../../../_assets/image_81_eng.PNG" ></img>
-<em><p align="center">그림 5.4 정치건 좌표계</p></em>
+<em><p align="center">Figure 5.4 Stationary gun coordinate system</p></em>
 </p>
  
-(9)  **이동전극 마모량/전체 마모량(%)**
+(9)  **Moving electrode consumption amount/Total consumption amount (%)**
 
-    서보건의 마모량을 측정하는 방식은 건서치 1만으로 측정하는 방식과 건서치 1과 건서치 2 모두를 사용하여 측정하는 방식이 있습니다.
+    When it comes to the method to measure the consumption amount of the servo gun, one is to perform the measurement only through gun search 1 and the other is to perform the measurement by using both gun search 1 and gun search 2.
 
-    0으로 설정된 경우에는 건서치 1과 건서치 2 모두를 사용하여 마모량을 계산합니다. 0이외의 값으로 설정된 경우에는 건서치 1로 측정한 전체 마모량을 설정된 비율(%)로 이동 전극 마모량과 고정전극 마모량을 분할하는 방식을 사용합니다.
-(10)  **실시간 가압력 제어**
+    If the value is set to 0. the consumption amount will be calculated by using both gun search 1 and gun search 2. If the value is set to a value other than 0, the total consumption amount measured through gun search 1 will be distributed between the moving electrode consumption amount and fixed electrode consumption amount at the set ratio (%). 
+(10)  **Real-time squeezing force control**
 
-    실시간 가압력 제어 기능의 사용 유무를 설정합니다. 가압력계로 측정한 실제 가압력을 이용하여 설정한 가압력에 도달하도록 제어하는 기능입니다. 기능을 유효로 설정하면『 실시간 신호』키가 활성화되어 파라미터를 설정할 수 있습니다.
-(11)  **가압력-전류 테이블**
+    Sets whether to use the real-time squeezing force control function. This is a function to perform controlling to ensure that the set squeezing force can be reached by using the actual squeezing force measured with a squeezing force gauge. If this function is set to valid, the 『 Real-time signal』 key will be activated, making it possible to set the parameter.
+(11)  **Squeezing force - current table**
 
-    가압력계로 가압력을 측정하여 사용자가 원하는 범위의 가압력 테이블을 5단계로 작성할 수 있습니다. 가압력 테이블을 중력, 반중력 방향에서 구분하여 설정할 경우 건의 동작 방향에 따라 가압력을 보상합니다.
+    A squeezing force table can be created in five levels as desired by the user by measuring the squeezing force with a squeezing force gauge. If the squeezing force is set differently for the gravity direction and anti-gravity direction, the compensation for the squeezing force will occur in line with the operating direction of the gun. 
 
-    이 가압력-전류테이블은 5레벨의 가압력에 대한 전류치를 설정합니다. 각 레벨이 증가할 수록 가압력-전류의 값도 증가하도록 설정합니다. 여기서 입력한 가압력의 상한치와 하한치는 재생 또는 수동조작시의 가압력의 제한 범위로 사용됩니다.
+    This squeezing force - current table sets the current values for the squeezing values in five levels. The table should be set in a way that the squeezing force - current value increases as the level goes up. The upper and lower limits inputted for the squeezing force will be used as the limiting range of the squeezing force during playback or manual operation.
 
 <p align=center>
 <img src="../../../../_assets/image_54_eng.PNG" ></img>
 <img src="../../../../_assets/image_11_eng.PNG" ></img>
-<em><p align="center">그림 5.5 중력방향, 반중력방향</p></em>
-</p># 5.2.1.1.1 실시간 가압력 제어
+<em><p align="center">Figure 5.5 Gravitation direction and anti-gravitation direction</p></em>
+</p># 5.2.1.1.1 Real-time squeezing force control
 
-실시간 가압력 제어는 가압력계로 측정한 데이터를 제어에 활용하여 서보건 가압력의 정확도를 향상시키는 기능입니다. 실시간 가압력 제어를 위해 가압력계는 로봇제어기와 통신을 해야 하고, 아래 메뉴로 통신사양을 설정합니다.
+Real-time squeezing force control is a function to improve the accuracy of servo gun's squeezing force by using the data, measured by the squeezing force gauge, for control. For real-time squeezing force control, the squeezing force gauge should communicate with the robot controller and should be set to relevant communication specifications using the menus below.
 
 <p align=center>
 <img src="../../../../_assets/image_30_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.6 실시간 가압력 제어 설정</p></em>
+<em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
 </p>
 
-(1)  **통신 방식**
+(1)  **Communication method**
 
-    아날로그와 디지털 중 통신 방식을 설정합니다. 빠르고 안정적인 제어를 위해 디지털 방식을 추천합니다.
-(2)  **제어기 필터 추가 사용**
+    Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
+(2)  **Additional use of controller filter**
 
-    제어기 필터가 추가적으로 필요할 경우 사용합니다.
-(3)  **Cut-off 주파수**
+    To be used when an additional controller filter is needed.
+(3)  **Cut-off frequency**
 
-    제어기 필터 추가 사용을 유효로 설정 할 경우 활성화됩니다. 제어에 필요한 필터의 크기를 설정하십시오.
-(4)  **Reset 신호 출력**
+    Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
+(4)  **Reset signal output**
 
-    가압력계 reset을 위해 출력할 신호를 할당합니다. 신호 할당 시 서보건이 가압을 할 때마다 신호가 출력됩니다.&#x20;
-(5)  **<아날로그>**
+    Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
+(5)  **<Analog>**
 
-    통신 방식을 아날로그로 선택한 경우 활성화됩니다.
+    Will be activated when analog is selected as the communication method.
 
-    * 가압력 입력 포트: 입력을 위해 할당된 신호의 번호
-    * 배율: 아날로그 입력값의 배율
-(6)  **<디지털>**
+    * Squeezing force input port: The number of the signal assigned for input
+    * Magnification: Magnification of the analog input value
+(6)  **<Digital>**
 
-    통신 방식이 디지털인 경우 활성화됩니다.
+    Will be activated when digital is selected as the communication method.
 
-    * 통신 범위: 할당된 신호의 최소, 최대 범위
-    * 값 범위: 할당된 신호의 최소, 최대 값
-    * 포트: 입력을 위해 할당된 신호의 번호
-    * 포트 할당: 신호에 할당된 비트 수
-# 5.2.1.2 서보건 응용 설정
+    * Communication range: Minimum and maximum ranges of the assigned signal
+    * Value range: Minimum and maximum values of the assigned signal
+    * Port: The number of the signal assigned for input
+    * Port assignment: Bit count assigned to a signal
+
+
+# 5.2.1.2 Servo gun application setting
 
 
 <p align=center>
 <img src="../../../_assets/image_6_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.7 서보건 응용 설정</p></em>
+<em><p align="center">Figure 5.7 Servo gun application setting</p></em>
 </p>
 
 
-(1)  **건 암 휨량(mm)**
+(1)  **Gun arm deflection amount (mm)**
 
-     좌측 설정 가압력에서의 건 암 휨량을 설정합니다. 본 설정은 수동 측정하여 기입하기 어려우므로 서보건 자동 설정을 이용하는 것을 권장합니다. ‘기본 값 계산’을 누르는 경우 100kgf 당 0.31mm의 기본 값으로 설정이 됩니다.
+     Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press ‘Default value calculation’, the value of 0.31 mm per 100 kgf will be set as the default value.
  
-(2)  **판넬 두께 보정(mm)**
+(2)  **Panel thickness compensation(mm)**
 
-      좌측 설정 가압력에서의 판넬 두께 보정량을 설정합니다. 본 설정은 수동 측정하여 >기입하기 어려우므로 서보건 자동 설정을 이용하는 것을 권장합니다.
+      Sets the panel thickness compensation amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
 
 {% hint style="warning" %}
-[**주의**]   ‘건 암 휨량 보정’과 ‘판넬 두께 측정 보정’은 수동 측정하여 기입하기 어려우므로 자동 설정을 이용하는 것을 권장합니다.
+[**Caution**]   When it comes to ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’, it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
 
-‘건 암 휨량 보정’은 서보건 파라미터 중 ‘건암휨량/100kgf\[mm]’를 대신하여 사용하는 값으로 ‘건 암 휨량 보정’ 설정 시 이미 설정된 ‘건암휨량/100kgf\[mm]’을 사용하지 않습니다. 반대로 ‘건 암 휨량 보정’이 설정되지 않는 경우 ‘건암휨량/100kgf\[mm]’을 사용합니다.
+The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
 {% endhint %}
-# 5.2.2. Eqless건
+# 5.2.2. Equalizerless gun
 
-건타입이 “Eqless”건이면 아래와 같이 Eqless건과 관련된 파라미터를 설정하는 화면이 표시됩니다.
+If the gun type is “eqaulizerless gun”, a screen for setting the parameters related to the equalizerless gun will be indicated as shown below.
 
 
 <p align=center>
 <img src="../../_assets/image_42_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.8 Eqless 건 설정</p></em>
+<em><p align="center">Figure 5.8 Equalizerless gun setting</p></em>
 </p>
 
 
-(1)  **최대 고정전극 마모량(mm)**
+(1)  **Maximum fixed electrode consumption amount (mm)**
 
-    egunsea에 의해 측정된 마모량이 여기에 설정된 값을 초과할 때 에러가 발생합니다.
-(2)  **고정전극 교환 마모량(mm)**
+    If the consumption amount measured by the egunsea statement exceeds the value set here, an error will be generated.
+(2)  **Fixed electrode replacement required consumption amount (mm)**
 
-    egunsea에 의해 측정된 마모량이 여기에 설정된 값을 초과할 때 경고를 출력합니다.
-(3)  **이퀄라이징 속도(mm/s)**
+    If the consumption amount measured by the egunsea statement exceeds the value set here, a warining will be outputted.
+(3)  **Equalizing speeed (mm/s)**
 
-    로봇의 이퀄라이징 속도를 설정합니다.
-(4)  **건타입**
+    Sets the robot's equalizing speed.
+(4)  **Gun type**
 
-    선택한 Eqless건이 ‘로봇건’인지 ‘정치건’인지 선택합니다. 『**2.3.1 서보건 파라미터**』를 참고하십시오.
-(5)  **건암휨량/100\[Kgf]\(mm)**
+    Selects whether the selected equalizerless gun is a ‘robot gun’ or a ‘stationary gun’. Please refer to 『**2.3.1 Servo gun parameter**.』
+(5)  **Gun arm deflection amount/100\[Kgf]\(mm)**
 
-    가압력에 의한 건 암의 휨량을 100Kgf에 대한 휨량으로 설정합니다. 스폿용접 수행 시 고정전극의 위치를 이 설정치와 지령 가압력으로부터 건 암 휨량을 산출하고 이를 보정하여 가압합니다.
-# 5.3 용접데이터(조건, 시퀀스)
+     Sets the deflection amount caused by the squeezing force as the deflection amount for 100 kgf. For the position of the fixed electrode for the execution of spot welding, calculate the gun arm deflection amount both from this value and the command squeezing force and then make some compensation for it and then perform squeezing. 
+# 5.3 Welding data (condition, sequence)
 
-스폿용접과 관련된 각종 파라미터를 설정하여 작업 환경에 따른 적절한 동작을 수행합니다.
+Sets various parameters related to spot welding to perform appropriate operation in line with the work environment.
 
 
 
 <p align=center>
 <img src="../../_assets/image_59_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.9 용접 데이터 설정</p></em>
+<em><p align="center">Figure 5.9 Welding data setting</p></em>
 </p>
-# 5.3.1 공통데이터
+# 5.3.1 Common data
 
-스폿용접시퀀스에 관계없이 공통으로 적용되는 데이터를 설정합니다.
+Sets the data to be commonly applied regardless of the sequence of the spot welding.
 
 
 <p align=center>
 <img src="../../_assets/image_63_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.10 공통데이터 설정</p></em>
+<em><p align="center">Figure 5.10 Common data setting</p></em>
 </p>
 
 </br>
 
-*  재용접 회수
+*  The number of re-weldings
 
-    설정된 용접완료(WI) 대기시간을 초과하여도 WI가 입력되지 않는 경우에 재용접을 실행합니다. 재용접 회수는 최대 3회까지 지정할 수 있으며 재용접 회수만큼 재시도 후에도 WI가 입력되지 않으면 에러를 발생합니다.
-# 5.3.2 용접조건
+    If there is no input of WI even when the set welding completion (WI) wait time is exceeded, re-welding will be executed. the number of re-weldings can be set up to three. If there is no input of WI even re-welding is tried as many as the set number of re-weldings, an error will be generated.
+# 5.3.2 Welding condition
 
-스폿용접과 관련된 조건을 설정하여 작업 환경에 따라 용접을 수행합니다.
+Sets the conditions related to spot welding to perform welding in line with the work environment.
 
 <p align=center>
 <img src="../../../_assets/image_75_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.11 용접 조건 설정</p></em>
+<em><p align="center">Figure 5.11 Welding condition setting</p></em>
 </p>
 
-(1)  **조건번호**
+(1)  **Condition number**
 
-    용접조건을 빠르게 선택합니다.
-(2)  **출력 데이터(바이너리)**
+    Sets the welding condition quickly.
+(2)  **Output data (binary)**
 
-    spot명령문 실행시 용접조건 번호에 대하여 용접기로 출력할 데이터를 설정합니다.
-(3)  **초기 가압력**
+    Sets the data, which is to be inputted to the welder, for the welding condition number during the execution of the Spot statement.
+(3)  **Initial squeezing force**
 
-    spot명령문 실행시 판넬을 가압할 가압력을 설정합니다. 다단 가압 제어 설정시 초기 가압력으로 사용됩니다.
-(4)  **다단 가압 및 보조조건**
+    Sets the squeezing force to squeeze the panel during the execution of the Spot statement. This will be used as the initial squeezing force during the setting of the multi-step squeezing force control.
+(4)  **Multi-step squeezing force and auxiliary condition**
 
-    다단 가압 제어 및 피봇의 설정을 관리하는 보조 조건번호입니다. 번호를 입력하면   『**다단가압력**』과  『**피봇**』이 활성화되어 메뉴에 진입할 수 있습니다.
-(5)  **이동전극 클리어런스**
+    This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is inputted, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
+(5)  **Moving electrode clearance**
 
-    spot명령문 실행 전, 수행 후 이동전극이 개방하는 위치를 설정합니다.
-(6)  **고정전극 클리어런스**
+    Sets the position where the moving electrode opens before and after the execution of the Spot statement.
+(6)  **Fixed electrode clearance**
 
-    spot명령문 실행 전, 수행 후 고정전극이 개방하는 위치를 설정합니다.
-# 5.3.2.1. 다단 가압 및 보조 조건
+     Sets the position where the fixed electrode opens before and after the execution of the Spot statement.
+# 5.3.2.1. Multi-step and auxiliary conditions
 
-# 5.3.2.1.1 다단 가압 제어
+# 5.3.2.1.1 Multi-step squeezing force control
 
-서보건 스폿 용접에서 가압중인 가압력을 변경하는 기능입니다. 가압력 변경은 정해진 profile을 생성하여 변경시키는 방법과 신호 입력에 의해 변경시키는 방법이 있습니다.
+This is a function to change the squeezing force that is being applied during the spot welding with the servo gun. There are two methods to change the squeezing force. One is to change the squeezing force by creating a predetermined profile and the other is to change the squeezing force by using a signal input.
 
 <p align=center>
 <img src="../../../../_assets/image_65_eng.PNG" width="70%"></img>
 <img src="../../../../_assets/image_37_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.12 다단 가압 조건 설정</p></em>
+<em><p align="center">Figure 5.12 Setting of multi-step squeezing force</p></em>
 </p>
 
-(1)  **조건 번호**
+(1)  **Condition number**
 
-    다단 가압 및 보조조건의 조건번호를 표시합니다.
-(2)  **초기 가압력**
+   Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.
+(2)  **Initial squeezing force**
 
-    용접조건에서 설정한 초기 가압력을 표시합니다.
-(3)  **가압력 변경**
+    Indicates the initial squeezing force set in the welding condition.
+(3)  **Squeezing force change**
 
-    가압력을 변경시킬 방법을 선택합니다. Profile 생성은 변경 시점과 변경 시간을 지정하여 순차적으로 해당 시점에 가압력을 변경시키는 방법입니다. 신호 입력은 외부 기기로부터 신호가 입력되면 가압력을 변경시키는 방법입니다.
-(4)  **상태 변경 시 처리**
+     Indicates the method to change the squeezing force. Creating a profile is a method in which the point of time for change and the time required for change are designated and then the squeezing force is changed in order at the relevant point of time for change. Using a signal input is a method in which the squeezing force is changed when there is a signal input from an external device.
 
-    다단 가압 중 또는 대기 중에 상태가 변경되는 경우 다단가압을 중단하고 진행할지, 다단가압을 완료 후 진행할지를 선택합니다.
-(5)  **\<Profile 생성>**
+(4)  **Handling upon change of state**
 
-    가압력 변경 방법을 Profile 생성으로 선택한 경우 활성화됩니다.
+    If a state change occurs during a multi-step squeezing or while in a wait, this function makes it possible to select whether to proceed after stopping multi-step squeezing or proceed after completing multi-step squeezing.
+(5)  **\<Profile creation>**
 
- * 변경 시점: 스폿의 단계를 \[**초기 가압력 도달**] -> \[**용접실행 출력**] -> \[**용접완료 입력**]으로 구분하여 다단 가압 시작 시점을 지정
- * 변경 시간: 변경 시점 도달 후 변경 시간 이후에 가압력을 변경
- * 가압력: 변경할 목표 가압력
+    Will be activated when profile creation is selected as the method to change the squeezing force.
+
+ * Point of time for change: Designates the point of time for starting multi-step squeezing by dividing the spot welding steps into \[**Initial squeezing force reached**] -> \[**Welding execution output**] -> \[**Welding completion input**.] 
+ * Time required for change: The squeezing force will be changed after the time required for change after the point of time for change is reached.
+ * Squeezing force: The target squeezing force to change to
   
-(6)  **<신호 입력>**
+(6)  **<Signal input>**
 
-    가압력 변경 방법을 신호입력으로 선택한 경우 활성화됩니다. 외부기기와 통신하기 위해 필요한 정보를 입력합니다.
+    Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be inputted.
 
-   * 통신 범위: 할당된 신호의 최소, 최대 범위
-   * 값 범위: 할당된 신호의 최소, 최대 값
-   * 가압력 포트: 입력을 위해 할당된 신호의 번호
-   * 포트 할당: 신호에 할당된 비트 수
-   * 변경 요청: 변경 요청에 대한 입력 신호 포트
-   * 지연 시간: 요청 입력 후 지연이 필요할 경우 시간 입력
-   * 가압력: 변경 요청 가압력. 가압력은 지정하거나 신호로 입력 받을 수 있음. 가압력 지정 시 신호 입력으로 받은 가압력은 무시됨.
+   * Communication range: Range from minimum to maximum of the assigned signal
+   * Value range: Minimum and maximum values of the assigned signal
+   * Squeezing force port: The number of the signal assigned for input
+   * Port assignment: The number of bits assigned to the signal
+   * Request for change: Port for the input signal for the request for change
+   * Time of delay: For inputting the time if a delay is needed after the input of the request
+   * Squeezing force: The requested squeezing force to change to. You can designate the squeezing force or receive an input signal. When the squeezing force is designated, the squeezing force for which a signal is received will be ignored.
 # 5.3.2.1.2 가압 중 건 이동(피봇)
 
 서보건 스폿 용접에서 가압 중에 건을 이동시키는 기능입니다. 설정한 이동시점에 지정한 거리, 속도, 방향으로 로봇이 이동합니다. 본 기능은 툴 좌표계를 기준으로 로봇이 이동하는 기능이기 때문에 서보건 툴 데이터, 마모량, 건 암 휨, 티칭 자세, 로봇 캘리브레이션이 성능에 영향을 줄 수 있습니다. 기능의 효과적인 적용을 위해서는 상기 요소들을 지속적으로 관리해야 합니다.
@@ -1715,219 +1714,218 @@ _tipwear[2]=V1!		‘건 1의 전체 마모량을 V1!로 설정
 </p>
 
 (1)  **조건번호**
-
-    다단 가압 및 보조조건의 조건번호를 표시합니다.
+-    다단 가압 및 보조조건의 조건번호를 표시합니다.
+  
 (2)  **이동 시점**
+-   스폿의 단계를 [**초기 가압력 도달**] → [**용접실행 출력**] → [**용접완료 입력**]으로 구분하여 이동 시작 시점을 지정
 
-    스폿의 단계를 [**초기 가압력 도달**] → [**용접실행 출력**] → [**용접완료 입력**]으로 구분하여 이동 시작 시점을 지정
 (3)  **이동 방향**
+-   툴좌표계를 기준으로 건이 이동하는 방향을 선택합니다.
 
-    툴좌표계를 기준으로 건이 이동하는 방향을 선택합니다.
 (4)  **이동 거리\[deg]**
+-   이동할 거리를 설정합니다.
 
-    이동할 거리를 설정합니다.
 (5)  **이동 속도\[deg/s]**
+-   이동할 속도를 설정합니다.
 
-    이동할 속도를 설정합니다.
 (6)  **이동 중 WI 입력 시 처리**
+-   로봇 이동 중에 용접 완료가 발생한 경우 이동을 멈출 것인지, 이동을 완료 후 다음 단계로 진행할 지 선택합니다.
 
-    로봇 이동 중에 용접 완료가 발생한 경우 이동을 멈출 것인지, 이동을 완료 후 다음 단계로 진행할 지 선택합니다.
 (7)  **이동 시작 지연 시간**
+-   이동시점이 되었을 때 지연 시간 동안 대기 후 이동을 시작합니다.
+# 5.3.3 Welding sequence
 
-    이동시점이 되었을 때 지연 시간 동안 대기 후 이동을 시작합니다.
-# 5.3.3 용접시퀀스
-
-스폿용접과 관련된 시퀀스를 설정하여 작업환경에 따라 로봇의 동작을 결정합니다.
+Sets the sequence related to the spot welding to determine the robot operation according to the work environment.
 
 
 <p align=center>
 <img src="../../_assets/image_1_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.14 용접 시퀀스 설정</p></em>
+<em><p align="center">Figure 5.14 Welding sequence setting</p></em>
 </p>
 
-(1)  **시퀀스번호**
+(1)  **Sequence number**
 
-    용접시퀀스중 원하는 용접시퀀스를 빠르게 선택합니다.
-(2)  **용접신호 출력 지연시간(GWT)**
+    Selects the desired welding sequence quickly among the welding sequences.
+(2)  **Welding signal output delay time (GWT)**
 
-    서보건의 경우는 가압일치 후에 용접 신호를 출력할 때까지의 대기시간입니다.
+    In the case of the servo gun, this refers to the time of waiting until the welding signal is outputted after the squeezing force matching occurs
 
-    공압건의 경우는 spot 명령문 실행 후 용접 신호를 출력할 때까지의 대기시간입니다.
-(3)  **용접신호 펄스출력(0=레벨)**
+    In the case of a pneumatic gun, this refers to a time of waiting until the welding signal is outputted after the execution of the Spot statement.
+(3)  **Welding signal pulse output (0=level)**
 
-    용접 신호를 일정시간 동안만 출력하기 위한 항목입니다. “0”으로 설정하면 용접완료(WI) 신호가 입력될 때까지 계속 출력합니다.
-(4)  **용접완료(WI) 대기시간**
+    This is to allow the welding signal to be outputted for a certain period of time. If the value is set to “0”, the welding signal continues to be outputted until the welding completion (WI) signal is inputted.
+(4)  **Welding completion (WI) wait time**
 
-    용접완료(WI) 신호가 입력되기까지 대기하는 시간입니다. 이 값을 “0”으로 설정하면 입력될 때까지 계속 대기합니다.
-(5)  **용접완료 후 로봇 대기시간 (RWT)**
+    This is the time of waiting until the welding completion signal is inputted. If this value is set to “0”, waiting continues until there is an input.
+(5)  **Robot wait time after welding completion (RWT)**
 
-    통상 용접완료(WI) 신호가 입력 후 용착 검출을 대기하는 시간입니다. “0.0”으로 설정될 경우 용착 검출을 하지 않습니다. 용착 검출 신호를 사용할 때에는 “0.3초(300 msec)” 이상의 값을 입력하기를 권장합니다. 그러나 이 값이 크면 용접시간이 길어지고 사이클타임이 증가하게 됩니다.
-# 5.3.4 서보건 팁드레싱 조건
+    In general, this the time of waiting for deposition detection after the welding completion (WI) signal is inputted. If the value is set to “0.0”, the deposition detection does not occur. When the deposition detection signal is to be used, it is recommended to use a value greater than “0.3 secs (300 msec).” However, if the value is large, the welding time will get longer and the cycle time will increase. 
+# 5.3.4 Servo gun tip dressing condition
 
-서보건에 대해 팁드레싱을 수행하는 경우 이에 대한 각종 조건을 설정합니다.
+Sets various conditions for the execution of tip dressing for the servo gun
 
 <p align="center">
  <img src="../../_assets/image_61_eng.PNG" width="70%"></img>
- <em><p align="center">그림 5.15 서보건 팁드레싱 조건 설정 </p></em>
+ <em><p align="center">Figure 5.15 Servo gun tip dressing condition setting </p></em>
 </p>
 
 </br>
 
-(1)  **용접신호 출력**
+(1)  **Welding signal output**
 
-    팁드레서 동작을 위해 용접 신호를 출력할지 선택합니다.
-(2)  **팁드레싱 시간**
+    Selects whether to output the welding signal for the tip dressing operation.
+(2)  **Tip dressing time**
 
-    팁드레싱할 시간을 설정합니다. 팁 드레싱은 spot 명령문을 이용하여 동일하게 수행합니다. 단, 용접시퀀스 번호를 “**64**”로 설정합니다.
-(3)  **팁드레싱 중 건서치 수행**
+    Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the Spot statement. However, the welding sequence number should be set to “**64**.”
+(3)  **Execution of gun search during tip dressing**
 
-    팁드레서 동 건서치를 수행할지 여부를 선택합니다.
-(4)  **팁드레서 두께**
+    Selects whether to execute gun search during tip dressing.
+(4)  **Tip dresser thickness**
 
-    팁드레서 두께를 입력합니다.
-# 5.4 용접기별 입력 신호 할당
+    Inputs the tip dresser thickness.
+# 5.4 Input signal assignment for each welder
 
-스폿용접과 관련된 신호를 할당하여 이들의 상태를 제어기가 감시하고 필요한 처리를 수행합니다.
+Assigns the signals related to spot welding, allowing the controller to monitor their state and perform necessary processing.
 
 
 <p align=center>
 <img src="../_assets/image_15_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.15 입력 신호 할당</p></em>
+<em><p align="center">Figure 5.15 Input signal assignment</p></em>
 </p>
 
-(1)  **용접 완료**
+(1)  **Welding completion**
 
-    스폿용접 실행시 이 용접완료 신호가 입력되어야 제어기는 용접완료 처리를 수행합니다. 용접완료 신호는 총 4개로 개별적으로 제어가 됩니다.
-(2)  **용착 에러**
+    Only when this welding completion signal is inputted during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
+(2)  **Deposition error**
 
-    건의 용착 신호를 입력 받아 처리하고자 할 때 사용합니다.
-(3)  **용접기 이상**
+    To be used when receiving and handling the input of the gun's deposition signal.
+(3)  **Welder abnormal**
 
-    용접기의 이상 신호가 입력되었을 경우에 로봇의 동작을 정지하고자 할 때 사용합니다.
-# 5.5 용접기별 출력 신호 할당
+    To be used to stop the operation of the robot when the signal of welder abnormal is inputted.
+# 5.5 Output signal assignment for each welder
 
-스폿용접과 관련된 신호를 할당하여 이들의 상태를 외부로 전달합니다.
+Assigns the signals related to spot welding and transfers their state to the outside.
 
 <p align=center>
 <img src="../_assets/image_45_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.17 출력 신호 할당</p></em>
+<em><p align="center">Figure 5.17 Output signal assignment</p></em>
 </p>
 
-(1)  **용접기 번호**
+(1)  **Welder number**
 
-    최대 4대까지 용접기를 추가할 수 있으며, 설정할 용접기 번호를 선택합니다.
-(2)  **용접 조건**
+    Selects the welder number to set. Up to four welders can be added.
+(2)  **Welding condition**
 
-    spot 명령문 실행 시 용접조건에 해당하는 출력데이터를 출력할 신호의 번호를 할당합니다.
-(3)  **용접 실행**
+    Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the Spot statement.
+(3)  **Welding execution**
 
-    spot 명령 실행 시 용접기에 용접 명령을 출력할 때 사용합니다.
-(4)  **용접기 이상**
+    To be used to output a command for welding to the welder during the execution of the Spot statement.
+(4)  **Welder abnormal**
 
-    스폿 용접기 이상 입력시 이를 외부로 출력하고자 할 때 사용합니다.
-(5)  **전극마모 경보**
+    To be used to output the inputted spot welder abnormal signal to the outside.
+(5)  **Electrode consumption alarm**
 
-    건서치로 검출한 마모량이 전극 교환 마모량보다 큰 경우에 신호를 출력하고자 할 때 사용합니다.
-(6) **용착 에러**
+    To be used to output a signal if the consumption amount detected by the gun search is larger than the electrode replacement required consumption amount.
+(6) **Deposition error**
 
-    스폿건에 용착이 발생하여 이를 외부로 출력하고자 할 때 사용합니다.
-(7)  **서보건 가압 중**
+    To be used to output to the outside the state that deposition has occurred to the spot gun.
+(7)  **Servo gun squeezing in progress**
 
-    spot명령문이 실행되어 가압을 개시할 때 ON된 후, 개방 개시 때 OFF되는 신호입니다.
-(8)  **용접건 서치 중**
+    This is a signal that is turned on when squeezing starts upon the execution of the Spot statement and turned off when the opening procedure starts.
+(8)  **Welding gun search in progress**
 
-    gunsea, igunsea, egunsea 명령이 실행되어 건서치을 개시할 때 ON된 후, 개방 개시 때 OFF되는 신호입니다.
-    # 6. 자주하는 질문
+    This is a signal that is turned on when gun search starts upon the execution of the gunsea, igunsea or egunsea statement and turned off when the opening procedure starts.
+    # 6. Frequently Asked Questions
 
-*   <mark style="color:green;">**시프트 기능 사용시 서보건 축의 동작은 어떻게 되나요?**</mark>
+*   <mark style="color:green;">**How does the servo gun axis operate when using the shift function?**</mark>
 
-    시프트를 위한 모든 기능(오프라인, 온라인, 서치, 팔레타이즈)은 로봇축에 대해서만 적용되고 서보건축은 기록된 위치로 이동합니다.
-*   <mark style="color:green;">**좌표변환 시 서보건축은 어떻게 되나요?**</mark>
+    All functions for shifting (offline, online, search, palletize) are applied only for the robot axis and the servo gun axis moves to recorded positions.
+*   <mark style="color:green;">**What happens to the servo gun axis in case of coordinate conversion?**</mark>
 
-    로봇에 대한 이동 성분만을 변환하고 서보건축은 변환하지 않습니다.
-*   <mark style="color:green;">**상대 프로그램 호출 기능 시 동작은 어떻게 되나요?**</mark>
+    Only the movement elements for the robot are converted while the servo gun axis will not be converted.
+*   <mark style="color:green;">**How does the operation proceed in case of the counterpart program call function?**</mark>
 
-    로봇에 대한 상대위치만을 적용하여 시프트 합니다.
-*   <mark style="color:green;">**미러이미지 변환 시 서보건축은 어떻게 되나요?**</mark>
+    Shifting occur by applying the relative position for the robot.
+*   <mark style="color:green;">**What happens to the servo gun axis in case of mirror image conversion?**</mark>
 
-    미러이미지 변환 시 부가축에 대해서는 축사양이 베이스이고 축구성이 직동인 경우에만 적용됩니다. 그 이외는 해당되지 않습니다. 따라서 서보건 축은 변환되지 않습니다.
-*   <mark style="color:green;">**현재 선택된 건번호를 변경하고 싶은데요?**</mark>
+    Mirror image conversion will be applied for the additional axis only when the axis specification is base and the axis configuration is linear. So, the servo gun axis will not be converted.
+*   <mark style="color:green;">**How can I change the currently selected gun number?**</mark>
 
-    “**R210: 스폿건 번호 선택**”으로 변경할 수 있습니다. 변경하려는 건이 로봇건인 경우는 건번호 변경시는 건번호 대응 툴번호를 참조하여 툴번호도 자동으로 변경됩니다. 멀티 건 환경에서 R210으로 건번호를 변경 시 선택된 단일 건 환경으로 변경됩니다.
-*   <mark style="color:green;">**멀티건을 선택하여 동시에 수동가압하려고 합니다. 멀티건은 어떻게 선택하나요?**</mark>
+    You can change it by using “**R210: Spot gun number selection.** If the gun you want to change is a robot gun, the tool number will be also automatically changed by referring to the tool number corresponding to the gun number when you change the gun number. When you change a gun number by using R210 in a multi-gun environment, the environment will change to an environment of the selected sole gun.
+*   <mark style="color:green;">**I want to select and manually squeeze multiple guns. How can I select multiple guns?**</mark>
 
-    건타입이 동일한 건들에 대해서만 멀티건 선택이 가능합니다. “**R214: 동시 용접건 선택**”으로 변경할 수 있습니다. 멀티건 선택 후 해당 건을 선택해제 하기 위해서는 R214로 해제하고자 하는 건 번호를 입력하면 됩니다. 단 맨 앞의 건 번호(마스터 건)는 해제할 수 없습니다.
-*   <mark style="color:green;">**서보건 수동가압 시에 가압력을 변경하고 싶은데요?**</mark>
+    You can select multiple guns only when they are the same gun type. You can select them with “**R214: Selection of simultaneous welding guns**.” If you want to deselect a gun after selecting multiple guns, you can input the gun number you want to deselect with R214. However, you cannot deselect the first gun number (master gun). 
+*   <mark style="color:green;">**How can I change the squeezing force during the servo gun squeezing process?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R211: 서보건 가압력 설정**”으로 변경할 수 있습니다.
-*   <mark style="color:green;">**서보건의 이동전극 마모량을 임의로 변경하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R211: Servo gun squeezing force setting.**”
+*   <mark style="color:green;">**How can I arbitrarily change the moving electrode consumption amount of the servo gun?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R212: 서보건 이동전극 마모량 프리셋**”으로 변경할 수 있습니다. 건서치를 수행하면 이 값은 다시 자동으로 갱신됩니다.
-*   <mark style="color:green;">**서보건의 고정전극 마모량을 임의로 변경하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R212: Servo gun moving electrode consumption amount preset.**” When gun search is performed, this value will be automatically updated.
+*   <mark style="color:green;">**How can I arbitrarily change the fixed electrode consumption amount of the servo gun?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R213: 서보건 고정전극 마모량 프리셋**”으로 변경할 수 있습니다. 건서치를 수행하면 이 값은 다시 자동으로 갱신됩니다.
-*   <mark style="color:green;">**Eqless건의 고정전극 마모량을 임의로 변경하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R213: Servo gun fixed electrode consumption amount preset.**” When gun search is performed, this value will be automatically updated.
+*   <mark style="color:green;">**How can I arbitrarily change the fixed electrode consumption amount of the equalizerless gun?**</mark>
 
-    선택된 건의 건타입이 Eqless건인 경우 “**R220: Eqless건 고정전극 마모량 프리셋**”으로 변경할 수 있습니다. 건서치를 수행하면 이 값은 다시 자동으로 갱신됩니다.
-*   <mark style="color:green;">**로봇이 자동운전중인데 용접조건의 가압력을 변경하려 합니다. 어떻게 하나요?**</mark>
+    If the selected gun type is equalizerless gun, you can change it with “**R220: Equalizerless gun fixed electrode consumption amount preset.**” When gun search is performed, this value will be automatically updated.
+*   <mark style="color:green;">**I am now operating a robot in automatic mode and want to change the squeezing force in the welding condition. How can I do it?**</mark>
 
-    “**R215: 스폿용접조건 가압력 설정**”으로 현재 로봇이 자동운전 중이라도 용접조건의 가압력 설정 값을 변경할 수 있습니다.
-*   <mark style="color:green;">**현재 선택된 용접조건, 용접시퀀스 번호를 수동으로 변경 가능하나요?**</mark>
+    With “**R215: Spot welding condition squeezing force setting,**” you can change the value of the squeezing force set in the welding condition even currently in the middle of automatic operation of the robot. 
+*   <mark style="color:green;">**Can I manually change the currently selected welding condition and welding sequence numbers?**</mark>
 
-    용접조건은 사용자키에 \[**cond.sel**]을, 용접시퀀스는 \[**seq.sel**]을 누르고 원하는 번호로 변경할 수 있습니다.
-*   <mark style="color:green;">**『설정』 → 『4: 응용 파라미터』 → 『1: 스폿용접』 메뉴에 진입하기 위한 단축키는 없나요?**</mark>
+    In the case of the welding condition, press \[**cond.sel**] and in the case of welding sequence, press\[**seq.sel**] to change to a desired number.
+*   <mark style="color:green;">**Is there any shortcut key to enter the menu of『Setting』 → 『4: Application parameter』 → 『1: Spot welding』?**</mark>
 
-    수동모드 초기화면에서 스폿용접 관련 명령문(spot, gunsea, igunsea, egunsea)에 커서를 위치하고 \[**속성**]을 누르면 해당 메뉴로 빠르게 진입할 수 있습니다
-*   <mark style="color:green;">**판넬 두께를 수동으로 변경하고 싶은데요?**</mark>
+    You can quickly enter the menu by placing the cursor on the spot welding related command (spot, gunsea, igunsea, and egunsea) on the initial screen of the manual mode and pressing \[**Attribute**.] 
+*   <mark style="color:green;">**How can I manually change the panel thickness?**</mark>
 
-    선택된 건의 건타입이 서보건인 경우 “**R220: 판넬 두께 설정 (Sv)**”으로 변경할 수 있습니다.
-*   <mark style="color:green;">**스폿용접 스텝의 기록 위치를 정상 값으로 일괄적으로 수정하고 싶은데요?**</mark>
+    If the selected gun type is servo gun, you can change it with “**R220: Panel thickness setting (Sv).**”
+*   <mark style="color:green;">**How can I change the record positions of the spot welding steps to normal values once?**</mark>
 
-    『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』→ 『**2: 사용환경 설정**』에서 “**서보건 용접스텝 기록위치 자동조정**”항목을 <**유효**>로 설정한 후, 작업 프로그램을 재생하면 간단하게 수행할 수 있습니다.
-*   <mark style="color:green;">**용접점이 누락되었는지 검출할 수 있나요?**</mark>
+    You can change it simply by setting <**Valid**> for the “**Automatic adjustment of servo gun welding step record position**” item in 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』→ 『**2: Use environment setting**』 and then playing back the work program.
+*   <mark style="color:green;">**Is it possible for any missed welding point to be detected?**</mark>
 
-    작업 프로그램 시작에서 용접수행 횟수를 초기화 후 용접을 정상적으로 수행하면 용접수행 횟수를 증가합니다. 작업수행 완료 시 용접 해야 할 타점수와 용접수행 횟수를 비교하면 되므로 하기와 같이 프로그램 하면 됩니다.
+    When you initialize the number of weldings in the work program start menu and then perform weldings normally, the number of weldings will increase. Considering that you need to compare between the number of spots for completion of welding and the number of weldings performed, you need to create a program as follows.
 
     　　　　　　　　　　　　　　　![](<_assets/image_68_eng.PNG>)
-*   <mark style="color:green;">**로봇이 핸들링 작업을 하는 동안 이와 독립적으로 정치형 서보건에 대해 팁드레싱 작업 및 건서치 작업을 수행하면 작업 시간을 단축할 수 있을 텐데 방법이 있나요?**</mark>
+*   <mark style="color:green;">**It seems that the working time can be shortened if tip dressing and gun search operations for a stationary servo gun is performed, independently from the handling operation. Is there any way to do this?**</mark>
 
-    멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. 별도의 [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
-.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
-# 7\. 에러 및 경고# 7.1 에러 메시지
+    It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/).
 
-|                          코 드                          | 　　　　　　<p align=center> 내용 </p>                                    | 　　　　　　<p align=center> 조치              </p>                                                          |
+# 7\. Errors and warnings# 7.1 Error messages
+
+|                          Code                          | 　　　　　　<p align=center> Content </p>                                    | 　　　　　　<p align=center> Measure              </p>                                                          |
 | :---------------------------------------------------: | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-|               <p>E0007 </p><p>용착 검출</p>               | 용접시퀀스 종료 시 용착신호가 입력되었습니다.                                                              | <ul><li>용착검출신호를 확인하십시오.</li><li>용착을 제거하십시오.</li></ul>                                                                 |
-|        <p>E0154 </p><p>최대 전극 </p><p>마모량 초과</p>        | 건서치로 검출한 총 전극의 마모량이 용접건 파라미터에서 설정된 최대 전극 마모량(이동 + 고정)을 초과하였습니다.                        | <ul><li> 용접건 파라미터의 최대 전극 마모량을 확인하십시오.</li><li>전극을 교환하십시오.</li></ul>                                                   |
-|       <p>E0155 </p><p>최대 이동전극 </p><p>마모량 초과</p>       | 건서치로 검출한 이동전극 마모량이 용접건 파라미터에서 설정된 최대 전극 마모량(이동)을 초과하였습니다.                              | <ul><li>용접건 파라미터의 최대 전극 마모량(이동)을 확인하십시오.</li><li>전극을 교환하십시오.</li></ul>                                                |
-|       <p>E0156 </p><p>최대 고정전극 </p><p>마모량 초과</p>       | 건서치로 검출한 고정전극 마모량이 용접건 파라미터에서 설정된 최대 전극 마모량(고정)을 초과하였습니다.                              | <ul><li>용접건 파라미터의 최대 전극 마모량(고정)을 확인하십시오.</li><li>전극을 교환하십시오.</li></ul>                                                |
-|        <p>E0171 </p><p>건 개방시간(5초) </p><p>초과</p>       | 스폿 용접 및 건서치 기능에서 가압 후 개방시간이 5초를 초과하였습니다.                                               | <ul><li>건이 용접물에 용착되었거나, 간섭등이 발생하였는지 확인하십시오.</li><li>이동측 건의 용착, 간섭 등을 확인하십시오.</li></ul>                                |
-|         <p>E1036 </p><p>통전 대기시간 </p><p>초과임</p>        | 서보건 용접실행 시에 용접시퀀스 메뉴의 용접완료(WI) 대기시간 동안 용접완료(WI) 신호가 입력되지 않았습니다.                        | 용접완료(WI) 신호의 결선도 및 관련 주변설비를 점검하십시오.                                                                                   |
-|     <p>E1038 </p><p>전극 마모량을 </p><p>보정할 수 없는 자세</p>    | 전극 마모량을 보정하여 위치를 기록할 때에, 로봇자세가 전극의 마모량을 보정할 수 없도록 취해져 있습니다.                            | 검출된 전극 마모량만큼을 보정하기 위한 로봇자세가 동작영역을 이탈하지 않도록 하십시오.                                                                      |
-|           <p>E1281 </p><p>용접기 이상신호가 입력됨.</p>          | 용접중 용접기 이상신호가 입력되었을 때 발생합니다.                                                           | 1) 용접전원장치를 점검하십시오.                                                                                                    |
-|     <p>E1306 </p><p>건서치 기준위치 </p><p>기록이 안 되었음</p>     | 건서치 기준위치 기록을 수행하지 않고, 건서치펑션 또는 스폿용접 펑션을 재생하는 경우에 발생하는 에러입니다.                           | 마모되지 않는 새 전극을 부착하여 건서치 기준위치 기록을 실행하여 주십시오.                                                                            |
-|           <p>E1307 </p><p>건서치가 정상종료되지 않음</p>          | 건서치가 정상 종료되지 않은 상태에서 스폿용접 펑션을 재생하거나 건서치1을 실행하지 않고 건서치2를 실행하는 경우에 발생하는 에러입니다.           | 건서치 1,2를 실행하여 팁의 마모량을 검출한 후 작업을 개시하여주십시오.                                                                             |
-|        <p>E1308 </p><p>스텝의 툴번호 지정이 잘못 되었음.</p>        | 스폿용접 펑션 및 건서치 펑션이 기록된 스텝 실행 시 용접건 번호에 대응한 툴번호가 잘못 지정되어 있으면 이 에러가 발생합니다.                | 건번호 대응 툴번호, 건타입설정 메뉴의 설정 상태를 확인하여 펑션의 건번호 와 스텝의 툴번호를 일치시켜 주십시오.                                                       |
-|        <p>E1310 </p><p>설정 가압력이 전류제한 범위 초과함.</p>       | 지령 가압력으로부터 산출한 전류 제한치가 서보앰프의 전류 제한치(IP)를 넘는 경우에 발생하는 에러입니다.                            | 설정된 가압력을 낮추거나 서보건 구동 모터의 용량을 키워야 합니다.                                                                                 |
-| <p>E1311 </p><p>설정 가압력이 </p><p>과부하 검지레벨</p><p>초과.</p> | 지령 가압력이 과부하검지레벨을 초과하면 이 에러가 발생합니다.                                                     | 과부하 에러를 예상하여 가압력을 낮추어 설정하십시오.                                                                                         |
-|     <p>E1312 </p><p>건가압 목표위치 </p><p>계산결과 영역이탈.</p>    | 서보건의 가압위치(시편위치) 계산결과 로봇 작업영역이 벗어난 경우에 발생되는 에러입니다.                                      | 로봇의 자세를 변경하여 위치를 기록하여주십시오.                                                                                            |
-|       <p>E1313 </p><p>설정 가압력이 </p><p>범위를 벗어남</p>      | 용접조건에 설정된 가압력이 용접건 파라미터의 가압력 테이블에 설정된 가압력 범위를 벗어난 경우에 이 에러가 발생합니다.                     | 설정된 가압력을 낮추어 주십시오.                                                                                                    |
-|        <p>E1314 </p><p>가압력일치 </p><p>검지시간 초과</p>       | 기록위치에서 이동전극이 가압을 시작한 후 용접건 파라미터의 가압력이상 검출시간이 경과하여도 가압일치가 되지 않는 경우 발생하는 에러입니다.          | <ol><li>지령치 옵셋 값을 확인하십시오. </li><li>가압력이상 검출시간을 확인하십시오. </li><li>가압력 정도를 확인하십시오.</li></ol>                             |
-|      <p>E1320 </p><p>건서치중 센서가 </p><p>동작하지 않음</p>      | 서보건 또는 Eqless건의 건서치 기능에서 센서에 의한 마모량 검출작업 중에 로봇이 목표위치까지 이동하여도 센서가 동작하지 않으면 이 에러가 발생합니다. | <ol><li>전극이 센서에 접근할 때 센서가 동작하는지 확인하십시오.</li><li>결선도 및 콘넥터 접속을 확인합니다.</li><li>센서의 접점 사양이 적합한지 확인하십시오.</li></ol><p></p> |
-|         <p>E1326 </p><p>건서치2 </p><p>환경 부적절</p>        | 건서치1로만 건의 마모량을 측정하는 환경으로 설정되어 있는 경우에 건서치2를 실행하면 이 에러가 발생합니다.                           | 건서치1, 2를 이용하여 건의 마모량을 보정하는 환경으로 설정하십시오                                                                                |
+|               <p>E0007 </p><p>Deposition detection</p>               | A deposition signal is inputted upon the ending of the welding sequence.                                                              | <ul><li>Check the deposition detection signal.</li><li>Remove the deposition.</li></ul>                                                                 |
+|        <p>E0154 </p><p>Maximum electrode </p><p>consumption amount exceeded</p>        | The total electrode consumption amount detected by gun search exceeded the maximum electrode consumption amount (of both moving and fixed electrodes) set in the welding gun parameter.                        | <ul><li> Check the maximum electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                   |
+|       <p>E0155 </p><p>Maximum moving electrode </p><p>consumption amount exceeded</p>       | The moving electrode consumption amount detected by gun search exceeded the maximum (moving) electrode consumption amount set in the welding gun parameter.                              | <ul><li>Check the maximum (moving) electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                |
+|       <p>E0156 </p><p>Maximum fixed electrode </p><p>consumption amount exceeded</p>       | The fixed electrode consumption amount detected by gun search exceeded the maximum (fixed) electrode consumption amount set in the welding gun parameter.                              | <ul><li>Check the maximum (fixed) electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                |
+|        <p>E0171 </p><p>Gun opening time (five seconds) </p><p>exceeded</p>       | After the squeezing operation in the spot welding and gun search function was performed, the opening time exceeded five seconds.                                               | <ul><li>Check whether the gun has deposited to the welding workpiece or any interference has occurred.</li><li>Check whether deposition or interference has occurred to the gun of the moving side.</li></ul>                                |
+|         <p>E1036 </p><p>Electrification wait time</p><p>exceeded</p>        | During the execution of the welding by the servo gun, the welding completion (WI) signal has not been inputted during the welding completion (WI) wait time in the welding sequence menu.                        | Check the wiring diagram of the welding completion (WI) signal and related peripheral facilities.                                                                                   |
+|     <p>E1038 </p><p>Position where the electrode consumption</p><p>amount compensation cannot be performed</p>    | At the time of recording the position by performing the electrode consumption amount compensation, the robot posture was created in a way that the electrode consumption amount compensation cannot be performed.                            | Required to make sure that the robot posture does not deviate from the operation area while trying to perform compensation for as much as the detected electrode consumption amount.                                                                      |
+|           <p>E1281 </p><p>The welder abnormal signal is inputted.</p>          | Occurs when the welder abnormal signal is inputted during welding.                                                           | 1) Check the welding power supply unit.                                                                                                    |
+|     <p>E1306 </p><p>Gun search reference position </p><p>not recorded</p>     | An error that occurs when the gun search function or spot welding function is played back without performing the gun search reference position record.                           | Attach unconsumed new electrodes and then perform the gun search reference position record operation.                                                                            |
+|           <p>E1307 </p><p>Gun search not completed normally</p>          | An error that occurs if the spot welding function is played back without completing the gun search normally, or if gun search 2 is performed without performing gun search 1.           |  Execute gun search 1 and 2 to detect the tip consumption amount first. Then start the work.                                                                             |
+|        <p>E1308 </p><p>The tool number designation for steps is false.</p>        | An error that occurs if a tool number corresponding to the welding gun number is designated wrongly for the execution of the steps where the spot welding function and gun search function are recorded.                | Match between the gun number in the function and the tool number in the step by checking the setting status of the menu of Setting of the tool number and gun type corresponding to the gun number.                                                       |
+|        <p>E1310 </p><p>Set squeezing force exceeded the current limit range.</p>       |  An error that occurs if the current limit value calculated from the command squeezing force exceeds the current limit value (IP) of the servo amp.                            | Required to lower the set squeezing force or increase the capacity of the servo gun driving motor.                                                                                 |
+| <p>E1311 </p><p>The set squeezing force</p><p>exceeded the overload</p><p>detection level.</p> | This error occurs if the command squeezing force exceeds the overload detection level.                                                     | Lower the set squeezing force in anticipation of an overload error.                                                                                         |
+|     <p>E1312 </p><p>The gun squeezing target position</p><p>calculation result shows deviation from the operation area.</p>    | An error that occurs when the servo gun squeezing position (sample position) calculation result shows that the robot deviates from the operation area.                                      | Change the robot posture and then record the position.                                                                                            |
+|       <p>E1313 </p><p>The set squeezing force </p><p>exceeded the range</p>      | This error occurs if the squeezing force set in the welding condition exceeded the squeezing force range set in the squeezing table of the welding gun parameter.                     | Lower the set squeezing force.                                                                                                    |
+|        <p>E1314 </p><p>Squeezing force matching </p><p>detection time exceeded</p>       | An error that occurs if squeezing force matching does not occur even after the passage of the squeezing force abnormality detection time in the welding gun parameter after the moving electrode started squeezing at the record position.          | <ol><li>Check the offset value of the command value. </li><li>Check the squeezing force abnormality detection time. </li><li>Check the accuracy of the squeezing force.</li></ol>                             |
+|      <p>E1320 </p><p>The sensor does not work </p><p>during gun search</p>      | This error occurs if the sensor does not work even when the robot moves to the target position during the consumption amount detection operation by the sensor in line with the gun search function of the servo gun or equalizerless gun. | <ol><li>Check whether the sensor works when the electrodes approach the sensor.</li><li>Check the wiring diagram and connection of connectors.</li><li>Check whether the specification of the contact of the sensor is appropriate.</li></ol><p></p> |
+|         <p>E1326 </p><p>Gun search 2 </p><p>environment inappropriate</p>        | This error occurs if gun search 2 is executed in an environment where the consumption amount is to be measured only by gun search 1.                    | Set the environment in a way that the gun's consumption amount compensation can be performed by gun search 1 and gun search 2.                                                                                |
 
 
 
 
-|  코 드        | 　　　　　내용          | 　　　　　　조치    |
+|  Code        | 　　　　　Content          | 　　　　　　Measure    |
 |-------------| ------------- | ----------------- |
-|               E0007  용착 검출              | 용접시퀀스 종료 시 용착신호가 입력되었습니다. | 용착검출신호를 확인하십시오.용착을 제거하십시오.    |# 7.2 경고 메시지
+|               E0007  Deposition detection              | A deposition signal is inputted upon the ending of the welding sequence. | Check the deposition detection signal. Remove the deposition.    |# 7.2 Warning messages
 
-|                  코 드             | 　　　　　　내용                                                                  | 　　　　　　조치                                                                                                   |
+|                  Code             | 　　　　　　Content                                                                  | 　　　　　　Measure                                                                                                   |
 | :----------------------------------------------------: | -------------------------------------- | ---------------------------------------------------- |
-|      <p>W0009 </p><p>브레이크 슬립 발생</p><p>(설정치 초과)</p>     | Stud 용접 시 측정된 브레이크 슬립이 용접시퀀스에서 설정된 브레이크이탈 검출범위를 초과하였습니다.                  | 설정된 브레이크이탈 검출범위를 확인하고 필요 시 큰 값으로 설정을 변경하십시오.                                                               |
-|       <p>W0105 </p><p>총전극 교환 </p><p>마모량 초과함</p>       | 건서치로 검출한 총 전극의 마모량이 용접건 파라미터에 설정된 전극 교환 마모량(이동 + 고정)을 초과한 경우 발생합니다.       | <ol><li>설정된 최대 전극 마모량을 확인하십시오.</li><li>건서치 기준위치가 정상적으로 등록되었는지 확인하십시오.</li><li>전극을 교환하십시오.</li></ol>        |
-|      <p>W0106 </p><p>이동전극이 교환</p><p>마모량 초과하였음</p>      | 건서치로 검출한 이동전극 마모량이 용접건 파라미터에 설정된 전극 교환 마모량(이동)을 초과한 경우 발생합니다.             | <ol><li>설정된 전극 교환 마모량(이동)을 확인하십시오. </li><li>건서치 기준위치가 정상적으로 등록되었는지 확인하십시오.</li><li>전극을 교환하십시오.</li></ol>   |
-|      <p>W0107 </p><p>고정전극이 교환 </p><p>마모량 초과하였음</p>     | 건서치로 검출한 고정전극 마모량이 용접건 파라미터에 설정된 전극 교환 마모량(고정)을 초과한 경우 발생합니다.             | <ol><li>설정된 전극 교환 마모량(고정)을 확인하십시오. </li><li>건서치 기준위치가 정상적으로 등록되었는지 확인하십시오. </li><li>전극을 교환하십시오.</li></ol>  |
-| <p>W0108 </p><p>Jog동작중 </p><p>실가압력이 </p><p>설정치 초과함</p> | 축 수동조작 가압을 하는 경우에 실가압력이 설정가압력을 초과하는 경우 발생합니다. 이때 서보건 축을 반대 방향으로 축 조작하십시오. | <ol><li>조작하고자 하는 축의 가압력이 충분히 설정되었는지 확인하십시오.</li><li>서보건의 기구적인 문제가 예상되므로 서보건 제작업체에 문의하십시오.</li></ol><p></p> |
-|  <p>W0109 </p><p>선택하지 않은 </p><p>서보건 수동조작 </p><p>불가</p> | 조작하고자 하는 서보건이 선택된 건번호와 다릅니다.                                              | 서보건은 선택한 후 수동 조그 조작을 하여야 합니다. R210코드로 조작하고자 하는 서보건을 선택 후에 조작하십시오.                                          |
+|      <p>W0009 </p><p>Brake slip occurred</p><p>(the set value exceeded)</p>     | The brake slip measured during stud welding exceeded the brake deviation detection range set in the welding sequence.                  | Check the set brake deviation detection range, and, if necessary, change the value to a greater one.                                                               |
+|       <p>W0105 </p><p>Electrode replacement required total consumption amount </p><p>exceeded</p>       | This warning occurs if the total consumption amount detected by gun search exceeded the electrode replacement required consumption amount (both of moving and fixed electrodes) set in the welding gun parameter.       | <ol><li>Check the set maximum electrode consumption amount.</li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol>        |
+|      <p>W0106 </p><p>The moving electrode exceeded </p><p>the electrode replacement required consumption amount</p>      | This warning occurs if the moving electrode consumption amount detected by gun search exceeded the (moving) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (moving) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol>   |
+|      <p>W0107 </p><p>The fixed electrode exceeded </p><p>the electrode replacement required consumption amount</p>     | This warning occurs if the fixed electrode consumption amount detected by gun search exceeded the (fixed) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (fixed) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol> |
+| <p>W0108 </p><p>During the jog operation, </p><p>the actual squeezing force exceeded </p><p>the set value</p> | When squeezing is performed through manual operation of the axis, the actual squeezing force exceeds the set squeezing force. When this occurs, operate the servo gun axis in the opposite direction. | <ol><li>Check whether the squeezing force of the axis that will be operated is sufficiently set.</li><li>As a mechanical problem with the servo gun is anticipated, you need to contact the servo gun manufacturer for inquiry. </li></ol><p></p> |
+|  <p>W0109 </p><p>Impossible to manually </p><p>operate the servo gun not </p><p>selected</p> | The servo gun you want to operate is different from the selected servo gun.                                             | When you select a servo gun, you need to perform manual jog operation. First, select the servo gun you want to operate with the R210 code and then perform the operation.                                          |

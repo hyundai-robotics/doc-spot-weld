@@ -20,6 +20,7 @@
       * [2.3.2.3 서보건 소프트 리밋](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/3-servo-gun-soft-limit.md)
     * [2.3.3 서보건 가압력 - 전류 테이블 튜닝](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/README.md)
       * [2.3.3.1 수동 튜닝 모드](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/1-manual-tuning-mode.md)
+      * [2.3.3.2 자동 튜닝 모드](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/2-auto-tuning-mode.md)
   * [2.4 Step 2. 응용 설정](2-servo-gun-initial-setting/2-4-step-2-application-setting/README.md)
     * [2.4.1 자동 설정](2-servo-gun-initial-setting/2-4-step-2-application-setting/1-auto-setting.md)
   * [2.5 Step 3. 설정 확인](2-servo-gun-initial-setting/2-5-step-3-setting-check.md)

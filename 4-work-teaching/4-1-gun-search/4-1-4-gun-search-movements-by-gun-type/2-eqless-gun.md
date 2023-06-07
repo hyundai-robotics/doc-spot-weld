@@ -2,9 +2,15 @@
 
 Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건서치 기능은 고정전극의 마모량을 측정합니다.
 
+```python
+S1  move P,spd=60%,accu=0,tool=1  #건처시 동작위치로 이동
+    egunsea gun=1,spd=10,dist=100,di=1  #건서치 동작 수행
+    end
+```
+
+<br>
 
 <p align=center>
- <img src="../../../_assets/image_64.png"></img>
  <img src="../../../_assets/image_34.png" width="55%"></img>
  <em><p align="center">그림 4.7 Eqless 건서치</p></em>
 </p>

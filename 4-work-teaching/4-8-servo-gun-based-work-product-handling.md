@@ -9,7 +9,19 @@
 
 “**svclamp**”명령문을 이용해서 작업물을 잡는 동작과 개방 동작을 수행할 수 있습니다. svclamp on 상태에서는 서보건이 개방되지 않습니다.
 
-<p align="center">
- <img src="../_assets/image_12.png" width="50%"></img>
- <em><p align="center">그림 4.22 svclamp 명령어 프로그램</p></em>
-</p>
+
+
+<br>
+
+- svclamp 명령어 프로그램
+
+```python
+S10	  move L, ...				#작업물 파지 위치로 이동
+	  svclamp on,gun=1,cnd=1	#서보건으로 작업물을 파지
+S11	  move L, ...				#로봇이동
+S12	  move L, ...				#로봇이동
+S13	  move L, ...				#로봇이동
+S14	  move L, ...				#작업물 파지 해제 위치로 이동
+	  svclamp off,gun=1,cnd=1   #작업물 파지 해제
+S15	  move L, ...				#로봇이동
+```

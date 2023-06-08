@@ -47,10 +47,8 @@
     『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』→ 『**2: 사용환경 설정**』에서 “**서보건 용접스텝 기록위치 자동조정**”항목을 <**유효**>로 설정한 후, 작업 프로그램을 재생하면 간단하게 수행할 수 있습니다.
 *   <mark style="color:green;">**용접점이 누락되었는지 검출할 수 있나요?**</mark>
 
-    작업 프로그램 시작에서 용접수행 횟수를 초기화 후 용접을 정상적으로 수행하면 용접수행 횟수를 증가합니다. 작업수행 완료 시 용접 해야 할 타점수와 용접수행 횟수를 비교하면 되므로 하기와 같이 프로그램 하면 됩니다.
-
-    　　　　　　　　　　　　　　　![](<_assets/image_68.png>)
+    작업 프로그램 시작에서 용접수행 횟수를 초기화 후 용접을 정상적으로 수행하면 용접수행 횟수를 증가합니다. 작업수행 완료 시 용접 해야 할 타점수와 용접수행 횟수를 비교하면 됩니다. [4.9 스폿 타점 계산](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/4-work-teaching/4-9-spot-weld-calculation) 항목을 참고하십시오.
+  
 *   <mark style="color:green;">**로봇이 핸들링 작업을 하는 동안 이와 독립적으로 정치형 서보건에 대해 팁드레싱 작업 및 건서치 작업을 수행하면 작업 시간을 단축할 수 있을 텐데 방법이 있나요?**</mark>
 
-    멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. 별도의 [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
-.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.
+    멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.

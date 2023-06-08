@@ -2,17 +2,21 @@
 
 서보건의 건서치 기능은 총 전극 마모량을 고정전극과 이동전극이 50%씩 반영하도록 초기 설정되어 있습니다. 따라서 건서치 1만을 사용하여 마모량을 계산할 수 있습니다. 만일 고정전극과 이동전극의 마모량을 각각 계산하고자 하는 경우에는 건서치 2 설명을 참고하십시오.
 
-{% hint style="info" %}
-\[주의\]  
+{% hint style="warning" %}
 『**이동전극 마모량/전체 마모량(%)**』 설정 값이 “0”이면 건서치 2 동작이 반드시 필요하며, “0”이 아니면 건서치 1 동작에 의한 전체 마모량을 설정 비율로 각각 분배합니다.
 {% endhint %}
 
 (1) 건서치 1
 
-    이동전극으로 고정전극을 가압하여 전극의 전체 마모량을 측정합니다.
+이동전극으로 고정전극을 가압하여 전극의 전체 마모량을 측정합니다.
+
+```python
+S1   move P,spd=60%,accu=0,tool=1           #건서치1 동작위치로 이동
+     gunsea gun=1,sea=1,pre=100,spd=10      #건서치1 수행
+     end
+```
 
 <p align="center">
- <img src="../../../_assets/image_47.png"></img>
  <img src="../../../_assets/image_7.png" width="55%"></img>
  <em><p align="center">그림 4.3 건서치 1</p></em>
 </p>
@@ -39,8 +43,15 @@
 
     이동전극으로 교정지그를 가압하여 이동전극의 마모량을 측정합니다.
 
+```python
+S1   move P,spd=60%,accu=0,tool=1           #건서치1 동작위치로 이동
+     gunsea gun=1,sea=1,pre=100,spd=10      #건서치1 수행
+S2   move P,spd=60%,accu=0,tool=1           #건서치2 동작위치로 이동
+     gunsea gun=1,sea=2,pre=100,spd=10      #건서치2 수행
+     end
+```
+
 <p align="center">
- <img src="../../../_assets/image_29.png"></img>
  <img src="../../../_assets/image_4.png" width="55%"></img>
  <em><p align="center">그림 4.5 가압력 이용 건서치 2</p></em>
 </p>
@@ -56,9 +67,15 @@
 
     이동전극을 센서가 있는 위치로 이동하여 센서 입력이 감지되면 이동전극의 마모량을 측정합니다.
 
+```python
+S1   move P,spd=60%,accu=0,tool=1           #건서치1 동작위치로 이동
+     gunsea gun=1,sea=1,pre=100,spd=10      #건서치1 수행
+S2   move P,spd=60%,accu=0,tool=1           #i건서치 동작위치로 이동
+     igunsea gun=1,spd=10,di=1              #i건서치 수행
+     end
+```
 
 <p align="center">
- <img src="../../../_assets/image_79.png"></img>
  <img src="../../../_assets/image_73.png" width="55%"></img>
  <em><p align="center">그림 4.6 외부신호 입력 건서치 2</p></em>
 </p>

@@ -94,6 +94,7 @@
     * [6.1.2 시스템 구성](6-spotpak/6-1-spotpak-overall/2-configure.md)
     * [6.1.3 메뉴 구성](6-spotpak/6-1-spotpak-overall/3-menu.md)
     * [6.1.4 조작 순서](6-spotpak/6-1-spotpak-overall/4-procedure.md)
+    * [6.1.5 설치 방법](6-spotpak/6-1-spotpak-overall/5-install.md)
   * [6.2 용접기 인터페이스 주요기능](6-spotpak/6-2-spotpak-functions/README.md)
     * [6.2.1 데이터 관리](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/README.md)
       * [6.2.1.1 특성정보 가져오기](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/1-specfile.md)
@@ -112,3 +113,4 @@
 * [8. 에러 및 경고](8-error-warning/README.md)
   * [8.1 에러 메시지](8-error-warning/8.1.md)
   * [8.2 경고 메시지](8-error-warning/8.2.md)
+

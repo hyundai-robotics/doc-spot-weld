@@ -14,6 +14,6 @@
 <br>
 
 {% hint style="info" %}
- * Quick Start 를 원하시면, [6.1.4 조작 순서](6-spotpak/6-1-spotpak-overall/4-procedure.md) 부터 참고바랍니다.  
+ * Quick Start 를 원하시면, [6.1.4 조작 순서](6-1-spotpak-overall/4-procedure.md) 부터 참고바랍니다.  
   
 {% endhint %}

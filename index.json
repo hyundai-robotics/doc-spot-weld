@@ -440,23 +440,128 @@
 		"byte_ofs": 113915
 	},
 	{
-		"link": "6-faq.md",
+		"link": "6-spotpak/README.md",
 		"char_ofs": 60579,
 		"byte_ofs": 115342
 	},
 	{
-		"link": "7-error-warning/README.md",
-		"char_ofs": 63695,
-		"byte_ofs": 121336
+		"link": "6-spotpak/6-1-spotpak-overall/README.md",
+		"char_ofs": 60946,
+		"byte_ofs": 115971
 	},
 	{
-		"link": "7-error-warning/7.1.md",
-		"char_ofs": 63708,
-		"byte_ofs": 121362
+		"link": "6-spotpak/6-1-spotpak-overall/1-features.md",
+		"char_ofs": 61631,
+		"byte_ofs": 117391
 	},
 	{
-		"link": "7-error-warning/7.2.md",
-		"char_ofs": 69232,
-		"byte_ofs": 130167
+		"link": "6-spotpak/6-1-spotpak-overall/2-configure.md",
+		"char_ofs": 62415,
+		"byte_ofs": 118905
+	},
+	{
+		"link": "6-spotpak/6-1-spotpak-overall/3-menu.md",
+		"char_ofs": 62602,
+		"byte_ofs": 119195
+	},
+	{
+		"link": "6-spotpak/6-1-spotpak-overall/4-procedure.md",
+		"char_ofs": 62824,
+		"byte_ofs": 119591
+	},
+	{
+		"link": "6-spotpak/6-1-spotpak-overall/5-install.md",
+		"char_ofs": 63263,
+		"byte_ofs": 120322
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/README.md",
+		"char_ofs": 63704,
+		"byte_ofs": 121155
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/README.md",
+		"char_ofs": 63724,
+		"byte_ofs": 121202
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/1-specfile.md",
+		"char_ofs": 63738,
+		"byte_ofs": 121229
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/2-backup.md",
+		"char_ofs": 64361,
+		"byte_ofs": 122479
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/3-datacopy.md",
+		"char_ofs": 64844,
+		"byte_ofs": 123443
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/4-sericopy.md",
+		"char_ofs": 65172,
+		"byte_ofs": 124047
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/5-initialize.md",
+		"char_ofs": 65411,
+		"byte_ofs": 124451
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/6-clock.md",
+		"char_ofs": 65601,
+		"byte_ofs": 124735
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/README.md",
+		"char_ofs": 65807,
+		"byte_ofs": 125057
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/1-progmon.md",
+		"char_ofs": 65826,
+		"byte_ofs": 125097
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/2-siglesched.md",
+		"char_ofs": 66196,
+		"byte_ofs": 125622
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/3-multisched.md",
+		"char_ofs": 66425,
+		"byte_ofs": 125967
+	},
+	{
+		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/4-batch.md",
+		"char_ofs": 66751,
+		"byte_ofs": 126575
+	},
+	{
+		"link": "6-spotpak/6-3-spotpak-error/README.md",
+		"char_ofs": 66962,
+		"byte_ofs": 126907
+	},
+	{
+		"link": "7-faq.md",
+		"char_ofs": 68617,
+		"byte_ofs": 130619
+	},
+	{
+		"link": "8-error-warning/README.md",
+		"char_ofs": 71733,
+		"byte_ofs": 136613
+	},
+	{
+		"link": "8-error-warning/8.1.md",
+		"char_ofs": 71746,
+		"byte_ofs": 136639
+	},
+	{
+		"link": "8-error-warning/8.2.md",
+		"char_ofs": 77270,
+		"byte_ofs": 145444
 	}
 ]

@@ -113,4 +113,7 @@
 * [8. 에러 및 경고](8-error-warning/README.md)
   * [8.1 에러 메시지](8-error-warning/8.1.md)
   * [8.2 경고 메시지](8-error-warning/8.2.md)
-
+* [9. 스폿 모니터링 기능](9-spot-monitoring/README.md)
+  * [9.1 스폿 데이터 모니터링 기능](9-spot-monitoring/9-1-spot-data.md)
+  * [9.2 건서치 데이터 이력 관리](9-spot-monitoring/9-2-gunsea-history.md)
+  * [9.3 건서치 데이터 모니터링 기능](9-spot-monitoring/9-3-gunsea-data.md)

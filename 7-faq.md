@@ -1,4 +1,4 @@
-# 6. Frequently Asked Questions
+# 7. Frequently Asked Questions
 
 *   <mark style="color:green;">**How does the servo gun axis operate when using the shift function?**</mark>
 

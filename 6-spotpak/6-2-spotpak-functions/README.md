@@ -1,0 +1,1 @@
+﻿# 6.2 Main Functions of the Welder Interface

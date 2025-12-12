@@ -2,7 +2,7 @@
 <br>
 
 <p align=center>
-<img src="../../../_assets/6_14.png"  width="70%"></img>
+<img src="../../../_assets/6_14_eng.png"  width="70%"></img>
 <em><p align="center">Figure 6.14 Multi-Scheduled Program</p></em>
 </p>
 

@@ -4,7 +4,7 @@
 <br>
 
 <p align=center>
-<img src="../../../_assets/6_8.png" width="70%"></img>
+<img src="../../../_assets/6_8_eng.png" width="70%"></img>
 <em><p align="center">Figure 6.8 Data Series Copy</p></em>
 </p>
 

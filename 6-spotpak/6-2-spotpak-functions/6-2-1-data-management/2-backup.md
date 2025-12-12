@@ -4,7 +4,7 @@
 <br>
 
 <p align=center>
-<img src="../../../_assets/6_6.png" width="70%"></img>
+<img src="../../../_assets/6_6_eng.png" width="70%"></img>
 <em><p align="center">Figure 6.6 Data Backup</p></em>
 </p>
 

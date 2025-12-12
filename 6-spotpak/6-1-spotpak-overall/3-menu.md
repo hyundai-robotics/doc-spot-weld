@@ -6,6 +6,6 @@ To access these menus, the communication settings must first be correctly config
 <br>
 
 <p align=center>
-<img src="../../_assets/6_3.png"></img>
+<img src="../../_assets/6_3_eng.png"></img>
 <em><p align="center">Figure 6.3 Menu Tree</p></em>
 </p>

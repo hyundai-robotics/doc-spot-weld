@@ -2,20 +2,20 @@
 
 Operation of the welder interface proceeds in the following order:
 
-1. Industrial communication configuration, starting with DeviceNet settings
+- Industrial communication configuration, starting with DeviceNet settings
 
-2. Editing welding conditions on the welder
+- Editing welding conditions on the welder
 
-3. Configuring input/output signals on the Spot Welding Setup screen
+- Configuring input/output signals on the Spot Welding Setup screen
 
-4. Creating PLC programs according to the timer specifications
+- Creating PLC programs according to the timer specifications
 
-5. Creating robot programs (jobs)
+- Creating robot programs (jobs)
 
 <br>
 
 <p align=center>
-<img src="../../_assets/6_4.png"></img>
+<img src="../../_assets/6_4_eng.png"></img>
 <em><p align="center">Figure 6.4 Operation Flow</p></em>
 </p>
 

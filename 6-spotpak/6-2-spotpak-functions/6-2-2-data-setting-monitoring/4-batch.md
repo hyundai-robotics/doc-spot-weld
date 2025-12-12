@@ -6,7 +6,7 @@
 <br>
 
 <p align=center>
-<img src="../../../_assets/6_15.png"  width="70%"></img>
+<img src="../../../_assets/6_15_eng.png"  width="70%"></img>
 <em><p align="center">Figure 6.15 Batch Write Data</p></em>
 </p>
 

@@ -4,7 +4,7 @@ The DeviceNet used in Hi6 is part of its industrial communication functionality 
 
 
 <p align=center>
-<img src="../../_assets/6_2.png"></img>
+<img src="../../_assets/6_2_eng.png"></img>
 <em><p align="center">Figure 6.2 DeviceNet Communication Configuration</p></em>
 </p>
 

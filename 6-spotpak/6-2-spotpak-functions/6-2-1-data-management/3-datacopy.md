@@ -3,7 +3,7 @@
 <br>
 
 <p align=center>
-<img src="../../../_assets/6_7.png" width="70%"></img>
+<img src="../../../_assets/6_7_eng.png" width="70%"></img>
 <em><p align="center">Figure 6.7 Data Copy</p></em>
 </p>
 

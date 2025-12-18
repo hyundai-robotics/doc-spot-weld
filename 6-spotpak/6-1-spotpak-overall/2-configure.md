@@ -2,7 +2,7 @@
 
 
 
-Hi6의 디바이넷은 산업용 통신 기능의 일부로, Hilsher 사의 CifX 통신카드를 이용합니다.
+${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher 사의 CifX 통신카드를 이용합니다.
 
 
 <p align=center>

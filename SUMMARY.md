@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [Hi6 로봇제어기 기능설명서 - 스폿 용접](README.md)
+* [${cont_model} 로봇제어기 기능설명서 - 스폿 용접](README.md)
 * [1. 개요](1-overview/README.md)
   * [1.1 주요 사양](1-overview/1-1-main-specification.md)
   * [1.2 조작 순서](1-overview/1-2-operating-order/README.md)

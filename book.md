@@ -1,4 +1,4 @@
-﻿# Hi6 로봇제어기 기능설명서 - 스폿 용접
+﻿# ${cont_model} 로봇제어기 기능설명서 - 스폿 용접
 
 본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
 
@@ -38,9 +38,9 @@
 
 **[필수 설명서]**
 
-- [**Hi6 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/README)
+- [**${cont_model} 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean/README)
 
-- [**Hi6 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)
+- [**${cont_model} 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)
 # 1.1 주요 사양
 
 |       **항목**       |                          **사양**                          |
@@ -185,7 +185,7 @@
 
 {% endhint %}# 2.1.2 툴 각도/거리 설정
 
-스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: [**Hi6 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/))
+스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: [**${cont_model} 제어기 조작설명서**](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/))
 
 <p align="center">
  <img src="../../_assets/image_38.png">
@@ -1220,7 +1220,7 @@ S16  move P,spd=60%,accu=0,tool=1
 (2) 판넬 두께가 변경될 때, 판넬 두께를 다시 등록한 후 교시합니다.
 # 4.5 서보툴 체인지
 
-로봇 R1축과 결합하여 작업할 건이 2개 이상일 때 로봇 R1 축과 용접건을 접속하고 분리할 때 서보툴 체인지 기능을 사용합니다. 보다 자세한 내용은 [Hi6 로봇제어기 기능설명서 - 서보툴 체인지](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/README)를 참고하십시오.
+로봇 R1축과 결합하여 작업할 건이 2개 이상일 때 로봇 R1 축과 용접건을 접속하고 분리할 때 서보툴 체인지 기능을 사용합니다. 보다 자세한 내용은 [${cont_model} 로봇제어기 기능설명서 - 서보툴 체인지](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/README)를 참고하십시오.
 
 # 4.5.1 환경설정
 
@@ -1498,7 +1498,7 @@ S14	  move L, ...				#작업물 파지 해제 위치로 이동
 S15	  move L, ...				#로봇이동
 ```# 4.9 스폿용접 타점 계산
 
-스폿 용접의 타점을 저장하는 기능은 내장 PLC에서 제공합니다. 초기화, 전원 온, 지난 사이클 및 현재 사이클의 용접 타점 횟수를 각각 저장하고 있으며 사용자가 임의 초기화 할 수 있습니다. 자세한 내용은 내장 PLC 설명서의 [" 3.4.3 S릴레이- OP_TIME"](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/korean/3-relay/4-sw-relay/3-slot-op-time) 항목을 참고하시기 바랍니다.
+스폿 용접의 타점을 저장하는 기능은 내장 PLC에서 제공합니다. 초기화, 전원 온, 지난 사이클 및 현재 사이클의 용접 타점 횟수를 각각 저장하고 있으며 사용자가 임의 초기화 할 수 있습니다. 자세한 내용은 내장 PLC 설명서의 [" 3.4.3 S릴레이- OP_TIME"](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-embedded-plc/korean/3-relay/4-sw-relay/3-slot-op-time) 항목을 참고하시기 바랍니다.
 
 <br>
 
@@ -1955,7 +1955,7 @@ S15	  move L, ...				#로봇이동
 <br>
 
 {% hint style="info" %}
- * Hi6 V60.28 정식버전부터 사용가능합니다.
+ * ${cont_model} V60.28 정식버전부터 사용가능합니다.
  * 현재 조웰, 오바라, 효성 3개의 용접기를 지원합니다. 
 {% endhint %}
 
@@ -2016,7 +2016,7 @@ Table 6.1 File 종류 및 설명
 
 
 
-Hi6의 디바이넷은 산업용 통신 기능의 일부로, Hilsher 사의 CifX 통신카드를 이용합니다.
+${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher 사의 CifX 통신카드를 이용합니다.
 
 
 <p align=center>
@@ -2345,7 +2345,7 @@ Hi6의 디바이넷은 산업용 통신 기능의 일부로, Hilsher 사의 CifX
   
 *   <mark style="color:green;">**로봇이 핸들링 작업을 하는 동안 이와 독립적으로 정치형 서보건에 대해 팁드레싱 작업 및 건서치 작업을 수행하면 작업 시간을 단축할 수 있을 텐데 방법이 있나요?**</mark>
 
-    멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/)를 참고하십시오.# 8\. 에러 및 경고# 8.1 에러 메시지
+    멀티 태스킹 기능을 사용하면 간단하게 지원할 수 있습니다. [**멀티태스킹 기능설명서**](https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/)를 참고하십시오.# 8\. 에러 및 경고# 8.1 에러 메시지
 
 |                          코 드                          | 　　　　　　<p align=center> 내용 </p>                                    | 　　　　　　<p align=center> 조치              </p>                                                          |
 | :---------------------------------------------------: | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |

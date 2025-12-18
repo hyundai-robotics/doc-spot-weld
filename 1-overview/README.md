@@ -23,6 +23,6 @@
 
 **[필수 설명서]**
 
-- [**Hi6 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean/README)
+- [**${cont_model} 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean/README)
 
-- [**Hi6 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)
+- [**${cont_model} 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)

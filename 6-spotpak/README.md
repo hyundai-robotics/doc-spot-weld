@@ -8,7 +8,7 @@ This manual describes the settings related to the interface between the welder a
 <br>
 
 {% hint style="info" %}
- *Available from Hi6 V60.28 official release.
+ *Available from ${cont_model} V60.28 official release.
  *Currently supports three welders: Chowel, Obara, and Hyosung.
 {% endhint %}
 

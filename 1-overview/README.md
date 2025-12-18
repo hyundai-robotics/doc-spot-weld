@@ -23,6 +23,6 @@ This manual provides explanations based on the systems below. If the system used
 
 **[Essential manuals]**
 
-- [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)
+- [**${cont_model} Controller Operation Manual**](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
 
-- Hi6 Additional Axis Function Manual
+- ${cont_model} Additional Axis Function Manual

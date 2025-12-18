@@ -1,4 +1,4 @@
-# 7. Frequently Asked Questions
+﻿# 7. Frequently Asked Questions
 
 *   <mark style="color:green;">**How does the servo gun axis operate when using the shift function?**</mark>
 
@@ -52,5 +52,5 @@
     　　　　　　　　　　　　　　　![](<_assets/image_68_eng.PNG>)
 *   <mark style="color:green;">**It seems that the working time can be shortened if tip dressing and gun search operations for a stationary servo gun is performed, independently from the handling operation. Is there any way to do this?**</mark>
 
-    It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/).
+    It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/).
 

@@ -1,9 +1,9 @@
 ﻿# 6.1 Overview of the Welder Interface
 
 This function enables the robot controller to integrally control the spot welding timer through DeviceNet communication.
-The Hi6 controller and the spot welder share data with each other via DeviceNet.
+The ${cont_model} controller and the spot welder share data with each other via DeviceNet.
 
-By combining the robot controller and the spot welding timer into a single integrated system, users can perform welding program editing and file management using the Hi6 Teach Pendant (TP).
+By combining the robot controller and the spot welding timer into a single integrated system, users can perform welding program editing and file management using the ${cont_model} Teach Pendant (TP).
 
 The robot controller performs the major functions that are normally handled through the welder’s teaching box—such as welding schedule programming, stepper programming, weld result monitoring, and history file management—directly from the robot controller’s Teaching Pendant.
 

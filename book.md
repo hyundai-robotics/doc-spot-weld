@@ -1,4 +1,4 @@
-﻿# Hi6 Robot Controller Function Manual - Spot Welding
+﻿# ${cont_model} Robot Controller Function Manual - Spot Welding
 
 The information provided in this manual is the property of Hyundai Robotics.
 
@@ -35,9 +35,9 @@ This manual provides explanations based on the systems below. If the system used
 
 **[Essential manuals]**
 
-- [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)
+- [**${cont_model} Controller Operation Manual**](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
 
-- Hi6 Additional Axis Function Manual
+- ${cont_model} Additional Axis Function Manual
 # 1.1 Main specifications
 
 |       **Item**       |                          **Specification**                          |
@@ -181,7 +181,7 @@ This function sets the tool number and gun type corresponding to the spot weldin
 
 </center># 2.1.2 Setting of the tool angle/distance
 
-When spot welding is performed, the equalizing operation (operation in which the fixed electrode contacts the panel after passing through the clearance position) is absolutely necessary. This operation requires the correct setting of the tool coordinate system. The +Z axis of the tool coordinate system should be set correctly in the direction from the fixed electrode to the moving electrode (Note: [**Hi6 Controller Operation Manual**](https://hyundai-robotics.gitbook.io/hi6-operation-manual/)).
+When spot welding is performed, the equalizing operation (operation in which the fixed electrode contacts the panel after passing through the clearance position) is absolutely necessary. This operation requires the correct setting of the tool coordinate system. The +Z axis of the tool coordinate system should be set correctly in the direction from the fixed electrode to the moving electrode (Note: [**${cont_model} Controller Operation Manual**](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)).
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
@@ -1152,7 +1152,7 @@ While the “**\[GUN] LED**” is turned on, perform manual squeezing and then p
 (2) When the panel thickness is changed, perform teaching after registering the panel thickness again.
 # 4.5 Servo tool change
 
-The servo tool change function is used to connect and separate the robot R1 axis and welding gun if there are two or more guns to perform work in combination with the robot R1 axis. For more details, refer to the Hi6 Servo Tool Change Function Manual.
+The servo tool change function is used to connect and separate the robot R1 axis and welding gun if there are two or more guns to perform work in combination with the robot R1 axis. For more details, refer to the ${cont_model} Servo Tool Change Function Manual.
 # 4.5.1 Environment setting
 
 The environment setting for servo tool change can be progressed according to the following order.
@@ -1889,7 +1889,7 @@ Assigns the signals related to spot welding and transfers their state to the out
     　　　　　　　　　　　　　　　![](<_assets/image_68_eng.PNG>)
 *   <mark style="color:green;">**It seems that the working time can be shortened if tip dressing and gun search operations for a stationary servo gun is performed, independently from the handling operation. Is there any way to do this?**</mark>
 
-    It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/hi6-robot-controller-manual-multi-task/).
+    It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/).
 
 # 7\. Errors and warnings# 7.1 Error messages
 

@@ -1835,7 +1835,402 @@ Assigns the signals related to spot welding and transfers their state to the out
 (8)  **Welding gun search in progress**
 
     This is a signal that is turned on when gun search starts upon the execution of the gunsea, igunsea or egunsea statement and turned off when the opening procedure starts.
-    # 6. Frequently Asked Questions
+    # 6. Spot-Pak
+
+
+
+Spot-Pak is the name of Hyundai Robotics’ integrated control system for spot welding.
+This manual describes the settings related to the interface between the welder and the robot controller, as well as TP (Teach Pendant) operations.
+
+<br>
+
+{% hint style="info" %}
+ *Available from ${cont_model} V60.28 official release.
+ *Currently supports three welders: Chowel, Obara, and Hyosung.
+{% endhint %}
+
+<br>
+
+{% hint style="info" %}
+ * If you want a Quick Start, please refer to [6.1.4 Operating Procedure](6-1-spotpak-overall/4-procedure.md).
+{% endhint %}
+# 6.1 Overview of the Welder Interface
+
+This function enables the robot controller to integrally control the spot welding timer through DeviceNet communication.
+The ${cont_model} controller and the spot welder share data with each other via DeviceNet.
+
+By combining the robot controller and the spot welding timer into a single integrated system, users can perform welding program editing and file management using the ${cont_model} Teach Pendant (TP).
+
+The robot controller performs the major functions that are normally handled through the welder’s teaching box—such as welding schedule programming, stepper programming, weld result monitoring, and history file management—directly from the robot controller’s Teaching Pendant.
+
+In other words, the system provides a user interface that allows the robot Teach Pendant to perform the functions of the Teaching Box—the operation panel of a standalone welder. It also enables monitoring by displaying welding results, various signals, and the status of errors or faults.
+
+Communication between the robot controller and the timer uses DeviceNet.
+The robot controller is configured as the master, and the timer is configured as the slave.
+
+<p align="center"> <img src="../../_assets/6_1.png"> </p> <p align="center"><em>Figure 6.1 (a) Spot welding system with a separate welder (b) Integrated spot welding system</em></p>
+# 6.1.1 Advantages and Features
+
+## 1.2.1 Advantages
+
+- Easy connection with other peripheral devices, reducing overall system setup time (Short start-up time)
+
+- Use of DeviceNet reduces wiring requirements (Lower capital costs)
+
+- Reduced downtime
+
+- A single controller : the robot Teach Pendant for robot and welder operations
+
+## 1.2.2. Features
+
+- Ensures reliable communication between the robot controller and the welder through the DeviceNet message method.
+
+- Supports connection of up to four welding timers (applicable to both servo guns and pneumatic guns).
+
+- No modification of the robot controller software is required even when the timer model is changed.
+
+- The robot controller can handle individual files such as welding schedules, common welding data, and stepper data.
+
+- Weld result data is managed by the controller, enabling sharing of error and abnormality history and allowing error analysis.
+
+- Welding quality can be improved by monitoring real-time weld results via the robot TP and modifying the schedule and stepper programs accordingly.
+
+<Br>
+
+Table 6.1 File Types and Descriptions
+
+|File Type |	File Name <br> (# = Timer No.)  |	Description  |
+|:--:|:--:|:--:|
+|Timer characteristic data |	ROBOT.NS# |	Stores timer-related information |
+|Welding program data	| ROBOT.ND# |	Stores various welding program data |
+
+# 6.1.2 System Configuration
+
+The DeviceNet used in ${cont_model} is part of its industrial communication functionality and utilizes the CifX communication card manufactured by Hilscher.
+
+
+<p align=center>
+<img src="../../_assets/6_2_eng.png"></img>
+<em><p align="center">Figure 6.2 DeviceNet Communication Configuration</p></em>
+</p>
+
+
+# 6.1.3 Menu Structure
+
+The menu structure of the welder interface is dynamically configured according to the controller settings below.
+To access these menus, the communication settings must first be correctly configured.
+
+<br>
+
+<p align=center>
+<img src="../../_assets/6_3_eng.png"></img>
+<em><p align="center">Figure 6.3 Menu Tree</p></em>
+</p># 6.1.4 Operating Procedure
+
+Operation of the welder interface proceeds in the following order:
+
+- Industrial communication configuration, starting with DeviceNet settings
+
+- Editing welding conditions on the welder
+
+- Configuring input/output signals on the Spot Welding Setup screen
+
+- Creating PLC programs according to the timer specifications
+
+- Creating robot programs (jobs)
+
+<br>
+
+<p align=center>
+<img src="../../_assets/6_4_eng.png"></img>
+<em><p align="center">Figure 6.4 Operation Flow</p></em>
+</p>
+
+
+
+
+
+{% hint style="info" %}
+
+ * For industrial communication settings required for DeviceNet configuration, refer to [**Industrial Communication Function Manual**](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/english/README)
+
+
+{% endhint %}
+
+
+
+
+
+# 6.1.5 Installation Method
+
+SPOTPAK is developed as a plug-in type application.
+The content displayed on the TP is written in HTML and JavaScript, and it communicates with a Python program that transfers the user’s operation requests to the main program.
+
+The provided software contains all the functions described in this manual, but it may be modified to meet user-specific requirements.
+Please follow the procedure below to install the plug-in program.
+
+
+<br>
+
+
+
+ [Installation Procedure]
+
+ - 1. Save the “spotpak” plug-in program to a USB drive.
+
+ - 2. Connect the USB drive to the TP.
+
+ - 3. Navigate to: Service > 5: File Management > USB > ‘spotpak’ folder > Copy
+
+ - 4. Go to: MAIN > apps > Paste
+
+ - 5. Reboot the controller.
+
+ - 6. Navigate to: System > 5: Application Parameters > SPOTPAK# 6.2 Main Functions of the Welder Interface# 6.2.1 Data Management# 6.2.1.1 Importing Characteristic Data
+
+
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_5_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.5 Characteristic Data Import Screen</p></em>
+</p>
+
+  
+
+The characteristic data is essential information that must be prepared in advance in order to use the welder interface functions.
+It contains the structure of the welder’s configuration data, menu composition, and other necessary elements.
+All functions of the welder interface require this characteristic data.
+
+<br>
+
+The functions of each part of the screen shown in Figure 6.5 are as follows:
+- ① Welder Status: Indicates the ON/OFF-LINE status of the welder.
+Red indicates ON-LINE, and black indicates OFF-LINE.
+
+- ② [Select Welder Number]: Enter the number of the welder from which the characteristic data will be downloaded.
+
+- ③ Characteristic Data: Displays characteristics related to the current welder using the downloaded characteristic data.
+
+- ④ [Download] Button: Downloads the characteristic data of the welder specified in [Select Welder Number].
+When the download is completed successfully, a message saying “Characteristic data has been saved.” will appear.
+# 6.2.1.2 Data Backup
+
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_6_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.6 Data Backup</p></em>
+</p>
+
+<br>
+
+
+The Data Backup function is used when you want to back up the welder’s configuration data to the ${cont_model} controller.
+Enter the number of the welder from which the data will be retrieved, then press OK to start the backup.
+The process takes approximately 1 to 2 minutes.
+Once the backup is completed, a message will appear stating: “Data has been successfully backed up.”
+
+The backed-up data can be effectively used in the following cases:
+
+- ① When you want to store a backup of the welder’s configuration values
+
+- ② When you want to modify the data of another welder connected to the ${cont_model} controller
+
+- ③ When you want to apply batch updates to welders connected to another ${cont_model} controller# 6.2.1.3 Data Copy
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_7_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.7 Data Copy</p></em>
+</p>
+
+<br>
+
+
+The Data Copy function allows you to copy the data of one welder to another welder.
+Additionally, by using the Use Saved Data checkbox, you can copy data that has been stored in the controller through the Data Backup function.
+
+Only PROGRAM data is copied through the Data Copy function; MONITOR data is not included.# 6.2.1.4 Series Copy
+
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_8_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.8 Data Series Copy</p></em>
+</p>
+
+<br>
+
+
+The Series Copy function is used when you want to copy only the data that contains group (series) information.
+From the programs shown in the screen, you can select the desired items and specify both the target welder and the group range to be copied.# 6.2.1.5 Initialization
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_9_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.9 Welder Data Initialization</p></em>
+</p>
+
+<br>
+
+The Initialization menu is used when you need to reset the status of the welder.# 6.2.1.6 Time Synchronization
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_10_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.10 Welder Time Setting</p></em>
+</p>
+
+<br>
+
+This function is used to synchronize the welder’s time with the robot controller by transferring the controller’s current time to the welder.# 6.2.2 Data Setup/Monitoring# 6.2.2.1 Program / Monitoring
+
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_11_eng.png" width="70%"></img>
+<em><p align="center">Figure 6.11 Program Class</p></em>
+</p>
+
+<br>
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_12_eng.png"  width="70%"></img>
+<em><p align="center">Figure 6.12 Monitoring Class</p></em>
+</p>
+
+<br>
+The welder data is largely categorized into PROGRAM and MONITOR, and the contents within each menu may vary depending on the welder version.# 6.2.2.2 Single Scheduled Program
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_13_eng.png"  width="70%"></img>
+<em><p align="center">Figure 6.13 Single Scheduled Program</p></em>
+</p>
+
+<br>
+
+A single scheduled program refers to a program that is applied commonly to all welding conditions, similar to a COMMON PROGRAM.# 6.2.2.3 Multi-Scheduled Program
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_14_eng.png"  width="70%"></img>
+<em><p align="center">Figure 6.14 Multi-Scheduled Program</p></em>
+</p>
+
+<br>
+
+A multi-scheduled program refers to a program in which the user can select a specific series.
+In this case, the series can be selected using the [Series Number] button.
+
+If you want to copy a specific single data item to a desired range of series, you can use the [Batch Write Data] button to access the batch write menu.# 6.2.2.4 Batch Write Data
+
+
+
+
+<br>
+
+<p align=center>
+<img src="../../../_assets/6_15_eng.png"  width="70%"></img>
+<em><p align="center">Figure 6.15 Batch Write Data</p></em>
+</p>
+
+<br>
+
+You can copy the data of a specific row from a multi-schedued program to a selected series range of another welder.# 6.3 Abnormalities and Errors
+
+<br>
+
+  - Code: There is an error in the characteristic data file.
+  - Description: A problem has occurred with the stored characteristic data file.
+Please update the characteristic data through Data Management → Import Characteristic Data.
+
+
+<br>
+ 
+   - Code: The value exceeds the allowable range. [Range]
+   - Description: The entered value is outside the permitted range.
+Please re-enter a value within the valid range.
+
+<br>
+
+   - Code: The source welder number and the destination welder number are the same.
+   - Description: This error occurs in Data Copy when the same welder number is entered for both the source and destination.
+
+<br>
+
+   - Code: Class information was not saved correctly.
+   - Description: A problem has occurred with the class-related information in the characteristic data.
+Please update the characteristic data through Data Management → Import Characteristic Data.
+
+<br>
+
+   - Code: Error information was not saved correctly.
+   - Description: A problem has occurred in the welder-error–related information within the characteristic data.
+Please update the characteristic data through Data Management → Import Characteristic Data.
+
+<br>
+
+ - Code: Data transmission between the main board and the T/P has failed.
+ - Description: This error appears when a communication fault occurs while writing or retrieving welder data.
+Please check the connection status between the controller and the T/P.
+
+<br>
+
+  -  Code: The welder is not connected.
+  -  Description: The welder with the specified number is not properly connected via DeviceNet.
+Please check the connection status.
+
+<br>
+
+  -  Code: Copy operation failed.
+  -  Description: Data copying between welders was not completed successfully.
+Please verify the welder’s network and communication status, then try again.
+
+<br>
+
+ - Code: There is an error in the welder data file.
+ - Description: A problem occurred while loading the welder data file.
+Please check whether the file exists and verify the integrity of the data.
+
+<br>
+
+  - Code: Characteristic data was not saved correctly.
+  - Description: An error occurred while saving the characteristic data file.
+Please check that sufficient storage space is available on the T/P, then try again.
+<br>
+
+  - Code: Failed to save data.
+  - Description: An error occurred during the data saving process.
+Please ensure that there is enough storage space on the T/P and try again.
+
+<br>
+
+   - Code: Welder versions do not match.
+   - Description: The versions of the welders involved in the data copy operation do not match, so the copy cannot be performed.
+Please check whether the file version or the welder version has been changed.
+
+<br>
+
+   - Code: Timeout occurred.
+   - Description: This occurs when communication between the main board and the T/P is unstable, or when the controller’s processing time is excessively long.
+Please try again.
+<br>
+
+   - Code: Data contains errors.
+   - Description: Some values in the backed-up data file fall outside the valid range.
+# 7. Frequently Asked Questions
 
 *   <mark style="color:green;">**How does the servo gun axis operate when using the shift function?**</mark>
 
@@ -1891,7 +2286,7 @@ Assigns the signals related to spot welding and transfers their state to the out
 
     It can be simply supported if you use multi-task function. Refer to [**Multi-task Function Manual**](https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/).
 
-# 7\. Errors and warnings# 7.1 Error messages
+# 8. Errors and warnings# 8.1 Error messages
 
 |                          Code                          | 　　　　　　<p align=center> Content </p>                                    | 　　　　　　<p align=center> Measure              </p>                                                          |
 | :---------------------------------------------------: | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -1919,7 +2314,7 @@ Assigns the signals related to spot welding and transfers their state to the out
 
 |  Code        | 　　　　　Content          | 　　　　　　Measure    |
 |-------------| ------------- | ----------------- |
-|               E0007  Deposition detection              | A deposition signal is inputted upon the ending of the welding sequence. | Check the deposition detection signal. Remove the deposition.    |# 7.2 Warning messages
+|               E0007  Deposition detection              | A deposition signal is inputted upon the ending of the welding sequence. | Check the deposition detection signal. Remove the deposition.    |# 8.2 Warning messages
 
 |                  Code             | 　　　　　　Content                                                                  | 　　　　　　Measure                                                                                                   |
 | :----------------------------------------------------: | -------------------------------------- | ---------------------------------------------------- |

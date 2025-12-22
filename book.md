@@ -1248,13 +1248,52 @@ Connection completion will be finalized only after the mechanical connection and
 *   Separation
 
      The separation command will execute the processing of the separation according to the sequence opposite to that of the connection command.
-# 4.5.4 Sanple program
+# 4.5.4 Sample program
 
 
-<p align="center">
- <img src="../../_assets/image_74_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.18 Tool change program</p></em>
-</p># 4.6 Simultaneous welding with multiple guns
+<br>
+
+```python
+
+S10   move L, ...                    # Move to servo tool disengagement position
+      toolchng off,tg=G1,is=di1      # Execute servo tool disengagement (current connection state)
+                                     # Servo tool disengagement output (dedicated output)
+      do11=1                         # ATC cam open output
+      wait di11                      # Check ATC cam open completion signal
+S11   move L, ...                    # Robot movement
+S12   move L, ...                    # Robot movement
+S13   move L, ...                    # Robot movement
+S14   move L, ...                    # Move to servo tool connection position
+      wait di12                      # Check connection-ready signal
+      do11=0                         # ATC cam close output
+      toolchng on,tg=G1,is=di1       # Execute mechanical connection
+                                     # Servo tool connection processing
+S15   move L, ...                    # Robot movement
+
+```# 4.5.5 Servo gun change with position-variable fixed electrodes  
+
+
+
+When the entire servo gun is replaced, additional equipment such as an ATC (Automatic Tool Changer) and a gun stand is required. However, by operating a system in which the moving electrode remains fixed and only the fixed electrode is changed, no additional equipment is necessary, and the time required for changeover can be reduced.
+
+To support this function, wear amount and soft limits must be managed for each fixed electrode. Therefore, an operation similar to the Welding Gun Change (Servo Tool Change) function is required. Accordingly, before using this function, users must first become familiar with the Welding Gun Change (Servo Tool Change) function.
+
+The difference between this function and the Servo Gun Change function is that no mechanical or electrical connection/disconnection operations are performed. In addition, since the motor and encoder information always remain the same, these data are not updated.
+
+<br>
+
+```python
+
+S10   move L, ...                    # Move to fixed electrode 1
+      toolchng fixed,tg=G1,is=di1    # Change to fixed electrode 1
+S11   move L, ...                    # Robot movement
+      spot gun=1,cnd=1, seq=1        # Perform welding with gun No. 1
+S12   move L, ...                    # Move to fixed electrode 2
+      toolchng fixed,tg=G2,is=di1    # Change to fixed electrode 2
+S13   move L, ...                    # Robot movement
+      spot gun=2,cnd=2, seq=2        # Perform welding with gun No. 2
+
+```# 4.6 Simultaneous welding with multiple guns
 
 In general, spot welding is performed with one welding gun at a time. The function of simultaneous welding with multiple guns is the act of welding with multiple welding guns at the same time. For this, the gun type (servo gun, equalizerless gun, or equalizer-fitted gun) should be all the same.
 # 4.6.1 Manual selection of multiple guns
@@ -1733,6 +1772,20 @@ This is a function to change the squeezing force that is being applied during th
 
 (7)  **이동 시작 지연 시간**
 -   이동시점이 되었을 때 지연 시간 동안 대기 후 이동을 시작합니다.
+# 5.3.2.1.3 Initial sequence
+
+The multi-stage pressure setting conditions can be applied not only to spot welding but also to other welding applications such as dissimilar material joining. Some applications (e.g., RSR) require an input/output signal sequence after reaching the initial pressure.
+
+By registering the input/output signals required for the sequence procedure as shown below, the system proceeds to the multi-stage pressurization process after completing the signal input/output sequence once the initial pressure has been reached.
+
+Up to five sequences are available, and users may configure as many as required.
+
+<br>
+
+<p align=center>
+<img src="../../../../_assets/image_56.png" width="70%"></img>
+<em><p align="center">그림 5.13_1 초기 시퀀스 설정</p></em>
+</p>
 # 5.3.3 Welding sequence
 
 Sets the sequence related to the spot welding to determine the robot operation according to the work environment.
@@ -1986,7 +2039,15 @@ Please follow the procedure below to install the plug-in program.
 
  - 5. Reboot the controller.
 
- - 6. Navigate to: System > 5: Application Parameters > SPOTPAK# 6.2 Main Functions of the Welder Interface# 6.2.1 Data Management# 6.2.1.1 Importing Characteristic Data
+ - 6. Navigate to: System > 5: Application Parameters > SPOTPAK
+
+ <br>
+
+ {% hint style="info" %}  
+Currently, the “spotpak” folder is provided individually upon request by the spot function development team. However, once a plugin installation/distribution program is deployed on the website, users will be able to download it directly.
+
+When the development of this function is completed, a link to the relevant page will be provided.  
+{% endhint %}# 6.2 Main Functions of the Welder Interface# 6.2.1 Data Management# 6.2.1.1 Importing Characteristic Data
 
 
 

@@ -83,7 +83,7 @@
     * [5.3.1 공통데이터](5-spot-weld-parameter/5-3-weld-data-condition-sequence/1-common-data.md)
     * [5.3.2 용접조건](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/README.md)
       * [5.3.2.1. 다단 가압 및 보조 조건](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/README.md)
-        * [5.3.2.1.1 다단 가압 제어](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/5.3.2.1.1.md)
+        * [5.3.2.1.1 다단 가압 제어](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multi-pressure-ctrl.md)
         * [5.3.2.1.2 가압 중 건 이동(피봇)](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/2-moving-when-pressing-pivot.md)
         * [5.3.2.1.3 초기 시퀀스](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/3-initial-sequence.md)
     * [5.3.3 용접시퀀스](5-spot-weld-parameter/5-3-weld-data-condition-sequence/3-weld-sequence.md)

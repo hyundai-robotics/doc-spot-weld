@@ -23,8 +23,8 @@ Among the application setting items, the ‘gun search’ setting is essential. 
 
 The application setting can be progressed in automatic setting and manual setting.
 
-   (1) **Automatic setting**  
+(1) **Automatic setting**  
    * The servo gun automatically moves to execute ‘**gun search**’, ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’. All items of the application setting can be performed automatically.  
   
-   (2) **Manual setting**  
+(2) **Manual setting**  
    * The user directly performs ‘**gun search**’ and inputs the ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’ values.  

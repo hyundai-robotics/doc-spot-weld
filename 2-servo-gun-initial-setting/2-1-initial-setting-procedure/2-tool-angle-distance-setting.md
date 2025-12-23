@@ -4,7 +4,7 @@ When spot welding is performed, the equalizing operation (operation in which the
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
-  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun</p></em>
+  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun : {0˚, 180˚, 0˚}</p></em>
  </img>
 </p>
 
@@ -17,5 +17,4 @@ When spot welding is performed, the equalizing operation (operation in which the
 
 </br>
 
->    **In the case of the above figure, set the tool angle as {0 deg, 180 deg, 0 deg}.**
 

@@ -7,31 +7,30 @@ Real-time squeezing force control is a function to improve the accuracy of servo
 <em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
 </p>
 
-(1)  **Communication method**
 
-    Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
-(2)  **Additional use of controller filter**
+(1)  **Communication method**  
+  Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
 
-    To be used when an additional controller filter is needed.
-(3)  **Cut-off frequency**
+(2)  **Additional use of controller filter**  
+  To be used when an additional controller filter is needed.
 
-    Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
-(4)  **Reset signal output**
+(3)  **Cut-off frequency**  
+   Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
 
-    Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
-(5)  **<Analog>**
+(4)  **Reset signal output**  
+   Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
 
-    Will be activated when analog is selected as the communication method.
+(5)  **\<Analog>**  
+   Will be activated when analog is selected as the communication method.  
+* Squeezing force input port: The number of the signal assigned for input  
+* Magnification: Magnification of the analog input value
 
-    * Squeezing force input port: The number of the signal assigned for input
-    * Magnification: Magnification of the analog input value
-(6)  **<Digital>**
+(6)  **\<Digital>**  
+  Will be activated when digital is selected as the communication method.
 
-    Will be activated when digital is selected as the communication method.
-
-    * Communication range: Minimum and maximum ranges of the assigned signal
-    * Value range: Minimum and maximum values of the assigned signal
-    * Port: The number of the signal assigned for input
-    * Port assignment: Bit count assigned to a signal
+* Communication range: Minimum and maximum ranges of the assigned signal
+* Value range: Minimum and maximum values of the assigned signal
+* Port: The number of the signal assigned for input
+* Port assignment: Bit count assigned to a signal
 
 

@@ -2,13 +2,11 @@
 
 The following system variable stores the count of the inputs of WI during the execution of the spot welding command.
 
-```
-_spotrunno[welder number]
-```
+```_spotrunno[welder number]```
 
 |       **Item**      | 　　　　　　　　　　**Content**      |
-| :---------------: | --------------------- |
-| **Welder number\[1\–4]** | Designates the welder number (totally up to four numbers) |
+| :---------------: | :--------------: |
+| **Welder number\[1\–4]** | the welder number (totally up to four numbers) |
 
 </br>
 
@@ -26,6 +24,6 @@ END
 ```
 
 {% hint style="warning" %}
-\[**Caution**]: The spot command executed in the sub task will not be calculated.
+The spot command executed in the sub task will not be calculated.
 {% endhint %}
 

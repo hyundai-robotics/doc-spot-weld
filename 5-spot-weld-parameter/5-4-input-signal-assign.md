@@ -9,11 +9,10 @@ Assigns the signals related to spot welding, allowing the controller to monitor 
 </p>
 
 (1)  **Welding completion**
+  - Only when this welding completion signal is inputted during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
 
-    Only when this welding completion signal is inputted during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
 (2)  **Deposition error**
+  - To be used when receiving and handling the input of the gun's deposition signal.
 
-    To be used when receiving and handling the input of the gun's deposition signal.
 (3)  **Welder abnormal**
-
-    To be used to stop the operation of the robot when the signal of welder abnormal is inputted.
+  - To be used to stop the operation of the robot when the signal of welder abnormal is inputted.

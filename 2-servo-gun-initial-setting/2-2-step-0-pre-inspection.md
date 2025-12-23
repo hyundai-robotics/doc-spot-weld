@@ -20,7 +20,7 @@ Pre-inspection is a step to check whether the pre-setting items have been comple
 </p>
 
 {% hint style="warning" %}
-\[**Caution**]  If you complete the setting on the “**Additional axis parameter setting**” screen, you will be asked to reboot after completing the pre-inspection.
+If you complete the setting on the “**Additional axis parameter setting**” screen, you will be asked to reboot after completing the pre-inspection.  
 
 After rebooting, you should enter the “**Servo gun automatic setting**” screen and continue the setting. 
 {% endhint %}

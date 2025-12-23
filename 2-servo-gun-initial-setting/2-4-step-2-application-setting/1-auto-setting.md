@@ -22,7 +22,7 @@ In the case of ‘**all automatic setting**’, the following procedures will pr
    * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
 
 {% hint style="info" %}
-\[**Caution**] The gun search that can be performed through ‘**automatic setting**’ is only for gun search 1. When using other gun searches other than gun search 1, you should refer to “[**4.1** **Gun search**](../../4-work-teaching/4-1-gun-search/)” of “[**4.** **Work teaching**](../../4-work-teaching/).”
+The gun search that can be performed through ‘**automatic setting**’ is only for gun search 1. When using other gun searches other than gun search 1, you should refer to “[**4.1** **Gun search**](../../4-work-teaching/4-1-gun-search/)” of “[**4.** **Work teaching**](../../4-work-teaching/).”
 {% endhint %}
 
 &#x20;In the case of ‘all automatic setting’, the ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’ will be performed at the same time, so the servo gun performs squeezing only five times. For execution of ‘gun search’, the squeezing force and gun search speed should be designated. If you press the『Gun search condition setting』key in the aformentioned ‘Application setting’ screen, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
@@ -34,7 +34,7 @@ In the case of ‘**all automatic setting**’, the following procedures will pr
 </p>
 
 {% hint style="info" %}
-\[**Caution**] In the case of ‘**gun arm deflection compensation**’ and ‘**panel thickness measurement compensation**’, it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
+In the case of ‘**gun arm deflection compensation**’ and ‘**panel thickness measurement compensation**’, it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
 
 The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
 {% endhint %}

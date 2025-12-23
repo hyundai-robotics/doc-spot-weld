@@ -60,7 +60,9 @@ The explanation for the setting items is as follow.
 
     This is the currently measured current and will be monitored in a way that it can get close to the command current when squeezing is performed.
 
-{% hint style="info" %} \[**Caution**]
+<br>
+
+{% hint style="info" %}  
 The operation by selecting \[**Ctrl**] + \[**Servo gun manual pressure**] keys will work until the squeezing is completed with one execution, making it impossible to stop the operation by releasing the button in the middle. Therefore, stopping the squeeze operation requires you to release the enable switch or press the emergency stop button. Also, if the squeezing force gauge thickness is different from the actual value, the squeezing force will be different in automatic mode. So please input the correct value.
 
 You can set and operate the servo gun using the function buttons on the right side of the current screen. The related settings and operations are as follows.

@@ -10,5 +10,5 @@ Up to five sequences are available, and users may configure as many as required.
 
 <p align=center>
 <img src="../../../../_assets/image_56.png" width="70%"></img>
-<em><p align="center">그림 5.13_1 초기 시퀀스 설정</p></em>
+<em><p align="center">Figure 5.13_1 Initial sequence setting</p></em>
 </p>

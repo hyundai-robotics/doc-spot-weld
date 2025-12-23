@@ -11,17 +11,17 @@ Progress the automatic setting of the ‘**default setting**’ of the servo gun
 
 In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
 
-    (1) Encoder offset compensation  
+  *  (1) Encoder offset compensation  
       - The moving electrode moves to the maximum opening position.  
       - The servo gun stops at the maximum opening position and then encoder offset compenation will be executed.
-    (2) Axis origin setting
+  *  (2) Axis origin setting
       - The servo gun performs the squeezing operation three times and opening operation two times.
       - After the third squeezing operation, the servo gun moves to the position where the two electrodes meet with each other.
       - Confirms the relevant position with the user.
       - Executes the setting of the axis origin.
-    (3) Soft limit setting  
+  *  (3) Soft limit setting  
       - Will be automatically executed after the axis origin setting.
-    (4) Squeezing force - current table setting 
+  *  (4) Squeezing force - current table setting 
       - Automatic change to the menu for the setting will occur.
 
 In the case of automatic setting of the servo gun's default setting, the servo gun's ‘**encoder offset compensation**’ position and ‘**axis origin compensation**’ position are automatically recognized, allowing the ‘**encoder offset compensation**’, ‘**axis origin compensation**’ and ‘**soft limit setting**’ to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the ‘**squeeze force - current table setting**’ does not proceed automatically. Please refer to the chapter “[**2.3.3 Squeeze force - current table setting**](2-3-3-3-servo-gun-force-current-table-tuning/)” for setting.

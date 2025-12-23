@@ -18,7 +18,7 @@ Through the “**Servo gun automatic setting**” function (『**Setting**』 �
 </p>
 
 {% hint style="warning" %}
-\[**Caution**\] You can enter the menu only when the currently selected gun number is for the servo gun.
+You can enter the menu only when the currently selected gun number is for the servo gun.
 (“**Additional axis parameter setting**”, “**Load estimation**”, “**Tool data inputting**”, “**Tool number and gun type corresponding to the gun number**” are the items that should be essentially set prior to the servo gun automatic setting.) If multiple guns are to be used, their individual settings should be performed by chaning the gun number.
 {% endhint %}
 

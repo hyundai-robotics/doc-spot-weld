@@ -1,29 +1,30 @@
-﻿# 5.3.2.1.2 가압 중 건 이동(피봇)
+﻿# 5.3.2.1.2 Gun Movement During Pressurization (Pivot)
 
-서보건 스폿 용접에서 가압 중에 건을 이동시키는 기능입니다. 설정한 이동시점에 지정한 거리, 속도, 방향으로 로봇이 이동합니다. 본 기능은 툴 좌표계를 기준으로 로봇이 이동하는 기능이기 때문에 서보건 툴 데이터, 마모량, 건 암 휨, 티칭 자세, 로봇 캘리브레이션이 성능에 영향을 줄 수 있습니다. 기능의 효과적인 적용을 위해서는 상기 요소들을 지속적으로 관리해야 합니다.
+This function moves the gun during the pressurization phase in servo gun spot welding. At the specified movement timing, the robot moves by the defined distance, speed, and direction.
+
+Since this function moves the robot based on the tool coordinate system, servo gun tool data, wear amount, gun arm deflection, teaching posture, and robot calibration can affect performance. To apply this function effectively, the above factors must be continuously monitored and managed.
 
 <p align=center>
 <img src="../../../../_assets/image_57_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.13 피봇 기능 설정</p></em>
+<em><p align="center">Figure 5.13 Pivot setup</p></em>
 </p>
 
-(1)  **조건번호**
--    다단 가압 및 보조조건의 조건번호를 표시합니다.
+(1)  **Condition number**
+
+-   Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.
   
-(2)  **이동 시점**
--   스폿의 단계를 [**초기 가압력 도달**] → [**용접실행 출력**] → [**용접완료 입력**]으로 구분하여 이동 시작 시점을 지정
+(2)  **Point to start movement**
+-   Specifies the start timing of movement by dividing the spot welding stages into
+[**Initial squeeze arrived**] → [**Welding execution output**] → [**Welding complete input**].
 
-(3)  **이동 방향**
--   툴좌표계를 기준으로 건이 이동하는 방향을 선택합니다.
+(3)  **Shift value (sft)**
+-   Regardless of whether a robot-mounted gun or a stationary gun is used, the coordinate system and movement position for shift movement are determined.
 
-(4)  **이동 거리\[deg]**
--   이동할 거리를 설정합니다.
+(4)  **Move speed\[mm/s, sec, %]**
+-   Sets the movement speed.
 
-(5)  **이동 속도\[deg/s]**
--   이동할 속도를 설정합니다.
+(5)  **Process for WI during motion**
+-   Selects whether to stop the movement immediately when welding completion occurs during robot movement, or to complete the movement and then proceed to the next step.
 
-(6)  **이동 중 WI 입력 시 처리**
--   로봇 이동 중에 용접 완료가 발생한 경우 이동을 멈출 것인지, 이동을 완료 후 다음 단계로 진행할 지 선택합니다.
-
-(7)  **이동 시작 지연 시간**
--   이동시점이 되었을 때 지연 시간 동안 대기 후 이동을 시작합니다.
+(6)  **Movement start delay**
+-   When the movement timing is reached, the robot waits for the specified delay time before starting the movement.

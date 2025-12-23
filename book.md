@@ -100,7 +100,7 @@ Through the “**Servo gun automatic setting**” function (『**Setting**』 �
 </p>
 
 {% hint style="warning" %}
-\[**Caution**\] You can enter the menu only when the currently selected gun number is for the servo gun.
+You can enter the menu only when the currently selected gun number is for the servo gun.
 (“**Additional axis parameter setting**”, “**Load estimation**”, “**Tool data inputting**”, “**Tool number and gun type corresponding to the gun number**” are the items that should be essentially set prior to the servo gun automatic setting.) If multiple guns are to be used, their individual settings should be performed by chaning the gun number.
 {% endhint %}
 
@@ -185,7 +185,7 @@ When spot welding is performed, the equalizing operation (operation in which the
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
-  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun</p></em>
+  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun : {0˚, 180˚, 0˚}</p></em>
  </img>
 </p>
 
@@ -198,7 +198,6 @@ When spot welding is performed, the equalizing operation (operation in which the
 
 </br>
 
->    **In the case of the above figure, set the tool angle as {0 deg, 180 deg, 0 deg}.**
 
 # 2.2 Step 0. Pre-inspection
 
@@ -222,7 +221,7 @@ Pre-inspection is a step to check whether the pre-setting items have been comple
 </p>
 
 {% hint style="warning" %}
-\[**Caution**]  If you complete the setting on the “**Additional axis parameter setting**” screen, you will be asked to reboot after completing the pre-inspection.
+If you complete the setting on the “**Additional axis parameter setting**” screen, you will be asked to reboot after completing the pre-inspection.  
 
 After rebooting, you should enter the “**Servo gun automatic setting**” screen and continue the setting. 
 {% endhint %}
@@ -282,17 +281,17 @@ Progress the automatic setting of the ‘**default setting**’ of the servo gun
 
 In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
 
-    (1) Encoder offset compensation  
+  *  (1) Encoder offset compensation  
       - The moving electrode moves to the maximum opening position.  
       - The servo gun stops at the maximum opening position and then encoder offset compenation will be executed.
-    (2) Axis origin setting
+  *  (2) Axis origin setting
       - The servo gun performs the squeezing operation three times and opening operation two times.
       - After the third squeezing operation, the servo gun moves to the position where the two electrodes meet with each other.
       - Confirms the relevant position with the user.
       - Executes the setting of the axis origin.
-    (3) Soft limit setting  
+  *  (3) Soft limit setting  
       - Will be automatically executed after the axis origin setting.
-    (4) Squeezing force - current table setting 
+  *  (4) Squeezing force - current table setting 
       - Automatic change to the menu for the setting will occur.
 
 In the case of automatic setting of the servo gun's default setting, the servo gun's ‘**encoder offset compensation**’ position and ‘**axis origin compensation**’ position are automatically recognized, allowing the ‘**encoder offset compensation**’, ‘**axis origin compensation**’ and ‘**soft limit setting**’ to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the ‘**squeeze force - current table setting**’ does not proceed automatically. Please refer to the chapter “[**2.3.3 Squeeze force - current table setting**](2-3-3-3-servo-gun-force-current-table-tuning/)” for setting.
@@ -465,7 +464,9 @@ The explanation for the setting items is as follow.
 
     This is the currently measured current and will be monitored in a way that it can get close to the command current when squeezing is performed.
 
-{% hint style="info" %} \[**Caution**]
+<br>
+
+{% hint style="info" %}  
 The operation by selecting \[**Ctrl**] + \[**Servo gun manual pressure**] keys will work until the squeezing is completed with one execution, making it impossible to stop the operation by releasing the button in the middle. Therefore, stopping the squeeze operation requires you to release the enable switch or press the emergency stop button. Also, if the squeezing force gauge thickness is different from the actual value, the squeezing force will be different in automatic mode. So please input the correct value.
 
 You can set and operate the servo gun using the function buttons on the right side of the current screen. The related settings and operations are as follows.
@@ -501,10 +502,10 @@ Among the application setting items, the ‘gun search’ setting is essential. 
 
 The application setting can be progressed in automatic setting and manual setting.
 
-   (1) **Automatic setting**  
+(1) **Automatic setting**  
    * The servo gun automatically moves to execute ‘**gun search**’, ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’. All items of the application setting can be performed automatically.  
   
-   (2) **Manual setting**  
+(2) **Manual setting**  
    * The user directly performs ‘**gun search**’ and inputs the ‘**gun arm deflection amount compensation**’ and ‘**panel thickness measurement compensation**’ values.  
 # 2.4.1 Automatic setting
 
@@ -530,7 +531,7 @@ In the case of ‘**all automatic setting**’, the following procedures will pr
    * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
 
 {% hint style="info" %}
-\[**Caution**] The gun search that can be performed through ‘**automatic setting**’ is only for gun search 1. When using other gun searches other than gun search 1, you should refer to “[**4.1** **Gun search**](../../4-work-teaching/4-1-gun-search/)” of “[**4.** **Work teaching**](../../4-work-teaching/).”
+The gun search that can be performed through ‘**automatic setting**’ is only for gun search 1. When using other gun searches other than gun search 1, you should refer to “[**4.1** **Gun search**](../../4-work-teaching/4-1-gun-search/)” of “[**4.** **Work teaching**](../../4-work-teaching/).”
 {% endhint %}
 
 &#x20;In the case of ‘all automatic setting’, the ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’ will be performed at the same time, so the servo gun performs squeezing only five times. For execution of ‘gun search’, the squeezing force and gun search speed should be designated. If you press the『Gun search condition setting』key in the aformentioned ‘Application setting’ screen, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
@@ -542,7 +543,7 @@ In the case of ‘**all automatic setting**’, the following procedures will pr
 </p>
 
 {% hint style="info" %}
-\[**Caution**] In the case of ‘**gun arm deflection compensation**’ and ‘**panel thickness measurement compensation**’, it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
+In the case of ‘**gun arm deflection compensation**’ and ‘**panel thickness measurement compensation**’, it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
 
 The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
 {% endhint %}
@@ -841,69 +842,65 @@ The gun search state can be checked from the /Monitoring/Spot section.
  <img src="../../_assets/image_23_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 4.1 Gun search execution sequence of the servo gun</p></em>
 </p># 4.1.2 Commands related to gun search
----
+
+
 (1) gunsea
 
-    This is a statement to be used for executing gun search 1 when the gun type is servo gun or executing gun search 2 by using the squeezing force.
+ This is a statement to be used for executing gun search 1 when the gun type is servo gun or executing gun search 2 by using the squeezing force.
 
-```
-gunsea gun=<gun number>,sea=<search number>,pre=<squeezing force>,spd=<search speed>,mgun=<numbers of multiple guns>,mpre=<squeezing force for multiple guns>
-```
+
+```gunsea gun=<gun number>,sea=<search number>,pre=<squeezing force>,spd=<search speed>```
 
 |   **Item**   | <p align="center">   **Content**   </p>| 
 |:--------: | ----------------------------------------------------------------- |
-|   **Gun number**  | Designates the gun number to search.                |
-|  **Search number**  | Designates the gun search 1 operation or gun search operation 2.                 |
-|   **Squeezing force**  | Designates the command squeezing force for detection of squeezing force matching.            |
-|  **Search speed**  | <p>Designates the operation speed of the gun's axis for the search operation.</p><p>The search speed is based on safe speed and the recommended speed is 10 mm/s.</p>         |
-|  **Numbers of multiple guns** | Designates the numbers for multiple guns when executing gun search for multiple servo guns at the same time.                                                   |
-| **Squeezing force for multiple guns** | <p>Designates the squeezing force when required to apply a different squeezing force for each servo gun when executing gun search for multiple servo guns at the same time</p><p>If it is not designated, the squeezing force of the default gun will apply.</p> |
+|   **Gun number**  |  the gun number to measure the tip length (array[ ] for multi inputs)  | 
+|  **Search number**  |  the gun search 1 operation or gun search operation 2             |
+|   **Squeezing force**  |  the command squeezing force for detection of squeezing force matching.(array[ ] for multi inputs)       |
+|  **Search speed**  |the operation speed of the gun's axis for the search operation (10 mm/s recommended)|
+
+
+<br>
 
 {% hint style="info" %}
-[Use example]
+[Use example]    
 
 A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing force 100 kgf and 200 kgf respectively
 
-→ ```gunsea gun=5,sea=1,pre=100,mgun=6,mpre=200```
+→ ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
 
 {% endhint %}
 
 ---
 (2) igunsea
 
-    This is a statement to be used for executing gun search 2 based on the input signal when the gun type is servo gun.
+This is a statement to be used for executing gun search 2 based on the input signal when the gun type is servo gun.
 
-```
-igunsea gun=<gun number>,spd=<search speed>,di=<input signal>
-```
+```igunsea gun=<gun number>,spd=<search speed>,di=<input signal>```
 
 |  **Item**  |   <p align="center">   **Content**   </p>  |
 | :------: | ---------------------------------------------------------------------- |
-| **Gun number** | Designates the gun number to search                                                              |
-| **Search speed** | <p>Designates the operation speed of the gun's axis for the search operation.</p><p>The search speed is based on safe speed and the recommended speed is 10mm/s.</p>    
-| **Input signal** | Designates the input signal number for the reception of the phottube output.                                               |
+| **Gun number** |  the gun number to search                  |
+| **Search speed** | the operation speed of the gun's axis for the search operation (10 mm/s recommended)|
+| **Input signal** |  the input signal address for the reception of the phottube output    |
 
 </br>
 
 ---
 (2) egunsea
 
-    This is used when the gun type is equalizerless gun.
+This is used when the gun type is equalizerless gun.
 
-```
-egunsea gun=<gun number>,spd=<search speed>,dist=<search distance>,di=<input signal>
-```
+```egunsea gun=<gun number>,spd=<search speed>,dist=<search distance>,di=<input signal>```
 
 |  **Item**  |  <p align="center">   **Content**   </p>   |
 | :------: | ---------------------------------------------------------------------- |
-| **Gun number** |  Designates the gun number to search                                                            |
-| **Search speed** | <p>Designates the operation speed of the gun's axis for the search operation.</p><p>The search speed is based on safe speed and the recommended speed is 10 mm/s.</p>    
-| **Input signal** | Designates the input signal number for reception of the phot tube output.         # 4.1.3 Gun search reference position record
+| **Gun number** |   the gun number to search                                                            |
+| **Search speed** | the operation speed of the gun's axis for the search operation (10 mm/s recommended)  |
+| **Input signal** |  the input signal address for reception of the phot tube output |     # 4.1.3 Gun search reference position record
 
 The consumption amount of an electrode is measured based on an unconsumed new tip. Therefore, the process of registering the reference position with a new tip is absolutely necessary at least once in the beginning, and this is called gun search reference position record.
 
 {% hint style="info" %}
-[Caution]
 **The gun search reference position must be recorded at least once before the execution of gun search**
 {% endhint %}
 
@@ -930,9 +927,11 @@ The gun search function of the servo gun is initially set in a way that the tota
 If the set value of『**Moving electrode consumption amount/Total consumption amount (%)**』 is “0”, the gun search 2 operation must be performed. If it is not “0”, the total consumption amount will be distributed according to the set ratio through the gun search 1 operation.
 {% endhint %}
 
-(1) Gun search 1
 
-    Measures the total electrode consumption amount by making the moving electrode squeeze the fixed electrode.
+<br>
+
+(1) Gun search 1  
+  - Measures the total electrode consumption amount by making the moving electrode squeeze the fixed electrode.
 
 <p align="center">
  <img src="../../../_assets/image_47_eng.PNG"></img>
@@ -941,11 +940,10 @@ If the set value of『**Moving electrode consumption amount/Total consumption am
 </p>
 
 
->1. The servo gun moves to the record position of the step. 
->2. The fixed electrode is squeezed with the moving electrode until the set squeeze force is reached.
->3.  When the squeezing force matching is detected, the total electrode consumption amount is measured and the opening operation is executed.  
->    Total electrode consumption amount = Squeezing force matching detection position  - gun search 1 reference position
->4. The servo gun opens up to the record position of the step.
+>1. The servo gun moves to the record position of the step.  
+>2. The fixed electrode is squeezed with the moving electrode until the set squeeze force is reached.  
+>3.  When the squeezing force matching is detected, the total electrode consumption amount is measured and the opening operation is executed. Total electrode consumption amount = Squeezing force matching detection position  - gun search 1 reference position
+>4. The servo gun opens up to the record position of the step.  
 >5. In an environment where only gun search 1 is operating, the measured total electrode consumption amount is distributed according to the ratio between the moving electrode and fixed electrode as shown in the figure below. (default is 50 : 50.)
 
 <p align="center">
@@ -956,7 +954,7 @@ If the set value of『**Moving electrode consumption amount/Total consumption am
 
 (2) Gun search 2
 
-Measures the moving electrode consumption amount. The measurement can be performed by using a squeezing force or an external signal.
+- Measures the moving electrode consumption amount. The measurement can be performed by using a squeezing force or an external signal.
 
 *   **By using a squeezing force**
 
@@ -986,11 +984,11 @@ Measures the moving electrode consumption amount. The measurement can be perform
  <em><p align="center">Figure 4.6 Gun search 2 that uses an external signal input</p></em>
 </p>
 
->1. Movement to the record position of the step occurs.
->2. The moving electrode approaches at the search speed and switches the phototube contact signal.
+>1. Movement to the record position of the step occurs.  
+>2. The moving electrode approaches at the search speed and switches the phototube contact signal.  
 >3.  When a signal is detected by the photo tube, the moving electrode consumption amount is detected and the opening operation is executed.  
  >   **Moving electrode consumption amount = External signal detection position - reference position for gun search 2 that uses the external signal**  
- >   **Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount**  
+ >   **Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount**   
 >4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated.
 # 4.1.4.2 Equalizerless gun
 
@@ -1014,7 +1012,7 @@ As an equalizerless gun only manages the consumption amount on the fixed electro
 While the fixed and moving electrodes are squeezing, the current flows from the welder, allowing the spot welding to be performed.
 # 4.2.1 Spot statement
 
-)If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the \[**GUN**] LED is turned on while the step is being recorded with the \[**Record**] key, the Spot statement will be recorded along with the Move statement. (one-touch recording method.)
+If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the \[**GUN**] LED is turned on while the step is being recorded with the \[**Record**] key, the Spot statement will be recorded along with the Move statement. (one-touch recording method.)
 
  When recording the welding step, if you make the fixed electrode contact the panel through a jogging operation and then record the Spot statement in one-touch method, while squeezing the panel through a manual squeezing operation, the panel thickness will be set. Once the panel thickness is set, if you make the fixed electrode contact the panel through a jogging operation and then record the Spot statement in one-touch method without a manual squeezing operation, the recording will take place by taking into consideration the position for which the panel thickness and the consumption amount are compensated.
 
@@ -1022,29 +1020,35 @@ While the gun type is servo gun, if the Spot statement exists during \[**Positio
 
 </br>
 
-**spot** gun=<gun number>,cnd=<condition number>,seq=<sequence number>,mgun=<numbers of multiple guns>,mcnd=<conditions of multiple guns>,mseq=<sequences of multiple guns>
+```spot gun=\<gun number>,cnd=\<condition number>,seq=\<sequence number>,pre=\<pressure>,out=\<output data>```
 
 
 <center>
 
-|   **Item**    | 　    <p align=center>           **Content**        </p>    |
-| :-----------: |------------------------------------------- |
-|    **Gun number**    | Designates the welding gun number                                |
-|    **Condition number**   | Designates the welding condition                        |
-|   **Sequence number**  | Designates the welding sequence                     |
-|   **Numbers of multiple guns**  | Designates the numbers of multiple guns when performing welding simultaneously with multiple guns    |
-|  **Condition numbers of multiple guns** | To be designated when welding is performed simultaneously with multiple guns with individually different welding condition for each gun </br>If they are not designated, the welding condition of the default gun will apply.  |
-| **Sequence numbers of multiple guns** | To be designated when welding is performed simultaneously with multiple guns with invidually different welding sequence for each gun </br> If they are not designated, the welding sequence of the default gun will apply. |
+|   **Item**    | 　      **Content**       |
+| :--------: |:---------: |
+|    **Gun number**    | Specipies the welding gun number |
+|    **Condition number**   | Specipies the welding condition |
+|   **Sequence number**  | Specipies the welding sequence |
+|   **pressure value**  | Specipies the pressurization force value  |
+|   **Output data**  | Specipies output value transmitted in 12-bit format |
 
 </center>
 
 </br>
 
 {% hint style="info" %}
-\[Example of use\]  
-- When performing spot welding using the servo guns 5 and 6 while applying welding conditions 7 and 8 respectively and welding sequences 9 and 10 respectively.
 
-  ```spot gun=5,cnd=7,seq=9,mgun=6,mcnd=8,mseq=10```
+\[Example of use\]  
+- All parameters of the ```spot``` command can be entered in array format [ ] when using multiple guns.
+
+{% endhint %}
+
+{% hint style="info" %}
+\[Example of use\]  
+- When performing spot welding using servo guns 5 and 6 with welding conditions 7 and 8, welding sequences 9 and 10, and welding pressures of 100 kgf and 200 kgf, respectively.
+
+  ```spot gun=[5,6],cnd=[7,8],seq=[9,10],pre=[100,200]```
 
 {% endhint %}# 4.2.2 Welding sequence by gun type
 
@@ -1165,19 +1169,29 @@ B.   Setting the servo tool parameter
 In『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**』, set the gun type and tool number targeted for the servo tool change.
 
 <p align="center">
- <img src="../../../_assets/image_24_eng.PNG" width="70%"></img>
- <img src="../../../_assets/image_24_1png" width="70%"></img>
+ <img src="../../../_assets/image_24_eng.PNG" width="90%"></img>
  <em><p align="center">Figure 4.14 Addition of a spot gun</p></em>
 </p>
 
 
 The figure 4.14 shows a case in which two servo guns are set as below.
 
-* **Gun1**: Welder 1, tool number 0, servo gun, additional axis 2 -> Required to set the servo tool parameters
-* **Gun2**: Welder 1, tool number 1, servo gun, additional axis 1 -> Required to set the servo tool parameters
+* **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> Required to set the servo tool parameters
+* **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> Required to set the servo tool parameters
+* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> Not required to set the servo tool parameters
+* **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> Required to set the servo tool parameters
 
  In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.
-# 4.5.1.2 Servo tool parameter setting
+
+
+<br>
+
+
+{% hint style="warning" %}
+ 
+ All welding guns used for welding gun change must use the same welding controller.
+  
+{% endhint %}# 4.5.1.2 Servo tool parameter setting
 
  In『**Setting**』 → 『**4: Application parameter**』 → 『**11: Servo tool change**』 → 『**2: Servo tool parameter setting**』, set the gun type and tool number targeted for the servo tool change.
 
@@ -1198,7 +1212,7 @@ The setting items of the parameter for the servo tool are mostly the same as the
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 4.16 Additional axis parameter setting screen</p></em>
-</p># 4.5.2 Connection/separation commands 
+</p># 4.5.2 Connection/disconnection commands 
 
 In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
 
@@ -1214,27 +1228,27 @@ Operation = **R358, #1, #2, #3**
 |   Set value   | Connection=1, Separation=0 |  Servo gun=1 | The number of the gun targeted for change |
 
 | Example of use | R358,1,1,2 (connects the servo gun G2) |
-| :--: | ----------------------- |
+| :--: | :--:|
 |      | R358,1,0 (separates the servo gun)      |
+
+<br>
 
 (2) toolchng
 
 This is a function for welding gun change through the execution of a work program. 
 
-```
-toolchng on/off,chng=<target for change>,di=<connection complete signal>,wtime=<connection completion wait time>,mchng1=<targe for change>,mchng2=<target for change>,mchng3=<target for change>
-```
+```toolchng on/off/fixed,tg=<target for change>,is=<connection complete signal>,wait=<connection completion wait time>```
 
-|                            **on/off**                            |       **on**       |                    Connection of the servo tool                    |                                               |
-| :--------------------------------------------------------------: | :----------------: | :-----------------------------------------: | :-------------------------------------------: |
-|                               ****                               |       **off**      |                    Separation of the servo tool                   |                                               |
-|                            **Target for change**                            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>Welding gun number</p>         | <mark style="color:red;">Connection/separation of the relevant additional axis</mark> |
-|                         **Mechanical connection completion check signal**                        |     **1\–4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |          <p>Parameter to be ignored in off state</p><p></p>          |
-|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **<0\–5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
-| <p><strong>Target for change</strong></p><p><strong>(Simultaneous connection/seperation)</strong></p> |     **G1\–G16**    |                   Number of the welding gun to connect                 |          <p>Parameter to be ignored</p><p>in off state</p>         |
+|     **on/off**  |       **on**       |      Connection of the servo tool     |      |
+| :-------------: | :----------------: | :-------------: | :------------------------: |
+|             |       **off**      |        Separation of the servo tool   |      |
+|      **Target for change**            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>array [ ] for multi guns</p>         | <mark style="color:red;">Connection/separation of the relevant additional axis</mark> |
+|                         **Mechanical connection completion check signal**                        |     **1~4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |    <p>Parameter to be ignored in off state</p><p></p>          |  |     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0–5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
+|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0~5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |  <p>Parameter to be ignored</p><p>in off state</p>  |
+
 
 Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.
-# 4.5.3 Connection/separation timing
+# 4.5.3 Connection/disconnection timing
 
 
 <p align="center">
@@ -1245,7 +1259,8 @@ Connection completion will be finalized only after the mechanical connection and
 *   Connection
 
     If the robot and servo gun are mechanically connected during the execution of the connection command (toolchng on), the connection completion signal will be inputted, the connection will be processed inside the controller, the encoder power for driving the axis of the servo gun will be inputted, and the motor on operation will be executed.
-*   Separation
+
+*   Disconnection
 
      The separation command will execute the processing of the separation according to the sequence opposite to that of the connection command.
 # 4.5.4 Sample program
@@ -1299,7 +1314,7 @@ In general, spot welding is performed with one welding gun at a time. The functi
 # 4.6.1 Manual selection of multiple guns
 
 <p align="center">
- <img src="../../_assets/image_32_eng.PNG" width="30%"></img>
+ <img src="../../_assets/image_32_eng.PNG" width="60%"></img>
  <em><p align="center">Figure 4.19 Additional axis parameter setting screen</p></em>
 </p>
 
@@ -1331,9 +1346,9 @@ The procedure for selecting G1 (master) and G2 (slave) as multiple guns through 
 
 # 4.6.2 Support functions
 
-The functions to be provided for simultaneous weldig with multiple guns is as follows.
+The functions to be provided for simultaneous weldig with multiple guns are as follows.
 
-1. Manual closing
+1. Manual opening and closing
 2. Manual squeezing
 3. spot statement
 4. gunsea statement
@@ -1341,35 +1356,48 @@ The functions to be provided for simultaneous weldig with multiple guns is as fo
 
  This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the “thickcheck” statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
 
-<p align="center">
- <img src="../_assets/image_49_eng.PNG" width="40%"></img>
- <em><p align="center">Figure 4.20 Inspection of the panel thickness with the servo gun</p></em>
-</p>
+<br>
+
+```thickcheck thick=<thickness variable>, ref=<reference value>, tol=<tolerance value>, addr=<go to>```
+
+<br>
 
 * **thick**
 
-    Designates the variable to store the measured panel thickness by squeezing the servo gun.
+    Specipies the variable to store the measured panel thickness by squeezing the servo gun.
+
 * **ref**
 
-    Designates the normal panel thickness.
+    Specipies the normal panel thickness.
+
 * **tol**
 
-    Designates the toleranc.
+    Specipies the tolerance.
+
 * **addr(branch line)**
 
-   Designates the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation “**E1493 Measured panel thickness exceeded the normal range**” occurs and then the robot stops and the output signal set in the “**Panel thickness abnormal**” section is turned on. If the branch line is recorded, the situation “**W0152 Measured panel thickness exceeded the normal range**” occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the “**Panel thickness abnormal**” section is turned on only for 200 ms.
+   Specipies the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation “**E1493 Measured panel thickness exceeded the normal range**” occurs and then the robot stops and the output signal set in the “**Panel thickness abnormal**” section is turned on. If the branch line is recorded, the situation “**W0152 Measured panel thickness exceeded the normal range**” occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the “**Panel thickness abnormal**” section is turned on only for 200 ms.
 
+ *  Sample code 
 
+```python
 
-{% hint style="warning" %}
-[Caution]  
+S10   move L, ...                               # Move to a spot point
+      thickcheck thick=v0,ref=4.0,tol=1.0       # Check the panel thickness
+      spot gun=1, cnd=1, seq=1                  # perform spot welding
 
+```
+<Br>
+
+{% hint style="warning" %}  
 The following should be in place first for accurate measurement of the panel.
 
 1. Gun search (precise management of the consumption amounts of the moving and fixed electrodes)
 2. Setting of gun arm deflection amount (Setting of the gun arm deflection amount for each squeezing force)
 3. Setting of panel thickness(Setting of the panel thickness for each squeezing force)
 {% endhint %}
+
+
 # 4.8 Handling of workpieces with the servo gun
 
  This is a function to transport a workpiece in small size without using a separate hanger.
@@ -1379,23 +1407,49 @@ The following should be in place first for accurate measurement of the panel.
  <em><p align="center">Figure 4.21 Servo gun's handling function</p></em>
 </p>
 
+</br>
+
+```svclamp on/off gun=\<gun number>,cnd=\<condition number>```
+
+
+
+
+|   **Item**    | 　      **Content**       |
+| :--------: |:---------: |
+|    **on/off**    |  on: clamping, off: releasing |
+|    **Gun number**    |  the welding gun number (array [ ] for multi-guns) |
+|    **Condition number**   |  the welding condition |
+
+
+<br>
+
+
+
 The “**svclamp**” statement can be used to hold a workpiece and perform opening operation. In the svclamp on state, the servo gun does not open.
 
-<p align="center">
- <img src="../_assets/image_12_eng.PNG" width="50%"></img>
- <em><p align="center">Figure 4.22 svclamp command program</p></em>
-</p>
-# 4.9 Calculation of spots in spot welding
+
+
+<br>
+
+```python
+
+S10   move L, ...                    # Move to a holding position
+      svclamp on, gun=1, cnd=1       # Hold the workpiece using a servo gun
+S11   move L, ...                    # Robot movement
+S12   move L, ...                    # Robot movement
+S13   move L, ...                    # Move to a releasing position
+      svclamp off, gun=1, cnd=1      # Release the workpiece 
+S12   move L, ...                    # Robot movement
+
+```# 4.9 Calculation of spots in spot welding
 
 The following system variable stores the count of the inputs of WI during the execution of the spot welding command.
 
-```
-_spotrunno[welder number]
-```
+```_spotrunno[welder number]```
 
 |       **Item**      | 　　　　　　　　　　**Content**      |
-| :---------------: | --------------------- |
-| **Welder number\[1\–4]** | Designates the welder number (totally up to four numbers) |
+| :---------------: | :--------------: |
+| **Welder number\[1\–4]** | the welder number (totally up to four numbers) |
 
 </br>
 
@@ -1413,7 +1467,7 @@ END
 ```
 
 {% hint style="warning" %}
-\[**Caution**]: The spot command executed in the sub task will not be calculated.
+The spot command executed in the sub task will not be calculated.
 {% endhint %}
 
 # 4.10 Consumption amount setting
@@ -1425,9 +1479,9 @@ The following system variable sets the gun's total consumption amount arbitraril
 _tipwear[gun number]
 ```
 
-|      **Item**      | 　　　　　　　　　　**Content**       |
-| :--------------: | ---------------------- |
-| **Gun number\[1\–16]** | Designates the welding gun number (totally up to 16 numbers) |
+|      **Item**      | 　　　**Content**       |
+| :--------------: | :----------------:|
+| **Gun number\[1\–16]** | the welding gun number (totally up to 16 numbers) |
 
 If the consumption amount is arbitrarily set using the above variable, the total consumption amount will apply to the moving and fixed electrodes according to the ratio set for the moving electrode consumption amount. The value will be maintained until the execution of gun search.
 
@@ -1437,10 +1491,11 @@ V1!=_tipwear[1]  	Sets the consumption amount of the gun 1, measured through gun
 
 Use example 2)
 _tipwear[2]=V1!		Sets the total consumption amount of the gun 1 in V1!
+
 ```
 
 {% hint style="warning" %}
-\[**Cautio**]: This variable can apply only to servo and equalizerless guns. In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.
+This variable can apply only to servo and equalizerless guns. In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.
 {% endhint %}
 # 5.  Spot welding parameters
 
@@ -1456,8 +1511,7 @@ Sets the use environment related to spot welding to perform appropriate operatio
 </br>
 
 (1)  **Servo gun spot statement execution method**
-    
-    During the execution of the Spot statement, if the type of the relevant gun is servo gun, it is possible to prohibit the squeezing operation from being executed and the welding signal from being outputted regardless of the welding sequence. Accordingly, this function can be usefully applied to check the teaching position. The sequence for execution of the spot welding will be as follows depending on the state of this setting. 
+  - During the execution of the Spot statement, if the type of the relevant gun is servo gun, it is possible to prohibit the squeezing operation from being executed and the welding signal from being outputted regardless of the welding sequence. Accordingly, this function can be usefully applied to check the teaching position. The sequence for execution of the spot welding will be as follows depending on the state of this setting. 
 
 
 
@@ -1475,22 +1529,19 @@ Sets the use environment related to spot welding to perform appropriate operatio
 </br>
 
 (2)  **Gun search reference position record**
-
-    In the case of a gun type (servo gun, equalizerless gun) for which the controller manages the tip consumption amount, the reference position should be determined first, and then the actual c35onsumption amount will be calculated based on it.
+  - In the case of a gun type (servo gun, equalizerless gun) for which the controller manages the tip consumption amount, the reference position should be determined first, and then the actual c35onsumption amount will be calculated based on it.
     
--   Invalid
-  
-      The actual consumption amount is calculated based on the determined reference position.
--   Valid
-      As the reference position is to be determined to calculate the consumption amount, >>> it would be no problem to perform recording once initially while new tips are attached.
+  - disable  
+   The actual consumption amount is calculated based on the determined reference position.
+  - enable  
+    As the reference position is to be determined to calculate the consumption amount,  it would be no problem to perform recording once initially while new tips are attached.
 
 
-(3)  **Unit of the servo gun force**
+(3)  **Unit of the servo gun force**  
+  - Selects the unit of the squeezing force for the control of the servo gun.
 
-    Selects the unit of the squeezing force for the control of the servo gun.
 (4)  **Automatic adjustment of servo gun welding step record position**
-
-    Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “Valid” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
+  - Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “Valid” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
 
 # 5.2 Welding gun parameter
 
@@ -1507,18 +1558,17 @@ If the gun type is servo gun or equalizerless gun, individual parameters can be 
 <em><p align="center">Figure 5.2 Servo gun default setting screen</p></em>
 </p>
 
-(1)  **Distance during manual opening operation (mm)**
+(1)  **Distance during manual opening operation (mm)**  
+  Specipies the target position in performing wide and narrow opening operations of the servo gun by using the user key.
 
-    Designates the target position in performing wide and narrow opening operations of the servo gun by using the user key.
-(2)  **Maximum electrode consumption amount (mm)**
+(2)  **Maximum electrode consumption amount (mm)**  
+  If the moving or fixed electrode consumption amount detected through gun search exceeds the set value, an error will be outputted and the operation will stop.
 
-    If the moving or fixed electrode consumption amount detected through gun search exceeds the set value, an error will be outputted and the operation will stop.
-(3)  **Electrode replacement required consumption amount (mm)**
+(3)  **Electrode replacement required consumption amount (mm)**  
+  If the moving or fixed electrode consumption amount detected by gun search exceeds the value set here, an electrode consumption alarm signal, together with a warning message, will be outputted to notify the need for replacement of the electrode. When it is set to 0.0 mm, abnormality will not be detected.
 
-    If the moving or fixed electrode consumption amount detected by gun search exceeds the value set here, an electrode consumption alarm signal, together with a warning message, will be outputted to notify the need for replacement of the electrode. When it is set to 0.0 mm, abnormality will not be detected.
-(4)  **Gun arm deflection amount/100\[Kgf]\(mm)**
-
-    Sets the amount of gun arm deflection caused by the squeezing force to a deflection amount for 100 kgf. During the spot welding, squeezing will be performed by calculating the gun arm deflection amount not only from this set value and also from the command squeezing force.
+(4)  **Gun arm deflection amount/100\[Kgf]\(mm)**  
+  Sets the amount of gun arm deflection caused by the squeezing force to a deflection amount for 100 kgf. During the spot welding, squeezing will be performed by calculating the gun arm deflection amount not only from this set value and also from the command squeezing force.
 
 
 <p align=center>
@@ -1526,37 +1576,35 @@ If the gun type is servo gun or equalizerless gun, individual parameters can be 
 <em><p align="center">Figure 5.3 Gun arm deflection amount/100Kgf graph</p></em>
 </p>
 
-(5)  **Degree of squeezing force (%)**
+(5)  **Degree of squeezing force (%)**  
+  During the squeezing force matching process, squeezing force matching detection will occur if the real squeezing force reaches within the range of the accuracy of squeezing force, in comparison to the command squeezing force. If this value is set to 0, the notification 『W0110 Set in a way that squeezing force detection does not occur』 will be outputted and squeezing force matching will not be performed.
 
-    During the squeezing force matching process, squeezing force matching detection will occur if the real squeezing force reaches within the range of the accuracy of squeezing force, in comparison to the command squeezing force. If this value is set to 0, the notification 『W0110 Set in a way that squeezing force detection does not occur』 will be outputted and squeezing force matching will not be performed.
-(6)  **Time for detection of abnormal squeezing force (s)**
+(6)  **Time for detection of abnormal squeezing force (s)**  
+  Sets the time from the start of squeezing to the matching of squeezing force. If squeezing force matching occurs within this time, the welding signal will be outputted immediately. If squeezing force matching does not occur, the notification 『**E1314 Exceeds the time for detection of abnormal squeezing force**』 will be outputted and stopping will occur. If the time is set to 0.0 sec, the squeezing force matching detection will continue to wait.
 
-    Sets the time from the start of squeezing to the matching of squeezing force. If squeezing force matching occurs within this time, the welding signal will be outputted immediately. If squeezing force matching does not occur, the notification 『**E1314 Exceeds the time for detection of abnormal squeezing force**』 will be outputted and stopping will occur. If the time is set to 0.0 sec, the squeezing force matching detection will continue to wait.
-(7)  **Command value offset (mm)**
+(7)  **Command value offset (mm)**  
+  When the Spot statement is executed, a squeezing force should be generated by the servo gun. For this, the moving electrode will be commanded to move to the squeezing position. The squeezing position refers to a position where the ‘command value offset’ is added to the record position in the direction of squeezing.
 
-    When the Spot statement is executed, a squeezing force should be generated by the servo gun. For this, the moving electrode will be commanded to move to the squeezing position. The squeezing position refers to a position where the ‘command value offset’ is added to the record position in the direction of squeezing.
-(8)  **Gun type**
-
-    Selects the type (robot gun, stationary gun) of the selected servo gun. In the case of using a stationary servo gun, the user coordinate system number in which the coordinate system of the stationary gun is set in advance should be set. (it will be the robot coordinate system if the value is 0.). The user coordinate system should be set in a way that the travel direction of the fixed electrode becomes the the Z (+) direction.
+(8)  **Gun type**   
+  Selects the type (robot gun, stationary gun) of the selected servo gun. In the case of using a stationary servo gun, the user coordinate system number in which the coordinate system of the stationary gun is set in advance should be set. (it will be the robot coordinate system if the value is 0.). The user coordinate system should be set in a way that the travel direction of the fixed electrode becomes the the Z (+) direction.
 
 <p align=center>
 <img src="../../../../_assets/image_81_eng.PNG" ></img>
 <em><p align="center">Figure 5.4 Stationary gun coordinate system</p></em>
 </p>
  
-(9)  **Moving electrode consumption amount/Total consumption amount (%)**
+(9)  **Moving electrode consumption amount/Total consumption amount (%)**  
+  When it comes to the method to measure the consumption amount of the servo gun, one is to perform the measurement only through gun search 1 and the other is to perform the measurement by using both gun search 1 and gun search 2.
 
-    When it comes to the method to measure the consumption amount of the servo gun, one is to perform the measurement only through gun search 1 and the other is to perform the measurement by using both gun search 1 and gun search 2.
-
-    If the value is set to 0. the consumption amount will be calculated by using both gun search 1 and gun search 2. If the value is set to a value other than 0, the total consumption amount measured through gun search 1 will be distributed between the moving electrode consumption amount and fixed electrode consumption amount at the set ratio (%). 
+  If the value is set to 0. the consumption amount will be calculated by using both gun search 1 and gun search 2. If the value is set to a value other than 0, the total consumption amount measured through gun search 1 will be distributed between the moving electrode consumption amount and fixed electrode consumption amount at the set ratio (%). 
 (10)  **Real-time squeezing force control**
 
-    Sets whether to use the real-time squeezing force control function. This is a function to perform controlling to ensure that the set squeezing force can be reached by using the actual squeezing force measured with a squeezing force gauge. If this function is set to valid, the 『 Real-time signal』 key will be activated, making it possible to set the parameter.
-(11)  **Squeezing force - current table**
+  Sets whether to use the real-time squeezing force control function. This is a function to perform controlling to ensure that the set squeezing force can be reached by using the actual squeezing force measured with a squeezing force gauge. If this function is set to valid, the 『 Real-time signal』 key will be activated, making it possible to set the parameter.
+(11)  **Squeezing force - current table**  
 
-    A squeezing force table can be created in five levels as desired by the user by measuring the squeezing force with a squeezing force gauge. If the squeezing force is set differently for the gravity direction and anti-gravity direction, the compensation for the squeezing force will occur in line with the operating direction of the gun. 
+  A squeezing force table can be created in five levels as desired by the user by measuring the squeezing force with a squeezing force gauge. If the squeezing force is set differently for the gravity direction and anti-gravity direction, the compensation for the squeezing force will occur in line with the operating direction of the gun.  
 
-    This squeezing force - current table sets the current values for the squeezing values in five levels. The table should be set in a way that the squeezing force - current value increases as the level goes up. The upper and lower limits inputted for the squeezing force will be used as the limiting range of the squeezing force during playback or manual operation.
+  This squeezing force - current table sets the current values for the squeezing values in five levels. The table should be set in a way that the squeezing force - current value increases as the level goes up. The upper and lower limits inputted for the squeezing force will be used as the limiting range of the squeezing force during playback or manual operation.
 
 <p align=center>
 <img src="../../../../_assets/image_54_eng.PNG" ></img>
@@ -1571,32 +1619,31 @@ Real-time squeezing force control is a function to improve the accuracy of servo
 <em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
 </p>
 
-(1)  **Communication method**
 
-    Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
-(2)  **Additional use of controller filter**
+(1)  **Communication method**  
+  Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
 
-    To be used when an additional controller filter is needed.
-(3)  **Cut-off frequency**
+(2)  **Additional use of controller filter**  
+  To be used when an additional controller filter is needed.
 
-    Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
-(4)  **Reset signal output**
+(3)  **Cut-off frequency**  
+   Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
 
-    Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
-(5)  **<Analog>**
+(4)  **Reset signal output**  
+   Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
 
-    Will be activated when analog is selected as the communication method.
+(5)  **\<Analog>**  
+   Will be activated when analog is selected as the communication method.  
+* Squeezing force input port: The number of the signal assigned for input  
+* Magnification: Magnification of the analog input value
 
-    * Squeezing force input port: The number of the signal assigned for input
-    * Magnification: Magnification of the analog input value
-(6)  **<Digital>**
+(6)  **\<Digital>**  
+  Will be activated when digital is selected as the communication method.
 
-    Will be activated when digital is selected as the communication method.
-
-    * Communication range: Minimum and maximum ranges of the assigned signal
-    * Value range: Minimum and maximum values of the assigned signal
-    * Port: The number of the signal assigned for input
-    * Port assignment: Bit count assigned to a signal
+* Communication range: Minimum and maximum ranges of the assigned signal
+* Value range: Minimum and maximum values of the assigned signal
+* Port: The number of the signal assigned for input
+* Port assignment: Bit count assigned to a signal
 
 
 # 5.2.1.2 Servo gun application setting
@@ -1608,18 +1655,19 @@ Real-time squeezing force control is a function to improve the accuracy of servo
 </p>
 
 
-(1)  **Gun arm deflection amount (mm)**
+(1)  **Gun arm deflection amount (mm)**  
 
-     Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press ‘Default value calculation’, the value of 0.31 mm per 100 kgf will be set as the default value.
+ - Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press ‘Default value calculation’, the value of 0.31 mm per 100 kgf will be set as the default value.
  
-(2)  **Panel thickness compensation(mm)**
+(2)  **Panel thickness compensation(mm)**  
 
-      Sets the panel thickness compensation amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+  - Sets the panel thickness compensation amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
 
-{% hint style="warning" %}
-[**Caution**]   When it comes to ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’, it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+{% hint style="warning" %}  
 
-The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’
+When it comes to ‘gun arm deflection amount compensation’ and ‘panel thickness measurement compensation’, it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+
+The ‘gun arm deflection amount compensation’ value is a value used instead of the ‘gun arm deflection amount/100 kgf\[mm]’ among the servo gun parameters. When the ‘gun arm deflection amount compensation’ value is set, the already set ‘gun arm deflection amount/100 kgf\[mm]’ will not be used. On the contrary, if a ‘gun arm deflection amount compensation’ value is not set, the ‘gun arm deflection amount/100 kgf\[mm] will be used.’  
 {% endhint %}
 # 5.2.2. Equalizerless gun
 
@@ -1633,20 +1681,19 @@ If the gun type is “eqaulizerless gun”, a screen for setting the parameters 
 
 
 (1)  **Maximum fixed electrode consumption amount (mm)**
+   - If the consumption amount measured by the egunsea statement exceeds the value set here, an error will be generated.
 
-    If the consumption amount measured by the egunsea statement exceeds the value set here, an error will be generated.
 (2)  **Fixed electrode replacement required consumption amount (mm)**
+   - If the consumption amount measured by the egunsea statement exceeds the value set here, a warining will be outputted.
 
-    If the consumption amount measured by the egunsea statement exceeds the value set here, a warining will be outputted.
 (3)  **Equalizing speeed (mm/s)**
+   - Sets the robot's equalizing speed.
 
-    Sets the robot's equalizing speed.
 (4)  **Gun type**
+   - Selects whether the selected equalizerless gun is a ‘robot gun’ or a ‘stationary gun’. Please refer to 『**2.3.1 Servo gun parameter**』.
 
-    Selects whether the selected equalizerless gun is a ‘robot gun’ or a ‘stationary gun’. Please refer to 『**2.3.1 Servo gun parameter**.』
 (5)  **Gun arm deflection amount/100\[Kgf]\(mm)**
-
-     Sets the deflection amount caused by the squeezing force as the deflection amount for 100 kgf. For the position of the fixed electrode for the execution of spot welding, calculate the gun arm deflection amount both from this value and the command squeezing force and then make some compensation for it and then perform squeezing. 
+   -  Sets the deflection amount caused by the squeezing force as the deflection amount for 100 kgf. For the position of the fixed electrode for the execution of spot welding, calculate the gun arm deflection amount both from this value and the command squeezing force and then make some compensation for it and then perform squeezing. 
 # 5.3 Welding data (condition, sequence)
 
 Sets various parameters related to spot welding to perform appropriate operation in line with the work environment.
@@ -1681,29 +1728,30 @@ Sets the conditions related to spot welding to perform welding in line with the 
 <em><p align="center">Figure 5.11 Welding condition setting</p></em>
 </p>
 
-(1)  **Condition number**
+(1)  **Condition number**  
+  - Sets the welding condition quickly.
 
-    Sets the welding condition quickly.
-(2)  **Output data (binary)**
+(2)  **Output data (binary)**  
+  - Sets the data, which is to be inputted to the welder, for the welding condition number during the execution of the Spot statement.
 
-    Sets the data, which is to be inputted to the welder, for the welding condition number during the execution of the Spot statement.
 (3)  **Initial squeezing force**
 
-    Sets the squeezing force to squeeze the panel during the execution of the Spot statement. This will be used as the initial squeezing force during the setting of the multi-step squeezing force control.
+  - Sets the squeezing force to squeeze the panel during the execution of the Spot statement. This will be used as the initial squeezing force during the setting of the multi-step squeezing force control.
+
 (4)  **Multi-step squeezing force and auxiliary condition**
 
-    This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is inputted, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
+  -  This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is inputted, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
+
 (5)  **Moving electrode clearance**
+  - Sets the position where the moving electrode opens before and after the execution of the Spot statement.
 
-    Sets the position where the moving electrode opens before and after the execution of the Spot statement.
 (6)  **Fixed electrode clearance**
-
-     Sets the position where the fixed electrode opens before and after the execution of the Spot statement.
-# 5.3.2.1. Multi-step and auxiliary conditions
+  - Sets the position where the fixed electrode opens before and after the execution of the Spot statement.
+# 5.3.2.1. Multi-step pressurizations and auxiliary conditions
 
 # 5.3.2.1.1 Multi-step squeezing force control
 
-This is a function to change the squeezing force that is being applied during the spot welding with the servo gun. There are two methods to change the squeezing force. One is to change the squeezing force by creating a predetermined profile and the other is to change the squeezing force by using a signal input.
+This function changes the pressurization force during pressurization in servo gun spot welding. The pressurization force can be changed either by generating a predefined profile or by a signal input.
 
 <p align=center>
 <img src="../../../../_assets/image_65_eng.PNG" width="70%"></img>
@@ -1711,67 +1759,66 @@ This is a function to change the squeezing force that is being applied during th
 <em><p align="center">Figure 5.12 Setting of multi-step squeezing force</p></em>
 </p>
 
-(1)  **Condition number**
+<br>
 
-   Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.
-(2)  **Initial squeezing force**
+(1)  **Condition number**  
+  - Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.  
 
-    Indicates the initial squeezing force set in the welding condition.
-(3)  **Squeezing force change**
+(2)  **Force change type**  
 
-     Indicates the method to change the squeezing force. Creating a profile is a method in which the point of time for change and the time required for change are designated and then the squeezing force is changed in order at the relevant point of time for change. Using a signal input is a method in which the squeezing force is changed when there is a signal input from an external device.
+   - Indicates the method to change the squeezing force. "Profile creation" is a method in which the point of time for change and the time required for change are designated and then the squeezing force is changed in order at the relevant point of time for change. "Signal input" is a method in which the squeezing force is changed when there is a signal input from an external device.
 
-(4)  **Handling upon change of state**
+(3)  **State change process**  
+   - When a WI signal is input while executing multi-stage pressurization conditions, select whether to process the WI signal immediately upon receipt or to process the WI signal after all multi-stage pressurization conditions have been completed. 
 
-    If a state change occurs during a multi-step squeezing or while in a wait, this function makes it possible to select whether to proceed after stopping multi-step squeezing or proceed after completing multi-step squeezing.
-(5)  **\<Profile creation>**
+(4)  **\<Profile creation>**  
+   - Will be activated when profile creation is selected as the method to change the squeezing force.
 
-    Will be activated when profile creation is selected as the method to change the squeezing force.
-
- * Point of time for change: Designates the point of time for starting multi-step squeezing by dividing the spot welding steps into \[**Initial squeezing force reached**] -> \[**Welding execution output**] -> \[**Welding completion input**.] 
- * Time required for change: The squeezing force will be changed after the time required for change after the point of time for change is reached.
- * Squeezing force: The target squeezing force to change to
+        * Point of time for change:  Specipies the point of time for starting multi-step squeezing by dividing the spot welding steps into \[**Initial squeezing force reached**] -> \[**Welding execution output**] -> \[**Welding completion input**].
+        * Time required for change:  The squeezing force will be changed after the time required for change after the point of time for change is reached.
+        * Squeezing force:  The target squeezing force to change to
+        * Output data:  Output value transmitted in 12-bit format upon completion of pressurization
   
-(6)  **<Signal input>**
+(5)  **\<Signal input>**  
+  - Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be inputted.
 
-    Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be inputted.
+    * Communication range:  Range from minimum to maximum of the assigned signal
+    * Value range:  Minimum and maximum values of the assigned signal
+    * Squeezing force port:  The number of the signal assigned for input
+    * Port assignment:  The number of bits assigned to the signal
+    * Request for change:  Port for the input signal for the request for change
+    * Time of delay:  For inputting the time if a delay is needed after the input of the request
+    * Squeezing force:  The requested squeezing force to change to. You can designate the squeezing force or receive an input signal. When the squeezing force is designated, the squeezing force for which a signal is received will be ignored.
+# 5.3.2.1.2 Gun Movement During Pressurization (Pivot)
 
-   * Communication range: Range from minimum to maximum of the assigned signal
-   * Value range: Minimum and maximum values of the assigned signal
-   * Squeezing force port: The number of the signal assigned for input
-   * Port assignment: The number of bits assigned to the signal
-   * Request for change: Port for the input signal for the request for change
-   * Time of delay: For inputting the time if a delay is needed after the input of the request
-   * Squeezing force: The requested squeezing force to change to. You can designate the squeezing force or receive an input signal. When the squeezing force is designated, the squeezing force for which a signal is received will be ignored.
-# 5.3.2.1.2 가압 중 건 이동(피봇)
+This function moves the gun during the pressurization phase in servo gun spot welding. At the specified movement timing, the robot moves by the defined distance, speed, and direction.
 
-서보건 스폿 용접에서 가압 중에 건을 이동시키는 기능입니다. 설정한 이동시점에 지정한 거리, 속도, 방향으로 로봇이 이동합니다. 본 기능은 툴 좌표계를 기준으로 로봇이 이동하는 기능이기 때문에 서보건 툴 데이터, 마모량, 건 암 휨, 티칭 자세, 로봇 캘리브레이션이 성능에 영향을 줄 수 있습니다. 기능의 효과적인 적용을 위해서는 상기 요소들을 지속적으로 관리해야 합니다.
+Since this function moves the robot based on the tool coordinate system, servo gun tool data, wear amount, gun arm deflection, teaching posture, and robot calibration can affect performance. To apply this function effectively, the above factors must be continuously monitored and managed.
 
 <p align=center>
 <img src="../../../../_assets/image_57_eng.PNG" width="70%"></img>
-<em><p align="center">그림 5.13 피봇 기능 설정</p></em>
+<em><p align="center">Figure 5.13 Pivot setup</p></em>
 </p>
 
-(1)  **조건번호**
--    다단 가압 및 보조조건의 조건번호를 표시합니다.
+(1)  **Condition number**
+
+-   Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.
   
-(2)  **이동 시점**
--   스폿의 단계를 [**초기 가압력 도달**] → [**용접실행 출력**] → [**용접완료 입력**]으로 구분하여 이동 시작 시점을 지정
+(2)  **Point to start movement**
+-   Specifies the start timing of movement by dividing the spot welding stages into
+[**Initial squeeze arrived**] → [**Welding execution output**] → [**Welding complete input**].
 
-(3)  **이동 방향**
--   툴좌표계를 기준으로 건이 이동하는 방향을 선택합니다.
+(3)  **Shift value (sft)**
+-   Regardless of whether a robot-mounted gun or a stationary gun is used, the coordinate system and movement position for shift movement are determined.
 
-(4)  **이동 거리\[deg]**
--   이동할 거리를 설정합니다.
+(4)  **Move speed\[mm/s, sec, %]**
+-   Sets the movement speed.
 
-(5)  **이동 속도\[deg/s]**
--   이동할 속도를 설정합니다.
+(5)  **Process for WI during motion**
+-   Selects whether to stop the movement immediately when welding completion occurs during robot movement, or to complete the movement and then proceed to the next step.
 
-(6)  **이동 중 WI 입력 시 처리**
--   로봇 이동 중에 용접 완료가 발생한 경우 이동을 멈출 것인지, 이동을 완료 후 다음 단계로 진행할 지 선택합니다.
-
-(7)  **이동 시작 지연 시간**
--   이동시점이 되었을 때 지연 시간 동안 대기 후 이동을 시작합니다.
+(6)  **Movement start delay**
+-   When the movement timing is reached, the robot waits for the specified delay time before starting the movement.
 # 5.3.2.1.3 Initial sequence
 
 The multi-stage pressure setting conditions can be applied not only to spot welding but also to other welding applications such as dissimilar material joining. Some applications (e.g., RSR) require an input/output signal sequence after reaching the initial pressure.
@@ -1784,7 +1831,7 @@ Up to five sequences are available, and users may configure as many as required.
 
 <p align=center>
 <img src="../../../../_assets/image_56.png" width="70%"></img>
-<em><p align="center">그림 5.13_1 초기 시퀀스 설정</p></em>
+<em><p align="center">Figure 5.13_1 Initial sequence setting</p></em>
 </p>
 # 5.3.3 Welding sequence
 
@@ -1797,22 +1844,21 @@ Sets the sequence related to the spot welding to determine the robot operation a
 </p>
 
 (1)  **Sequence number**
+  - Selects the desired welding sequence quickly among the welding sequences.
 
-    Selects the desired welding sequence quickly among the welding sequences.
 (2)  **Welding signal output delay time (GWT)**
-
-    In the case of the servo gun, this refers to the time of waiting until the welding signal is outputted after the squeezing force matching occurs
+  - In the case of the servo gun, this refers to the time of waiting until the welding signal is outputted after the squeezing force matching occurs
 
     In the case of a pneumatic gun, this refers to a time of waiting until the welding signal is outputted after the execution of the Spot statement.
+
 (3)  **Welding signal pulse output (0=level)**
+  - This is to allow the welding signal to be outputted for a certain period of time. If the value is set to “0”, the welding signal continues to be outputted until the welding completion (WI) signal is inputted.
 
-    This is to allow the welding signal to be outputted for a certain period of time. If the value is set to “0”, the welding signal continues to be outputted until the welding completion (WI) signal is inputted.
 (4)  **Welding completion (WI) wait time**
+  - This is the time of waiting until the welding completion signal is inputted. If this value is set to “0”, waiting continues until there is an input.
 
-    This is the time of waiting until the welding completion signal is inputted. If this value is set to “0”, waiting continues until there is an input.
 (5)  **Robot wait time after welding completion (RWT)**
-
-    In general, this the time of waiting for deposition detection after the welding completion (WI) signal is inputted. If the value is set to “0.0”, the deposition detection does not occur. When the deposition detection signal is to be used, it is recommended to use a value greater than “0.3 secs (300 msec).” However, if the value is large, the welding time will get longer and the cycle time will increase. 
+  - In general, this the time of waiting for deposition detection after the welding completion (WI) signal is inputted. If the value is set to “0.0”, the deposition detection does not occur. When the deposition detection signal is to be used, it is recommended to use a value greater than “0.3 secs (300 msec).” However, if the value is large, the welding time will get longer and the cycle time will increase. 
 # 5.3.4 Servo gun tip dressing condition
 
 Sets various conditions for the execution of tip dressing for the servo gun
@@ -1825,17 +1871,16 @@ Sets various conditions for the execution of tip dressing for the servo gun
 </br>
 
 (1)  **Welding signal output**
+  - Selects whether to output the welding signal for the tip dressing operation.
 
-    Selects whether to output the welding signal for the tip dressing operation.
 (2)  **Tip dressing time**
+  - Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the Spot statement. However, the welding sequence number should be set to “**64**.”
 
-    Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the Spot statement. However, the welding sequence number should be set to “**64**.”
 (3)  **Execution of gun search during tip dressing**
+  - Selects whether to execute gun search during tip dressing.
 
-    Selects whether to execute gun search during tip dressing.
 (4)  **Tip dresser thickness**
-
-    Inputs the tip dresser thickness.
+  - Inputs the tip dresser thickness.
 # 5.4 Input signal assignment for each welder
 
 Assigns the signals related to spot welding, allowing the controller to monitor their state and perform necessary processing.
@@ -1847,14 +1892,13 @@ Assigns the signals related to spot welding, allowing the controller to monitor 
 </p>
 
 (1)  **Welding completion**
+  - Only when this welding completion signal is inputted during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
 
-    Only when this welding completion signal is inputted during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
 (2)  **Deposition error**
+  - To be used when receiving and handling the input of the gun's deposition signal.
 
-    To be used when receiving and handling the input of the gun's deposition signal.
 (3)  **Welder abnormal**
-
-    To be used to stop the operation of the robot when the signal of welder abnormal is inputted.
+  - To be used to stop the operation of the robot when the signal of welder abnormal is inputted.
 # 5.5 Output signal assignment for each welder
 
 Assigns the signals related to spot welding and transfers their state to the outside.
@@ -1865,29 +1909,28 @@ Assigns the signals related to spot welding and transfers their state to the out
 </p>
 
 (1)  **Welder number**
+  - Selects the welder number to set. Up to four welders can be added.
 
-    Selects the welder number to set. Up to four welders can be added.
 (2)  **Welding condition**
+  - Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the Spot statement.
 
-    Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the Spot statement.
 (3)  **Welding execution**
+  - To be used to output a command for welding to the welder during the execution of the Spot statement.
 
-    To be used to output a command for welding to the welder during the execution of the Spot statement.
 (4)  **Welder abnormal**
+  - To be used to output the inputted spot welder abnormal signal to the outside.
 
-    To be used to output the inputted spot welder abnormal signal to the outside.
 (5)  **Electrode consumption alarm**
+  - To be used to output a signal if the consumption amount detected by the gun search is larger than the electrode replacement required consumption amount.
 
-    To be used to output a signal if the consumption amount detected by the gun search is larger than the electrode replacement required consumption amount.
 (6) **Deposition error**
+  - To be used to output to the outside the state that deposition has occurred to the spot gun.
 
-    To be used to output to the outside the state that deposition has occurred to the spot gun.
 (7)  **Servo gun squeezing in progress**
+  - This is a signal that is turned on when squeezing starts upon the execution of the Spot statement and turned off when the opening procedure starts.
 
-    This is a signal that is turned on when squeezing starts upon the execution of the Spot statement and turned off when the opening procedure starts.
 (8)  **Welding gun search in progress**
-
-    This is a signal that is turned on when gun search starts upon the execution of the gunsea, igunsea or egunsea statement and turned off when the opening procedure starts.
+  - This is a signal that is turned on when gun search starts upon the execution of the gunsea, igunsea or egunsea statement and turned off when the opening procedure starts.
     # 6. Spot-Pak
 
 

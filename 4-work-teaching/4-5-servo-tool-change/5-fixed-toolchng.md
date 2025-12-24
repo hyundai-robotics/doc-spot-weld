@@ -7,12 +7,12 @@
 <br>
 
 ```python
-S10	  move L, ...					#고정전극 1을 이동
-	  toolchng fixed,tg=G1,is=di1	#고정전극 1로 변경처리
-S11	  move L, ...					#로봇이동
-	  spot gun=1,cnd=1, seq=1		#건번호 1로 용접 수행
-S12	  move L, ...					#고정전극 2를 이동
-	  toolchng fixed,tg=G2,is=di1	#고정전극 2로 변경처리
-S13	  move L, ...					#로봇이동
-	  spot gun=2,cnd=2, seq=2		#건번호 2로 용접 수행
+S10   move L, ...                   #고정전극 1을 이동
+      toolchng fixed,tg=G1,is=di1   #고정전극 1로 변경처리
+S11   move L, ...                   #로봇이동
+      spot gun=1,cnd=1, seq=1       #건번호 1로 용접 수행
+S12   move L, ...                   #고정전극 2를 이동
+      toolchng fixed,tg=G2,is=di1   #고정전극 2로 변경처리
+S13   move L, ...                   #로봇이동
+      spot gun=2,cnd=2, seq=2       #건번호 2로 용접 수행
 ```

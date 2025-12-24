@@ -8,18 +8,18 @@ While the gun type is servo gun, if the Spot statement exists during \[**Positio
 
 </br>
 
-```spot gun=\<gun number>,cnd=\<condition number>,seq=\<sequence number>,pre=\<pressure>,out=\<output data>```
+```spot gun=<gun number>,cnd=<condition number>,seq=<sequence number>,pre=<pressure>,out=<output data>```
 
 
 <center>
 
 |   **Item**    | 　      **Content**       |
 | :--------: |:---------: |
-|    **Gun number**    | Specipies the welding gun number |
-|    **Condition number**   | Specipies the welding condition |
-|   **Sequence number**  | Specipies the welding sequence |
-|   **pressure value**  | Specipies the pressurization force value  |
-|   **Output data**  | Specipies output value transmitted in 12-bit format |
+|    **Gun number**    |  the welding gun number |
+|    **Condition number**   |  the welding condition |
+|   **Sequence number**  |  the welding sequence |
+|   **Pressure value**  |  the pressurization force value  |
+|   **Output data**  | the output value transmitted in 12-bit format |
 
 </center>
 
@@ -28,7 +28,7 @@ While the gun type is servo gun, if the Spot statement exists during \[**Positio
 {% hint style="info" %}
 
 \[Example of use\]  
-- All parameters of the ```spot``` command can be entered in array format [ ] when using multiple guns.
+- All parameters of  ```spot``` command can be entered in array format [ ] when using multiple guns.
 
 {% endhint %}
 

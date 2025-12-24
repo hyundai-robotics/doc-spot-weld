@@ -913,9 +913,9 @@ The consumption amount of an electrode is measured based on an unconsumed new ti
 </p>
 
 
->1. Set 『**2: Gun search reference position record**』 to <**Valid**>.
+>1. Set 『**2: Gun search reference position record**』 to <**enable**>.
 >2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to “**Incomplete**”.
->3. Set 『**2: Gun search reference position record**』 to <**Invalid**>. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.
+>3. Set 『**2: Gun search reference position record**』 to <**disable**>. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.
 # 4.1.4 Gun search operation by gun type
 
 # 4.1.4.1 Servo gun
@@ -1020,18 +1020,18 @@ While the gun type is servo gun, if the Spot statement exists during \[**Positio
 
 </br>
 
-```spot gun=\<gun number>,cnd=\<condition number>,seq=\<sequence number>,pre=\<pressure>,out=\<output data>```
+```spot gun=<gun number>,cnd=<condition number>,seq=<sequence number>,pre=<pressure>,out=<output data>```
 
 
 <center>
 
 |   **Item**    | 　      **Content**       |
 | :--------: |:---------: |
-|    **Gun number**    | Specipies the welding gun number |
-|    **Condition number**   | Specipies the welding condition |
-|   **Sequence number**  | Specipies the welding sequence |
-|   **pressure value**  | Specipies the pressurization force value  |
-|   **Output data**  | Specipies output value transmitted in 12-bit format |
+|    **Gun number**    |  the welding gun number |
+|    **Condition number**   |  the welding condition |
+|   **Sequence number**  |  the welding sequence |
+|   **Pressure value**  |  the pressurization force value  |
+|   **Output data**  | the output value transmitted in 12-bit format |
 
 </center>
 
@@ -1040,7 +1040,7 @@ While the gun type is servo gun, if the Spot statement exists during \[**Positio
 {% hint style="info" %}
 
 \[Example of use\]  
-- All parameters of the ```spot``` command can be entered in array format [ ] when using multiple guns.
+- All parameters of  ```spot``` command can be entered in array format [ ] when using multiple guns.
 
 {% endhint %}
 
@@ -1443,28 +1443,17 @@ S12   move L, ...                    # Robot movement
 
 ```# 4.9 Calculation of spots in spot welding
 
-The following system variable stores the count of the inputs of WI during the execution of the spot welding command.
+The function for storing spot welding point counts is provided by the built-in PLC. The PLC stores the number of welding points for initialization, power-on, the previous cycle, and the current cycle, respectively, and the user can reset these values manually.
 
-```_spotrunno[welder number]```
+For more details, refer to “[3.4.3 S Relay – OP_TIME](https://hrbook-hrc.web.app/#/view/doc-Hi6-embedded-plc/english/3-relay/4-sw-relay/3-slot-op-time)” in the Built-in PLC Manual.
 
-|       **Item**      | 　　　　　　　　　　**Content**      |
-| :---------------: | :--------------: |
-| **Welder number\[1\–4]** | the welder number (totally up to four numbers) |
+
+<p align="center">
+ <img src="../_assets/image_94_eng.PNG" width="70%"></img>
+ <em><p align="center">Figure 4.22 Spot count</p></em>
+</p>
 
 </br>
-
-The above variable will be initialized to 0 when a new job program is executed after one cycle of the job program is completed, or when \[**R**]+\[**Enter**] is pressed to make a forced shifting to the first line of the job program..
-
-```
-Use example 1)
-V1%=_spotrunno[1]  ‘Stores the number of WIs inputted through the welder 1 up to now into V1%
-
-Use example 2 )
-IF 10<>_spotrunno[1]	‘PRINT #0 if the number of WIs inputted throug the welder 1 up to now is not 10,“Welding count (“; _spotrunno[1];”) error !!”	‘Error message print
-STOP						 	‘Stop
-ENDIF
-END
-```
 
 {% hint style="warning" %}
 The spot command executed in the sub task will not be calculated.
@@ -1472,30 +1461,22 @@ The spot command executed in the sub task will not be calculated.
 
 # 4.10 Consumption amount setting
 
-The following system variable sets the gun's total consumption amount arbitrarily, or stores the total consumption amount measured through the gun search function.
-.
+Consumption amount information for the spot gun can be accessed using spot system variables. The spot system variables display the wear amount of the moving electrode, the fixed electrode, and the total wear amount for each gun. These values can be modified or read using variable assignment statements in the command window.
 
-```
-_tipwear[gun number]
-```
 
-|      **Item**      | 　　　**Content**       |
-| :--------------: | :----------------:|
-| **Gun number\[1\–16]** | the welding gun number (totally up to 16 numbers) |
+<p align="center">
+ <img src="../_assets/image_93_eng.PNG" width="70%"></img>
+ <em><p align="center">Figure 4.23 Spot tip-consumption system variable</p></em>
+</p>
 
-If the consumption amount is arbitrarily set using the above variable, the total consumption amount will apply to the moving and fixed electrodes according to the ratio set for the moving electrode consumption amount. The value will be maintained until the execution of gun search.
+</br>
 
-```
-Use example 1)
-V1!=_tipwear[1]  	Sets the consumption amount of the gun 1, measured through gun search, in V1!
-
-Use example 2)
-_tipwear[2]=V1!		Sets the total consumption amount of the gun 1 in V1!
-
-```
+<br>
 
 {% hint style="warning" %}
-This variable can apply only to servo and equalizerless guns. In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.
+- This variable can apply only to servo and equalizerless guns. 
+- In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.  
+- Any manually set wear amount values will be overwritten by the measured values after a gun search is performed.  
 {% endhint %}
 # 5.  Spot welding parameters
 
@@ -1549,7 +1530,7 @@ If the gun type is servo gun or equalizerless gun, individual parameters can be 
 
 # 5.2.1 Servo gun
 
- If the gun type is servo gun, a screen for setting the parameters related to the servo gun will be indicated as shown below.
+ Servo guns are currently the most widely used type of spot welding gun. Since the servo gun is controlled as an additional axis separate from the robot axes, extensive control settings are required in addition to the auxiliary axis configuration.
 # 5.2.1.1 Servo gun default setting
 
 <p align=center>
@@ -1597,9 +1578,11 @@ If the gun type is servo gun or equalizerless gun, individual parameters can be 
   When it comes to the method to measure the consumption amount of the servo gun, one is to perform the measurement only through gun search 1 and the other is to perform the measurement by using both gun search 1 and gun search 2.
 
   If the value is set to 0. the consumption amount will be calculated by using both gun search 1 and gun search 2. If the value is set to a value other than 0, the total consumption amount measured through gun search 1 will be distributed between the moving electrode consumption amount and fixed electrode consumption amount at the set ratio (%). 
+
 (10)  **Real-time squeezing force control**
 
   Sets whether to use the real-time squeezing force control function. This is a function to perform controlling to ensure that the set squeezing force can be reached by using the actual squeezing force measured with a squeezing force gauge. If this function is set to valid, the 『 Real-time signal』 key will be activated, making it possible to set the parameter.
+  
 (11)  **Squeezing force - current table**  
 
   A squeezing force table can be created in five levels as desired by the user by measuring the squeezing force with a squeezing force gauge. If the squeezing force is set differently for the gravity direction and anti-gravity direction, the compensation for the squeezing force will occur in line with the operating direction of the gun.  
@@ -1627,7 +1610,7 @@ Real-time squeezing force control is a function to improve the accuracy of servo
   To be used when an additional controller filter is needed.
 
 (3)  **Cut-off frequency**  
-   Will be activated when the additional use of the controller filter is set to valid. The size of the filter necessary for the control should be set.
+   Will be activated when the additional use of the controller filter is set to “Enable”. The size of the filter necessary for the control should be set.
 
 (4)  **Reset signal output**  
    Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;

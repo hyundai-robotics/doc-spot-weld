@@ -9,7 +9,7 @@
 
 </br>
 
-```svclamp on/off gun=\<gun number>,cnd=\<condition number>```
+```svclamp on/off gun=<gun number>,cnd=<condition number>```
 
 
 

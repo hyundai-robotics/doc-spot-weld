@@ -82,7 +82,7 @@
     * [5.3.1 Common data](5-spot-weld-parameter/5-3-weld-data-condition-sequence/1-common-data.md)
     * [5.3.2 Welding condition](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/README.md)
       * [5.3.2.1. Multi-step pressurizations and auxiliary conditions](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/README.md)
-        * [5.3.2.1.1 Multi-step squeezing force control](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multistep-force.md)
+        * [5.3.2.1.1 Multi-step squeezing force control](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multi-pressure-ctrl.md)
         * [5.3.2.1.2 Moving a gun during squeezing (pivoting)](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/2-moving-when-pressing-pivot.md)
         * [5.3.2.1.3 Initial sequence](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/3-initial-sequence.md)
     * [5.3.3 Welding sequence](5-spot-weld-parameter/5-3-weld-data-condition-sequence/3-weld-sequence.md)

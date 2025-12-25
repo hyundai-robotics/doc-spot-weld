@@ -2,7 +2,7 @@
 
 <p align="center">
  <img src="../../_assets/image_32_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.19 Additional axis parameter setting screen</p></em>
+ <em><p align="center">Figure 4.19 Screen with multi-gun applied</p></em>
 </p>
 
 The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.

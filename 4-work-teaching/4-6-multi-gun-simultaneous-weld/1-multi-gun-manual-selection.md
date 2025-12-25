@@ -1,7 +1,7 @@
 ﻿# 4.6.1 Manual selection of multiple guns
 
 <p align="center">
- <img src="../../_assets/image_32_eng.PNG" width="60%"></img>
+ <img src="../../_assets/image_32_eng_.PNG" width="60%"></img>
  <em><p align="center">Figure 4.19 Screen with multi-gun applied</p></em>
 </p>
 

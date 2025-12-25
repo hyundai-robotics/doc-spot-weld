@@ -2,7 +2,7 @@
 
 <p align="center">
  <img src="../../_assets/image_32.png" width="60%"></img>
- <em><p align="center">그림 4.19 부가축 파라미터 설정 화면</p></em>
+ <em><p align="center">그림 4.19 멀티건 적용</p></em>
 </p>
 
 서보툴 체인지에 의해 G1(마스터), G2(슬래이브)를 멀티건으로 선택하기 위한 절차는 다음과 같습니다.

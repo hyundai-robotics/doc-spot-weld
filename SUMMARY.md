@@ -115,3 +115,7 @@
 * [8. Errors and warnings](8-error-warning/README.md)
   * [8.1 Error messages](8-error-warning/8.1.md)
   * [8.2 Warning messages](8-error-warning/8.2.md)
+* [9. Spot monitoring function](9-spot-monitoring/README.md)
+  * [9.1 Spot data monitoring function](9-spot-monitoring/9-1-spot-data.md)
+  * [9.2 Gun search data history management](9-spot-monitoring/9-2-gunsea-history.md)
+  * [9.3 Gun search data monitoring function](9-spot-monitoring/9-3-gunsea-data.md)

@@ -3,7 +3,7 @@
  This is a function to transport a workpiece in small size without using a separate hanger.
 
 <p align="center">
- <img src="../_assets/image_52_eng.PNG" width="50%"></img>
+ <img src="../_assets/image_52_eng_.PNG" width="50%"></img>
  <em><p align="center">Figure 4.21 Servo gun's handling function</p></em>
 </p>
 

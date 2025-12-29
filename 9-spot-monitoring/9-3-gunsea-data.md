@@ -19,7 +19,7 @@ An option selection window for graph creation and function buttons at the bottom
 
 Click the [File Select] button, choose the desired log file from the saved files, and then click the [Save] button.
 <p align=center>
-<img src="../_assets/image_106_eng.PNGg" width="70%"></img>
+<img src="../_assets/image_106_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 9.12 Log File Selection</p></em>
 </p>
 

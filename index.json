@@ -326,247 +326,267 @@
 	},
 	{
 		"link": "4-work-teaching/4-6-multi-gun-simultaneous-weld/2-support-function.md",
-		"char_ofs": 91753,
-		"byte_ofs": 94241
+		"char_ofs": 91743,
+		"byte_ofs": 94231
 	},
 	{
 		"link": "4-work-teaching/4-7-panel-thickness-abnormal-detection-when-servo-gun-welding.md",
-		"char_ofs": 91957,
-		"byte_ofs": 94456
+		"char_ofs": 91947,
+		"byte_ofs": 94446
 	},
 	{
 		"link": "4-work-teaching/4-8-servo-gun-based-work-product-handling.md",
-		"char_ofs": 94038,
-		"byte_ofs": 96606
+		"char_ofs": 94028,
+		"byte_ofs": 96596
 	},
 	{
 		"link": "4-work-teaching/4-9-spot-weld-calculation.md",
-		"char_ofs": 95284,
-		"byte_ofs": 97904
+		"char_ofs": 95273,
+		"byte_ofs": 97893
 	},
 	{
 		"link": "4-work-teaching/4-10-amount-of-abrasion-setting.md",
-		"char_ofs": 96027,
-		"byte_ofs": 98674
+		"char_ofs": 96016,
+		"byte_ofs": 98663
 	},
 	{
 		"link": "5-spot-weld-parameter/README.md",
-		"char_ofs": 96908,
-		"byte_ofs": 99577
+		"char_ofs": 96897,
+		"byte_ofs": 99566
 	},
 	{
 		"link": "5-spot-weld-parameter/5-1-use-environment-setting.md",
-		"char_ofs": 96939,
-		"byte_ofs": 99613
+		"char_ofs": 96928,
+		"byte_ofs": 99602
 	},
 	{
 		"link": "5-spot-weld-parameter/5-2-welding-gun-parameter/README.md",
-		"char_ofs": 99687,
-		"byte_ofs": 102428
+		"char_ofs": 99677,
+		"byte_ofs": 102418
 	},
 	{
 		"link": "5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/README.md",
-		"char_ofs": 99815,
-		"byte_ofs": 102563
+		"char_ofs": 99805,
+		"byte_ofs": 102553
 	},
 	{
 		"link": "5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/README.md",
-		"char_ofs": 100082,
-		"byte_ofs": 102833
+		"char_ofs": 100072,
+		"byte_ofs": 102823
 	},
 	{
 		"link": "5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/1-1-real-time-force-control.md",
-		"char_ofs": 105591,
-		"byte_ofs": 108423
+		"char_ofs": 105581,
+		"byte_ofs": 108413
 	},
 	{
 		"link": "5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/2-application-setting.md",
-		"char_ofs": 107315,
-		"byte_ofs": 110190
+		"char_ofs": 107305,
+		"byte_ofs": 110180
 	},
 	{
 		"link": "5-spot-weld-parameter/5-2-welding-gun-parameter/2-eqless-gun.md",
-		"char_ofs": 108848,
-		"byte_ofs": 111785
+		"char_ofs": 108838,
+		"byte_ofs": 111775
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/README.md",
-		"char_ofs": 110169,
-		"byte_ofs": 113150
+		"char_ofs": 110159,
+		"byte_ofs": 113140
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/1-common-data.md",
-		"char_ofs": 110476,
-		"byte_ofs": 113470
+		"char_ofs": 110466,
+		"byte_ofs": 113460
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/README.md",
-		"char_ofs": 111065,
-		"byte_ofs": 114077
+		"char_ofs": 111055,
+		"byte_ofs": 114067
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/README.md",
-		"char_ofs": 112419,
-		"byte_ofs": 115467
+		"char_ofs": 112409,
+		"byte_ofs": 115457
 	},
 	{
-		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multistep-force.md",
-		"char_ofs": 112483,
-		"byte_ofs": 115536
+		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multi-pressure-ctrl.md",
+		"char_ofs": 112473,
+		"byte_ofs": 115526
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/2-moving-when-pressing-pivot.md",
-		"char_ofs": 115440,
-		"byte_ofs": 118533
+		"char_ofs": 115430,
+		"byte_ofs": 118523
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/3-initial-sequence.md",
-		"char_ofs": 117062,
-		"byte_ofs": 120192
+		"char_ofs": 117052,
+		"byte_ofs": 120182
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/3-weld-sequence.md",
-		"char_ofs": 117852,
-		"byte_ofs": 120996
+		"char_ofs": 117842,
+		"byte_ofs": 120986
 	},
 	{
 		"link": "5-spot-weld-parameter/5-3-weld-data-condition-sequence/4-servo-gun-tip-dressing-condition.md",
-		"char_ofs": 119524,
-		"byte_ofs": 122713
+		"char_ofs": 119514,
+		"byte_ofs": 122703
 	},
 	{
 		"link": "5-spot-weld-parameter/5-4-input-signal-assign.md",
-		"char_ofs": 120351,
-		"byte_ofs": 123569
+		"char_ofs": 120341,
+		"byte_ofs": 123559
 	},
 	{
 		"link": "5-spot-weld-parameter/5-5-output-signal-assign.md",
-		"char_ofs": 121185,
-		"byte_ofs": 124421
+		"char_ofs": 121175,
+		"byte_ofs": 124411
 	},
 	{
 		"link": "6-spotpak/README.md",
-		"char_ofs": 122709,
-		"byte_ofs": 125980
+		"char_ofs": 122699,
+		"byte_ofs": 125970
 	},
 	{
 		"link": "6-spotpak/6-1-spotpak-overall/README.md",
-		"char_ofs": 123280,
-		"byte_ofs": 126575
+		"char_ofs": 123270,
+		"byte_ofs": 126565
 	},
 	{
 		"link": "6-spotpak/6-1-spotpak-overall/1-features.md",
-		"char_ofs": 124648,
-		"byte_ofs": 127970
+		"char_ofs": 124638,
+		"byte_ofs": 127960
 	},
 	{
 		"link": "6-spotpak/6-1-spotpak-overall/2-configure.md",
-		"char_ofs": 125995,
-		"byte_ofs": 129356
+		"char_ofs": 125985,
+		"byte_ofs": 129346
 	},
 	{
 		"link": "6-spotpak/6-1-spotpak-overall/3-menu.md",
-		"char_ofs": 126332,
-		"byte_ofs": 129707
+		"char_ofs": 126322,
+		"byte_ofs": 129697
 	},
 	{
 		"link": "6-spotpak/6-1-spotpak-overall/4-procedure.md",
-		"char_ofs": 126679,
-		"byte_ofs": 130067
+		"char_ofs": 126669,
+		"byte_ofs": 130057
 	},
 	{
 		"link": "6-spotpak/6-1-spotpak-overall/5-install.md",
-		"char_ofs": 127456,
-		"byte_ofs": 130883
+		"char_ofs": 127446,
+		"byte_ofs": 130873
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/README.md",
-		"char_ofs": 128644,
-		"byte_ofs": 132121
+		"char_ofs": 128634,
+		"byte_ofs": 132111
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/README.md",
-		"char_ofs": 128688,
-		"byte_ofs": 132168
+		"char_ofs": 128678,
+		"byte_ofs": 132158
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/1-specfile.md",
-		"char_ofs": 128711,
-		"byte_ofs": 132194
+		"char_ofs": 128701,
+		"byte_ofs": 132184
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/2-backup.md",
-		"char_ofs": 129898,
-		"byte_ofs": 133427
+		"char_ofs": 129888,
+		"byte_ofs": 133417
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/3-datacopy.md",
-		"char_ofs": 130786,
-		"byte_ofs": 134356
+		"char_ofs": 130776,
+		"byte_ofs": 134346
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/4-sericopy.md",
-		"char_ofs": 131271,
-		"byte_ofs": 134859
+		"char_ofs": 131261,
+		"byte_ofs": 134849
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/5-initialize.md",
-		"char_ofs": 131700,
-		"byte_ofs": 135305
+		"char_ofs": 131690,
+		"byte_ofs": 135295
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-1-data-management/6-clock.md",
-		"char_ofs": 131969,
-		"byte_ofs": 135588
+		"char_ofs": 131959,
+		"byte_ofs": 135578
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/README.md",
-		"char_ofs": 132300,
-		"byte_ofs": 135937
+		"char_ofs": 132290,
+		"byte_ofs": 135927
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/1-progmon.md",
-		"char_ofs": 132329,
-		"byte_ofs": 135969
+		"char_ofs": 132319,
+		"byte_ofs": 135959
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/2-siglesched.md",
-		"char_ofs": 132809,
-		"byte_ofs": 136472
+		"char_ofs": 132799,
+		"byte_ofs": 136462
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/3-multisched.md",
-		"char_ofs": 133136,
-		"byte_ofs": 136813
+		"char_ofs": 133126,
+		"byte_ofs": 136803
 	},
 	{
 		"link": "6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/4-batch.md",
-		"char_ofs": 133654,
-		"byte_ofs": 137347
+		"char_ofs": 133644,
+		"byte_ofs": 137337
 	},
 	{
 		"link": "6-spotpak/6-3-spotpak-error/README.md",
-		"char_ofs": 133956,
-		"byte_ofs": 137666
+		"char_ofs": 133946,
+		"byte_ofs": 137656
 	},
 	{
 		"link": "7-faq.md",
-		"char_ofs": 136991,
-		"byte_ofs": 140798
+		"char_ofs": 136981,
+		"byte_ofs": 140788
 	},
 	{
 		"link": "8-error-warning/README.md",
-		"char_ofs": 142776,
-		"byte_ofs": 146744
+		"char_ofs": 142766,
+		"byte_ofs": 146734
 	},
 	{
 		"link": "8-error-warning/8.1.md",
-		"char_ofs": 142800,
-		"byte_ofs": 146768
+		"char_ofs": 142790,
+		"byte_ofs": 146758
 	},
 	{
 		"link": "8-error-warning/8.2.md",
-		"char_ofs": 152060,
-		"byte_ofs": 156105
+		"char_ofs": 152050,
+		"byte_ofs": 156095
+	},
+	{
+		"link": "9-spot-monitoring/README.md",
+		"char_ofs": 155425,
+		"byte_ofs": 159504
+	},
+	{
+		"link": "9-spot-monitoring/9-1-spot-data.md",
+		"char_ofs": 156573,
+		"byte_ofs": 160672
+	},
+	{
+		"link": "9-spot-monitoring/9-2-gunsea-history.md",
+		"char_ofs": 158810,
+		"byte_ofs": 162965
+	},
+	{
+		"link": "9-spot-monitoring/9-3-gunsea-data.md",
+		"char_ofs": 159343,
+		"byte_ofs": 163509
 	}
 ]

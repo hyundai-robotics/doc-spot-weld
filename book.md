@@ -1314,8 +1314,8 @@ In general, spot welding is performed with one welding gun at a time. The functi
 # 4.6.1 Manual selection of multiple guns
 
 <p align="center">
- <img src="../../_assets/image_32_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.19 Additional axis parameter setting screen</p></em>
+ <img src="../../_assets/image_32_eng_.PNG" width="60%"></img>
+ <em><p align="center">Figure 4.19 Screen with multi-gun applied</p></em>
 </p>
 
 The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.
@@ -1403,13 +1403,13 @@ The following should be in place first for accurate measurement of the panel.
  This is a function to transport a workpiece in small size without using a separate hanger.
 
 <p align="center">
- <img src="../_assets/image_52_eng.PNG" width="50%"></img>
+ <img src="../_assets/image_52_eng_.PNG" width="50%"></img>
  <em><p align="center">Figure 4.21 Servo gun's handling function</p></em>
 </p>
 
 </br>
 
-```svclamp on/off gun=\<gun number>,cnd=\<condition number>```
+```svclamp on/off gun=<gun number>,cnd=<condition number>```
 
 
 
@@ -1522,7 +1522,7 @@ Sets the use environment related to spot welding to perform appropriate operatio
   - Selects the unit of the squeezing force for the control of the servo gun.
 
 (4)  **Automatic adjustment of servo gun welding step record position**
-  - Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “Valid” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
+  - Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “enable” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
 
 # 5.2 Welding gun parameter
 
@@ -2411,3 +2411,124 @@ Please try again.
 |      <p>W0107 </p><p>The fixed electrode exceeded </p><p>the electrode replacement required consumption amount</p>     | This warning occurs if the fixed electrode consumption amount detected by gun search exceeded the (fixed) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (fixed) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol> |
 | <p>W0108 </p><p>During the jog operation, </p><p>the actual squeezing force exceeded </p><p>the set value</p> | When squeezing is performed through manual operation of the axis, the actual squeezing force exceeds the set squeezing force. When this occurs, operate the servo gun axis in the opposite direction. | <ol><li>Check whether the squeezing force of the axis that will be operated is sufficiently set.</li><li>As a mechanical problem with the servo gun is anticipated, you need to contact the servo gun manufacturer for inquiry. </li></ol><p></p> |
 |  <p>W0109 </p><p>Impossible to manually </p><p>operate the servo gun not </p><p>selected</p> | The servo gun you want to operate is different from the selected servo gun.                                             | When you select a servo gun, you need to perform manual jog operation. First, select the servo gun you want to operate with the R210 code and then perform the operation.                                          |
+# 9. Spot Monitoring Function
+
+The Spot Monitoring function visualizes data generated during spot welding in graph form, enabling rapid identification of the root cause when a problem occurs. In addition, when checking function behavior, users can review the magnitude and timing of each data item displayed in the graph, helping to determine normal or abnormal conditions directly on the TP without the inconvenience of analyzing data files on a PC.
+
+## Installation Method
+
+This function is developed using a plugin-based approach. By simply saving the corresponding code to the designated folder, the menu is automatically displayed without requiring a separate build process, allowing users to select and execute the desired function.
+
+Until dedicated features for plugin program installation and security are officially provided, obtain the source code from the spot welding developer (spot function administrator) and copy it to the following path:
+
+[MAIN > apps > spot_mon]
+
+
+</br>
+
+<p align=center>
+<img src="../_assets/image_95_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.1 Spot Data Monitoring Function Menu</p></em>
+</p>
+
+## 9.1 Spot Data Monitoring Function
+
+Spot data monitoring allows selective visualization of data generated while executing the spot command. Data collection is created using the existing gathering function, and the generated data file is utilized for monitoring.
+
+## Data File Creation
+
+To collect data for spot data monitoring, edit the options as shown below:
+([Service > 16: Data Gathering], Engineer Mode)
+
+<p align=center>
+<img src="../_assets/image_96_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.2 Spot Data Collection Option Input</p></em>
+</p>
+
+<br>
+
+Execute the gathering command in the user program.
+<p align=center>
+<img src="../_assets/image_97_eng.PNG" width="50%"></img>
+<em><p align="center">Figure 9.3 Execution of Gathering Command</p></em>
+</p>
+
+
+### - Data File and Graph Option Selection
+
+Enter the Spot Data Monitoring function and select the Spot Data menu.
+<p align=center>
+<img src="../_assets/image_98_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.4 Spot Data Graph Menu</p></em>
+</p>
+
+An option selection window for graph creation and function buttons at the bottom of the screen are displayed.
+<p align=center>
+<img src="../_assets/image_99_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.5 Graph Creation Options and Function Buttons</p></em>
+</p>
+
+
+By pressing the [File Select] button, select the GDT file to be used for graph generation from the saved files, and then press the [Save] button.
+<p align=center>
+<img src="../_assets/image_100_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.6 GDT File Selection</p></em>
+</p>
+
+
+### - Graph Creation and Zoom Function
+When the [Graph] button is pressed from the function buttons shown in Figure 9.5, graphs are displayed for the selected options as shown below.
+<p align=center>
+<img src="../_assets/image_101_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.7 Graph Generation for Selected Items</p></em>
+</p>
+
+To view details more closely, use a finger or stylus to select an area on the screen. The selected area will be displayed as an enlarged graph.
+<p align=center>
+<img src="../_assets/image_102_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.8 Graph Zoom Function</p></em>
+</p>## 9.2 Gun Search Data History Management
+
+No separate user procedure is required for gun search data history management. Each time the gunsea command is executed, the wear amount of each tip is automatically saved to a history file.
+
+The files are stored under the 'MAIN > log' folder with the name gunsearchlog_x.txt, and up to 10 files are stored in a rotating manner.
+
+
+<p align=center>
+<img src="../_assets/image_103_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.9 Gun Search History Management Files</p></em>
+</p>
+## 9.3 Gun Search Data Monitoring Function
+
+By selecting a saved wear history file, users can view the trend of tip wear changes in graph form. To access this function, select the following menu item:
+
+<p align=center>
+<img src="../_assets/image_104_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.10 Gun Search Data Menu</p></em>
+</p>
+
+
+### - Data File and Graph Option Selection
+
+An option selection window for graph creation and function buttons at the bottom of the screen are displayed.
+<p align=center>
+<img src="../_assets/image_105_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.11 Graph Creation Options and Function Buttons</p></em>
+</p>
+
+
+Click the [File Select] button, choose the desired log file from the saved files, and then click the [Save] button.
+<p align=center>
+<img src="../_assets/image_106_eng.PNGg" width="70%"></img>
+<em><p align="center">Figure 9.12 Log File Selection</p></em>
+</p>
+
+
+### - Graph Creation and Zoom Function
+
+Press the [Graph] button among the function buttons shown in Figure 9.5 to display graphs for the selected options, as shown below.
+<p align=center>
+<img src="../_assets/image_107_eng.PNG" width="70%"></img>
+<em><p align="center">Figure 9.13 Graph Creation for Selected Items</p></em>
+</p>
+

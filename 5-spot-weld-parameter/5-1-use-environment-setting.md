@@ -42,3 +42,27 @@ Sets the use environment related to spot welding to perform appropriate operatio
 (4)  **Automatic adjustment of servo gun welding step record position**
   - Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “enable” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
 
+(5) **Servo Gun Real-Time Data Storage Function**
+  - During spot welding, specified data are saved to a file at 2 ms intervals. The stored data can be used for welding quality inspection and analysis.
+      
+      -  Collection time, position, current, pressurization force, welding progress status    
+
+<p align="center">
+ <img src="../_assets/image_20_1_eng.png" width="70%"></img>
+ <em><p align="center">Figure 5.1.1 Real-Time Data Storage</p></em>
+</p>
+  
+  - Each time a gun search is performed, specified data are saved to a file.
+      
+      -  Collection time, robot tool-end position, moving electrode wear amount, fixed electrode wear amount
+
+<p align="center">
+ <img src="../_assets/image_20_2_eng.png" width="70%"></img>
+ <em><p align="center">Figure 5.1.2 Gun Search Data Storage</p></em>
+</p>
+
+<br>
+
+{% hint style="info" %}  
+ To enable this function, the “Spot Welding Option Function” must be set to Enabled on the license key registration screen.
+{% endhint %}

@@ -23,6 +23,6 @@
 
 **[필수 설명서]**
 
-- [**${cont_model} 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean/README)
+- [**${cont_model} 제어기 조작설명서**](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko/README?cont_model=${cont_model})
 
-- [**${cont_model} 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)
+- [**${cont_model} 부가축 기능설명서**](https://hrbook-hrc.web.app/#/view/doc-add-axes/ko/README?cont_model=${cont_model})

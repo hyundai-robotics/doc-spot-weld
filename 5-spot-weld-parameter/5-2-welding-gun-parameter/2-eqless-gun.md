@@ -1,6 +1,6 @@
 ﻿# 5.2.2. Equalizerless gun
 
-If the gun type is “eqaulizerless gun”, a screen for setting the parameters related to the equalizerless gun will be indicated as shown below.
+If the gun type is "eqaulizerless gun", a screen for setting the parameters related to the equalizerless gun will be indicated as shown below.
 
 
 <p align=center>
@@ -19,7 +19,7 @@ If the gun type is “eqaulizerless gun”, a screen for setting the parameters 
    - Sets the robot's equalizing speed.
 
 (4)  **Gun type**
-   - Selects whether the selected equalizerless gun is a ‘robot gun’ or a ‘stationary gun’. Please refer to 『**2.3.1 Servo gun parameter**』.
+   - Selects whether the selected equalizerless gun is a 'robot gun' or a 'stationary gun'. Please refer to 『**2.3.1 Servo gun parameter**』.
 
 (5)  **Gun arm deflection amount/100\[Kgf]\(mm)**
    -  Sets the deflection amount caused by the squeezing force as the deflection amount for 100 kgf. For the position of the fixed electrode for the execution of spot welding, calculate the gun arm deflection amount both from this value and the command squeezing force and then make some compensation for it and then perform squeezing. 

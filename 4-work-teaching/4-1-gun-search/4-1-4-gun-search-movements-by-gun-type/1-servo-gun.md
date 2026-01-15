@@ -4,7 +4,7 @@ The gun search function of the servo gun is initially set in a way that the tota
 
 {% hint style="info" %}
 \[Caution\]  
-If the set value of『**Moving electrode consumption amount/Total consumption amount (%)**』 is “0”, the gun search 2 operation must be performed. If it is not “0”, the total consumption amount will be distributed according to the set ratio through the gun search 1 operation.
+If the set value of『**Moving electrode consumption amount/Total consumption amount (%)**』 is "0", the gun search 2 operation must be performed. If it is not "0", the total consumption amount will be distributed according to the set ratio through the gun search 1 operation.
 {% endhint %}
 
 
@@ -50,7 +50,7 @@ If the set value of『**Moving electrode consumption amount/Total consumption am
 >2. The calibration jig is squeezed with the moving electrode through searching unitil the set squeezing force is reached.
 >3.  When the squeezing force matching is detected, the moving electrode consumption amount is detected and the opening operation is executed.   
 >    **Moving electrode consumption amount = Squeezing force matching detection position - reference position for gun search 2 that uses the squeezing force**  
->    **Fixed electrode consumption amount = total consumption amount detected by gun search 1 – moving electrode consumption amount**
+>    **Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount**
 >4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated. 
 
 *   **By using an external signal**

@@ -1,4 +1,4 @@
-# 2.3.3 Servo gun squeezing force - current table tunning
+﻿# 2.3.3 Servo gun squeezing force - current table tunning
 
 To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun. The accuracy of this tuning determines the accuracy of the servo gun squeezing force. In consideratin of it, tuning must be performed before using the servo gun.
 

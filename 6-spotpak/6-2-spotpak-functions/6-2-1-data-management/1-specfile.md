@@ -12,7 +12,7 @@
   
 
 The characteristic data is essential information that must be prepared in advance in order to use the welder interface functions.
-It contains the structure of the welder’s configuration data, menu composition, and other necessary elements.
+It contains the structure of the welder's configuration data, menu composition, and other necessary elements.
 All functions of the welder interface require this characteristic data.
 
 <br>
@@ -26,4 +26,4 @@ Red indicates ON-LINE, and black indicates OFF-LINE.
 - ③ Characteristic Data: Displays characteristics related to the current welder using the downloaded characteristic data.
 
 - ④ [Download] Button: Downloads the characteristic data of the welder specified in [Select Welder Number].
-When the download is completed successfully, a message saying “Characteristic data has been saved.” will appear.
+When the download is completed successfully, a message saying "Characteristic data has been saved." will appear.

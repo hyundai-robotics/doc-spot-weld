@@ -8,7 +8,7 @@ Assigns the common input and output signals, regardless of the welder number, an
 </p>
 
 (1)  **Spot command execution method (sv)**
-  - To be used to output a signal if the “servo gun spot welding output method” in the spot gun common parameter setting menu is set to Wd-On.
+  - To be used to output a signal if the "servo gun spot welding output method" in the spot gun common parameter setting menu is set to Wd-On.
 
 (2)  **Panel thickness error**
   - To be used to output a panel thickness abnormal signal generated during the welding by the servo gun.

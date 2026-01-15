@@ -1,4 +1,4 @@
-# 3.3 User keys
+﻿# 3.3 User keys
 
 This is a description of the user keys related to spot welding. There is a button for the user keys at the bottom right of the initial main screen. Each time you press the button, the registered menu changes. Press each user key related to spot welding twice to enter the relevant menu.
 

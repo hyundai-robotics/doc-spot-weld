@@ -2,7 +2,7 @@
 
 
 
-Spot-Pak is the name of Hyundai Robotics’ integrated control system for spot welding.
+Spot-Pak is the name of Hyundai Robotics' integrated control system for spot welding.
 This manual describes the settings related to the interface between the welder and the robot controller, as well as TP (Teach Pendant) operations.
 
 <br>

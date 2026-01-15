@@ -27,7 +27,7 @@ Please update the characteristic data through Data Management → Import Charact
 <br>
 
    - Code: Error information was not saved correctly.
-   - Description: A problem has occurred in the welder-error–related information within the characteristic data.
+   - Description: A problem has occurred in the welder-error-related information within the characteristic data.
 Please update the characteristic data through Data Management → Import Characteristic Data.
 
 <br>
@@ -46,7 +46,7 @@ Please check the connection status.
 
   -  Code: Copy operation failed.
   -  Description: Data copying between welders was not completed successfully.
-Please verify the welder’s network and communication status, then try again.
+Please verify the welder's network and communication status, then try again.
 
 <br>
 
@@ -74,7 +74,7 @@ Please check whether the file version or the welder version has been changed.
 <br>
 
    - Code: Timeout occurred.
-   - Description: This occurs when communication between the main board and the T/P is unstable, or when the controller’s processing time is excessively long.
+   - Description: This occurs when communication between the main board and the T/P is unstable, or when the controller's processing time is excessively long.
 Please try again.
 <br>
 

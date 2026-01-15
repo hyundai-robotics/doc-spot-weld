@@ -19,7 +19,7 @@ This indicates the data of the currently selected spot gun in real time.
 >      Cur indicates the feedback current of the axis of the servo gun and Cmd indicates the current limit command value (A).
 >*   **Squeezing force data (servo gun)**
 >
->     ‘**The command current and feedback current are converted into squeezing force and displayed using the “squeezing force - current table**” of the welding gun parameter. Cmd indicates the command squeezing force and Cur indicates the feedback squeeze.&#x20;
+>     '**The command current and feedback current are converted into squeezing force and displayed using the "squeezing force - current table**" of the welding gun parameter. Cmd indicates the command squeezing force and Cur indicates the feedback squeeze.&#x20;
 >*   **Actual squeezing force during weling (servo gun)**
 >
 >     Indicates the average squeezing force from the point of the matching of the squeezing force to the time of opening.

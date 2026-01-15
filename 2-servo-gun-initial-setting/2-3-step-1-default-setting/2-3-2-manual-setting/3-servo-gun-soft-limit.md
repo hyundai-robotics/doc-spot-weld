@@ -13,7 +13,7 @@ The soft limit setting procedure for the axis of the servo gun.
  <em><p align="center">Figure 2.12 Setting of the servo gun soft limit</p></em>
 </p>
 
-2. In the default setting screen of the ‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Soft limit setting**’ menu (Figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**3: Soft limit**』 with the cursor and then press the \[**Reset**] button. If the indication is performed normally, input by selecting the \[**OK**] button.
+2. In the default setting screen of the '**Servo gun automatic setting**' menu, press the `Manual setting` button of the '**Soft limit setting**' menu (Figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**3: Soft limit**』 with the cursor and then press the \`Reset` button. If the indication is performed normally, input by selecting the \`OK` button.
 
 <p align="center">
  <img src="../../../_assets/image_41_eng.PNG" width="80%"></img>

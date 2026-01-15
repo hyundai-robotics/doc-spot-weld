@@ -9,4 +9,4 @@
 
 <br>
 
-This function is used to synchronize the welder’s time with the robot controller by transferring the controller’s current time to the welder.
+This function is used to synchronize the welder's time with the robot controller by transferring the controller's current time to the welder.

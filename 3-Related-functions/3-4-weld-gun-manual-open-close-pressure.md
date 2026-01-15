@@ -14,7 +14,7 @@ The procedure for manual closing and squeezing of the welding gun is as follows.
     | Multiple guns |      -       |  R214 (selection of guns for simultaneous welding) |
 
 
-3.  Check whether the following \[**user**] keys are registerd.
+3.  Check whether the following \`user` keys are registerd.
 
 
 
@@ -23,7 +23,7 @@ The procedure for manual closing and squeezing of the welding gun is as follows.
     | <img src="../_assets/image_86_eng.PNG"></img>|<img src="../_assets/image_16_eng.PNG"></img> | <img src="../_assets/image_43_eng.PNG"></img> |
 
 
-1.  When you press the “\[**SHIFT**] and \[**user**]” keys at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
+1.  When you press the "\`SHIFT` and \`user`" keys at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
 
     |                  **Servo gun**                 |
     | :--------------------------------------: |

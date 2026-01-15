@@ -40,7 +40,7 @@ Sets the use environment related to spot welding to perform appropriate operatio
   - Selects the unit of the squeezing force for the control of the servo gun.
 
 (4)  **Automatic adjustment of servo gun welding step record position**
-  - Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to “enable” after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
+  - Selects whether to adjust the position of the servo gun in the Move statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the Spot statement. Set it to "enable" after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
 
 (5) **Servo Gun Real-Time Data Storage Function**
   - During spot welding, specified data are saved to a file at 2 ms intervals. The stored data can be used for welding quality inspection and analysis.
@@ -64,5 +64,5 @@ Sets the use environment related to spot welding to perform appropriate operatio
 <br>
 
 {% hint style="info" %}  
- To enable this function, the “Spot Welding Option Function” must be set to Enabled on the license key registration screen.
+ To enable this function, the "Spot Welding Option Function" must be set to Enabled on the license key registration screen.
 {% endhint %}

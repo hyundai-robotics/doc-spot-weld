@@ -1,4 +1,4 @@
-# 5.4 Input signal assignment for each welder
+﻿# 5.4 Input signal assignment for each welder
 
 Assigns the signals related to spot welding, allowing the controller to monitor their state and perform necessary processing.
 

@@ -1,4 +1,4 @@
-# 9. Spot Monitoring Function
+﻿# 9. Spot Monitoring Function
 
 The Spot Monitoring function visualizes data generated during spot welding in graph form, enabling rapid identification of the root cause when a problem occurs. In addition, when checking function behavior, users can review the magnitude and timing of each data item displayed in the graph, helping to determine normal or abnormal conditions directly on the TP without the inconvenience of analyzing data files on a PC.
 

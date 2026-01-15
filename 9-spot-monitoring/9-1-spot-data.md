@@ -1,4 +1,4 @@
-## 9.1 Spot Data Monitoring Function
+﻿## 9.1 Spot Data Monitoring Function
 
 Spot data monitoring allows selective visualization of data generated while executing the spot command. Data collection is created using the existing gathering function, and the generated data file is utilized for monitoring.
 

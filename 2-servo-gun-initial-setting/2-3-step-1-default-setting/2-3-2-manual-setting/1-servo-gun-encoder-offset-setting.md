@@ -12,7 +12,7 @@ The encoder compensation procedure for the axis of the servo gun is as follows.
 </p>
 
 
-(2) In the default setting screen of the‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Encoder offset compensation**’ menu (Figure 2.9), or select the relevant servo gun axis in  『**Setting**』 → 『**3: Robot parameter**』 → 『**4: Encoder offset**』 with the cursor and then press the [**Reset**] button. When the current encoder value becomes “**00400000**”, press the [**OK**] button. 
+(2) In the default setting screen of the'**Servo gun automatic setting**' menu, press the `Manual setting` button of the '**Encoder offset compensation**' menu (Figure 2.9), or select the relevant servo gun axis in  『**Setting**』 → 『**3: Robot parameter**』 → 『**4: Encoder offset**』 with the cursor and then press the `Reset` button. When the current encoder value becomes "**00400000**", press the `OK` button. 
 
 <p align="center">
  <img src="../../../_assets/image_36_eng.PNG" width=80%></img>

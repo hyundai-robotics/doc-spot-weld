@@ -1,6 +1,6 @@
 ﻿# 4.4.1.1 Manual input method
 
-Execute “**R220: Set the panel thickness**” to input the panel thickness.
+Execute "**R220: Set the panel thickness**" to input the panel thickness.
 
 
 <p align="center">

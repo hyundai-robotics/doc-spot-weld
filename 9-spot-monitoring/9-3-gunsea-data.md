@@ -1,4 +1,4 @@
-## 9.3 Gun Search Data Monitoring Function
+﻿## 9.3 Gun Search Data Monitoring Function
 
 By selecting a saved wear history file, users can view the trend of tip wear changes in graph form. To access this function, select the following menu item:
 

@@ -1,4 +1,4 @@
-# 5.3.2.1.1 Multi-step squeezing force control
+﻿# 5.3.2.1.1 Multi-step squeezing force control
 
 This function changes the pressurization force during pressurization in servo gun spot welding. The pressurization force can be changed either by generating a predefined profile or by a signal input.
 

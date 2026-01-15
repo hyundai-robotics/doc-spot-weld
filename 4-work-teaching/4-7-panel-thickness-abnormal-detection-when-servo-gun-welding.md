@@ -1,6 +1,6 @@
 ﻿# 4.7  Detection of panel thickness abnormality during the welding with servo gun
 
- This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the “thickcheck” statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
+ This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the "thickcheck" statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
 
 <br>
 
@@ -22,7 +22,7 @@
 
 * **addr(branch line)**
 
-   Specipies the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation “**E1493 Measured panel thickness exceeded the normal range**” occurs and then the robot stops and the output signal set in the “**Panel thickness abnormal**” section is turned on. If the branch line is recorded, the situation “**W0152 Measured panel thickness exceeded the normal range**” occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the “**Panel thickness abnormal**” section is turned on only for 200 ms.
+   Specipies the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation "**E1493 Measured panel thickness exceeded the normal range**" occurs and then the robot stops and the output signal set in the "**Panel thickness abnormal**" section is turned on. If the branch line is recorded, the situation "**W0152 Measured panel thickness exceeded the normal range**" occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the "**Panel thickness abnormal**" section is turned on only for 200 ms.
 
  *  Sample code 
 

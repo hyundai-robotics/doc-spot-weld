@@ -1,4 +1,4 @@
-# 4.4.2 How to teach
+﻿# 4.4.2 How to teach
 
 (1)  In a state that the panel thickness is registered, proceed with teaching while keeping the moving electrode open and only the fixed electrode in contact with the panel.
 

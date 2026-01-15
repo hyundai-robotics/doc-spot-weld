@@ -1,4 +1,4 @@
-## 9.2 Gun Search Data History Management
+﻿## 9.2 Gun Search Data History Management
 
 No separate user procedure is required for gun search data history management. Each time the gunsea command is executed, the wear amount of each tip is automatically saved to a history file.
 

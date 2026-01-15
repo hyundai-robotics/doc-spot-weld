@@ -1,6 +1,6 @@
 ﻿# 2.3.1 Automatic setting
 
-Progress the automatic setting of the ‘**default setting**’ of the servo gun by pressing the 『**All automatic setting**』 key. In the case of ‘**all automatic setting**’, the moving electrode of the servo gun moves automatically, so the following conditions must be satisfied.
+Progress the automatic setting of the '**default setting**' of the servo gun by pressing the 『**All automatic setting**』 key. In the case of '**all automatic setting**', the moving electrode of the servo gun moves automatically, so the following conditions must be satisfied.
 
 * Moving and fixed electrodes with new tipes attached
 * No worker around the servo gun
@@ -9,7 +9,7 @@ Progress the automatic setting of the ‘**default setting**’ of the servo gun
 * Motor on
 * Prohibition of maximum opening of the moving electrode (a gap of certain distance from the maximum opening position)
 
-In the case of ‘**all automatic setting**’, the following procedures will proceed automatically.
+In the case of '**all automatic setting**', the following procedures will proceed automatically.
 
   *  (1) Encoder offset compensation  
       - The moving electrode moves to the maximum opening position.  
@@ -24,9 +24,9 @@ In the case of ‘**all automatic setting**’, the following procedures will pr
   *  (4) Squeezing force - current table setting 
       - Automatic change to the menu for the setting will occur.
 
-In the case of automatic setting of the servo gun's default setting, the servo gun's ‘**encoder offset compensation**’ position and ‘**axis origin compensation**’ position are automatically recognized, allowing the ‘**encoder offset compensation**’, ‘**axis origin compensation**’ and ‘**soft limit setting**’ to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the ‘**squeeze force - current table setting**’ does not proceed automatically. Please refer to the chapter “[**2.3.3 Squeeze force - current table setting**](2-3-3-3-servo-gun-force-current-table-tuning/)” for setting.
+In the case of automatic setting of the servo gun's default setting, the servo gun's '**encoder offset compensation**' position and '**axis origin compensation**' position are automatically recognized, allowing the '**encoder offset compensation**', '**axis origin compensation**' and '**soft limit setting**' to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the '**squeeze force - current table setting**' does not proceed automatically. Please refer to the chapter "`2.3.3 Squeeze force - current table setting`(2-3-3-3-servo-gun-force-current-table-tuning/)" for setting.
 
-In the case of ‘**all automatic setting**’, the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press ‘**Yes**’ to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press ‘Yes’. If you do not want automatic setting, please click ‘**No**’ to end the setting.
+In the case of '**all automatic setting**', the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press '**Yes**' to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press 'Yes'. If you do not want automatic setting, please click '**No**' to end the setting.
 
 <p align="center">
  <img src="../../_assets/image_76_eng.PNG" width="70%"></img>
@@ -34,7 +34,7 @@ In the case of ‘**all automatic setting**’, the servo gun moves to the posit
 </p>
 
 {% hint style="warning" %}
-[**Warning**] If the servo gun has a stopper other than a metal material such as a bumper attached at the maximum opening position of the servo gun, it may be difficult to estimate the maximum opening position. It is recommended to perform setting after removing the stopper.
+`Warning` If the servo gun has a stopper other than a metal material such as a bumper attached at the maximum opening position of the servo gun, it may be difficult to estimate the maximum opening position. It is recommended to perform setting after removing the stopper.
 {% endhint %}
 
 The configuration and functionality of the servo gun default setting screen is as follows.

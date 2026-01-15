@@ -1,4 +1,4 @@
-# 5.3.2 Welding condition
+﻿# 5.3.2 Welding condition
 
 Sets the conditions related to spot welding to perform welding in line with the work environment.
 

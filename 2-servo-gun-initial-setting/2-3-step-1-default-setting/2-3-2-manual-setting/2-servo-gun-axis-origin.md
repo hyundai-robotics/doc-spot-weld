@@ -11,7 +11,7 @@ The axis origin setting procedure for the axis of the servo gun is as follows.
  <em><p align="center">Figure 2.10 Position of the origin of the servo gun</p></em>
 </p>
 
-1) In the default setting screen of the ‘**Servo gun automatic setting**’ menu, press the [**Manual setting**] button of the ‘**Axis origin setting**’ menu (figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**2: Axis origin**』 with the cursor and then press the \[**Reset**] button. When the current position of the axis is indicated as 0.0 mm, input by selecting the \[**OK**] button. 
+1) In the default setting screen of the '**Servo gun automatic setting**' menu, press the `Manual setting` button of the '**Axis origin setting**' menu (figure below), or select the relevant axis of the servo gun in 『**Setting**』 → 『**3: Robot parameter**』 → 『**2: Axis origin**』 with the cursor and then press the \`Reset` button. When the current position of the axis is indicated as 0.0 mm, input by selecting the \`OK` button. 
 
 
 <p align="center">

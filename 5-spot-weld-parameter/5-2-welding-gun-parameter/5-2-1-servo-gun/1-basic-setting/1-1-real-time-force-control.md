@@ -15,7 +15,7 @@ Real-time squeezing force control is a function to improve the accuracy of servo
   To be used when an additional controller filter is needed.
 
 (3)  **Cut-off frequency**  
-   Will be activated when the additional use of the controller filter is set to “Enable”. The size of the filter necessary for the control should be set.
+   Will be activated when the additional use of the controller filter is set to "Enable". The size of the filter necessary for the control should be set.
 
 (4)  **Reset signal output**  
    Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;

@@ -1,4 +1,4 @@
-# 3.1 Monitoring
+﻿# 3.1 Monitoring
 
 Various current data and setting states that are used in spot welding are provided to the user in a way that they can be monitored. The monitoring screen related to spot welding is as follow.
 

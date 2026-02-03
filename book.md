@@ -1752,41 +1752,31 @@ If the gun type is servo gun or equalizerless gun, individual parameters can be 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/1-1-real-time-force-control.md)
 # 5.2.1.1.1 Real-time squeezing force control
 
-Real-time squeezing force control is a function to improve the accuracy of servo gun's squeezing force by using the data, measured by the squeezing force gauge, for control. For real-time squeezing force control, the squeezing force gauge should communicate with the robot controller and should be set to relevant communication specifications using the menus below.
+Real-time pressurization force control improves the accuracy of servo gun force by using data measured by a force sensor for control. To enable real-time pressurization force control, the force sensor must communicate with the robot controller, and the communication specifications are configured in the menu below.
+
+Since only digital data can be received, the sensor's analog output signal must be input to the controller through an analog-to-digital converter (ADC).
 
 <p align=center>
 <img src="../../../../_assets/image_30_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
 </p>
 
-
-(1)  **Communication method**  
-  Sets an analog or digital communication method. The digital method is recommended for fast and stable control.
-
-(2)  **Additional use of controller filter**  
-  To be used when an additional controller filter is needed.
-
-(3)  **Cut-off frequency**  
-   Will be activated when the additional use of the controller filter is set to "Enable". The size of the filter necessary for the control should be set.
-
-(4)  **Reset signal output**  
-   Assigns a signal that is to be outputted for resetting the squeezing force gauge.&#x20;
-
-(5)  **\<Analog>**  
-   Will be activated when analog is selected as the communication method.  
-* Squeezing force input port: The number of the signal assigned for input  
-* Magnification: Magnification of the analog input value
-
-(6)  **\<Digital>**  
-  Will be activated when digital is selected as the communication method.
-
-* Communication range: Minimum and maximum ranges of the assigned signal
-* Value range: Minimum and maximum values of the assigned signal
-* Port: The number of the signal assigned for input
-* Port assignment: Bit count assigned to a signal
+<br>
 
 
+-  Controller filter use (optional): Enable if an additional controller filter is required.
 
+-  Cut-off frequency: Activated when the controller filter is enabled; sets the filter bandwidth.
+
+-  Reset signal output: Assigns an output signal for force sensor initialization, which is triggered each time the servo gun applies pressure (e.g., Kistler).
+
+-  Communication range: Sets the minimum and maximum range of the assigned signal.
+
+-  Value Range: Sets the value range of the assigned signal.
+
+-  Pressurization input port: The address of the signal assigned for input.
+
+-  Input port length: The number of bits assigned to the signal.
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/2-application-setting.md)
 # 5.2.1.2 Servo gun application setting
 

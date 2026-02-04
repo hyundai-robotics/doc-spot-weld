@@ -1,4 +1,4 @@
-﻿# 2.1.1 Setting of the tool number and gun type corresponding to the gun number
+﻿### 2.1.1 Setting of the tool number and gun type corresponding to the gun number
 
 This function sets the tool number and gun type corresponding to the spot welding gun number. It supports in a way that a vriety of welding guns can be configured to match with the use of individual welders and tool numbers. Because the welding method varies depending on the gun type, the setting must be performed correctly. Guns can be added using the '+' sign on the right and up to 16 guns can be added.
 

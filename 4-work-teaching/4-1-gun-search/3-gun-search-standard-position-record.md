@@ -1,4 +1,4 @@
-﻿# 4.1.3 Gun search reference position record
+﻿### 4.1.3 Gun search reference position record
 
 The consumption amount of an electrode is measured based on an unconsumed new tip. Therefore, the process of registering the reference position with a new tip is absolutely necessary at least once in the beginning, and this is called gun search reference position record.
 

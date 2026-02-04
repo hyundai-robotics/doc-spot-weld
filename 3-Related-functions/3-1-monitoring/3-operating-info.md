@@ -1,4 +1,4 @@
-﻿# 3.1.3 Information of the operating time
+﻿### 3.1.3 Information of the operating time
 
 This allows you to check the information of the operating time related to the spot welding.
 

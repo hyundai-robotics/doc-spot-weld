@@ -1,4 +1,4 @@
-﻿# 5.3.2.1.2 Gun Movement During Pressurization (Pivot)
+﻿#### 5.3.2.1.2 Gun Movement During Pressurization (Pivot)
 
 This function moves the gun during the pressurization phase in servo gun spot welding. At the specified movement timing, the robot moves by the defined distance, speed, and direction.
 

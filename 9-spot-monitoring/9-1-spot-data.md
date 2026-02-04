@@ -2,7 +2,7 @@
 
 Spot data monitoring allows selective visualization of data generated while executing the spot command. Data collection is created using the existing gathering function, and the generated data file is utilized for monitoring.
 
-## Data File Creation
+### Data File Creation
 
 To collect data for spot data monitoring, edit the options as shown below:
 ([Service > 16: Data Gathering], Engineer Mode)

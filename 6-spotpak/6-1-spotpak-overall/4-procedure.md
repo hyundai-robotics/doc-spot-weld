@@ -1,4 +1,4 @@
-﻿# 6.1.4 Operating Procedure
+﻿### 6.1.4 Operating Procedure
 
 Operation of the welder interface proceeds in the following order:
 

@@ -1,4 +1,4 @@
-﻿# 4.2.2.2 Equalizerless gun
+﻿### 4.2.2.2 Equalizerless gun
 
 If the gun type is equalizerless gun, the spot welding function is played back as shown in the figure below.
 

@@ -1,4 +1,4 @@
-﻿# 6.2.1.6 Time Synchronization
+﻿#### 6.2.1.6 Time Synchronization
 
 <br>
 

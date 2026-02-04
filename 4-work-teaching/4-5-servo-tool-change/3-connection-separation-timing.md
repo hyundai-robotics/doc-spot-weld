@@ -1,4 +1,4 @@
-﻿# 4.5.3 Connection/disconnection timing
+﻿### 4.5.3 Connection/disconnection timing
 
 
 <p align="center">

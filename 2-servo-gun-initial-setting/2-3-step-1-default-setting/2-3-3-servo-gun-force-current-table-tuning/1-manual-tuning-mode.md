@@ -1,4 +1,4 @@
-﻿# 2.3.3.1 Manual tuning mode
+﻿#### 2.3.3.1 Manual tuning mode
 
 The manual tuning mode is a function to manually perform the servo gun squeezing force - current table setting. After the servo gun squeezing occurs, if the user directly inputs the measured squeezing force by using the teaching pendant, the optimal command current will be automatically calculated. This process should be repeated to increase the accuracy. The accuracy can be verified by the degree of convergence and test squeezing.
 

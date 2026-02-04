@@ -1,4 +1,4 @@
-﻿# 4.1.4.2 Equalizerless gun
+﻿#### 4.1.4.2 Equalizerless gun
 
 As an equalizerless gun only manages the consumption amount on the fixed electrode, so the gun search function here measures the fixed electrode consumption amount.
 

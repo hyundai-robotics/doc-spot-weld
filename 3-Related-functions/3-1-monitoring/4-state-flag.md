@@ -1,4 +1,4 @@
-﻿# 3.1.3 State flag
+﻿### 3.1.3 State flag
 
 Various necessary states related to spot welding will be indicate as shown in the screen below.
 

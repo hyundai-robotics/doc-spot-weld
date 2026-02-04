@@ -1,4 +1,4 @@
-﻿# 5.2.1.1 Servo gun default setting
+﻿### 5.2.1.1 Servo gun default setting
 
 <p align=center>
 <img src="../../../../_assets/image_44_eng.PNG" width="70%"></img>

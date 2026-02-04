@@ -1,4 +1,4 @@
-﻿# 5.3.2.1.3 Initial sequence
+﻿#### 5.3.2.1.3 Initial sequence
 
 The multi-stage pressure setting conditions can be applied not only to spot welding but also to other welding applications such as dissimilar material joining. Some applications (e.g., RSR) require an input/output signal sequence after reaching the initial pressure.
 

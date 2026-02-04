@@ -1,4 +1,4 @@
-﻿# 4.6.1 Manual selection of multiple guns
+﻿### 4.6.1 Manual selection of multiple guns
 
 <p align="center">
  <img src="../../_assets/image_32_eng_.PNG" width="60%"></img>

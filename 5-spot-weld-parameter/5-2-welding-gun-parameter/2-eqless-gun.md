@@ -1,4 +1,4 @@
-﻿# 5.2.2. Equalizerless gun
+﻿### 5.2.2. Equalizerless gun
 
 If the gun type is "eqaulizerless gun", a screen for setting the parameters related to the equalizerless gun will be indicated as shown below.
 

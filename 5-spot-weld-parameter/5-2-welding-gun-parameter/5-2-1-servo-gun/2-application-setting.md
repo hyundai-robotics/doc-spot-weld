@@ -1,4 +1,4 @@
-﻿# 5.2.1.2 Servo gun application setting
+﻿### 5.2.1.2 Servo gun application setting
 
 
 <p align=center>

@@ -1,4 +1,4 @@
-﻿# 3.1.2 Input and output signals
+﻿### 3.1.2 Input and output signals
 
 The input/output status of the assigned signals related to spot welding is organized and monitored for convenient use.
 

@@ -1,4 +1,4 @@
-﻿# 4.5.1.2 Servo tool parameter setting
+﻿### 4.5.1.2 Servo tool parameter setting
 
  In『**Setting**』 → 『**4: Application parameter**』 → 『**11: Servo tool change**』 → 『**2: Servo tool parameter setting**』, set the gun type and tool number targeted for the servo tool change.
 

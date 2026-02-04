@@ -1,4 +1,4 @@
-﻿# 4.2.2.3 Equalizer-fitted gun
+﻿### 4.2.2.3 Equalizer-fitted gun
 
 If the gun type is equalizer-fitted gun, the spot welding function is played back as shown in the figure below.
 

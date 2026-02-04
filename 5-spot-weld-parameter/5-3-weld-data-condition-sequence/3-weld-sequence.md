@@ -1,4 +1,4 @@
-﻿# 5.3.3 Welding sequence
+﻿### 5.3.3 Welding sequence
 
 Sets the sequence related to the spot welding to determine the robot operation according to the work environment.
 

@@ -1,4 +1,4 @@
-﻿# 2.4.1 Automatic setting
+﻿### 2.4.1 Automatic setting
 
 Progress the automatic setting of the application setting of the servo gun by pressing the 『**All automatic setting**』 key. In the case of '**all automatic setting**', the moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
 

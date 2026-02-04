@@ -1,4 +1,4 @@
-﻿# 1.3 Terms in line with the movement between the electrodes of the servo gun
+﻿# 1.3 Servo gun electrode movement terms
 
 
 <p align="center">

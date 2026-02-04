@@ -1,4 +1,4 @@
-﻿# 2.3.2.3 Servo gun soft limit
+﻿#### 2.3.2.3 Servo gun soft limit
 
 In general, the soft limit of the servo gun should be set to 'Minimum' while the moving electrode is fully open, and set to 'Maximum' while the moving electrode is at the closest position with all tips removed.
 

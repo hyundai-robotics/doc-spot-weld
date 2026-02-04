@@ -1,4 +1,4 @@
-﻿# 5.3.1 Common data
+﻿### 5.3.1 Common data
 
 Sets the data to be commonly applied regardless of the sequence of the spot welding.
 

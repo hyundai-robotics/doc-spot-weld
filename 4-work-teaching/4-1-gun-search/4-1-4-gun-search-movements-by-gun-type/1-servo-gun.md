@@ -1,4 +1,4 @@
-﻿# 4.1.4.1 Servo gun
+﻿#### 4.1.4.1 Servo gun
 
 The gun search function of the servo gun is initially set in a way that the total electrode consumption amount reflects 50% of each of the fixed electrode consumption amount and moving electrode consumption amount. Therefore, the electrode consumption amount can be calculated by using only gun search 1. If you want to calculate the consumption amounts of the fixed and moving electrodes respectively, please refer to the description of gun search 2.
 

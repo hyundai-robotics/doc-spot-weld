@@ -1,4 +1,4 @@
-﻿# 4.6.2 Support functions
+﻿### 4.6.2 Support functions
 
 The functions to be provided for simultaneous weldig with multiple guns are as follows.
 

@@ -1,4 +1,4 @@
-﻿# 1.2.2 Operation sequence that uses the servo gun manual setting
+﻿### 1.2.2 Operation sequence that uses the servo gun manual setting
 
 The procedure for the servo gun manual setting is as shown in the flowchart below.
 

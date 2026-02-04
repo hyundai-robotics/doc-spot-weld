@@ -1,4 +1,4 @@
-﻿# 4.2.1 Spot statement
+﻿### 4.2.1 Spot statement
 
 If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the \`GUN` LED is turned on while the step is being recorded with the \`Record` key, the Spot statement will be recorded along with the Move statement. (one-touch recording method.)
 

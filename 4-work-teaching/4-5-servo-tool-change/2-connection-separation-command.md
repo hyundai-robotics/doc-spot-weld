@@ -1,4 +1,4 @@
-﻿# 4.5.2 Connection/disconnection commands 
+﻿### 4.5.2 Connection/disconnection commands 
 
 In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
 

@@ -1,4 +1,4 @@
-﻿# 2.3.2.1 Servo gun encoder offset setting
+﻿#### 2.3.2.1 Servo gun encoder offset setting
 
 Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can match the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
 

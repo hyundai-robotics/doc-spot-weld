@@ -1,4 +1,4 @@
-﻿# 4.3.2 Type of operation
+﻿### 4.3.2 Type of operation
 
 To perform a tip dressing operation using the servo tip dressing condition, the welding sequence number in the Spot statement must be designated as 64 as shown below.
 

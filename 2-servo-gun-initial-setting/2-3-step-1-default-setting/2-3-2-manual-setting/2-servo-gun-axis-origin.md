@@ -1,4 +1,4 @@
-﻿# 2.3.2.2 Servo gun axis origin
+﻿#### 2.3.2.2 Servo gun axis origin
 
 In general, the axis origin of the servo gun should be set at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
 

@@ -1,4 +1,4 @@
-﻿# 6.1.5 Installation Method
+﻿### 6.1.5 Installation Method
 
 SPOTPAK is developed as a plug-in type application.
 The content displayed on the TP is written in HTML and JavaScript, and it communicates with a Python program that transfers the user's operation requests to the main program.

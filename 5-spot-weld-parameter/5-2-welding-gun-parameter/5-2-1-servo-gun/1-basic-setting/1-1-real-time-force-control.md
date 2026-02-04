@@ -1,4 +1,4 @@
-﻿# 5.2.1.1.1 Real-time squeezing force control
+﻿### 5.2.1.1.1 Real-time squeezing force control
 
 Real-time pressurization force control improves the accuracy of servo gun force by using data measured by a force sensor for control. To enable real-time pressurization force control, the force sensor must communicate with the robot controller, and the communication specifications are configured in the menu below.
 

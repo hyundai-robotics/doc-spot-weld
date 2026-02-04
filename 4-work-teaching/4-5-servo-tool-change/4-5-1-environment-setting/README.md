@@ -1,4 +1,4 @@
-﻿# 4.5.1 Environment setting
+﻿### 4.5.1 Environment setting
 
 The environment setting for servo tool change can be progressed according to the following order.
 

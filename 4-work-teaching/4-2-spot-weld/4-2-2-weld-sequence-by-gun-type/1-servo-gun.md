@@ -1,4 +1,4 @@
-﻿# 4.2.2.1 Servo gun
+﻿### 4.2.2.1 Servo gun
 
 If the gun type is servo gun, the spot welding function is played back as shown in the figure below.
 

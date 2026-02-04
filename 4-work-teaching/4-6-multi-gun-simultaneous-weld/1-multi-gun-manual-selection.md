@@ -1,4 +1,4 @@
-﻿# 4.6.1 멀티건 수동 선택
+﻿### 4.6.1 멀티건 수동 선택
 
 <p align="center">
  <img src="../../_assets/image_32.png" width="60%"></img>

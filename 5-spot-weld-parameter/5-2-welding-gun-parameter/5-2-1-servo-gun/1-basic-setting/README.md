@@ -1,4 +1,4 @@
-﻿# 5.2.1.1 서보건 기본 설정
+﻿#### 5.2.1.1 서보건 기본 설정
 
 <p align=center>
 <img src="../../../../_assets/image_44.png" width="70%"></img>

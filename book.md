@@ -53,7 +53,7 @@
 
 서보건의 설정은 수동 설정과 자동 설정, 두 가지 절차가 제공됩니다.
 [__SOURCE](1-overview/1-2-operating-order/1-servo-gun-auto-setting.md)
-# 1.2.1 서보건 자동 설정을 이용한 조작 순서
+### 1.2.1 서보건 자동 설정을 이용한 조작 순서
 
 서보건 자동 설정을 위한 절차는 아래 순서도와 같습니다.
 
@@ -64,7 +64,7 @@
  <em><p align="center">그림 1.1 서보건 자동 설정 조작 순서</p></em>
 </p>
 [__SOURCE](1-overview/1-2-operating-order/2-servo-gun-manual-setting.md)
-# 1.2.2 서보건 수동 설정을 이용한 조작 순서
+### 1.2.2 서보건 수동 설정을 이용한 조작 순서
 
 서보건 수동 설정을 위한 절차는 아래 순서도와 같습니다.
 
@@ -154,7 +154,7 @@
 『**설정 전 항목 진행**』키는 전체 절차 중 아직 진행되지 않은 절차를 검사하여 해당 절차를 자동으로 진행할 수 있도록 합니다. 초기 설정 시에는 『**설정 전 항목 진행**』만을 눌러 가이드를 따라 진행하며 설정을 완료할 수 있습니다.
 
 [__SOURCE](2-servo-gun-initial-setting/2-1-initial-setting-procedure/1-tool-number-gun-type-setting.md)
-# 2.1.1 건번호 대응 툴번호, 건타입 설정
+### 2.1.1 건번호 대응 툴번호, 건타입 설정
 
 스폿건 번호에 대응되는 툴번호와 건타입을 설정합니다. 다양한 용접건을 개별 용접기와 툴 번호에 용도에 맞게 설정할 수 있도록 지원합니다. 건타입에 따라 용접방식이 상이하므로 반드시 정확하게 설정되어야 합니다. 건의 추가는 우측 '+' 표시로 가능하며 최대 16개까지 가능합니다.
 
@@ -191,7 +191,7 @@
 
 {% endhint %}
 [__SOURCE](2-servo-gun-initial-setting/2-1-initial-setting-procedure/2-tool-angle-distance-setting.md)
-# 2.1.2 툴 각도/거리 설정
+### 2.1.2 툴 각도/거리 설정
 
 스폿 용접을 수행할때는 이퀄라이징 동작(고정전극이 클리어런스 위치를 경유하여 판넬에 접촉하는 동작)이 반드시 필요하며, 이 동작은 툴 좌표계를 올바르게 설정해야 합니다. 툴 좌표계의 +Z 축이 고정전극에서 이동전극 방향으로 정확하게 설정해야 합니다. (참고: `${cont_model} 제어기 조작설명서`(https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/))
 
@@ -286,7 +286,7 @@
 (2) **수동 설정**: 사용자의 조작에 의해 서보건을 지정된 위치로 이동시키고, 전용 설정 화면에서 지정된 기능을 수행.
 
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/1-auto-setting.md)
-# 2.3.1 자동 설정
+### 2.3.1 자동 설정
 
 서보건 '**기본 설정**'의 자동 설정은 『**전체 자동 설정**』을 눌러 진행합니다. '**전체 자동 설정**'은 서보건의 이동전극이 자동으로 움직이기 때문에 아래의 조건이 반드시 만족되어야 합니다.
 
@@ -345,7 +345,7 @@
 >7. **선택 항목 자동 설정**: 개별 자동 설정 항목으로 지정된 항목만 자동 설정
 >8. **실행 정지**: 진행 중인 설정을 정지
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/README.md)
-# 2.3.2 수동 설정
+### 2.3.2 수동 설정
 
 서보건의 기본 설정을 수동으로 설정하기 위한 절차는 아래와 같습니다.
 
@@ -354,7 +354,7 @@
 3. 서보건 소프트 리밋 설정
 
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)
-# 2.3.2.1 서보건 엔코더 옵셋 설정
+#### 2.3.2.1 서보건 엔코더 옵셋 설정
 
 통상적으로 엔코더의 원점은 서보건 모터의 교체 등으로 엔코더 데이터가 변경되었을 때 기구적으로 동일 위치를 일치시킬 수 있는 곳에서 설정을 합니다. 서보건의 경우 이동전극이 기구적으로 최대로 개방한 상태로 설정합니다.
 
@@ -375,7 +375,7 @@
  <em><p align="center">그림 2.9 엔코더 옵셋 보정 화면 이동</p></em>
 </p>
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/2-servo-gun-axis-origin.md)
-# 2.3.2.2 서보건 축 원점
+#### 2.3.2.2 서보건 축 원점
 
 통상적으로 서보건축 원점은 이동전극과 고정전극 모두 새 팁이 부착된 상태에서 서로 만나는 위치에서 설정합니다. 서보건 동작의 대부분은 이 축 원점을 기준으로 이루어지므로 이에 대한 설정은 매우 중요합니다.
 
@@ -397,7 +397,7 @@
 </p>
 
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/3-servo-gun-soft-limit.md)
-# 2.3.2.3 서보건 소프트 리밋
+#### 2.3.2.3 서보건 소프트 리밋
 
 통상적으로 서보건의 소프트 리밋은 이동전극이 최대로 개방한 상태에서 '최소'항목에 설정하며, 팁을 모두 제거한 가장 근접한 위치에서 '최대'항목에 설정합니다.
 
@@ -420,7 +420,7 @@
  <em><p align="center">그림 2.13 서보건 리밋 설정 화면 이동</p></em>
 </p>
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/README.md)
-# 2.3.3 서보건 가압력 - 전류 테이블 튜닝
+### 2.3.3 서보건 가압력 - 전류 테이블 튜닝
 
 로봇에 설치되는 다양한 서보건을 원하는 가압력으로 가압하기 위해서는 서보건에 인가되는 전류와 발생하는 가압력을 대응시키는 작업이 필요합니다. 이를 위해 당사에서는 서보건 가압력 - 전류 테이블을 제공하고 있으며, 이 테이블을 서보건에 맞게 튜닝하는 과정이 필요합니다. 이 튜닝 정확도에 따라 서보건 가압력의 정확도가 결정되므로 서보건 사용 전 반드시 설정해야 합니다.
 
@@ -435,7 +435,7 @@
 
     당사에서 지정하는 통신 가능한 가압력계에서 보낸 가압력 데이터를 이용하여 테이블을 자동으로 튜닝
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/1-manual-tuning-mode.md)
-# 2.3.3.1 수동 튜닝 모드
+#### 2.3.3.1 수동 튜닝 모드
 
 수동 튜닝 모드는 서보건 가압력 -전류테이블 설정을 수동으로 수행할 때 사용하는 기능입니다. 서보건 가압 후 측정된 가압력을 사용자가 직접 티칭 펜던트를 이용하여 입력하면 자동으로 최적의 지령전류를 계산합니다. 이 과정을 반복적으로 수행하여 정확도를 높여야 하며 정확도는 수렴 정도 및 테스트 가압으로 확인할 수 있습니다.
 
@@ -510,7 +510,7 @@
 * \`Ctrl` + \`서보건 수동압력`: 서보건 가압(현재 커서가 위치한 가압력으로 가압, 자동모드와 동일 제어)
 {% endhint %}
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/2-auto-tuning-mode.md)
-# 2.3.3.2 자동 튜닝 모드
+#### 2.3.3.2 자동 튜닝 모드
 
 서보건 가압력 -전류테이블 설정을 자동으로 수행할 때 사용하는 기능으로 가압력계와 로봇 제어기 사이에 데이터 전송이 가능해야 합니다. 사용하고자 하는 가압력계의 지원 여부를 반드시 문의하시기 바랍니다.
 
@@ -574,7 +574,7 @@
    * 사용자가 직접 '**건서치**'를 수행하고, '**건 암 휨량 보정**' 과 '**판넬 두께 측정 보정**'값을 기입합니다.  
 
 [__SOURCE](2-servo-gun-initial-setting/2-4-step-2-application-setting/1-auto-setting.md)
-# 2.4.1 자동 설정
+### 2.4.1 자동 설정
 
 서보건 응용 설정의 자동 설정은 『**전체 자동 설정**』을 눌러 진행합니다.  '**전체 자동 설정**'은 서보건의 이동전극이 자동으로 움직입니다. 또한 설정 값이 가압력에 영향을 받기 때문에 아래의 조건이 반드시 만족되어야 합니다.
 
@@ -693,7 +693,7 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
 * 스폿 용접 입출력 신호
 * 스폿 용접 가동 정보
 [__SOURCE](3-Related-functions/3-1-monitoring/1-spot-gun-axis-data.md)
-# 3.1.1 스폿건 축 데이터
+### 3.1.1 스폿건 축 데이터
 
 현재 선택된 스폿건에 대한 데이터를 실시간으로 표시합니다.
 
@@ -735,7 +735,7 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
 >     현재 선택된 건의 클램핑 동작 상태를 표시합니다.
 
 [__SOURCE](3-Related-functions/3-1-monitoring/2-input-output-signal.md)
-# 3.1.2 입출력 신호
+### 3.1.2 입출력 신호
 
 스폿용접과 관련하여 할당한 신호들의 입출력 상태가 정리되어 모니터링 되므로 편리하게 사용할 수 있습니다.
 
@@ -746,7 +746,7 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
  <em><p align="center">그림 3.3 스폿 입출력 신호 모니터링</p></em>
 </p>
 [__SOURCE](3-Related-functions/3-1-monitoring/3-operating-info.md)
-# 3.1.3 가동 시간 정보
+### 3.1.3 가동 시간 정보
 
 스폿용접과 관련하여 가동 시간 정보를 확인 할 수 있습니다.
 
@@ -780,7 +780,7 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
  <em><p align="center">그림 3.5 스폿 가동 정보 초기화 화면</p></em>
 </p>
 [__SOURCE](3-Related-functions/3-1-monitoring/4-state-flag.md)
-# 3.1.3 상태플래그
+### 3.1.4 상태플래그
 
 스폿용접과 관련하여 필요한 각종 상태는 다음의 화면과 같이 표시됩니다.
 
@@ -926,14 +926,14 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
 건서치 상태는 /모니터링/스폿에서 확인할 수 있습니다.
 
 [__SOURCE](4-work-teaching/4-1-gun-search/1-execute-order.md)
-# 4.1.1 실행 순서
+### 4.1.1 실행 순서
 
 <p align="center">
  <img src="../../_assets/image_23.png" width="70%"></img>
  <em><p align="center">그림 4.1 서보건 건서치 실행 순서</p></em>
 </p>
 [__SOURCE](4-work-teaching/4-1-gun-search/2-command-sentence-about-gun-search.md)
-# 4.1.2 건서치 관련 명령문
+### 4.1.2 건서치 관련 명령문
 ---
 (1) gunsea
 
@@ -990,7 +990,7 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
 | **입력신호** | 광전관 출력을 전달받을 입력신호 번호를 지정   |
 
 [__SOURCE](4-work-teaching/4-1-gun-search/3-gun-search-standard-position-record.md)
-# 4.1.3 건서치 기준위치 기록
+### 4.1.3 건서치 기준위치 기록
 
 전극의 마모량은 마모가 없는 새 팁을 기준으로 측정됩니다. 따라서 새 팁에서 기준위치를 등록해 두는 과정이 초기에 한 번은 반드시 필요하며 이를 건서치 기준위치 기록이라고 합니다.
 
@@ -1012,11 +1012,11 @@ Step 3. 설정 확인'을 완료한 상태이면 정상적인 서보건 이동 �
 >3. 『**2: 건서치 기준위치 기록**』을 <**무효**>로 설정합니다. 이후 건서치 프로그램을 이용하여 기준위치 대비 변화된 양을 마모량으로 계산하게 됩니다.
 
 [__SOURCE](4-work-teaching/4-1-gun-search/4-1-4-gun-search-movements-by-gun-type/README.md)
-# 4.1.4 건 타입별 건서치 동작
+### 4.1.4 건 타입별 건서치 동작
 
 
 [__SOURCE](4-work-teaching/4-1-gun-search/4-1-4-gun-search-movements-by-gun-type/1-servo-gun.md)
-# 4.1.4.1 서보건
+#### 4.1.4.1 서보건
 
 서보건의 건서치 기능은 총 전극 마모량을 고정전극과 이동전극이 50%씩 반영하도록 초기 설정되어 있습니다. 따라서 건서치 1만을 사용하여 마모량을 계산할 수 있습니다. 만일 고정전극과 이동전극의 마모량을 각각 계산하고자 하는 경우에는 건서치 2 설명을 참고하십시오.
 
@@ -1106,7 +1106,7 @@ S2   move P,spd=60%,accu=0,tool=1           #i건서치 동작위치로 이동
 >4. 개방이 완료되면 이동전극 및 고정전극 마모량이 갱신됩니다.
 
 [__SOURCE](4-work-teaching/4-1-gun-search/4-1-4-gun-search-movements-by-gun-type/2-eqless-gun.md)
-# 4.1.4.2 Eqless건
+#### 4.1.4.2 Eqless건
 
 Eqless건은 고정전극에 대한 마모량만을 관리하며 따라서 건서치 기능은 고정전극의 마모량을 측정합니다.
 
@@ -1136,7 +1136,7 @@ S1  move P,spd=60%,accu=0,tool=1  #건처시 동작위치로 이동
 고정전극과 이동전극이 가압한 상태로 용접기에서 용접전류를 흘려 스폿용접 작업을 수행합니다.
 
 [__SOURCE](4-work-teaching/4-2-spot-weld/1-spot-command-sentence.md)
-# 4.2.1 spot 명령문
+### 4.2.1 spot 명령문
 
 spot 명령문은 스폿 용접을 위해 용접건의 가압, 용접대기, 개방 등 일련의 기능을 수행합니다.
 
@@ -1180,12 +1180,12 @@ S16  move P,spd=60%,accu=0,tool=1
      spot gun=[1,2],cnd=1,seq=1
 ```
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/README.md)
-# 4.2.2 건 타입별 용접시퀀스
+### 4.2.2 건 타입별 용접시퀀스
 
 제어기는 프로그램에 spot 명령문을 실행함으로써 용접작업이 이루어지며 스폿용접 펑션의 재생은 다음과 같이 건타입에 따라 차이가 있습니다.
 
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/1-servo-gun.md)
-# 4.2.2.1 서보건
+#### 4.2.2.1 서보건
 
 건타입이 서보건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
@@ -1202,7 +1202,7 @@ S16  move P,spd=60%,accu=0,tool=1
 >5. 다음 스텝으로 이동합니다.
 
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/2-eqless-gun.md)
-# 4.2.2.2 Eqless건
+#### 4.2.2.2 Eqless건
 
 건타입이 Eqless건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
@@ -1218,7 +1218,7 @@ S16  move P,spd=60%,accu=0,tool=1
 >5. 다음 스텝으로 이동합니다.
 
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/3-eq-gun.md)
-# 4.2.2.3 Eq건
+#### 4.2.2.3 Eq건
 
 건타입이 Eq건인 경우 스폿용접 펑션의 재생은 아래의 그림과 같이 동작합니다.
 
@@ -1237,12 +1237,12 @@ S16  move P,spd=60%,accu=0,tool=1
 
 
 [__SOURCE](4-work-teaching/4-3-servo-gun-tip-dressing/1-condition-setting.md)
-# 4.3.1 조건설정
+### 4.3.1 조건설정
 
-서보건의 팁드레싱 조건은 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 →『**4: 용접데이터(조건, 시퀀스)**』 → 『**4: 서보건 팁드레싱 조건**』 에서 설정합니다. 해당 메뉴를 참고하십시오.
+서보건의 팁드레싱 조건은 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 →『**4: 용접데이터(조건, 시퀀스)**』 → 『**4: 서보건 팁드레싱 조건**』 에서 설정합니다. [서보건 팁드레싱 조건](https://hrbook-hrc.web.app/#/view/doc-spot-weld/ko/5-spot-weld-parameter/5-3-weld-data-condition-sequence/4-servo-gun-tip-dressing-condition?cont_model=Hi6)을 참고하십시오.
 
 [__SOURCE](4-work-teaching/4-3-servo-gun-tip-dressing/2-type-of-motion.md)
-# 4.3.2 동작형태
+### 4.3.2 동작형태
 
 서보건 팁드레싱 조건을 이용하여 팁드레싱 동작을 수행하려면 아래와 같이 spot 명령문의 용접시퀀스 번호는 반드시 64로 지정해야 합니다.
 
@@ -1273,12 +1273,12 @@ S16  move P,spd=60%,accu=0,tool=1
 서보건 개방 위치 기록이란 위 절차 중 (3)과 (5)를 생략하는 것으로서 상당한 티칭 시간을 절감할 수 있습니다. 이를 위해서는 용접하려는 판넬의 두께를 제어기가 알고 있어야 합니다.
 
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/4-4-1-panel-thickness-registration/README.md)
-# 4.4.1 판넬 두께 등록
+### 4.4.1 판넬 두께 등록
 
 서보건 개방 위치 기록은 미리 지정해 둔 판넬 두께를 이용하여 이동전극의 위치를 계산하므로 판넬 두께를 등록하여야 합니다. 판넬 두께를 등록하는 방식에는 2가지가 있으며, 사용자가 수동으로 입력하는 방식과 판넬을 가압한 상태에서 자동으로 등록하는 방식을 제공합니다.
 
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/4-4-1-panel-thickness-registration/1-manual-input-method.md)
-# 4.4.1.1 수동 입력 방식
+#### 4.4.1.1 수동 입력 방식
 
 "**R220 : 판넬 두께 설정**"를 실행하여 판넬 두께를 입력합니다.
 
@@ -1288,12 +1288,12 @@ S16  move P,spd=60%,accu=0,tool=1
  <em><p align="center">그림 4.12 판넬 두께 입력</p></em>
 </p>
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/4-4-1-panel-thickness-registration/2-auto-registration-method.md)
-# 4.4.1.2 자동 등록 방식
+#### 4.4.1.2 자동 등록 방식
 
 "**\[GUN] LED**"가 점등되어 있는 상태에서 수동 가압한 후 \`기록`키를 누르면 판넬 두께가 자동 등록됩니다.
 
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/2-how-to-teaching.md)
-# 4.4.2 티칭방법
+### 4.4.2 티칭방법
 
 (1)  판넬 두께가 등록된 상태에서는 이동전극을 개방한 채 고정전극만 판넬에 접촉한 상태로 교시를 진행합니다.
 
@@ -1321,7 +1321,7 @@ S16  move P,spd=60%,accu=0,tool=1
   
 {% endhint %}
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/README.md)
-# 4.5.1 환경설정
+### 4.5.1 환경설정
 
 서보툴 체인지 환경설정은 다음과 같은 순서로 진행합니다.
 
@@ -1330,7 +1330,7 @@ A.   건 번호 대응 툴번호, 건타입 설정
 B.   서보툴 파라미터 설정
 
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/1-tool-number-gun-type-setting.md)
-# 4.5.1.1 건 번호 대응 툴번호, 건타입 설정
+#### 4.5.1.1 건 번호 대응 툴번호, 건타입 설정
 
 『**설정**』 → 『**4: 응용 파라미터**』 → 『**1: 스폿용접**』 → 『**2: 용접건 파라미터**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
 
@@ -1357,7 +1357,7 @@ B.   서보툴 파라미터 설정
   
 {% endhint %}
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/2-servo-tool-parameter-setting.md)
-# 4.5.1.2 서보툴 파라미터 설정
+#### 4.5.1.2 서보툴 파라미터 설정
 
 『**설정**』 → 『**4: 응용 파라미터**』 → 『**11: 서보툴 체인지**』 → 『**2: 서보툴 파라미터 설정**』에서 서보툴 체인지 대상의 건타입과 툴 번호를 지정합니다.
 
@@ -1380,7 +1380,7 @@ B.   서보툴 파라미터 설정
  <em><p align="center">그림 4.16 부가축 파라미터 설정 화면</p></em>
 </p>
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/2-connection-separation-command.md)
-# 4.5.2 접속/분리 명령
+### 4.5.2 접속/분리 명령
 
 서보툴 체인지 환경에서 서보건의 접속/분리는 아래 2가지로 수행할 수 있습니다. 서보건을 접속하면 건번호와 툴번호가 설정된 값에 따라 자동 변경되며, 서보건을 분리하면 건번호와 툴번호가 0으로 자동 변경됩니다.
 
@@ -1433,7 +1433,7 @@ R코드에 의한 서보건 체인지 기능으로 수동 모드의 모터 On �
 접속완료는 기계적인 접속과 로봇 제어기 내부 처리가 끝나야 완료 처리가 됩니다. 접속완료 대기시간은 위 2가지 과정이 모두 완료될 때까지 대기하는 시간입니다.
 
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/3-connection-separation-timing.md)
-# 4.5.3 접속/분리 타이밍
+### 4.5.3 접속/분리 타이밍
 
 
 <p align="center">
@@ -1449,7 +1449,7 @@ R코드에 의한 서보건 체인지 기능으로 수동 모드의 모터 On �
     분리명령(toolchng off)은 접속과 상반되는 시퀀스를 가지고 분리 처리를 수행합니다.
 
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-sample-program.md)
-# 4.5.4 샘플 프로그램
+### 4.5.4 샘플 프로그램
 
 
 ```python
@@ -1469,7 +1469,7 @@ S14   move L, ...                   #서보툴 접속위치 이동
 S15   move L, ...                   #로봇이동
 ```
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/5-fixed-toolchng.md)
-# 4.5.5 고정전극 위치 가변 서보건 제어
+### 4.5.5 고정전극 위치 가변 서보건 제어
 
 서보건 전체를 체인지하면 이를 위한 설비(ATC, 건 스텐드 등)가 필요하지만 이동전극은 고정하고 고정전극을 체인지하는 시스템을 만들어 운영하면 별도의 설비가 필요하지 않고 체인지시 소요되는 시간도 절약할 수 있습니다. 이를 지원하기 위해서는 고정전극의 수만큼 마모량과 소프트 리밋을 관리해야 하므로 용접건 체인지(서보툴 체인지) 기능과 유사한 동작이 필요합니다. 따라서 해당 기능의 사용에 앞서 용접건 체인지(서보툴 체인지) 기능을 먼저 학습하십시오.
 
@@ -1493,7 +1493,7 @@ S13   move L, ...                   #로봇이동
 스폿용접의 일반적인 형태는 한번에 하나의 용접건으로 용접 작업을 수행합니다. 멀티건 동시용접 기능이란 한번에 여러 개의 용접건으로 동시에 용접하는 행위를 말합니다. 이를 위해서는 건의 건타입(서보건, Eqless건, Eq건)이 모두 동일해야 합니다.
 
 [__SOURCE](4-work-teaching/4-6-multi-gun-simultaneous-weld/1-multi-gun-manual-selection.md)
-# 4.6.1 멀티건 수동 선택
+### 4.6.1 멀티건 수동 선택
 
 <p align="center">
  <img src="../../_assets/image_32.png" width="60%"></img>
@@ -1528,7 +1528,7 @@ S13   move L, ...                   #로봇이동
 
 
 [__SOURCE](4-work-teaching/4-6-multi-gun-simultaneous-weld/2-support-function.md)
-# 4.6.2 지원기능
+### 4.6.2 지원기능
 
 멀티건 동시용접을 위해 제공되는 기능은 다음과 같습니다.
 
@@ -1761,12 +1761,12 @@ S15	  move L, ...				#로봇이동
 
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/README.md)
-# 5.2.1 서보건
+### 5.2.1 서보건
 
 서보건은 현재 스폿 용접건으로 가장 많이 사용되고 있는 건 타입입니다. 로봇축 이외에 별도 부가축으로 서보건을 제어하기 때문에 부가축 설정 뿐만 아니라 많은 제어 설정이 필요합니다.
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/README.md)
-# 5.2.1.1 서보건 기본 설정
+#### 5.2.1.1 서보건 기본 설정
 
 <p align=center>
 <img src="../../../../_assets/image_44.png" width="70%"></img>
@@ -1828,7 +1828,7 @@ S15	  move L, ...				#로봇이동
 <em><p align="center">그림 5.5 중력방향, 반중력방향</p></em>
 </p>
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/1-1-real-time-force-control.md)
-# 5.2.1.1.1 실시간 가압력 제어
+#### 5.2.1.1.1 실시간 가압력 제어
 
 실시간 가압력 제어는 가압력계로 측정한 데이터를 제어에 활용하여 서보건 가압력의 정확도를 향상시키는 기능입니다. 실시간 가압력 제어를 위해 가압력계는 로봇제어기와 통신을 해야 하고, 아래 메뉴로 통신사양을 설정합니다. 디지털 방식의 데이터만 수신 가능하기 때문에 센서의 아날로그 출력 신호는 디지털 컨버터를(ADC) 통해서 제어기로 입력되어야 합니다.
 
@@ -1853,11 +1853,13 @@ S15	  move L, ...				#로봇이동
     
 -  입력 신호 길이 : 신호에 할당된 비트 수
 
+-  게인 (p, i, d, pr) : 가압력 제어 성능 튜닝 파라미터 (개발자 모드에서만 수정 가능)
+
 
 
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/2-application-setting.md)
-# 5.2.1.2 서보건 응용 설정
+#### 5.2.1.2 서보건 응용 설정
 
 
 <p align=center>
@@ -1880,7 +1882,7 @@ S15	  move L, ...				#로봇이동
 {% endhint %}
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/2-eqless-gun.md)
-# 5.2.2. Eqless건
+### 5.2.2. Eqless건
 
 건타입이 "Eqless"건이면 아래와 같이 Eqless건과 관련된 파라미터를 설정하는 화면이 표시됩니다.
 
@@ -1919,7 +1921,7 @@ S15	  move L, ...				#로봇이동
 </p>
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/1-common-data.md)
-# 5.3.1 공통데이터
+### 5.3.1 공통데이터
 
 스폿용접시퀀스에 관계없이 공통으로 적용되는 데이터를 설정합니다.
 
@@ -1936,7 +1938,7 @@ S15	  move L, ...				#로봇이동
     설정된 용접완료(WI) 대기시간을 초과하여도 WI가 입력되지 않는 경우에 재용접을 실행합니다. 재용접 회수는 최대 3회까지 지정할 수 있으며 재용접 회수만큼 재시도 후에도 WI가 입력되지 않으면 에러를 발생합니다.
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/README.md)
-# 5.3.2 용접조건
+### 5.3.2 용접조건
 
 스폿용접과 관련된 조건을 설정하여 작업 환경에 따라 용접을 수행합니다.
 
@@ -1965,11 +1967,11 @@ S15	  move L, ...				#로봇이동
 -   spot명령문 실행 전, 수행 후 고정전극이 개방하는 위치를 설정합니다.
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/README.md)
-# 5.3.2.1. 다단 가압 및 보조 조건
+#### 5.3.2.1. 다단 가압 및 보조 조건
 
 다단가압 설정 방법과 보조 조건은 해당 탭을 선택하여 편집할 수 있습니다.
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multi-pressure-ctrl.md)
-# 5.3.2.1.1 다단 가압 제어
+#### 5.3.2.1.1 다단 가압 제어
 
 서보건 스폿 용접에서 가압중인 가압력을 변경하는 기능입니다. 가압력 변경은 정해진 profile을 생성하여 변경시키는 방법과 신호 입력에 의해 변경시키는 방법이 있습니다.
 
@@ -2010,7 +2012,7 @@ S15	  move L, ...				#로봇이동
    * 가압력: 변경 요청 가압력. 가압력은 지정하거나 신호로 입력 받을 수 있음. 가압력 지정 시 신호 입력으로 받은 가압력은 무시됨.
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/2-moving-when-pressing-pivot.md)
-# 5.3.2.1.2 가압 중 건 이동(피봇)
+#### 5.3.2.1.2 가압 중 건 이동(피봇)
 
 서보건 스폿 용접에서 가압 중에 건을 이동시키는 기능입니다. 설정한 이동시점에 지정한 거리, 속도, 방향으로 로봇이 이동합니다. 본 기능은 툴 좌표계를 기준으로 로봇이 이동하는 기능이기 때문에 서보건 툴 데이터, 마모량, 건 암 휨, 티칭 자세, 로봇 캘리브레이션이 성능에 영향을 줄 수 있습니다. 기능의 효과적인 적용을 위해서는 상기 요소들을 지속적으로 관리해야 합니다.
 
@@ -2038,7 +2040,7 @@ S15	  move L, ...				#로봇이동
 -   이동시점이 되었을 때 지연 시간 동안 대기 후 이동을 시작합니다.
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/3-initial-sequence.md)
-# 5.3.2.1.3 초기 시퀀스
+#### 5.3.2.1.3 초기 시퀀스
 
 다단가압력 설정 조건은 스폿 용접 뿐만 아니라 이종 접합 등 다른 용접 응용에도 활용 될 수 있습니다. 일부 응용은 (ex. RSR) 초기 가압력에 도달한 후에 신호 입출력 시퀀스를 요구합니다. 아래와 같은 시퀀스 절차에 필요한 입출력 신호를 등록해 두면 초기 가압력 도달 후, 신호 입출력 과정을 마치고 나서 다단가압 과정으로 진행합니다. 총 5개의 시퀀스 중 필요한 만큼 입력하시면 됩니다.
 
@@ -2051,7 +2053,7 @@ S15	  move L, ...				#로봇이동
 
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/3-weld-sequence.md)
-# 5.3.3 용접시퀀스
+### 5.3.3 용접시퀀스
 
 스폿용접과 관련된 시퀀스를 설정하여 작업환경에 따라 로봇의 동작을 결정합니다.
 
@@ -2078,7 +2080,7 @@ S15	  move L, ...				#로봇이동
 -   통상 용접완료(WI) 신호가 입력 후 용착 검출을 대기하는 시간입니다. "0.0"으로 설정될 경우 용착 검출을 하지 않습니다. 용착 검출 신호를 사용할 때에는 "0.3초(300 msec)" 이상의 값을 입력하기를 권장합니다. 그러나 이 값이 크면 용접시간이 길어지고 사이클타임이 증가하게 됩니다.
 
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/4-servo-gun-tip-dressing-condition.md)
-# 5.3.4 서보건 팁드레싱 조건
+### 5.3.4 서보건 팁드레싱 조건
 
 서보건에 대해 팁드레싱을 수행하는 경우 이에 대한 각종 조건을 설정합니다.
 
@@ -2195,12 +2197,12 @@ S15	  move L, ...				#로봇이동
 <em><p align="center">그림 6.1 (a) 용접기와 분리된 스폿 용접 시스템   (b) 통합 스폿 용접 시스템</p></em>
 </p>
 [__SOURCE](6-spotpak/6-1-spotpak-overall/1-features.md)
-# 6.1.1 장점 및 특징
+### 6.1.1 장점 및 특징
 
 
+<br>
 
-
-## 1.2.1. 장점
+#### 장점
 
  -	타 주변기기와 접속이 용이하여 시스템 구성 시간 절감(Reduces start-up time)
  - 	디바이스넷을 사용하므로 배선 비용 절감(Lower capital costs)
@@ -2209,7 +2211,7 @@ S15	  move L, ...				#로봇이동
 
 
 
-## 1.2.2. 특징 
+#### 특징 
  - 	디바이스넷 메시지 방식을 통한 로봇제어기와 용접기간 통신 신뢰성 확보됨
  -	최대 4대의 용접 타이머를 접속 사용 가능함(서보건, 공압건 무관)
  -	타이머 모델이 변경되어도 로봇제어기 소프트웨어를 변경하지 않아도 됨
@@ -2228,7 +2230,7 @@ Table 6.1 File 종류 및 설명
 
 
 [__SOURCE](6-spotpak/6-1-spotpak-overall/2-configure.md)
-# 6.1.2 시스템 구성
+### 6.1.2 시스템 구성
 
 
 
@@ -2240,7 +2242,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 <em><p align="center">그림 6.2 디바이스넷 통신 구성</p></em>
 </p>
 [__SOURCE](6-spotpak/6-1-spotpak-overall/3-menu.md)
-# 6.1.3 메뉴 구성
+### 6.1.3 메뉴 구성
 
 
 
@@ -2253,7 +2255,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 <em><p align="center">그림 6.3 메뉴 트리</p></em>
 </p>
 [__SOURCE](6-spotpak/6-1-spotpak-overall/4-procedure.md)
-# 6.1.4 조작 순서
+### 6.1.4 조작 순서
 
 
 
@@ -2284,7 +2286,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 
 [__SOURCE](6-spotpak/6-1-spotpak-overall/5-install.md)
-# 6.1.5 설치 방법
+### 6.1.5 설치 방법
 
 
 
@@ -2315,9 +2317,9 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 [__SOURCE](6-spotpak/6-2-spotpak-functions/README.md)
 # 6.2 용접기 인터페이스 주요기능
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/README.md)
-# 6.2.1 데이터 관리
+### 6.2.1 데이터 관리
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/1-specfile.md)
-# 6.2.1.1 특성정보 가져오기
+#### 6.2.1.1 특성정보 가져오기
 
 
 
@@ -2339,7 +2341,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
  - ④	[다운로드]버튼 : [용접기 번호 선택]에 입력된 용접기의 특성 정보를 다운로드 합니다. 정상적으로 다운로드가 완료되면, 특성 정보가 저장되었습니다. 라는 메시지 창이 나타납니다.  
 
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/2-backup.md)
-# 6.2.1.2 데이터 백업
+#### 6.2.1.2 데이터 백업
 
 
 <br>
@@ -2359,7 +2361,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
  - ③	다른 ${cont_model} 제어기에 연결되어 있는 용접기의 데이터를 일괄적으로 변경하고자 할 때
 
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/3-datacopy.md)
-# 6.2.1.3 데이터 복사
+#### 6.2.1.3 데이터 복사
 
 <br>
 
@@ -2376,7 +2378,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/4-sericopy.md)
-# 6.2.1.4 계열 복사
+#### 6.2.1.4 계열 복사
 
 
 <br>
@@ -2390,7 +2392,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 계열 복사는 계열이 있는 데이터들만 복사하고자 하는 경우에 사용합니다. 그림의 프로그램들 중 선택할 수 있고 복사할 용접기와 계열 범위를 선택합니다.
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/5-initialize.md)
-# 6.2.1.5 초기화
+#### 6.2.1.5 초기화
 
 <br>
 
@@ -2416,9 +2418,9 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 로봇 제어기의 현재 시각을 전송하여 용접기와 시각을 동기화 하기 위한 용도로 사용됩니다.
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/README.md)
-# 6.2.2 데이터 설정/모니터링
+### 6.2.2 데이터 설정/모니터링
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/1-progmon.md)
-# 6.2.2.1 프로그램/모니터링
+#### 6.2.2.1 프로그램/모니터링
 
 
 <br>
@@ -2440,7 +2442,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 <br>
 용접기의 데이터는 크게 PROGRAM과 MONITOR로 나뉘며, 메뉴 내부의 내용은 용접기의 버전에 따라 달라질 수 있습니다.
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/2-siglesched.md)
-# 6.2.2.2 단일 계열 프로그램
+#### 6.2.2.2 단일 계열 프로그램
 
 <br>
 
@@ -2453,7 +2455,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 단일 계열 PROGRAM은 COMMON PROGRAM 처럼 모든 용접조건에 공통적으로 적용되는 프로그램을 의미합니다.
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/3-multisched.md)
-# 6.2.2.3 다중 계열 프로그램
+#### 6.2.2.3 다중 계열 프로그램
 
 <br>
 
@@ -2466,7 +2468,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 다중 계열 프로그램은 계열을 선택할 수 있는 프로그램을 의미합니다. 이 경우, 계열의 선택은 [계열번호] 버튼을 사용하여 할 수 있습니다. 그리고 특정 단일 데이터를 원하는 범위의 계열에 복사하고자 할 경우에는 [데이터 일괄쓰기] 버튼을 사용하여 데이터 일괄쓰기 메뉴를 활용할 수 있습니다.
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/4-batch.md)
-# 6.2.2.4 데이터 일괄쓰기
+#### 6.2.2.4 데이터 일괄쓰기
 
 
 
@@ -2655,7 +2657,7 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 스폿 모니터링 기능은 스폿 용접을 실시하면서 생성 되는 데이터들을 그래프로 가시화하여 문제가 발생한 경우에 그 원인을 신속히 파악할 수 있도록 지원합니다. 또한, 기능을 확인하고자 하는 경우에는 그래프로 표시되는 각 데이터들의 크기와 타이밍을 검토하여, 데이터 파일을 PC에서 분석하는 번거로움없이 TP에서 바로 정상, 비정상 여부를 판별하는데 도움을 주는 기능입니다. 
 
-## 설치 방법
+### 설치 방법
 본 기능은 플러그인(flug-in) 방식으로 개발되어, 별도의 빌드 과정 없이 해당 코드를 지정된 폴더에 저장하면 자동으로 메뉴가 표시되고 원하는 기능을 선택하여 실행할 수 있습니다. 플러그인 프로그램의 설치 및 보안에 대한 기능이 별도로 제공되기 전까지 스폿 담당자로부터 소스 코드를 받아서 [MAIN > apps > spot_mon] 경로에 복사하시면 됩니다. 이 후 [시스템> 4:응용 파라미터] 항목에 해당 기능의 메뉴가 생성됩니다.
 
 

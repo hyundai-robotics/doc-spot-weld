@@ -1,7 +1,7 @@
 ﻿
 # 6.1.1 Advantages and Features
 
-## 1.2.1 Advantages
+## Advantages
 
 - Easy connection with other peripheral devices, reducing overall system setup time (Short start-up time)
 
@@ -11,7 +11,7 @@
 
 - A single controller : the robot Teach Pendant for robot and welder operations
 
-## 1.2.2. Features
+## Features
 
 - Ensures reliable communication between the robot controller and the welder through the DeviceNet message method.
 

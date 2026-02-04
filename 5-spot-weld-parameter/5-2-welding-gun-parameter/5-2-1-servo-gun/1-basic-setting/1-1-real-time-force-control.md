@@ -25,3 +25,5 @@ Since only digital data can be received, the sensor's analog output signal must 
 -  Pressurization input port: The address of the signal assigned for input.
 
 -  Input port length: The number of bits assigned to the signal.
+
+-  Gains (p, i, d, pr): Pressurization force control tuning parameters (modifiable only in Developer Mode).

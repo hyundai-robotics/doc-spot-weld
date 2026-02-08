@@ -23,7 +23,7 @@ This function changes the pressurization force during pressurization in servo gu
 (4)  **\<Profile creation>**  
    - Will be activated when profile creation is selected as the method to change the squeezing force.
 
-        * Point of time for change:  Specipies the point of time for starting multi-step squeezing by dividing the spot welding steps into \[**Initial squeezing force reached**] -> \[**Welding execution output**] -> \[**Welding completion input**].
+        * Point of time for change:  Specipies the point of time for starting multi-step squeezing by dividing the spot welding steps into `Initial squeezing force reached` -> `Welding execution output` -> `Welding completion input`.
         * Time required for change:  The squeezing force will be changed after the time required for change after the point of time for change is reached.
         * Squeezing force:  The target squeezing force to change to
         * Output data:  Output value transmitted in 12-bit format upon completion of pressurization

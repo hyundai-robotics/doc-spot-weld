@@ -7,8 +7,8 @@
 
 The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.
 
-1. Select \[**R**]+\[**358**] and then connect G1. After the connection is completed, the parameter related to the additional axis to which G1 is assigned should be set.
-2. Select \[**R**]+\[**358**] and then connect G2. After the connection is completed, the parameter related to the additional axis to which G2 is assigned should be set.
+1. Select `[R]+358` and then connect G1. After the connection is completed, the parameter related to the additional axis to which G1 is assigned should be set.
+2. Select `[R]+358` and then connect G2. After the connection is completed, the parameter related to the additional axis to which G2 is assigned should be set.
 3. The state of the selected gun is indicated in state flag as follows.
 
 {% hint style="info" %}

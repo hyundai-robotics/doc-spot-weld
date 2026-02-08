@@ -13,7 +13,7 @@ While the gun type is servo gun, if the Spot statement exists during \`Position 
 
 <center>
 
-|   **Item**    | 　      **Content**       |
+|   **Item**    |        **Content**       |
 | :--------: |:---------: |
 |    **Gun number**    |  the welding gun number |
 |    **Condition number**   |  the welding condition |

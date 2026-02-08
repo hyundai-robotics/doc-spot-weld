@@ -14,7 +14,7 @@
 
 
 
-|   **Item**    | 　      **Content**       |
+|   **Item**    |        **Content**       |
 | :--------: |:---------: |
 |    **on/off**    |  on: clamping, off: releasing |
 |    **Gun number**    |  the welding gun number (array [ ] for multi-guns) |

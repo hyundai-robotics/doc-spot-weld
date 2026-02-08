@@ -25,7 +25,7 @@ Operation of the welder interface proceeds in the following order:
 
 {% hint style="info" %}
 
- * For industrial communication settings required for DeviceNet configuration, refer to [**Industrial Communication Function Manual**](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/english/README)
+ * For industrial communication settings required for DeviceNet configuration, refer to [Industrial Communication Function Manual](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/en/README)
 
 
 {% endhint %}

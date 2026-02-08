@@ -15,7 +15,7 @@ Since this function moves the robot based on the tool coordinate system, servo g
   
 (2)  **Point to start movement**
 -   Specifies the start timing of movement by dividing the spot welding stages into
-[**Initial squeeze arrived**] → [**Welding execution output**] → [**Welding complete input**].
+`Initial squeeze arrived` → `Welding execution output` → `Welding complete input`.
 
 (3)  **Shift value (sft)**
 -   Regardless of whether a robot-mounted gun or a stationary gun is used, the coordinate system and movement position for shift movement are determined.

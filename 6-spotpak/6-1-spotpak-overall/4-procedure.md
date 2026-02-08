@@ -16,7 +16,7 @@
 
 
 {% hint style="info" %}
- * 디바이스넷 설정을 위한 산업용 통신 설정은 [**산업용통신 기능 설명서**](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/ko/README?cont_model=${cont_model})를 참고바랍니다.
+ * 디바이스넷 설정을 위한 산업용 통신 설정은 [산업용통신 기능 설명서](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/ko/README?cont_model=${cont_model})를 참고바랍니다.
 
 
 

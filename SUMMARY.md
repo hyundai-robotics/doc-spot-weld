@@ -1,6 +1,7 @@
 ﻿# Table of contents
 
 * [${cont_model} 제어기 기능설명서 - 스폿 용접](README.md)
+* [사전 주의사항](0-about-this-manual/precautions.md)
 * [1. 개요](1-overview/README.md)
   * [1.1 주요 사양](1-overview/1-1-main-specification.md)
   * [1.2 조작 순서](1-overview/1-2-operating-order/README.md)

@@ -1,6 +1,7 @@
 ﻿# Table of contents
 
 * [${cont_model} Robot Controller Function Manual - Spot Welding](README.md)
+* [Precautions](0-about-this-manual/precautions.md)
 * [1. Overview](1-overview/README.md)
   * [1.1 Main specification](1-overview/1-1-main-specification.md)
   * [1.2 Operation sequence](1-overview/1-2-operating-order/README.md)

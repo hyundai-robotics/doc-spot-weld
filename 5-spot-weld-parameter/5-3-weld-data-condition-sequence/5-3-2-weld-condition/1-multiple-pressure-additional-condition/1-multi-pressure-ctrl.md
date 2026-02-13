@@ -29,7 +29,7 @@ This function changes the pressurization force during pressurization in servo gu
         * Output data:  Output value transmitted in 12-bit format upon completion of pressurization
   
 (5)  **\<Signal input>**  
-  - Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be inputted.
+  - Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be entered.
 
     * Communication range:  Range from minimum to maximum of the assigned signal
     * Value range:  Minimum and maximum values of the assigned signal

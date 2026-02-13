@@ -54,7 +54,7 @@
 
   A squeezing force table can be created in five levels as desired by the user by measuring the squeezing force with a squeezing force gauge. If the squeezing force is set differently for the gravity direction and anti-gravity direction, the compensation for the squeezing force will occur in line with the operating direction of the gun.  
 
-  This squeezing force - current table sets the current values for the squeezing values in five levels. The table should be set in a way that the squeezing force - current value increases as the level goes up. The upper and lower limits inputted for the squeezing force will be used as the limiting range of the squeezing force during playback or manual operation.
+  This squeezing force - current table sets the current values for the squeezing values in five levels. The table should be set in a way that the squeezing force - current value increases as the level goes up. The upper and lower limits entered for the squeezing force will be used as the limiting range of the squeezing force during playback or manual operation.
 
 <p align=center>
 <img src="../../../../_assets/image_54_eng.PNG" ></img>

@@ -17,7 +17,7 @@ Assigns the signals related to spot welding and transfers their state to the out
   - To be used to output a command for welding to the welder during the execution of the Spot statement.
 
 (4)  **Welder abnormal**
-  - To be used to output the inputted spot welder abnormal signal to the outside.
+  - To be used to output the entered spot welder abnormal signal to the outside.
 
 (5)  **Electrode consumption alarm**
   - To be used to output a signal if the consumption amount detected by the gun search is larger than the electrode replacement required consumption amount.

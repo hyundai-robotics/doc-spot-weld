@@ -9,7 +9,7 @@ This is a description of the user keys related to spot welding. There is a butto
 </p>
 
 
->*   **Servo gun wide opening **  
+>*   **Servo gun wide opening**  
 >    Manually moves the servo gun to the wide opening position.
 >*   **Servo gun manual closing**  
 >    Manually moves the servo gun to the narrow opening position.

@@ -1,56 +1,77 @@
 ﻿# 7. Frequently Asked Questions
 
-*   <mark style="color:green;">**How does the servo gun axis operate when using the shift function?**</mark>
+* How does the servo gun axis operate when using the shift function? 
 
-    All functions for shifting (offline, online, search, palletize) are applied only for the robot axis and the servo gun axis moves to recorded positions.
-*   <mark style="color:green;">**What happens to the servo gun axis in case of coordinate conversion?**</mark>
+  All shift-related functions (Offline, Online, Search, and Palletizing) are applied only to the robot axes. The servo gun axis moves to the positions recorded in the program and is not affected by the shift operation.
 
-    Only the movement elements for the robot are converted while the servo gun axis will not be converted.
-*   <mark style="color:green;">**How does the operation proceed in case of the counterpart program call function?**</mark>
+* What happens to the servo gun axis during coordinate conversion?  
+  Only the robot motion elements are subject to coordinate conversion. The servo gun axis is not converted.
 
-    Shifting occur by applying the relative position for the robot.
-*   <mark style="color:green;">**What happens to the servo gun axis in case of mirror image conversion?**</mark>
+* How does the system operate when the counterpart program call function is used?  
 
-    Mirror image conversion will be applied for the additional axis only when the axis specification is base and the axis configuration is linear. So, the servo gun axis will not be converted.
-*   <mark style="color:green;">**How can I change the currently selected gun number?**</mark>
+  Shifting is applied by adding the relative position offset to the robot axes.
 
-    You can change it by using "**R210: Spot gun number selection.** If the gun you want to change is a robot gun, the tool number will be also automatically changed by referring to the tool number corresponding to the gun number when you change the gun number. When you change a gun number by using R210 in a multi-gun environment, the environment will change to an environment of the selected sole gun.
-*   <mark style="color:green;">**I want to select and manually squeeze multiple guns. How can I select multiple guns?**</mark>
+* What happens to the servo gun axis during mirror image conversion?  
 
-    You can select multiple guns only when they are the same gun type. You can select them with "**R214: Selection of simultaneous welding guns**." If you want to deselect a gun after selecting multiple guns, you can input the gun number you want to deselect with R214. However, you cannot deselect the first gun number (master gun). 
-*   <mark style="color:green;">**How can I change the squeezing force during the servo gun squeezing process?**</mark>
+  Mirror image conversion is applied to an additional axis only when the axis specification is set to Base and the axis configuration is Linear. Therefore, the servo gun axis is not subject to mirror image conversion.
 
-    If the selected gun type is servo gun, you can change it with "**R211: Servo gun squeezing force setting.**"
-*   <mark style="color:green;">**How can I arbitrarily change the moving electrode consumption amount of the servo gun?**</mark>
+* How can I change the currently selected gun number?  
 
-    If the selected gun type is servo gun, you can change it with "**R212: Servo gun moving electrode consumption amount preset.**" When gun search is performed, this value will be automatically updated.
-*   <mark style="color:green;">**How can I arbitrarily change the fixed electrode consumption amount of the servo gun?**</mark>
+  You can change the selected gun number using R210: Spot Gun Number Selection.
+  If the selected gun is a robot-mounted gun, the corresponding tool number will automatically be updated based on the tool number assigned to that gun.
+  When the gun number is changed using R210 in a multi-gun environment, the system switches to a single-gun environment corresponding to the selected gun.
 
-    If the selected gun type is servo gun, you can change it with "**R213: Servo gun fixed electrode consumption amount preset.**" When gun search is performed, this value will be automatically updated.
-*   <mark style="color:green;">**How can I arbitrarily change the fixed electrode consumption amount of the equalizerless gun?**</mark>
+* How can I select and manually squeeze multiple guns?  
 
-    If the selected gun type is equalizerless gun, you can change it with "**R220: Equalizerless gun fixed electrode consumption amount preset.**" When gun search is performed, this value will be automatically updated.
-*   <mark style="color:green;">**I am now operating a robot in automatic mode and want to change the squeezing force in the welding condition. How can I do it?**</mark>
+  Multiple guns can be selected only if they are of the same gun type.   Use R214: Selection of Simultaneous Welding Guns to select multiple guns. To deselect a gun after multiple guns have been selected, enter the gun number to be deselected using R214. However, the first selected gun (Master Gun) cannot be deselected.
 
-    With "**R215: Spot welding condition squeezing force setting,**" you can change the value of the squeezing force set in the welding condition even currently in the middle of automatic operation of the robot. 
-*   <mark style="color:green;">**Can I manually change the currently selected welding condition and welding sequence numbers?**</mark>
+* How can I change the squeezing force during the servo gun squeezing process?  
 
-    In the case of the welding condition, press \`cond.sel` and in the case of welding sequence, press\`seq.sel` to change to a desired number.
-*   <mark style="color:green;">**Is there any shortcut key to enter the menu of『Setting』 → 『4: Application parameter』 → 『1: Spot welding』?**</mark>
+  If the selected gun type is a servo gun, the squeezing force can be adjusted using R211: Servo Gun Squeezing Force Setting.
 
-    You can quickly enter the menu by placing the cursor on the spot welding related command (spot, gunsea, igunsea, and egunsea) on the initial screen of the manual mode and pressing \`Attribute**.] 
-*   <mark style="color:green;">**How can I manually change the panel thickness?**</mark>
+* How can I manually change the moving electrode wear amount of the servo gun? 
 
-    If the selected gun type is servo gun, you can change it with "**R220: Panel thickness setting (Sv).**"
-*   <mark style="color:green;">**How can I change the record positions of the spot welding steps to normal values once?**</mark>
+  If the selected gun type is a servo gun, the moving electrode wear amount can be modified using R212: Servo Gun Moving Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
 
-    You can change it simply by setting <**Valid**> for the "**Automatic adjustment of servo gun welding step record position**" item in 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』→ 『**2: Use environment setting**』 and then playing back the work program.
-*   <mark style="color:green;">**Is it possible for any missed welding point to be detected?**</mark>
+* How can I manually change the fixed electrode wear amount of the servo gun? 
 
-    When you initialize the number of weldings in the work program start menu and then perform weldings normally, the number of weldings will increase. Considering that you need to compare between the number of spots for completion of welding and the number of weldings performed, you need to create a program as follows.
+  If the selected gun type is a servo gun, the fixed electrode wear amount can be modified using R213: Servo Gun Fixed Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+
+* How can I manually change the fixed electrode wear amount of an equalizerless gun?   
+
+  If the selected gun type is an equalizerless gun, the fixed electrode wear amount can be modified using R220: Equalizerless Gun Fixed Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+
+* The robot is currently operating in automatic mode, and I want to change the squeezing force defined in the welding condition. How can I do this?   
+
+  Use R215: Spot Welding Condition Squeezing Force Setting to change the squeezing force value defined in the welding condition, even while the robot is operating in automatic mode.
+
+* Can I manually change the currently selected welding condition and welding sequence numbers?  
+
+  To change the welding condition number, press cond.sel. To change the welding sequence number, press seq.sel, and then select the desired number.  
+
+* Is there a shortcut key to access the menu path [Setting] → [4: Application Parameter] → [1: Spot Welding]?  
+  
+  Yes. In Manual Mode, place the cursor on a spot welding–related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the Attribute key to quickly access the corresponding menu.
+
+* How can I manually change the panel thickness?  
+
+  If the selected gun type is a servo gun, the panel thickness can be changed using R220: Panel Thickness Setting (Sv).
+
+* How can I reset the recorded positions of the spot welding steps to normal values at once?  
+
+  Set <Valid> for the item “Automatic Adjustment of Servo Gun Welding Step Record Position” under [Setting] → [4: Application Parameter] → [1: Spot Welding] → [2: Use Environment Setting], and then play back the work program.
+
+* Is it possible to detect any missed welding points?  
+  
+  Yes. When you initialize the welding count in the Work Program Start menu and then perform welding normally, the welding count will increase accordingly.
+  To detect missed welding points, you must compare:
+  the total number of welding spots required for completion, and the actual number of weldings performed.
+  Therefore, you need to create a comparison program similar to the example below: 
 
                    ![](<_assets/image_68_eng.PNG>)
-*   <mark style="color:green;">**It seems that the working time can be shortened if tip dressing and gun search operations for a stationary servo gun is performed, independently from the handling operation. Is there any way to do this?**</mark>
+  By implementing this logic, missed welding points can be detected.
 
-    It can be simply supported if you use multi-task function. Refer to `Multi-task Function Manual`(https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/).
 
+* It seems that the working time could be reduced if tip dressing and gun search operations for a stationary servo gun were performed independently from handling operations. Is there any way to achieve this?  
+
+  Yes. This can be easily implemented by using the multi-task function.  By separating handling operations and stationary servo gun operations into different tasks, they can be executed independently and simultaneously. Please refer to the [Multi-task Function Manual](https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/) for detailed instructions.

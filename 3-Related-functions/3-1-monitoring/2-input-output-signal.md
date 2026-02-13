@@ -1,8 +1,9 @@
 ﻿### 3.1.2 Input and output signals
 
 The input/output status of the assigned signals related to spot welding is organized and monitored for convenient use.
+(`[pane layout]-[F1: select]-spot i/o data`)
 
-(『**Selection**』 → 『**Spot**』 → 『**Input and output signals**』)
+<br>
 
 <p align="center">
  <img src="../../_assets/image_40_eng.PNG" width="70%"></img>

@@ -23,7 +23,7 @@ The procedure for manual closing and squeezing of the welding gun is as follows.
     | <img src="../_assets/image_86_eng.PNG"></img>|<img src="../_assets/image_16_eng.PNG"></img> | <img src="../_assets/image_43_eng.PNG"></img> |
 
 
-1.  When you press the "\`SHIFT` and \`user`" keys at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
+1.  When you press the `[SHIFT]+[user key]` at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
 
     |                  **Servo gun**                 |
     | :--------------------------------------: |
@@ -34,7 +34,7 @@ The procedure for manual closing and squeezing of the welding gun is as follows.
 The servo gun has the following characteristics during the manual closing and squeezing operations.
 
 * The servo gun automatically stops at the wide opening position, the narrow opening position, and the position where the squeezing force reaches the set value.
-* The moving speed is the speed inputted in 『**2: Maximum speed during step forward/backward**』 in 『**Condition setting**.』 ![](<../_assets/image_48_eng.PNG>)
+* The moving speed is the speed entered at **Step FWD/BWD maximum speed** by `[F7: cond.set]`.
 * If the set squeezing force is small, the servo gun will not move even when it is operated. Considering it, set a sufficient squeezing force (R211: Squeezing force setting).
 * When it comes to multiple guns, if there is a difference in the moving distance between two guns, the gun that reaches first will stop while the other gun will stop after moving as much as the remaining distance.
 

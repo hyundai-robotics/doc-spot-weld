@@ -11,7 +11,7 @@ Sets the conditions related to spot welding to perform welding in line with the 
   - Sets the welding condition quickly.
 
 (2)  **Output data (binary)**  
-  - Sets the data, which is to be inputted to the welder, for the welding condition number during the execution of the Spot statement.
+  - Sets the data, which is to be entered to the welder, for the welding condition number during the execution of the Spot statement.
 
 (3)  **Initial squeezing force**
 
@@ -19,7 +19,7 @@ Sets the conditions related to spot welding to perform welding in line with the 
 
 (4)  **Multi-step squeezing force and auxiliary condition**
 
-  -  This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is inputted, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
+  -  This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is entered, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
 
 (5)  **Moving electrode clearance**
   - Sets the position where the moving electrode opens before and after the execution of the Spot statement.

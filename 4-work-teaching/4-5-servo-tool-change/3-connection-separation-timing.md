@@ -8,7 +8,7 @@
 
 *   Connection
 
-    If the robot and servo gun are mechanically connected during the execution of the connection command (toolchng on), the connection completion signal will be inputted, the connection will be processed inside the controller, the encoder power for driving the axis of the servo gun will be inputted, and the motor on operation will be executed.
+    If the robot and servo gun are mechanically connected during the execution of the connection command (toolchng on), the connection completion signal will be entered, the connection will be processed inside the controller, the encoder power for driving the axis of the servo gun will be entered, and the motor on operation will be executed.
 
 *   Disconnection
 

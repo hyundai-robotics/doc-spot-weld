@@ -1,6 +1,6 @@
 ﻿### 2.4.1 Automatic setting
 
-Progress the automatic setting of the application setting of the servo gun by pressing the 『**All automatic setting**』 key. In the case of '**all automatic setting**', the moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
+Progress the automatic setting of the application setting of the servo gun by pressing the `[All auto setup]` button. The moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
 
 * Moving and fixed electrodes with new tipes attached
 * No worker around the servo gun
@@ -10,7 +10,7 @@ Progress the automatic setting of the application setting of the servo gun by pr
 * Completion of the servo gun's default setting (step 1) 
 
 
-In the case of '**all automatic setting**', the following procedures will proceed automatically.
+In the case of `[All auto setup]`, the following procedures will proceed automatically.
 
 1. Gun search
    * Gun search will be performed while servo gun squeezing occurs two times.
@@ -22,10 +22,10 @@ In the case of '**all automatic setting**', the following procedures will procee
    * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
 
 {% hint style="info" %}
-The gun search that can be performed through '**automatic setting**' is only for gun search 1. When using other gun searches other than gun search 1, you should refer to "`4.1** **Gun search`(../../4-work-teaching/4-1-gun-search/)" of "`4.** **Work teaching`(../../4-work-teaching/)."
+The gun search that can be performed through '**automatic setting**' is only for gun search 1. When using other gun searches other than gun search 1, you should refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)".  
 {% endhint %}
 
-&#x20;In the case of 'all automatic setting', the 'gun arm deflection amount compensation' and 'panel thickness measurement compensation' will be performed at the same time, so the servo gun performs squeezing only five times. For execution of 'gun search', the squeezing force and gun search speed should be designated. If you press the『Gun search condition setting』key in the aformentioned 'Application setting' screen, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
+In the case of 'all automatic setting', the 'gun arm deflection amount compensation' and 'panel thickness measurement compensation' will be performed at the same time, so the servo gun performs squeezing only five times. For execution of 'gun search', the squeezing force and gun search speed should be designated. If you press the `[Gunsea cond setup]` button, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
 
 
 <p align="center">
@@ -46,16 +46,27 @@ The configuration and functionality of the servo gun application setting screen 
  <em><p align="center">Figure 2.17 Servo gun applicaiton setting screen</p></em>
 </p>
 
->1. **Status**: Shows the current setting status of the servo gun (before setting, complete or changed).
->2. **Individual automatic setting**: Supports the function of automatically setting the checked items only, not all. Pressing the 『**Selected item automatic setting**』 key will allow automatic setting to be performed only for the checked items.
->3. **Manual setting**: To move to the screen for setting the relevant items
->     *   Gun arm deflection amount compensation  
->       To automatically move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: Welding gun parameter**』
->     *   Panel thickness measurement compensation  
->         To automatically move to the screen of 『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**3: >Welding gun parameter**』
->4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
->5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
->6. **All automatic setting**: Commands the execution of all automatic setting of all items.
->7. **Selected item automatic setting**: Automatically sets only the items that are designated as the items of individual automatic setting.
->8. **Execution stop**: Stops the setting that is in progress.
->9. **Gun search condition setting**: Sets the speed and squeeze force for gun search.
+
+<br>
+
+1. **Status**: Shows the current setting status of the servo gun (before setting, complete or changed).
+
+2. **Individual auto-set**: Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` button will allow automatic setting to be performed only for the checked items.
+
+3. **Manual setting**: Moves to the screen for setting the relevant items
+     *   Gun arm deflection amount compensation  
+         Automatically moves to the screen of `[F2: system]-4: Application parameter-1: Spot welding-3: Welding gun parameter`
+     *   Panel thickness measurement compensation  
+         Automatically moves to the screen of `[F2: system]-4: Application parameter-1: Spot welding-3: Welding gun parameter`
+
+4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+
+5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+
+6. `[All auto setup]`: Commands the execution of all automatic setting of all items.
+
+7. `[Checked auto setup]`: Automatically sets only the items that are designated as the items of individual automatic setting.
+
+8. **Execution stop**: Stops the setting that is in progress.
+
+9. **Gun search condition setting**: Sets the speed and squeeze force for gun search.

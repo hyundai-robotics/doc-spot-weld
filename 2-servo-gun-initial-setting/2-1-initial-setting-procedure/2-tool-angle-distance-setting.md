@@ -1,6 +1,7 @@
 ﻿### 2.1.2 Setting of the tool angle/distance
 
-When spot welding is performed, the equalizing operation (operation in which the fixed electrode contacts the panel after passing through the clearance position) is absolutely necessary. This operation requires the correct setting of the tool coordinate system. The +Z axis of the tool coordinate system should be set correctly in the direction from the fixed electrode to the moving electrode (Note: `${cont_model} Controller Operation Manual`(https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)).
+When performing spot welding, the equalizing operation (the process in which the fixed electrode contacts the panel after passing through the clearance position) is essential. This operation requires the tool coordinate system to be set correctly. 
+The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: `${cont_model} Controller Operation Manual`(https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)).
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
@@ -8,13 +9,31 @@ When spot welding is performed, the equalizing operation (operation in which the
  </img>
 </p>
 
-*   **Tool length**
+<br>
 
-    When it comes to tool length, input the length from the center of the flange of the robot's R1 axis to the tip of the tool (the upper part of the fixed electrode), measured with a new, unconsumed electrode attached. Set the coordinate direction of the reference tool coordinate system as positive (+) and input the measured length X, Y, and Z values, or set the tool length using the automatic calibration function.
-*   **Tool angle**
+*   Tool length
 
-    Input the rotation angles (Rx, Ry, Rz) in three directions based on the flange coordinate system, or use the 'Angle compensation' function. Set the tool angle in a way that the upward direction of the fixed electrode can be +Z. To check it, set \`Coordinate system` of the teach pendant to 『**Tool**』, and press the \`Up` key of the jog key. Then, if thus set direction matches with the Z+ direction (the squeezing direction of the fixed electrode), the setting would suffice.
+    When setting the tool length, measure the distance from the center of the robot R1-axis flange to the tool tip (upper part of the fixed electrode) with a new, unused electrode installed.
 
-</br>
+    Use the reference tool coordinate system and follow its positive (+) axis directions.
+    Input the measured X, Y, and Z length values accordingly.
 
+    Alternatively, the tool length can be set by using `[F1: Auto calibration]` function in the menu of tool data setting.
 
+<br>
+
+*   Tool angle
+
+    Input the rotation angles (Rx, Ry, Rz) for the three axes based on the flange coordinate system, or use the `[F2: Angle calibration]` function.
+
+    Set the tool angle so that the upward direction of the fixed electrode corresponds to +Z of the tool coordinate system.
+
+    To verify the setting:
+
+    1. Set the teach pendant coordinate system to `[crd.sys tool]` (4th button in the Status Display window).
+
+    2. Press the `[Z+]` jog key.
+
+    3. Check the movement direction.
+
+    If the movement direction matches the squeezing direction of the fixed electrode (upward direction shown in Figure 2.3), the tool angle setting is correct.

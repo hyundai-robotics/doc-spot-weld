@@ -48,13 +48,13 @@ The configuration and functionality of the servo gun default setting screen is a
 
 1. **Status**: Shows the current setting status of the servo gun (X: Before setting, O: Either complete or changed)
 
-2. **Individual auto-set**:  Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` key will allow automatic setting to be performed only for the checked items.
+2. **Individual auto-set**:  Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` button will allow automatic setting to be performed only for the checked items.
 
-3. **Manual setting**: To move to the screen for setting the relevant items.  
-    - Encoder offset compensation: To move to the screen of `[F2: system]-3: Robot parameter-4: Encoder offset`
-    - Axis origin setting: To move to the screen of `[F2: system]-3: Robot parameter-2: Axis origin`
-    - Soft limit setting: To move to the screen of `[F2: system]-3: Robot parameter-3: Soft limit`
-    - Squeeze force - current table setting: To move to the screen of `[F2: system]-4: Application parameter-1: Spot welding-7: Servo gun squeeze force tuning`
+3. **Manual setting**: Moves to the screen for setting the relevant items.  
+    - Encoder offset compensation: Moves to the screen of `[F2: system] - 3: Robot parameter - 4: Encoder offset`
+    - Axis origin setting: Moves to the screen of `[F2: system] - 3: Robot parameter - 2: Axis origin`
+    - Soft limit setting: Moves to the screen of `[F2: system] - 3: Robot parameter - 3: Soft limit`
+    - Squeeze force - current table setting: Moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding- 7: Servo gun squeeze force tuning`
 
 4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
 

@@ -4,12 +4,19 @@ If the gun type is servo gun, the spot welding function is played back as shown 
 
 <p align="center">
  <img src="../../../_assets/image_66_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.8 Playback of servo gun spot welding</p></em>
+ <em><p align="center">Figure 4.8 Playback motions of servo gun spot welding</p></em>
 </p>
 
 
->1. At the N-1 step position, the moving and fixed electrodes move to the positions away from the record positions as much as the 'moving electrode clearance' and 'fixed electrode clearance', respectively.
->2. With the robot equalizing operation, the fixed electrode moves to the record position of the step, and the moving electrode moves to the record position of the step by shifting as much as the consumption amount.
->3. The moving electrode performs the squeezing operation with the set squeezing force. When the squeezing force is matched, the welding execution signal is outputted together with the welding condition signal at the position.
->4. When the welding completion signal (WI) is entered, the moving and fixed electrodes open as much as the individual clearances.
->5. Movement to the next step occurs.
+<br>
+
+
+1. At the N-1 step position, the moving and fixed electrodes move away from their recorded positions by the moving electrode clearance and fixed electrode clearance, respectively.
+
+2. Through the robot equalizing operation, the fixed electrode moves to the recorded position of the step, and the moving electrode moves to the recorded position while being shifted by the consumption amount.
+
+3. The moving electrode performs the squeezing operation using the specified squeezing force. When the target squeezing force is reached, the welding execution signal is output together with the welding condition signal at that position.
+
+4. When the welding completion signal (WI) is received, the moving and fixed electrodes open by their respective clearance amounts.
+
+5. The system moves to the next step.

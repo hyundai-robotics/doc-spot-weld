@@ -15,6 +15,6 @@ The consumption amount of an electrode is measured based on an unconsumed new ti
 </p>
 
 
->1. Set 『**2: Gun search reference position record**』 to <**enable**>.
->2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to "**Incomplete**".
->3. Set 『**2: Gun search reference position record**』 to <**disable**>. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.
+>1. Set 'Gun search reference position record' to 'enable'.
+>2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to 'incomplete'.
+>3. Set 'Gun search reference position record' to 'disable'. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.

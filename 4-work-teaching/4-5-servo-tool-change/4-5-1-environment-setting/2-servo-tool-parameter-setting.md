@@ -1,6 +1,6 @@
 ﻿### 4.5.1.2 Servo tool parameter setting
 
- In『**Setting**』 → 『**4: Application parameter**』 → 『**11: Servo tool change**』 → 『**2: Servo tool parameter setting**』, set the gun type and tool number targeted for the servo tool change.
+ In the `[F2: system] - 4: Application parameter - 11: Servo tool change - 2: Servo tool parameter setting` menu, set the gun type and tool number targeted for the servo tool change.
 
 If the gun targeted for servo tool change is a servo gun, you need to set the parameter of the servo gun you want to use because the currently set parameter for the additional axis and the parameter of the servo gun you want to use may be different. When another welding gun is used with the welding gun change function, the set parameter will replace the value of the existing parameter for the additional axis, as shown in the figure below, the same setting items as the parameter for the additional axis are used.
 

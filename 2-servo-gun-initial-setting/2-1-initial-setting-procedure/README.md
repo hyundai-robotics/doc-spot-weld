@@ -10,7 +10,7 @@ The initial setting of the servo gun is an essential process to makie it possibl
 
 After completing the procedure for initial setting, you need to set related functions and spot welding parameters (welding conditions, sequence, etc.) according to the purpose of use, and then teach the work.
 
-Through the `[6: Servo gun auto setting]` function (`[F2: system]-4: Application parameter-1: Spot welding`), our company provides settings and procedures for the environment for spot welding and servo gun operation.
+Through the `[6: Servo gun auto setting]` function (`[F2: system] - 4: Application parameter - 1: Spot welding`), our company provides settings and procedures for the environment for spot welding and servo gun operation.
 
 <p align="center">
  <img src="../../_assets/image_60_eng.PNG" width="70%"></img>

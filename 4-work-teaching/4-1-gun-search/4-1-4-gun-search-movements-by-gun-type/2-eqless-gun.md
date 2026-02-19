@@ -9,9 +9,16 @@ As an equalizerless gun only manages the consumption amount on the fixed electro
  <em><p align="center">Figure 4.7 Gun search of an equalizerless gun</p></em>
 </p>
 
+<br>
 
->1. Movement to the record position of the step occurs.
->2. The fixed electrode approaches at the search speed and switches the phototube contact signal.
->3.  When a signal is detected by the photo tube, the fixed electrode consumption amount is measured and the opening operation is executed.  
- >   **Fixed electrode consumption amount = sensor detection position - gun search record position**  
->4. When the opening is completed, the fixed electrode consumption amount is updated.
+
+
+1. The robot moves to the recorded position of the step.
+
+2. The fixed electrode approaches at the search speed and activates the phototube contact signal.
+
+3. When the phototube detects a signal, the fixed electrode consumption amount is measured and the opening operation is executed.
+
+   Fixed electrode consumption  = sensor detection position − gun search recorded position
+
+4. When the opening operation is completed, the fixed electrode consumption amount is updated.

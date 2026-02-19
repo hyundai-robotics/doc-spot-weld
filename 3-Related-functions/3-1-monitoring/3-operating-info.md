@@ -2,7 +2,7 @@
 
 This allows you to check the information of the operating time related to the spot welding.
 
-(`[pane layout]-[F1: select]-spot run info.`)
+(`[pane layout] - [F1: select] - spot run info.`)
 
 <br>
 

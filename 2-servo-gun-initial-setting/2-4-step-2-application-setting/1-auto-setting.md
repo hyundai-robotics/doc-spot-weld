@@ -55,9 +55,9 @@ The configuration and functionality of the servo gun application setting screen 
 
 3. **Manual setting**: Moves to the screen for setting the relevant items
      *   Gun arm deflection amount compensation  
-         Automatically moves to the screen of `[F2: system]-4: Application parameter-1: Spot welding-3: Welding gun parameter`
+         Automatically moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter`
      *   Panel thickness measurement compensation  
-         Automatically moves to the screen of `[F2: system]-4: Application parameter-1: Spot welding-3: Welding gun parameter`
+         Automatically moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter`
 
 4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
 

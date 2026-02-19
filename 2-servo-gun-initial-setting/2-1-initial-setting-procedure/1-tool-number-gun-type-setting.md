@@ -1,19 +1,27 @@
 ﻿### 2.1.1 Setting of the tool number and gun type corresponding to the gun number
 
-This function sets the tool number and gun type corresponding to the spot welding gun number. It supports in a way that a vriety of welding guns can be configured to match with the use of individual welders and tool numbers. Because the welding method varies depending on the gun type, the setting must be performed correctly. Guns can be added using the '+' sign on the right and up to 16 guns can be added.
+This function sets the tool number and gun type corresponding to each spot welding gun number.
 
+It allows various welding guns to be configured according to the welder and tool number assigned to each. Since the welding method differs depending on the gun type, these settings must be configured correctly.
+
+Guns can be added using the `[+]` button on the right, and up to 16 guns can be registered.
 
 <p align="center">
  <img src="../../_assets/image_31_eng.PNG" width="70%"></img>
  <em><p align="center">Figure 2.2 Gun default setting</p></em>
 </p>
 
+(1) Tool number  
+Tool refers to an object attached to the tip of the robot’s R1 axis, and the robot must have the corresponding tool information registered. The tool number is the number assigned to match the corresponding gun number. The selected tool number must have the appropriate load estimation and tool data entered. Since each gun typically has a different shape, a unique tool number should be assigned to each gun number. Because stationary guns are not attached to the tip of the R1 axis, they may be assigned arbitrary tool settings without issue. During work teaching, if the gun number specified in the Spot command does not match the tool number specified in the `move` command, playback will not be possible. Please ensure these values are consistent.
 
-'Welder' is for designating the welder linked with the relevant gun number. When welding is performed with the relevant gun, the signal is entered to and outputted from the port that matches with the setting of the relevant welder. Multiple guns can be shared and used through the servo tool change function. 
 
-'Tool' refers to an object coupled with the tip of the R1 axis of the robot, and the robot should know the tool information. 'Tool number' refers to the tool number to be matched with the relevant gun number, and there should be load estimation and tool data entered in the relelvant tool number. In general, individual gun have different shapes, so a unique 'tool number' should be selected for each gun number.As stationary guns are not to be coupled with the tip of the R1 axis, it would be no problem to perform arbitrary setting for them. During the work teaching, if the gun number of the Spot command and the tool number of the Move command are not matched with eath other, playback will not be possible. Please note this.  
 
-'Gun type' refers to the gun type of the relevant gun. You can select one among three types. If the gun type of the relevant gun is servo gun, the information of the additional axis assigned to the relevant gun should be entered. When it comes to the information of the additional axis, the same additional axis can be assigned to multiple guns during the use of the servo tool change function. Please note this.
+(2) Welder number
+Welder designates the welder associated with the corresponding gun number. When welding is performed with that gun, signals are input to and output from the ports assigned to the selected welder. Multiple guns can share and use the same welder through the servo tool change function.
+
+(3) Gun type
+Gun type indicates the type of the selected gun. One of three types can be chosen.
+If the selected gun is a servo gun, the information for the additional axis assigned to that gun must be specified. For the additional axis information, the same additional axis may be assigned to multiple guns when using the servo tool change function.
 
 </br>
 

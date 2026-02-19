@@ -1,7 +1,7 @@
 ﻿### 3.1.1 Spot gun axis data
 
 This indicates the data of the currently selected spot gun in real time.  
-(`[pane layout]-[F1: select]-spot gun data`)
+(`[pane layout] - [F1: select] - spot gun data`)
 
 
 <p align="center">

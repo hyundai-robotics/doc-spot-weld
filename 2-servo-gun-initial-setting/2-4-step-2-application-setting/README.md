@@ -17,11 +17,11 @@ The application setting consists of three items as shown in the figure below.
 
 2. **Gun arm deflection amount compensation**
       * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force - current table.
-      * For manual setting, press the Manual setting key in the figure above, or, in the screen of `[F2: system]-4: Application parameter-1: Spot welding-2: Welding gun parameter`, set the gun number that needs to be set and then press `[Advanced condition]` to enter.
+      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`, set the gun number that needs to be set and then press `[Advanced condition]` to enter.
 
 3. **Panel thickness measurement compensation**
       * The panel thickness measurement compensation is a setting to improve the accuracy of the panel thickness measured with the ThickCheck command.
-      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system]-4: Application parameter-1: Spot welding-2: Welding gun parameter`, set the gun number that needs to be set and the press the `[Advanced condition]` key to enter.
+      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`, set the gun number that needs to be set and the press the `[Advanced condition]` button to enter.
 
 Among spot setting items, the 'gun search' setting is essential. If 'gun search' is not set, it is impossible to execute and teach commands related to spot welding (for example, spot gn=1,...). On the other hand, **gun arm deflection amount compensation** and **panel thickness measurement compensation** has nothing to do with the execution and teaching of commands related to spot welding, but are necessary settings for accurate operation and accurate panel thickness measurement.
 

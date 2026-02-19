@@ -11,10 +11,10 @@ Assigns the signals related to spot welding and transfers their state to the out
   - Selects the welder number to set. Up to four welders can be added.
 
 (2)  **Welding condition**
-  - Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the Spot statement.
+  - Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the `spot` statement.
 
 (3)  **Welding execution**
-  - To be used to output a command for welding to the welder during the execution of the Spot statement.
+  - To be used to output a command for welding to the welder during the execution of the `spot` statement.
 
 (4)  **Welder abnormal**
   - To be used to output the entered spot welder abnormal signal to the outside.
@@ -26,8 +26,8 @@ Assigns the signals related to spot welding and transfers their state to the out
   - To be used to output to the outside the state that deposition has occurred to the spot gun.
 
 (7)  **Servo gun squeezing in progress**
-  - This is a signal that is turned on when squeezing starts upon the execution of the Spot statement and turned off when the opening procedure starts.
+  - This is a signal that is turned on when squeezing starts upon the execution of the `spot` statement and turned off when the opening procedure starts.
 
 (8)  **Welding gun search in progress**
-  - This is a signal that is turned on when gun search starts upon the execution of the gunsea, igunsea or egunsea statement and turned off when the opening procedure starts.
+  - This is a signal that is turned on when gun search starts upon the execution of the `gunsea`, `igunsea` or `egunsea` statement and turned off when the opening procedure starts.
     

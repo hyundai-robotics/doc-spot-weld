@@ -49,9 +49,9 @@
 
   To change the welding condition number, press cond.sel. To change the welding sequence number, press seq.sel, and then select the desired number.  
 
-* Is there a shortcut key to access the menu path [Setting] → [4: Application Parameter] → [1: Spot Welding]?  
+* Is there a shortcut to access the menu path `[F2: system] - 4: Application parameter - 1: Spot welding`?  
   
-  Yes. In Manual Mode, place the cursor on a spot welding–related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the Attribute key to quickly access the corresponding menu.
+  Yes. In Manual Mode, place the cursor on a spot welding–related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the `[property]` button to quickly access the corresponding menu.
 
 * How can I manually change the panel thickness?  
 
@@ -59,19 +59,15 @@
 
 * How can I reset the recorded positions of the spot welding steps to normal values at once?  
 
-  Set <Valid> for the item “Automatic Adjustment of Servo Gun Welding Step Record Position” under [Setting] → [4: Application Parameter] → [1: Spot Welding] → [2: Use Environment Setting], and then play back the work program.
+  Set <Valid> for the item “Automatic Adjustment of Servo Gun Welding Step Record Position” under `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting`, and then play back the work program.
 
 * Is it possible to detect any missed welding points?  
   
   Yes. When you initialize the welding count in the Work Program Start menu and then perform welding normally, the welding count will increase accordingly.
   To detect missed welding points, you must compare:
-  the total number of welding spots required for completion, and the actual number of weldings performed.
-  Therefore, you need to create a comparison program similar to the example below: 
-
-                   ![](<_assets/image_68_eng.PNG>)
-  By implementing this logic, missed welding points can be detected.
+  the total number of welding spots required for completion, and the actual number of weldings performed. Refer to the chapter [ 4.9 Calculation of spots in spot welding](./4-work-teaching/4-9-spot-weld-calculation.md).
 
 
 * It seems that the working time could be reduced if tip dressing and gun search operations for a stationary servo gun were performed independently from handling operations. Is there any way to achieve this?  
 
-  Yes. This can be easily implemented by using the multi-task function.  By separating handling operations and stationary servo gun operations into different tasks, they can be executed independently and simultaneously. Please refer to the [Multi-task Function Manual](https://hyundai-robotics.gitbook.io/${cont_model}-robot-controller-manual-multi-task/) for detailed instructions.
+  Yes. This can be easily implemented by using the multi-task function.  By separating handling operations and stationary servo gun operations into different tasks, they can be executed independently and simultaneously. Please refer to the [Multi-task Function Manual](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model}) for detailed instructions.

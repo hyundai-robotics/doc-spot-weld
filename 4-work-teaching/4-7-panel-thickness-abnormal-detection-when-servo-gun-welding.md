@@ -1,10 +1,14 @@
 ﻿# 4.7  Detection of panel thickness abnormality
 
- This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the "thickcheck" statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
+ This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the `thickcheck` statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
 
 <br>
 
-```thickcheck thick=<thickness variable>, ref=<reference value>, tol=<tolerance value>, addr=<go to>```
+```python
+
+thickcheck thick=<thickness variable>, ref=<reference value>, tol=<tolerance value>, addr=<go to>
+
+```
 
 <br>
 

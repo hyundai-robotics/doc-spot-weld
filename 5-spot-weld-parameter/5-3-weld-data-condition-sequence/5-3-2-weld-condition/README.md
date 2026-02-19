@@ -1,6 +1,6 @@
 ﻿### 5.3.2 Welding condition
 
-Sets the conditions related to spot welding to perform welding in line with the work environment.
+Sets spot welding conditions to perform welding in accordance with the work environment.
 
 <p align=center>
 <img src="../../../_assets/image_75_eng.PNG" width="70%"></img>
@@ -8,21 +8,21 @@ Sets the conditions related to spot welding to perform welding in line with the 
 </p>
 
 (1)  **Condition number**  
-  - Sets the welding condition quickly.
+  - Allows quick selection of the desired welding condition. This number usually corresponds to the condition name.
 
 (2)  **Output data (binary)**  
-  - Sets the data, which is to be entered to the welder, for the welding condition number during the execution of the Spot statement.
+  - Sets the data to be transmitted to the welder for the specified welding condition number during execution of the `spot` statement.
 
 (3)  **Initial squeezing force**
 
-  - Sets the squeezing force to squeeze the panel during the execution of the Spot statement. This will be used as the initial squeezing force during the setting of the multi-step squeezing force control.
+  - Sets the panel squeezing force applied during execution of the `spot` statement. This value is used as the initial squeezing force when configuring multi-step squeezing force control.
 
 (4)  **Multi-step squeezing force and auxiliary condition**
 
-  -  This is an auxiliary condition number to manage the setting of multi-step squeezing force and pivoting. If a number is entered, 『**Multi-step squeezing force**』 and  『**Pivoting**』 will be activated, making it possible to enter the menu.
+  -  Specifies the auxiliary condition number used to manage multi-step squeezing force and pivoting settings. If a number is entered, the corresponding condition must be edited in the `5: Multi-level Press Condition` menu.
 
 (5)  **Moving electrode clearance**
-  - Sets the position where the moving electrode opens before and after the execution of the Spot statement.
+  - Sets the opening position of the moving electrode before and after execution of the `spot` statement.
 
 (6)  **Fixed electrode clearance**
-  - Sets the position where the fixed electrode opens before and after the execution of the Spot statement.
+  - Sets the opening position of the fixed electrode before and after execution of the `spot` statement.

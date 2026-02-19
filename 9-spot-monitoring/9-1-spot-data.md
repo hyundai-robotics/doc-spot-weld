@@ -36,7 +36,7 @@ An option selection window for graph creation and function buttons at the bottom
 </p>
 
 
-By pressing the [File Select] button, select the GDT file to be used for graph generation from the saved files, and then press the [Save] button.
+By pressing the `[file choice]` button, select the GDT file to be used for graph generation from the saved files, and then press the `[save]` button.
 <p align=center>
 <img src="../_assets/image_100_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 9.6 GDT File Selection</p></em>
@@ -44,7 +44,7 @@ By pressing the [File Select] button, select the GDT file to be used for graph g
 
 
 ### - Graph Creation and Zoom Function
-When the [Graph] button is pressed from the function buttons shown in Figure 9.5, graphs are displayed for the selected options as shown below.
+When the `[Graph]` button is pressed from the function buttons shown in Figure 9.5, graphs are displayed for the selected options as shown below.
 <p align=center>
 <img src="../_assets/image_101_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 9.7 Graph Generation for Selected Items</p></em>

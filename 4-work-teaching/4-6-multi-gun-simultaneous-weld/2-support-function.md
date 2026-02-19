@@ -4,5 +4,5 @@ The functions to be provided for simultaneous weldig with multiple guns are as f
 
 1. Manual opening and closing
 2. Manual squeezing
-3. spot statement
-4. gunsea statement
+3. `spot` statement
+4. `gunsea` statement

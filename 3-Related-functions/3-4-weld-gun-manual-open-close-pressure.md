@@ -9,12 +9,12 @@ The procedure for manual closing and squeezing of the welding gun is as follows.
 
     | **Gun type** |   Whether to change  | R code |
     | :-----: | :---------: | :--------------: |
-    | Sole gun |    For change of the welding gun  | R358 (welding gun connection/separation) |
-    |    Sole gun     | Not for change of the welding gun |   R210 (welding gun selection)  |
+    | single gun |    For change of the welding gun  | R358 (welding gun connection/separation) |
+    |    single gun     | Not for change of the welding gun |   R210 (welding gun selection)  |
     | Multiple guns |      -       |  R214 (selection of guns for simultaneous welding) |
 
 
-3.  Check whether the following \`user` keys are registerd.
+3.  Check whether the following user keys are registerd.
 
 
 

@@ -1,6 +1,6 @@
 ﻿### 4.5.1.1 Setting of the tool number and gun type corresponding to the gun number
 
-In『**Setting**』 → 『**4: Application parameter**』 → 『**1: Spot welding**』 → 『**1: Setting of the tool number and gun type corresponding to the gun number**』, set the gun type and tool number targeted for the servo tool change.
+In the `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter` menu, set the gun type and tool number targeted for the servo tool change.
 
 <p align="center">
  <img src="../../../_assets/image_24_eng.PNG" width="90%"></img>

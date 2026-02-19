@@ -17,7 +17,7 @@ An option selection window for graph creation and function buttons at the bottom
 </p>
 
 
-Click the [File Select] button, choose the desired log file from the saved files, and then click the [Save] button.
+Click the `[file choice]` button, choose the desired log file from the saved files, and then click the `[save]` button.
 <p align=center>
 <img src="../_assets/image_106_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 9.12 Log File Selection</p></em>
@@ -26,7 +26,7 @@ Click the [File Select] button, choose the desired log file from the saved files
 
 ### - Graph Creation and Zoom Function
 
-Press the [Graph] button among the function buttons shown in Figure 9.5 to display graphs for the selected options, as shown below.
+Press the `[Graph]` button among the function buttons shown in Figure 9.5 to display graphs for the selected options, as shown below.
 <p align=center>
 <img src="../_assets/image_107_eng.PNG" width="70%"></img>
 <em><p align="center">Figure 9.13 Graph Creation for Selected Items</p></em>

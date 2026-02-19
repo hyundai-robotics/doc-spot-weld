@@ -25,7 +25,7 @@
 
 
 
-The "**svclamp**" statement can be used to hold a workpiece and perform opening operation. In the svclamp on state, the servo gun does not open.
+The `svclamp` statement can be used to hold a workpiece and perform opening operation. In the svclamp on state, the servo gun does not open.
 
 
 

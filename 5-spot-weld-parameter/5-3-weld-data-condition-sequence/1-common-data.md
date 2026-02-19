@@ -1,6 +1,6 @@
 ﻿### 5.3.1 Common data
 
-Sets the data to be commonly applied regardless of the sequence of the spot welding.
+Sets the data to be commonly applied regardless of the spot welding sequence.
 
 
 <p align=center>
@@ -10,6 +10,6 @@ Sets the data to be commonly applied regardless of the sequence of the spot weld
 
 </br>
 
-*  The number of re-weldings
+*  Number of re-weld attempts
 
-    If there is no input of WI even when the set welding completion (WI) wait time is exceeded, re-welding will be executed. the number of re-weldings can be set up to three. If there is no input of WI even re-welding is tried as many as the set number of re-weldings, an error will be generated.
+    If the welding completion (WI) signal is not received within the configured welding completion wait time, re-welding will be performed. The number of re-weld attempts can be set up to three. If the WI signal is still not received after the specified number of re-weld attempts, an error will be generated.

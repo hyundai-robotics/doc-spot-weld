@@ -23,7 +23,7 @@
 
 A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing force 100 kgf and 200 kgf respectively
 
-→ ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
+ --> ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
 
 {% endhint %}
 

@@ -1,6 +1,6 @@
 ﻿# 2.1 Procedure for initial setting of the servo gun
 
-This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only [2.1.1 Setting of the tool number and gun type corresponding to the gun number](1-tool-number-gun-type-setting.md) and [2.1.2 Setting of the tool angle/distance](2-tool-angle-distance-setting.md) in this chapter, and [3. Related functions](../../3-Related-functions/) in the next chapter.
+This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only [2.1.1 Setting of the tool number and gun type corresponding to the gun number](1-tool-number-gun-type-setting.md) and [2.1.2 Setting of the tool angle/distance](2-tool-angle-distance-setting.md) in this chapter, and [3. Related functions](../../3-Related-functions/README.md) in the next chapter.
 
 The initial setting of the servo gun is an essential process to makie it possible to perform spot welding using a servo gun. After completing the procedure for the initial setting of the servo gun, the following items will be possible.
 
@@ -41,12 +41,12 @@ The standard procedure for the servo gun initial setting is as follows.
   * Setting of the tool number corresponding to the gun number
   * Tool data setting (including load estimation)
   * Servo gun parameter setting
-* [Step 1. Default setting](../2-3-step-1-default-setting/): Setting of the servo gun operation environment
+* [Step 1. Default setting](../2-3-step-1-default-setting/README.md): Setting of the servo gun operation environment
   * Encoder offset compensation
   * Axis origin setting
   * Soft limit setting
   * Squeezing force-current table setting
-* [Step 2. Application setting](../2-4-step-2-application-setting/): Setting of application functions that use the servo gun
+* [Step 2. Application setting](../2-4-step-2-application-setting/README.md): Setting of application functions that use the servo gun
   * Gun search
   * Gun arm deflection amount compensation
   * Panel thickness measurement compensation

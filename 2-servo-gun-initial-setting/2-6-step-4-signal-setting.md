@@ -9,8 +9,11 @@ As shown in the figure below, move the cursor to '**Step 4. Input signal setting
  <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
 </p>
 
->1. **Input signal setting**
->       * Refer to "`5.4** **Input signal assignment`(../5-spot-weld-parameter/5-4-input-signal-assign.md)" of "`5.** **Spot welding parameter`(../5-spot-weld-parameter/)."
->2. **Output signal setting**
->       * Refer to "`5.5** **Output signal assignment`(../5-spot-weld-parameter/5-5-output-signal-assign.md)" of "`5. Spot welding parameter`(../5-spot-weld-parameter/)."
-> 
+<br>
+
+1. **Input signal setting**
+       * Refer to the chapter [5.4 Input signal assignment](../5-spot-weld-parameter/5-4-input-signal-assign.md). 
+2. **Output signal setting**
+       * Refer to the chapter [5.5 Output signal assignment](../5-spot-weld-parameter/5-5-output-signal-assign.md).
+ 
+

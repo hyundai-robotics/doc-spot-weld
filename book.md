@@ -94,7 +94,7 @@ The procedure for the servo gun manual setting is as shown in the flowchart belo
 [__SOURCE](2-servo-gun-initial-setting/2-1-initial-setting-procedure/README.md)
 # 2.1 Procedure for initial setting of the servo gun
 
-This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only [2.1.1 Setting of the tool number and gun type corresponding to the gun number](1-tool-number-gun-type-setting.md) and [2.1.2 Setting of the tool angle/distance](2-tool-angle-distance-setting.md) in this chapter, and [3. Related functions](../../3-Related-functions/) in the next chapter.
+This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only [2.1.1 Setting of the tool number and gun type corresponding to the gun number](1-tool-number-gun-type-setting.md) and [2.1.2 Setting of the tool angle/distance](2-tool-angle-distance-setting.md) in this chapter, and [3. Related functions](../../3-Related-functions/README.md) in the next chapter.
 
 The initial setting of the servo gun is an essential process to makie it possible to perform spot welding using a servo gun. After completing the procedure for the initial setting of the servo gun, the following items will be possible.
 
@@ -135,12 +135,12 @@ The standard procedure for the servo gun initial setting is as follows.
   * Setting of the tool number corresponding to the gun number
   * Tool data setting (including load estimation)
   * Servo gun parameter setting
-* [Step 1. Default setting](../2-3-step-1-default-setting/): Setting of the servo gun operation environment
+* [Step 1. Default setting](../2-3-step-1-default-setting/README.md): Setting of the servo gun operation environment
   * Encoder offset compensation
   * Axis origin setting
   * Soft limit setting
   * Squeezing force-current table setting
-* [Step 2. Application setting](../2-4-step-2-application-setting/): Setting of application functions that use the servo gun
+* [Step 2. Application setting](../2-4-step-2-application-setting/README.md): Setting of application functions that use the servo gun
   * Gun search
   * Gun arm deflection amount compensation
   * Panel thickness measurement compensation
@@ -206,7 +206,7 @@ If the selected gun is a servo gun, the information for the additional axis assi
 ### 2.1.2 Setting of the tool angle/distance
 
 When performing spot welding, the equalizing operation (the process in which the fixed electrode contacts the panel after passing through the clearance position) is essential. This operation requires the tool coordinate system to be set correctly. 
-The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: `${cont_model} Controller Operation Manual`(https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)).
+The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: [Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})).
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
@@ -286,21 +286,21 @@ The default setting consists of four items as shown in the figure below.
 
 (1) **Encoder offset compensation**
    * Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can have the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
-   * For manual setting, refer to "`2.3.2.1 Servo gun encoder offset setting`(2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)" of "`2.3.2** **Manual setting`(2-3-2-manual-setting/)."
+   * For manual setting, refer to the chapter [2.3.2.1 Servo gun encoder offset setting](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md).
   
 (2) **Axis origing setting**
    * In general, the setting of the axis origin of the servo gun should be performed at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
-   * For manual setting, refer to "`2.3.2.2 Servo gun axis origin`(2-3-2-manual-setting/2-servo-gun-axis-origin.md)" of "`2.3.2** **Manual setting`(2-3-2-manual-setting/)."
+   * For manual setting, refer to the chapter [2.3.2.2 Servo gun axis origin](2-3-2-manual-setting/2-servo-gun-axis-origin.md).
    
   
 (3) **Soft limit setting**
    * In general, the soft limit of the servo gun should be set to '**Minimum**' while the moving electrode is fully open, and set to '**Maximum**' while the moving electrode is at the closest position with all tips removed.
-   * For manual setting, refer to "`2.3.2.3 Servo gun soft limit`(2-3-2-manual-setting/3-servo-gun-soft-limit.md)" of "`2.3.2** **Manual setting`(2-3-2-manual-setting/)."
+   * For manual setting, refer to the chapter [2.3.2.3 Servo gun soft limit](2-3-2-manual-setting/3-servo-gun-soft-limit.md).
     
 (4) **Squeezing force - current table setting**
    * To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun..
    * To use this function, it is necessary to select five representative values among the areas of the squeezing force to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the direction of gravity and when it is in direction of anti-gravity, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
-   * For more details, refer to "`Servo gun squeezing force - current table tunning`(2-3-3-servo-gun-force-current-table-tuning/)."
+   * For more details, refer to the chapter [2.3.3 Servo gun squeezing force - current table tunning](2-3-3-servo-gun-force-current-table-tuning/README.md).
 
 </br>
 
@@ -314,7 +314,7 @@ The default setting can be performed with automatic settng and manual setting.
    * The setting of the squeezing force - current table cann not be automatically performed because it requires user intervention such as the installation of a squeezing force gauge.
    
 (2) **Manual setting**: The servo gun needs to be moved to the designated position through the operation by the user and the designated function will be performed on the dedicated setting screen.
-
+  
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/1-auto-setting.md)
 ### 2.3.1 Automatic setting
 
@@ -579,7 +579,7 @@ The application setting consists of three items as shown in the figure below.
 
 1. **Gun search**
      * Sets the reference position for measuring the consumption amount of the tip and checks the consumption amount once.
-     * For manual setting, refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)."
+     * For manual setting, refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).
 
 2. **Gun arm deflection amount compensation**
       * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force - current table.
@@ -626,7 +626,7 @@ In the case of `[All auto setup]`, the following procedures will proceed automat
    * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
 
 {% hint style="info" %}
-The gun search that can be performed through '**automatic setting**' is only for gun search 1. When using other gun searches other than gun search 1, you should refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)".  
+The gun search that can be performed through '**automatic setting**' is only for gun search 1. When using other gun searches other than gun search 1, you should refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).  
 {% endhint %}
 
 In the case of 'all automatic setting', the 'gun arm deflection amount compensation' and 'panel thickness measurement compensation' will be performed at the same time, so the servo gun performs squeezing only five times. For execution of 'gun search', the squeezing force and gun search speed should be designated. If you press the `[Gunsea cond setup]` button, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
@@ -714,11 +714,14 @@ As shown in the figure below, move the cursor to '**Step 4. Input signal setting
  <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
 </p>
 
->1. **Input signal setting**
->       * Refer to "`5.4** **Input signal assignment`(../5-spot-weld-parameter/5-4-input-signal-assign.md)" of "`5.** **Spot welding parameter`(../5-spot-weld-parameter/)."
->2. **Output signal setting**
->       * Refer to "`5.5** **Output signal assignment`(../5-spot-weld-parameter/5-5-output-signal-assign.md)" of "`5. Spot welding parameter`(../5-spot-weld-parameter/)."
-> 
+<br>
+
+1. **Input signal setting**
+       * Refer to the chapter [5.4 Input signal assignment](../5-spot-weld-parameter/5-4-input-signal-assign.md). 
+2. **Output signal setting**
+       * Refer to the chapter [5.5 Output signal assignment](../5-spot-weld-parameter/5-5-output-signal-assign.md).
+ 
+
 
 [__SOURCE](3-Related-functions/README.md)
 # 3. Related functions
@@ -2186,7 +2189,7 @@ Sets various conditions for the execution of tip dressing for the servo gun
   - Selects whether to output the welding signal for the tip dressing operation.
 
 (2)  **Tip dressing time**
-  - Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the `spot` statement. However, the welding sequence number should be set to "**64**."
+  - Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the `spot` statement. However, the welding sequence number should be set to "**64**".
 
 (3)  **Execution of gun search during tip dressing**
   - Selects whether to execute gun search during tip dressing.

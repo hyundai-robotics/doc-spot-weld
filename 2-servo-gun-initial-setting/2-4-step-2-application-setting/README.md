@@ -13,7 +13,7 @@ The application setting consists of three items as shown in the figure below.
 
 1. **Gun search**
      * Sets the reference position for measuring the consumption amount of the tip and checks the consumption amount once.
-     * For manual setting, refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)."
+     * For manual setting, refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).
 
 2. **Gun arm deflection amount compensation**
       * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force - current table.

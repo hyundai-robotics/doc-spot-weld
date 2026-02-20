@@ -4,7 +4,7 @@
 
   - Code: There is an error in the characteristic data file.
   - Description: A problem has occurred with the stored characteristic data file.
-Please update the characteristic data through Data Management → Import Characteristic Data.
+Please update the characteristic data through Data Management  --> Import Characteristic Data.
 
 
 <br>
@@ -22,13 +22,13 @@ Please re-enter a value within the valid range.
 
    - Code: Class information was not saved correctly.
    - Description: A problem has occurred with the class-related information in the characteristic data.
-Please update the characteristic data through Data Management → Import Characteristic Data.
+Please update the characteristic data through Data Management  --> Import Characteristic Data.
 
 <br>
 
    - Code: Error information was not saved correctly.
    - Description: A problem has occurred in the welder-error-related information within the characteristic data.
-Please update the characteristic data through Data Management → Import Characteristic Data.
+Please update the characteristic data through Data Management  --> Import Characteristic Data.
 
 <br>
 

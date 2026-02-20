@@ -17,8 +17,8 @@ Sets the use environment related to spot welding to perform appropriate operatio
 
 |Output method| <p align=center> Content </p>|  
 |:---:|----------------------------------------------------|  
-|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position → Squeezing → Squeezing force matching inspection → Welding signal output </br> → Welding completion wait → Clearance position |
-|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position → Squeezing → Squeezing force matching inspection → Clerance position|
+|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position  --> Squeezing  --> Squeezing force matching inspection  --> Welding signal output </br>  --> Welding completion wait  --> Clearance position |
+|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position  --> Squeezing  --> Squeezing force matching inspection  --> Clerance position|
 |Sq-Off|Does not perform squeezing operation, electrification signal output, WI wait, etc.</br>Clearance position|
 
 </center>

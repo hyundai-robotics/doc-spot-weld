@@ -1,7 +1,7 @@
 ﻿### 2.1.2 Setting of the tool angle/distance
 
 When performing spot welding, the equalizing operation (the process in which the fixed electrode contacts the panel after passing through the clearance position) is essential. This operation requires the tool coordinate system to be set correctly. 
-The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: `${cont_model} Controller Operation Manual`(https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)).
+The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: [Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})).
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">

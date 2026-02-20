@@ -1,6 +1,6 @@
 ﻿### 5.2.2. Equalizerless gun
 
-If the gun type is “equalizerless gun,” the parameter setting screen for the equalizerless gun will be displayed as shown below.
+If the gun type is "equalizerless gun," the parameter setting screen for the equalizerless gun will be displayed as shown below.
 
 
 <p align=center>

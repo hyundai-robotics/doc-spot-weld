@@ -51,7 +51,7 @@
 
 * Is there a shortcut to access the menu path `[F2: system] - 4: Application parameter - 1: Spot welding`?  
   
-  Yes. In Manual Mode, place the cursor on a spot welding–related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the `[property]` button to quickly access the corresponding menu.
+  Yes. In Manual Mode, place the cursor on a spot welding-related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the `[property]` button to quickly access the corresponding menu.
 
 * How can I manually change the panel thickness?  
 
@@ -59,7 +59,7 @@
 
 * How can I reset the recorded positions of the spot welding steps to normal values at once?  
 
-  Set <Valid> for the item “Automatic Adjustment of Servo Gun Welding Step Record Position” under `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting`, and then play back the work program.
+  Set <Valid> for the item "Automatic Adjustment of Servo Gun Welding Step Record Position" under `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting`, and then play back the work program.
 
 * Is it possible to detect any missed welding points?  
   

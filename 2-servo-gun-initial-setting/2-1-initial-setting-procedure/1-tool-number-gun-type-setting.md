@@ -12,7 +12,7 @@ Guns can be added using the `[+]` button on the right, and up to 16 guns can be 
 </p>
 
 (1) Tool number  
-Tool refers to an object attached to the tip of the robot’s R1 axis, and the robot must have the corresponding tool information registered. The tool number is the number assigned to match the corresponding gun number. The selected tool number must have the appropriate load estimation and tool data entered. Since each gun typically has a different shape, a unique tool number should be assigned to each gun number. Because stationary guns are not attached to the tip of the R1 axis, they may be assigned arbitrary tool settings without issue. During work teaching, if the gun number specified in the Spot command does not match the tool number specified in the `move` command, playback will not be possible. Please ensure these values are consistent.
+Tool refers to an object attached to the tip of the robot's R1 axis, and the robot must have the corresponding tool information registered. The tool number is the number assigned to match the corresponding gun number. The selected tool number must have the appropriate load estimation and tool data entered. Since each gun typically has a different shape, a unique tool number should be assigned to each gun number. Because stationary guns are not attached to the tip of the R1 axis, they may be assigned arbitrary tool settings without issue. During work teaching, if the gun number specified in the Spot command does not match the tool number specified in the `move` command, playback will not be possible. Please ensure these values are consistent.
 
 
 

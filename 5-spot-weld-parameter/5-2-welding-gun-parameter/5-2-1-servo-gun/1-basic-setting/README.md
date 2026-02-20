@@ -27,13 +27,13 @@
 
 (5)  **Pressure tolerance (%)**  
   During the squeezing force matching process, force matching is considered complete when the actual squeezing force falls within the specified accuracy range of the commanded squeezing force.
-  If this value is set to 0, the notification “W0110: Set in a way that squeezing force detection does not occur” will be displayed, and squeezing force matching will not be performed.
+  If this value is set to 0, the notification "W0110: Set in a way that squeezing force detection does not occur" will be displayed, and squeezing force matching will not be performed.
 
 (6)  **Press fault check time (s)**  
 
   Sets the time from the start of squeezing until squeezing force matching is achieved.
 
-  If squeezing force matching occurs within this time, the welding signal will be output immediately. If squeezing force matching does not occur within this time, the notification “E1314: Exceeds the time for detection of abnormal squeezing force” will be issued and operation will stop.
+  If squeezing force matching occurs within this time, the welding signal will be output immediately. If squeezing force matching does not occur within this time, the notification "E1314: Exceeds the time for detection of abnormal squeezing force" will be issued and operation will stop.
 
   If the time is set to 0.0 sec, squeezing force matching  detection will continue to wait.
 
@@ -69,7 +69,7 @@
 
   A squeezing force table with up to five levels can be created by measuring the squeezing force using a force gauge. If different squeezing forces are set for the gravity direction and the anti-gravity direction, compensation will be applied according to the operating direction of the gun.
 
-  The squeezing force–current table defines the current values corresponding to each of the five squeezing force levels. The table must be configured so that both the squeezing force and the current value increase as the level increases.
+  The squeezing force-current table defines the current values corresponding to each of the five squeezing force levels. The table must be configured so that both the squeezing force and the current value increase as the level increases.
 
   The upper and lower limits set for the squeezing force are used as the allowable range during playback or manual operation.
 

@@ -20,7 +20,7 @@
 
 서보건 5,6을 동시에, 가압력은 각각 100, 200kgf로 건서치 1을 수행하는 경우
 
-→ ```gunsea gun=5,sea=1,pre=100,mgun=6,mpre=200```
+```gunsea gun=5,sea=1,pre=100,mgun=6,mpre=200```
 
 {% endhint %}
 

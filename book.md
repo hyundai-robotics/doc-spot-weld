@@ -1016,7 +1016,7 @@ The gun search state can be checked from the /Monitoring/Spot section.
 
 A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing force 100 kgf and 200 kgf respectively
 
-→ ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
+ --> ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
 
 {% endhint %}
 
@@ -1580,19 +1580,19 @@ The procedure for selecting G1 (master) and G2 (slave) as multiple guns through 
 
 {% hint style="info" %}
 * `R210` for changing the master gun number
-  - Environment with a single gun → `R210 + 3` → Environment with a single gun (Example: G1 → G3)
-  - Environment with multiple guns → `R210 + 1` → Environment with a single gun (Example: G1 and G3 → G1)
+  - Environment with a single gun  --> `R210 + 3`  --> Environment with a single gun (Example: G1  --> G3)
+  - Environment with multiple guns  --> `R210 + 1`  --> Environment with a single gun (Example: G1 and G3  --> G1)
 * `R214` for selecting multiple guns
   -  When selecting another number different from the set gun number
 
-      A. Environment with a single gun → `R214 + 3` → Environment with multiple guns (Example: G1 → G1 and G3)
+      A. Environment with a single gun  --> `R214 + 3`  --> Environment with multiple guns (Example: G1  --> G1 and G3)
 
-      B. Environment with multiple guns → `R214 + 2` → Environment with multiple guns(Example: G1 and G3 → G1, G3, and G2)
+      B. Environment with multiple guns  --> `R214 + 2`  --> Environment with multiple guns(Example: G1 and G3  --> G1, G3, and G2)
   -  When selecting the same number as the set gun number
 
-      A. Environment with multiple guns → `R214 + 3` →  Environment with multiple guns(Example: G1, G3 and G2 → G1 and G2)
+      A. Environment with multiple guns  --> `R214 + 3`  -->  Environment with multiple guns(Example: G1, G3 and G2  --> G1 and G2)
 
-      B. Environment with multiple guns → `R214 + 1` → Environment with a single gun (Example: G1 and G2 → G1)
+      B. Environment with multiple guns  --> `R214 + 1`  --> Environment with a single gun (Example: G1 and G2  --> G1)
 
       C. The master gun number (G1) does not change.  
 {% endhint %}
@@ -1770,8 +1770,8 @@ Sets the use environment related to spot welding to perform appropriate operatio
 
 |Output method| <p align=center> Content </p>|  
 |:---:|----------------------------------------------------|  
-|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position → Squeezing → Squeezing force matching inspection → Welding signal output </br> → Welding completion wait → Clearance position |
-|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position → Squeezing → Squeezing force matching inspection → Clerance position|
+|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position  --> Squeezing  --> Squeezing force matching inspection  --> Welding signal output </br>  --> Welding completion wait  --> Clearance position |
+|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position  --> Squeezing  --> Squeezing force matching inspection  --> Clerance position|
 |Sq-Off|Does not perform squeezing operation, electrification signal output, WI wait, etc.</br>Clearance position|
 
 </center>
@@ -2114,7 +2114,7 @@ Since this function moves the robot based on the tool coordinate system, servo g
   
 (2)  **Point to start movement**
 -   Specifies the start timing of movement by dividing the spot welding stages into
-`Initial squeeze arrived` → `Welding execution output` → `Welding complete input`.
+`Initial squeeze arrived`  --> `Welding execution output`  --> `Welding complete input`.
 
 (3)  **Shift value (sft)**
 -   Regardless of whether a robot-mounted gun or a stationary gun is used, the coordinate system and movement position for shift movement are determined.
@@ -2619,7 +2619,7 @@ You can copy the data of a specific row from a multi-schedued program to a selec
 
   - Code: There is an error in the characteristic data file.
   - Description: A problem has occurred with the stored characteristic data file.
-Please update the characteristic data through Data Management → Import Characteristic Data.
+Please update the characteristic data through Data Management  --> Import Characteristic Data.
 
 
 <br>
@@ -2637,13 +2637,13 @@ Please re-enter a value within the valid range.
 
    - Code: Class information was not saved correctly.
    - Description: A problem has occurred with the class-related information in the characteristic data.
-Please update the characteristic data through Data Management → Import Characteristic Data.
+Please update the characteristic data through Data Management  --> Import Characteristic Data.
 
 <br>
 
    - Code: Error information was not saved correctly.
    - Description: A problem has occurred in the welder-error-related information within the characteristic data.
-Please update the characteristic data through Data Management → Import Characteristic Data.
+Please update the characteristic data through Data Management  --> Import Characteristic Data.
 
 <br>
 

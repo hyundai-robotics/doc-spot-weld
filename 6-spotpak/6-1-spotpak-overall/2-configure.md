@@ -4,7 +4,7 @@ The DeviceNet used in ${cont_model} is part of its industrial communication func
 
 
 <p align=center>
-<img src="../../_assets/6_2_eng.png"></img>
+<img src="../../_assets/6_2_eng.png" width="60%"></img>
 <em><p align="center">Figure 6.2 DeviceNet Communication Configuration</p></em>
 </p>
 

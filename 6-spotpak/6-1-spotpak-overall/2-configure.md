@@ -6,6 +6,6 @@ ${cont_model}의 디바이넷은 산업용 통신 기능의 일부로, Hilsher �
 
 
 <p align=center>
-<img src="../../_assets/6_2.png"></img>
+<img src="../../_assets/6_2.png" width="60%"></img>
 <em><p align="center">그림 6.2 디바이스넷 통신 구성</p></em>
 </p>

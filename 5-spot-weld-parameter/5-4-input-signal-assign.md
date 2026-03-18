@@ -1,18 +1,18 @@
-﻿# 5.4 Input signal assignment for each welder
+﻿# 5.4 每个焊工的输入信号分配
 
-Assigns the signals related to spot welding, allowing the controller to monitor their state and perform necessary processing.
+分配与点焊相关的信号，使控制器能够监控其状态并执行必要的处理。
 
 
 <p align=center>
 <img src="../_assets/image_15_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.15 Input signal assignment</p></em>
+<em><p align="center">图 5.15 输入信号分配</p></em>
 </p>
 
-(1)  **Welding completion**
-  - Only when this welding completion signal is entered during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
+(1)  **焊接完成**
+  - 仅当在执行点焊时输入此焊接完成信号，控制器才会执行焊接完成的处理。总共有四个焊接完成信号，它们可以单独控制。
 
-(2)  **Deposition error**
-  - To be used when receiving and handling the input of the gun's deposition signal.
+(2)  **沉积错误**
+  - 用于接收和处理枪的沉积信号输入。
 
-(3)  **Welder abnormal**
-  - To be used to stop the operation of the robot when the signal of welder abnormal is entered.
+(3)  **焊工异常**
+  - 当输入焊工异常信号时，用于停止机器人的操作。

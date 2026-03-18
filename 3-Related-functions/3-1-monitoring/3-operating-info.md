@@ -1,37 +1,37 @@
-﻿### 3.1.3 Information of the operating time
+### 3.1.3 操作时间信息
 
-This allows you to check the information of the operating time related to the spot welding.
+这允许您查看与点焊相关的操作时间信息。
 
-(`[pane layout] - [F1: select] - spot run info.`)
+(`[pane layout] - [F1: 选择] - 点焊 运行信息 ([pane layout] - [F1: select] - spot run info.)`)
 
 <br>
 
 <p align="center">
  <img src="../../_assets/image_91_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.4 Spot welding operation information monitoring</p></em>
+ <em><p align="center">图 3.4 点焊操作信息监控</p></em>
 </p>
 
 <br>
 
-*   **Total (after initialization)**
+*   **总计（初始化后）**
 
-      Indicates the operation time and welding count of each welder since initialization of the system.
-*   **Total (after input of power)**
+      表示自系统初始化以来每个焊机的操作时间和焊接次数。
+*   **总计（通电后）**
 
-     Indicates the operation time and welding count of each welder since input of the power.
-*   **Latest cycle**
+     表示自供电以来每个焊机的操作时间和焊接次数。
+*   **最新周期**
 
-     Indicates the operation time and welding count of each welder of the immediately preceeding cycle.
-*   **Current cycle**
+     表示前一个周期中每个焊机的操作时间和焊接次数。
+*   **当前周期**
 
-     Indicates the operation time and welding count of each welder of the current cycle.
+     表示当前周期中每个焊机的操作时间和焊接次数。
 
 ---
--	Spot welding operation information clearing
+-	点焊操作信息清除
 
-When the spot welding operation information window is activated, the `[Clear]` button will be displayed. Pressing the button will bring up a dialog box for clearing the operation information as shown in Figure 3.5.
+当点焊操作信息窗口被激活时，将显示`[清除]`按钮。按下该按钮将弹出一个用于清除操作信息的对话框，如图 3.5 所示。
 
 <p align="center">
  <img src="../../_assets/image_92_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.5 Spot welding operation information initialization screen</p></em>
+ <em><p align="center">图 3.5 点焊操作信息初始化界面</p></em>
 </p>

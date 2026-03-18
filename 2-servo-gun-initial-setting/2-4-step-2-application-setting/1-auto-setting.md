@@ -1,72 +1,66 @@
-﻿### 2.4.1 Automatic setting
+### 2.4.1 自动设置
 
-Progress the automatic setting of the application setting of the servo gun by pressing the `[All auto setup]` button. The moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
+通过按下 `[All auto setup]` 按钮，进行伺服枪应用设置的自动设置。伺服枪的移动电极将自动移动。此外，设定值受压缩力的影响，因此必须满足以下条件。
 
-* Moving and fixed electrodes with new tipes attached
-* No worker around the servo gun
-* No workpiece between the moving electrode and fixed electrode
-* Manual mode
-* Motor on
-* Completion of the servo gun's default setting (step 1) 
+* 附有新类型的移动和固定电极
+* 周围没有工人
+* 移动电极与固定电极之间没有工件
+* 手动模式
+* 电机开启
+* 完成伺服枪的默认设置（步骤 1） 
 
+在 `[All auto setup]` 的情况下，以下过程将自动进行。
 
-In the case of `[All auto setup]`, the following procedures will proceed automatically.
-
-1. Gun search
-   * Gun search will be performed while servo gun squeezing occurs two times.
-   * First time: 'Gun search reference position record' valid
-   * Second time: 'Gun search reference position record' invalid 
-2. Gun arm deflection amount compensation
-   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
-3. Panel thickness measurement compensation  
-   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
+1. 枪搜索
+   * 在伺服枪压缩发生两次时将进行枪搜索。
+   * 第一次：'枪搜索参考位置记录' 有效
+   * 第二次：'枪搜索参考位置记录' 无效 
+2. 枪臂偏转量补偿
+   * 在伺服枪压缩发生五次时将进行枪臂偏转量补偿。
+3. 面板厚度测量补偿  
+   * 在伺服枪压缩发生五次时将进行面板厚度测量补偿。
 
 {% hint style="info" %}
-The gun search that can be performed through '**automatic setting**' is only for gun search 1. When using other gun searches other than gun search 1, you should refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).  
+通过 '**自动设置**' 进行的枪搜索仅限于枪搜索 1。当使用除枪搜索 1 之外的其他枪搜索时，请参考 [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)。  
 {% endhint %}
 
-In the case of 'all automatic setting', the 'gun arm deflection amount compensation' and 'panel thickness measurement compensation' will be performed at the same time, so the servo gun performs squeezing only five times. For execution of 'gun search', the squeezing force and gun search speed should be designated. If you press the `[Gunsea cond setup]` button, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
-
+在'all automatic setting'的情况下，'枪臂偏转量补偿'和'面板厚度测量补偿'将同时进行，因此伺服枪仅执行五次压缩。对于'枪搜索'的执行，应指定压缩力和枪搜索速度。如果按下 `[Gunsea cond setup]` 按钮，枪搜索时将使用的压缩力和移动速度可以如下面图所示进行设置。
 
 <p align="center">
  <img src="../../_assets/image_22_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.16 Gun search condition setting screen</p></em>
+ <em><p align="center">图 2.16 枪搜索条件设置屏幕</p></em>
 </p>
 
 {% hint style="info" %}
-In the case of '**gun arm deflection compensation**' and '**panel thickness measurement compensation**', it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
+在 '**枪臂偏转补偿**' 和 '**面板厚度测量补偿**' 的情况下，手动测量和填写值是困难的，因此建议使用自动设置。
 
-The 'gun arm deflection amount compensation' value is a value used instead of the 'gun arm deflection amount/100 kgf\[mm]' among the servo gun parameters. When the 'gun arm deflection amount compensation' value is set, the already set 'gun arm deflection amount/100 kgf\[mm]' will not be used. On the contrary, if a 'gun arm deflection amount compensation' value is not set, the 'gun arm deflection amount/100 kgf\[mm] will be used.'
+'枪臂偏转量补偿' 值是伺服枪参数中用于代替 '枪臂偏转量/100 kgf\[mm]' 的值。当设置 '枪臂偏转量补偿' 值时，已经设置的 '枪臂偏转量/100 kgf\[mm]' 将不再使用。相反，如果没有设置 '枪臂偏转量补偿' 值，则将使用 '枪臂偏转量/100 kgf\[mm]。'
 {% endhint %}
 
-The configuration and functionality of the servo gun application setting screen is as follows.
+伺服枪应用设置屏幕的配置和功能如下。
 
 <p align="center">
  <img src="../../_assets/image_55_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.17 Servo gun applicaiton setting screen</p></em>
+ <em><p align="center">图 2.17 伺服枪应用设置屏幕</p></em>
 </p>
+1. **状态**: 显示伺服枪的当前设置状态（设置之前、完成或更改）。
 
+2. **单独自动设置**: 支持仅对选中的项目进行自动设置的功能，而不是全部。按下`[Checked auto setup]`按钮将仅对选中的项目执行自动设置。
 
-<br>
+3. **手动设置**: 移动到设置相关项目的屏幕
+     *   枪臂偏转量补偿  
+         自动移动到屏幕`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 3: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter)`
+     *   面板厚度测量补偿  
+         自动移动到屏幕`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 3: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter)`
 
-1. **Status**: Shows the current setting status of the servo gun (before setting, complete or changed).
+4. **指南**: 指示设置的当前状态或发生错误时的原因和措施。
 
-2. **Individual auto-set**: Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` button will allow automatic setting to be performed only for the checked items.
+5. **监控**: 指示设置的当前状态、伺服枪的位置、反馈电流、设定值等。
 
-3. **Manual setting**: Moves to the screen for setting the relevant items
-     *   Gun arm deflection amount compensation  
-         Automatically moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter`
-     *   Panel thickness measurement compensation  
-         Automatically moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter`
+6. `[All auto setup]`: 命令执行所有项目的自动设置。
 
-4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+7. `[Checked auto setup]`: 仅自动设置被指定为单独自动设置项目的项目。
 
-5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+8. **执行停止**: 停止正在进行中的设置。
 
-6. `[All auto setup]`: Commands the execution of all automatic setting of all items.
-
-7. `[Checked auto setup]`: Automatically sets only the items that are designated as the items of individual automatic setting.
-
-8. **Execution stop**: Stops the setting that is in progress.
-
-9. **Gun search condition setting**: Sets the speed and squeeze force for gun search.
+9. **枪搜索条件设置**: 设置枪搜索的速度和夹紧力。

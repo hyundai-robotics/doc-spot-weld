@@ -1,3 +1,3 @@
-﻿### 4.4.1 Panel thickness registration
+### 4.4.1 面板厚度登记
 
-When it comes to the servo gun opening position recording, the position of the moving electrode will be calculated by using the pre-designated panel thickness, so the panel thickness should be registered. There are two provided methods of registering the panel thickness. One is that the user inputs it manually and the other is that the panel thickness is automatically registered while the panel is squeezed.
+在伺服枪开口位置记录时，移动电极的位置将通过使用预先指定的面板厚度来计算，因此必须注册面板厚度。提供了两种面板厚度登记的方法。一种是用户手动输入，另一种是面板在被挤压时自动登记面板厚度。

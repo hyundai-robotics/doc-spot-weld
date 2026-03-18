@@ -1,28 +1,28 @@
-﻿### 5.3.2 Welding condition
+### 5.3.2 焊接条件
 
-Sets spot welding conditions to perform welding in accordance with the work environment.
+设置点焊条件，以根据工作环境执行焊接。
 
 <p align=center>
 <img src="../../../_assets/image_75_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.11 Welding condition setting</p></em>
+<em><p align="center">图 5.11 焊接条件设置</p></em>
 </p>
 
-(1)  **Condition number**  
-  - Allows quick selection of the desired welding condition. This number usually corresponds to the condition name.
+(1)  **条件编号**  
+  - 允许快速选择所需的焊接条件。此编号通常对应于条件名称。
 
-(2)  **Output data (binary)**  
-  - Sets the data to be transmitted to the welder for the specified welding condition number during execution of the `spot` statement.
+(2)  **输出数据（binary）**  
+  - 在执行 `spot` 语句期间，设置要传输到焊接机的指定焊接条件编号的数据。
 
-(3)  **Initial squeezing force**
+(3)  **初始夹紧力**
 
-  - Sets the panel squeezing force applied during execution of the `spot` statement. This value is used as the initial squeezing force when configuring multi-step squeezing force control.
+  - 设置在执行 `spot` 语句期间施加的面板夹紧力。此值在配置多步骤夹紧力控制时用作初始夹紧力。
 
-(4)  **Multi-step squeezing force and auxiliary condition**
+(4)  **多步骤夹紧力和辅助条件**
 
-  -  Specifies the auxiliary condition number used to manage multi-step squeezing force and pivoting settings. If a number is entered, the corresponding condition must be edited in the `5: Multi-level Press Condition` menu.
+  -  指定用于管理多步骤夹紧力和旋转设置的辅助条件编号。如果输入一个数字，则必须在 `5: 多级压制条件` 菜单中编辑对应的条件。
 
-(5)  **Moving electrode clearance**
-  - Sets the opening position of the moving electrode before and after execution of the `spot` statement.
+(5)  **移动电极间隙**
+  - 设置在执行 `spot` 语句之前和之后移动电极的开口位置。
 
-(6)  **Fixed electrode clearance**
-  - Sets the opening position of the fixed electrode before and after execution of the `spot` statement.
+(6)  **固定电极间隙**
+  - 设置在执行 `spot` 语句之前和之后固定电极的开口位置。

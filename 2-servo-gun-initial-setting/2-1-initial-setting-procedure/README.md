@@ -1,65 +1,64 @@
-﻿# 2.1 Procedure for initial setting of the servo gun
+﻿# 2.1 伺服枪初始设置的程序
 
-This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only [2.1.1 Setting of the tool number and gun type corresponding to the gun number](1-tool-number-gun-type-setting.md) and [2.1.2 Setting of the tool angle/distance](2-tool-angle-distance-setting.md) in this chapter, and [3. Related functions](../../3-Related-functions/README.md) in the next chapter.
+此功能与点焊及其他使用伺服枪的应用相关。如果需要使用伺服枪以外的枪（气动枪等），请仅参考本章中的[2.1.1 与枪编号相对应的工具编号和枪类型设置](1-tool-number-gun-type-setting.md)和[2.1.2 工具角度/距离设置](2-tool-angle-distance-setting.md)，以及下一章中的[3. 相关功能](../../3-Related-functions/README.md)。
 
-The initial setting of the servo gun is an essential process to makie it possible to perform spot welding using a servo gun. After completing the procedure for the initial setting of the servo gun, the following items will be possible.
+伺服枪的初始设置是进行点焊的必要过程。完成伺服枪的初始设置程序后，将能够实现以下项目。
 
-* Operation of the moving electrode of the servo gun
-* Squeeze with the specified squeezing force
-* Signal input and output for spot welding
+* 伺服枪移动电极的操作
+* 以指定的挤压力进行挤压
+* 点焊的信号输入和输出
 
-After completing the procedure for initial setting, you need to set related functions and spot welding parameters (welding conditions, sequence, etc.) according to the purpose of use, and then teach the work.
+完成初始设置程序后，您需要根据使用目的设置相关功能和点焊参数（焊接条件、顺序等），然后进行工件的教学。
 
-Through the `[6: Servo gun auto setting]` function (`[F2: system] - 4: Application parameter - 1: Spot welding`), our company provides settings and procedures for the environment for spot welding and servo gun operation.
+通过`[6: 伺服枪自动设置]`功能（`[F2: 系统] - 4: 应用参数 - 1: 点焊 ([F2: system] - 4: Application parameter - 1: Spot welding)`），我们公司提供点焊和伺服枪操作环境的设置和程序。
 
 <p align="center">
  <img src="../../_assets/image_60_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.1 Screen for entering the 'Servo gun automatic setting' menu</p></em>
+ <em><p align="center">图 2.1 输入“伺服枪自动设置”菜单的屏幕</p></em>
 </p>
 
 {% hint style="warning" %}
-You can enter the menu only when the currently selected gun number is for the servo gun.
-("**Additional axis parameter setting**", "**Load estimation**", "**Tool data inputting**", "**Welding gun paramater**" are the contents that should be essentially set prior to the servo gun automatic setting.) If multiple guns are to be used, their individual settings should be performed by chaning the gun number.
+仅当当前选择的枪编号为伺服枪时，您才能进入菜单。
+("**附加轴参数设置**"、"**负载估算**"、"**工具数据输入**"、"**焊接枪参数**" 是在伺服枪自动设置之前必须设置的内容。）如果要使用多个枪，则应通过更改枪编号进行单独设置。
 {% endhint %}
 
 </br>
 
 ---
 
-The initial setting for the servo gun and spot welding is performed largely in five steps as shown below, and the progress of each step will be indicated, allowing you to monitor the progress.
-
+伺服枪和点焊的初始设置主要分为以下五个步骤进行，每个步骤的进展将被指示，从而让您可监控进度。
 
 <p align="center">
  <img src="../../_assets/image_3_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.1.2 Procedure for 'servo gun automatic setting'</p></em>
+ <em><p align="center">图 2.1.2 “伺服枪自动设置”的程序</p></em>
 </p>
 
-The standard procedure for the servo gun initial setting is as follows.
+伺服枪初始设置的标准程序如下。
 
-* [Step 0. Pre-inspection](../2-2-step-0-pre-inspection.md): Inspection of essential pre-setting items for the setting of the servo gun operation environment 
-  * Additional axis parameter
-  * Setting of the tool number corresponding to the gun number
-  * Tool data setting (including load estimation)
-  * Servo gun parameter setting
-* [Step 1. Default setting](../2-3-step-1-default-setting/README.md): Setting of the servo gun operation environment
-  * Encoder offset compensation
-  * Axis origin setting
-  * Soft limit setting
-  * Squeezing force-current table setting
-* [Step 2. Application setting](../2-4-step-2-application-setting/README.md): Setting of application functions that use the servo gun
-  * Gun search
-  * Gun arm deflection amount compensation
-  * Panel thickness measurement compensation
-* [Step 3. Setting check](../2-5-step-3-setting-check.md): Process for checking the current setting
-* [Step 4. Signal setting](../2-6-step-4-signal-setting.md): Assignment of input and output signals for spot welding application
+* [步骤 0. 预检](../2-2-step-0-pre-inspection.md)：检查伺服枪操作环境设置的必要预设项目
+  * 附加轴参数
+  * 与枪编号相对应的工具编号设置
+  * 工具数据设置（包括负载估算）
+  * 伺服枪参数设置
+* [步骤 1. 默认设置](../2-3-step-1-default-setting/README.md)：设置伺服枪操作环境
+  * 编码器偏移补偿
+  * 轴原点设置
+  * 软件限制设置
+  * 挤压力-电流表设置
+* [步骤 2. 应用设置](../2-4-step-2-application-setting/README.md)：设置使用伺服枪的应用功能
+  * 枪搜索
+* 枪臂偏转量补偿
+  * 面板厚度测量补偿
+* [第3步. 设置检查](../2-5-step-3-setting-check.md): 检查当前设置的过程
+* [第4步. 信号设置](../2-6-step-4-signal-setting.md): 针对点焊应用的输入和输出信号分配
 
 </br>
 
-The servo gun initial setting procedure screen not only shows the indication process and the status about completion, but also makes it possible to proceed with related items or move to the screen where related items can be performed.
+伺服枪初始设置程序界面不仅显示指示过程和完成状态，还可以继续相关项目或转到可以执行相关项目的界面。
 
-In other words, the initial setting related to the servo gun can all be completed from the above screen without going to relevant menus. The initial setting can be proceeded with in the following two ways.
+换句话说，与伺服枪相关的初始设置可以通过上述界面完成，而无需进入相关菜单。初始设置可以通过以下两种方式进行。
 
-1. Move the cursor to the relevant procedure and then input by selecting `[Enter]`.
-2. Press `[F1: Go to unset items]` to automatically proceed with the initial setting not yet conducted.
+1. 将光标移动到相关程序，然后选择 `[Enter]` 输入。
+2. 按 `[F1: 前往未设置项目] ([F1: Go to unset items])` 自动进行尚未进行的初始设置。
 
-The `[F1: Go to unset items]` butten makes it possible to inspect the procedures not yet conducted among all procedures, allowing them to be performed automatically. At the time of initial setting, you can complete the setting by following the guide just by clicking `[F1: Go to unset items]`.
+`[F1: 前往未设置项目] ([F1: Go to unset items])` 按钮使得可以检查所有程序中尚未进行的程序，并允许它们自动执行。在初始设置时，只需点击 `[F1: 前往未设置项目] ([F1: Go to unset items])`，即可按指南完成设置。

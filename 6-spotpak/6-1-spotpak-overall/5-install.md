@@ -1,34 +1,34 @@
-﻿### 6.1.5 Installation Method
+### 6.1.5 安装方法
 
-SPOTPAK is developed as a plug-in type application.
-The content displayed on the TP is written in HTML and JavaScript, and it communicates with a Python program that transfers the user's operation requests to the main program.
+SPOTPAK 被开发为一种插件类型的应用程序。
+显示在 TP 上的内容使用 HTML 和 JavaScript 编写，并与一个将用户操作请求传递给主程序的 Python 程序进行通信。
 
-The provided software contains all the functions described in this manual, but it may be modified to meet user-specific requirements.
-Please follow the procedure below to install the plug-in program.
+提供的软件包含本手册中描述的所有功能，但可以根据用户的特定要求进行修改。
+请按照以下步骤安装插件程序。
 
 
 <br>
 
 
 
- [Installation Procedure]
+ [安装流程]
 
- - 1. Save the "spotpak" plug-in program to a USB drive.
+ - 1. 将 "spotpak" 插件程序保存到 USB 驱动器。
 
- - 2. Connect the USB drive to the TP.
+ - 2. 将 USB 驱动器连接到 TP。
 
- - 3. Navigate to: Service > 5: File Management > USB > 'spotpak' folder > Copy
+ - 3. 导航至：服务 > 5: 文件管理 > USB > 'spotpak' 文件夹 > 复制
 
- - 4. Go to: MAIN > apps > Paste
+ - 4. 转到：MAIN > 应用 > 粘贴
 
- - 5. Reboot the controller.
+ - 5. 重启控制器。
 
- - 6. Navigate to: System > 5: Application Parameters > SPOTPAK
+ - 6. 导航至：系统 > 5: 应用参数 > SPOTPAK
 
  <br>
 
  {% hint style="info" %}  
-Currently, the "spotpak" folder is provided individually upon request by the spot function development team. However, once a plugin installation/distribution program is deployed on the website, users will be able to download it directly.
+目前，"spotpak" 文件夹是由点功能开发团队单独应请求提供的。然而，一旦插件安装/分发程序在网站上发布，用户将能够直接下载。
 
-When the development of this function is completed, a link to the relevant page will be provided.  
+当该功能的开发完成时，将提供相关页面的链接。  
 {% endhint %}

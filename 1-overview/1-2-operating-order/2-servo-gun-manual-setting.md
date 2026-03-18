@@ -1,10 +1,10 @@
-﻿### 1.2.2 Operation sequence that uses the servo gun manual setting
+### 1.2.2 使用伺服枪手动设置的操作顺序
 
-The procedure for the servo gun manual setting is as shown in the flowchart below.
+伺服枪手动设置的程序如下面的流程图所示。
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_46_eng.PNG" width="80%"></img>
- <em><p align="center">Figure 1.2 Operation sequence of the servo gun manual setting</p></em>
+ <em><p align="center">图 1.2 伺服枪手动设置的操作顺序</p></em>
 </p>

@@ -1,4 +1,3 @@
-﻿# 5.2 Welding gun parameter
+﻿# 5.2 焊接枪参数
 
-If the gun type is servo gun or equalizerless gun, individual parameters can be set for each gun.
-
+如果枪类型是伺服枪或无平衡枪，则可以为每把枪设置单独的参数。

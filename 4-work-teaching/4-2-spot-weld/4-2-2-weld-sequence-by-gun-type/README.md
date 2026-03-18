@@ -1,3 +1,3 @@
-﻿### 4.2.2 Welding sequence by gun type
+### 4.2.2 按枪类型的焊接顺序
 
-The controller executes the `spot` statement in the program to make the welding work take place and the playback of the spot welding function may vary depending on gun type.
+控制器执行程序中的 `spot` 语句以进行焊接工作，点焊功能的播放可能会根据枪类型而有所不同。

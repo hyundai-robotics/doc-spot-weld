@@ -1,67 +1,65 @@
-﻿# 5.1 Use environment setting
+﻿# 5.1 使用环境设置
 
-Sets the use environment related to spot welding to perform appropriate operation for given situations.
+设置与点焊相关的使用环境，以便在给定情况下执行适当的操作。
 
 <p align="center">
  <img src="../_assets/image_20_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 5.1 Spot use environment setting screen</p></em>
+ <em><p align="center">图 5.1 点焊使用环境设置屏幕</p></em>
 </p>
 
 </br>
 
-(1)  **Servo gun spot statement execution method**
-  - During the execution of the `spot` statement, if the selected gun type is a servo gun, the squeezing operation and welding signal output can be inhibited regardless of the welding sequence. This function is useful for verifying the teaching position. The spot welding execution sequence will vary depending on the status of this setting.
-
+(1)  **伺服枪点焊语句执行方法**
+  - 在执行 `spot` 语句期间，如果选择的枪类型是伺服枪，则可以抑制挤压操作和焊接信号输出，而不受焊接顺序的影响。此功能对验证教学位置非常有用。点焊执行顺序将根据此设置的状态而有所不同。
 
 <center>
 
-|Output method| <p align=center> Content </p>|  
+|输出方法| <p align=center> 内容 </p>|  
 |:---:|----------------------------------------------------|  
-|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position  --> Squeezing  --> Squeezing force matching inspection  --> Welding signal output </br>  --> Welding completion wait  --> Clearance position |
-|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position  --> Squeezing  --> Squeezing force matching inspection  --> Clerance position|
-|Sq-Off|Does not perform squeezing operation, electrification signal output, WI wait, etc.</br>Clearance position|
+|Wd-On|执行点焊功能中指定的每个焊接序列。 </br> 清空位置  --> 挤压  --> 挤压力匹配检查  --> 焊接信号输出 </br>  --> 焊接完成等待  --> 清空位置 |
+|Sq-On|执行焊接序列，但不包括与焊接相关的信号。 </br> 清空位置  --> 挤压  --> 挤压力匹配检查  --> 清空位置|
+|Sq-Off|不执行挤压操作、电气信号输出、WI 等待等。</br>清空位置|
 
 </center>
 
 
 </br>
 
-(2)  **Gun search reference position record**
-  - In the case of a gun type (servo gun, equalizerless gun) for which the controller manages the tip consumption amount, the reference position should be determined first, and then the actual c35onsumption amount will be calculated based on it.
+(2)  **枪搜索参考位置记录**
+  - 对于控制器管理枪头消耗量的枪类型（伺服枪、无平衡枪），应首先确定参考位置，然后基于此计算实际消耗量。
     
-  - disable  
-   The actual consumption amount is calculated based on the determined reference position.
-  - enable  
-    As the reference position is to be determined to calculate the consumption amount,  it would be no problem to perform recording once initially while new tips are attached.
+  - 禁用  
+   实际消耗量是基于确定的参考位置计算的。
+  - 启用  
+    由于参考位置需要确定以计算消耗量，因此在新枪头安装时，初次记录一次是没有问题的。
 
+(3)  **伺服枪力的单位**  
+  - 选择用于伺服枪控制的挤压力单位。
 
-(3)  **Unit of the servo gun force**  
-  - Selects the unit of the squeezing force for the control of the servo gun.
+(4)  **伺服枪焊接步骤记录位置的自动调整**
+  - 选择是否在执行 `spot` 语句期间，考虑在枪头挤压时测量的面板厚度来调整 `move` 语句中记录的伺服枪位置。完成教学或伺服枪发生变形后，将其设置为“启用”。之后，在自动模式下播放工作程序一次，然后根据最佳条件简单调整记录位置。凭借这些功能，此功能可以得到有效应用。
 
-(4)  **Automatic adjustment of servo gun welding step record position**
-  - Selects whether to adjust the position of the servo gun in the `move` statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the `spot` statement. Set it to "enable" after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
-
-(5) **Servo Gun Real-Time Data Storage Function**
-  - During spot welding, specified data are saved to a file at 2 ms intervals. The stored data can be used for welding quality inspection and analysis.
+(5) **伺服枪实时数据存储功能**
+  - 在点焊期间，指定数据以 2 毫秒的间隔保存到文件中。存储的数据可用于焊接质量检查和分析。
       
-      -  Collection time, position, current, pressurization force, welding progress status    
+      -  收集时间、位置、电流、加压力、焊接进度状态    
 
 <p align="center">
  <img src="../_assets/image_20_1_eng.png" width="70%"></img>
- <em><p align="center">Figure 5.1.1 Real-Time Data Storage</p></em>
+<em><p align="center">图 5.1.1 实时数据存储</p></em>
 </p>
   
-  - Each time a gun search is performed, specified data are saved to a file.
+  - 每次执行枪搜索时，指定数据将保存到文件中。
       
-      -  Collection time, robot tool-end position, moving electrode wear amount, fixed electrode wear amount
+      -  收集时间，机器人工具末端位置，移动电极磨损量，固定电极磨损量
 
 <p align="center">
  <img src="../_assets/image_20_2_eng.png" width="70%"></img>
- <em><p align="center">Figure 5.1.2 Gun Search Data Storage</p></em>
+ <em><p align="center">图 5.1.2 枪搜索数据存储</p></em>
 </p>
 
 <br>
 
 {% hint style="info" %}  
- To enable this function, the "Spot Welding Option Function" must be set to Enabled on the license key registration screen.  
+ 要启用此功能，必须在许可密钥注册屏幕上将“点焊选项功能”设置为启用。  
 {% endhint %}

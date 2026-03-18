@@ -1,87 +1,79 @@
-﻿#### 4.1.4.1 Servo gun
+#### 4.1.4.1 服务枪
 
-The gun search function of the servo gun is initially set in a way that the total electrode consumption amount reflects 50% of each of the fixed electrode consumption amount and moving electrode consumption amount. Therefore, the electrode consumption amount can be calculated by using only gun search 1. If you want to calculate the consumption amounts of the fixed and moving electrodes respectively, please refer to the description of gun search 2.
+服务枪的枪搜索功能最初设置为总电极消耗量反映固定电极消耗量和移动电极消耗量各50%。因此，可以仅通过枪搜索1来计算电极消耗量。如果您想分别计算固定电极和移动电极的消耗量，请参阅枪搜索2的说明。
 
 {% hint style="info" %}
-If the set value of **Moving electrode consumption amount/Total consumption amount (%)** is "0", the gun search 2 operation must be performed. If it is not "0", the total consumption amount will be distributed according to the set ratio through the gun search 1 operation.
+如果设置的**移动电极消耗量/总消耗量（%）**的值为“0”，则必须执行枪搜索2操作。如果不为“0”，总消耗量将通过枪搜索1操作按设置的比例进行分配。
 {% endhint %}
-
 
 <br>
 
-(1) Gun search 1  
-  - Measures the total electrode consumption amount by making the moving electrode squeeze the fixed electrode.
+(1) 枪搜索1  
+  - 通过使移动电极挤压固定电极来测量总电极消耗量。
 
 <p align="center">
  <img src="../../../_assets/image_47_eng.PNG"></img>
  <img src="../../../_assets/image_7_eng.PNG" width="55%"></img>
- <em><p align="center">Firgure 4.3 Gun search 1</p></em>
+ <em><p align="center">图4.3 枪搜索1</p></em>
 </p>
 
+1. 服务枪移动到步骤的记录位置。  
 
-1. The servo gun moves to the record position of the step.  
+2. 移动电极以达到设定的挤压力挤压固定电极。  
 
-2. The fixed electrode is squeezed with the moving electrode until the set squeeze force is reached.  
+3. 当检测到挤压力匹配时，测量总电极消耗量并执行开启操作。总电极消耗量 = 挤压力匹配检测位置 - 枪搜索1参考位置
 
-3.  When the squeezing force matching is detected, the total electrode consumption amount is measured and the opening operation is executed. Total electrode consumption amount = Squeezing force matching detection position  - gun search 1 reference position
+4. 服务枪打开到步骤的记录位置。  
 
-4. The servo gun opens up to the record position of the step.  
-
-5. In an environment where only gun search 1 is operating, the measured total electrode consumption amount is distributed according to the ratio between the moving electrode and fixed electrode as shown in the figure below. (default is 50 : 50.)
+5. 在仅运行枪搜索1的环境中，测量的总电极消耗量按移动电极与固定电极之间的比例进行分配，如下图所示。（默认是50 : 50。）
 
 <p align="center">
   <img src="../../../_assets/image_70_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.4 Calculation of the electrode consumption amount through gun search 1</p></em>
+ <em><p align="center">图4.4 通过枪搜索1计算电极消耗量</p></em>
 </p>
 
+(2) 枪搜索2
 
-(2) Gun search 2
+- 测量移动电极消耗量。可以通过使用挤压力或外部信号进行测量。
 
-- Measures the moving electrode consumption amount. The measurement can be performed by using a squeezing force or an external signal.
+-   **使用挤压力**
 
--   **By using a squeezing force**
+    通过使移动电极挤压校准夹具来测量移动电极消耗量。
 
-    Measures the moving electrode consumption amount by making the moving electrode squeeze the calibration jig.
+-   **使用外部信号**
 
--   **By using an external signal**
-
-    When the moving electrode moves to the position where the sensor is located and then the input from the sensor is detected, the moving electrode consumption amount is measured.
-
-<p align="center">
- <img src="../../../_assets/image_29_eng.PNG"></img>
- <img src="../../../_assets/image_4_eng.PNG" width="55%"></img>
- <em><p align="center">Figure 4.5 Gun search by using a squeezing force</p></em>
+    当移动电极移动到传感器所在的位置并检测到传感器输入时，测量移动电极消耗量。
+<img src="../../../_assets/image_29_eng.PNG"></img>
+<img src="../../../_assets/image_4_eng.PNG" width="55%"></img>
+<em><p align="center">图4.5 使用挤压力的枪搜索</p></em>
 </p>
 
 <Br>
 
-1. Movement to the record position of the step occurs.
+1. 发生步骤的记录位置移动。
 
-2. The calibration jig is squeezed with the moving electrode through searching unitil the set squeezing force is reached.
+2. 校准夹具通过搜索被移动电极挤压，直到达到设定的挤压力。
 
-3.  When the squeezing force matching is detected, the moving electrode consumption amount is detected and the opening operation is executed.   
-    - Moving electrode consumption amount = Squeezing force matching detection position - reference position for gun search 2 that uses the squeezing force
-    - Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount
+3. 当检测到匹配的挤压力时，检测移动电极的消耗量并执行开口操作。   
+    - 移动电极消耗量 = 挤压力匹配检测位置 - 用于枪搜索2的参考位置
+    - 固定电极消耗量 = 枪搜索1检测到的总消耗量 - 移动电极消耗量
 
-4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated. 
-
-
-
+4. 完成开口后，更新移动电极和固定电极的消耗量。 
 
 <p align="center">
- <img src="../../../_assets/image_79_eng.PNG"></img>
- <img src="../../../_assets/image_73_eng.PNG" width="55%"></img>
- <em><p align="center">Figure 4.6 Gun search 2 that uses an external signal input</p></em>
+<img src="../../../_assets/image_79_eng.PNG"></img>
+<img src="../../../_assets/image_73_eng.PNG" width="55%"></img>
+<em><p align="center">图4.6 使用外部信号输入的枪搜索2</p></em>
 </p>
 
 <Br>
 
-1. Movement to the record position of the step occurs.  
+1. 发生步骤的记录位置移动。  
 
-2. The moving electrode approaches at the search speed and switches the phototube contact signal.  
+2. 移动电极以搜索速度靠近并切换光电管接触信号。  
 
-3.  When a signal is detected by the photo tube, the moving electrode consumption amount is detected and the opening operation is executed.  
-    - Moving electrode consumption amount = External signal detection position - reference position for gun search 2 that uses the external signal
-    - Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount
+3. 当光电管检测到信号时，检测移动电极的消耗量并执行开口操作。  
+    - 移动电极消耗量 = 外部信号检测位置 - 用于外部信号的枪搜索2的参考位置
+    - 固定电极消耗量 = 枪搜索1检测到的总消耗量 - 移动电极消耗量
 
-4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated.
+4. 完成开口后，更新移动电极和固定电极的消耗量。

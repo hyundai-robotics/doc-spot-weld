@@ -1,87 +1,87 @@
-﻿#### 2.3.3.1 Manual tuning mode
+#### 2.3.3.1 手动调节模式
 
-The manual tuning mode is a function to manually perform the servo gun squeezing force - current table setting. After the servo gun squeezing occurs, if the user directly inputs the measured squeezing force by using the teaching pendant, the optimal command current will be automatically calculated. This process should be repeated to increase the accuracy. The accuracy can be verified by the degree of convergence and test squeezing.
+手动调节模式是一个功能，用于手动执行伺服枪挤压力 - 电流表设置。在伺服枪挤压之后，如果用户通过教导 pendant 直接输入测量到的挤压力，将自动计算出最优指令电流。这个过程应重复进行，以提高准确性。准确性可以通过收敛程度和测试挤压来验证。
 
-The procedure for setting the servo gun squeezing force - current table in manual mode, recommended by our company, is as follows.
+在手动模式下，设置伺服枪挤压力 - 电流表的步骤，由我公司推荐如下。
 
 <p align="center">
  <img src="../../../_assets/image_84_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.14 Servo gun manual tuning screen</p></em>
+ <em><p align="center">图 2.14 伺服枪手动调节屏幕</p></em>
 </p>
  
 
-1. Set the direction of the moving electrode that needs tuning (gravity or anti-gravity).
+1. 设置需要调节的移动电极的方向（重力或反重力）。
 
-2. With the `[SHIFT]` key + `[Servo gun manual pressure]` button or by jogging the axis of the servo gun, bring the moving electrode to the position where it can contact the squeezing force gauge, and then measure the thickness of the squeezing force gauge (distance between electrodes).
+2. 按下 `[SHIFT]` 键 + `[Servo gun manual pressure]` 按钮，或通过移动伺服枪的轴，将移动电极移到可以接触挤压力计的位置，然后测量挤压力计的厚度（电极之间的距离）。
 
-3.  Input the measured thickness into the squeezing force gauge thicknes section shown at the upper part of the screen (distance between electrodes).
+3. 输入测量到的厚度到屏幕上方所示的挤压力计厚度部分（电极之间的距离）。
 
-4. Input the desired representative value of the squeezing force that you want to set into the '**Set squeezing force**' section.
+4. 输入您要设置的目标挤压力的代表值到 '**设置挤压力**' 部分。
 
-5. Squeeze the servo gun according to the line that indicates the set squeezing force with which you want to perform squeezing. (In the figure below, squeezing is performed with 100 kfg currently indicated with a green focus. svgun man press: `[CTRL]`,`[SHIFT]` + `[Servo gun manual pressure]`)
+5. 根据指示您想要执行挤压的设定挤压力的线来挤压伺服枪。（在下面的图中，挤压是用当前指示为绿色焦点的100 kfg进行的。 svgun man press: `[CTRL]`, `[SHIFT]` + `[Servo gun manual pressure]`）
 
-6. Input the squeezing force measured with the squeezing force gauge into the '**Measured squeezing force**' section.
+6. 将通过挤压力计测得的挤压力输入到 '**测量的挤压力**' 部分。
 
-7. Repeat steps 3-6 for all set squeezing forces.
+7. 对所有设定的挤压力重复步骤 3-6。
 
-8. After completing the inputting, press the `[Command current calculation]` button to calculate the command current that matches the set squeezing force.
+8. 完成输入后，按下 `[指令电流计算]` 按钮，以计算与设定挤压力相匹配的指令电流。
 
-9. When necessary to check the degree of convergence and perform repetead calculation of the command current through test squeezing, repeat steps 3-8.
+9. 如有必要检查收敛程度并通过测试挤压进行重复计算指令电流，重复步骤 3-8。
 
-10. If you want to calculate only the command current for a specific squeezing force, input the measured squeezing force and then execute the `[Command current individual calculation]` process.
+10. 如果您只想计算特定挤压力的指令电流，请输入测得的挤压力，然后执行 `[指令电流单独计算]` 过程。
 
-11. Save the current setting by pressing `[Save]`. After that, change the direction of the moving electrode and then repeat steps 1-8 above.
+11. 通过按下 `[保存]` 保存当前设置。之后，改变移动电极的方向，然后重复以上步骤 1-8。
 
 </br>
 
-To squeeze the servo gun, you should press `[SHIFT]` + `[Servo gun manual pressure]`  or `[CTRL]` + `[Servo gun manual pressure]`. Considering that with the `[CTRL]` + `[Servo gun manual pressure]`, you can perform controlling in the same manner as the automatic mode does, it is recommended to use `[CTRL]` + `[Servo gun manual pressure]`. 
+要挤压伺服枪，您应该按下 `[SHIFT]` + `[Servo gun manual pressure]` 或 `[CTRL]` + `[Servo gun manual pressure]`。考虑到使用 `[CTRL]` + `[Servo gun manual pressure]` 时，您可以以与自动模式相同的方式执行控制，建议使用 `[CTRL]` + `[Servo gun manual pressure]`。
 
-The figure below is a screen showing the state after performing `[command current calculation]` twice. If the degree of convergence is low enough, it is needed to carry out squeezing with the set squeezing force and check the difference with the measured pressure, and then decide whether to continute to proceed.
+下图是执行 `[指令电流计算]` 两次后的状态屏幕。如果收敛程度足够低，需要使用设定的挤压力进行挤压并检查与测量压力的差异，然后决定是否继续。
 
-At least one measured squeezing force should be entered for the command current calculation. If the initial command current exceeds the range where the servo gun can perform squeezing, you can reset the initial value by inputting only one or two measured squeezing forces and then performing the 'command current calculation.' If the command current calculation is performed without inputting all of the measured squeezing forces, the overall accuracy will be lower. Considering it, it is recommended to perform 'command current calculation' after inputting all measured squeezing forces, except for the case of resetting the initial command current.
+至少需要输入一个测量的挤压力以进行指令电流计算。如果初始指令电流超过伺服枪能够执行挤压的范围，您可以通过只输入一到两个测得的挤压力，然后执行 '指令电流计算' 来重置初始值。如果在未输入所有测量挤压力的情况下进行指令电流计算，整体准确性将降低。考虑到这一点，建议在输入所有测量挤压力后进行 '指令电流计算'，除非重置初始指令电流的情况。
 
-The explanation for the setting items is as follow.
+设定项的解释如下。
 
-*   **Direction of the moving electrode**
+*   **移动电极的方向**
 
-    This is the direction of the moving electrode of the servo gun currently being tuned. The direction should be set once each for the direction of gravity direction of anti-gravity direction.
-*   **Set squeezing force**
+    这是当前正在调节的伺服枪移动电极的方向。每种方向应分别设置一次，包括重力方向和反重力方向。
+*   **设置挤压力**
 
-    This is the representative value of the squeezing force that is to be used. This is for finding the command current corresponding to the set squeezing force.
-*   **Measured squeezing force**
+    这是要使用的挤压力的代表值。用于找到对应于设定挤压力的指令电流。
+*   **测量的挤压力**
 
-    This is the squeezing force measured when squeezing is performed with the current command current. The user should input the value directly by using the squeezing force gauage.
-*   **Command current**
+    这是在执行当前命令电流时测量的挤压力。用户应通过使用挤压力计直接输入该值。
+*   **命令电流**
 
-    This is the command current corresponding to the currently set sequeeze force.
-*   **Degree of convergence**
+    这是与当前设置的挤压力相对应的命令电流。
+*   **收敛度**
 
-   This value is the amount of variation of the calculated command current compared to the previous command current after the current calculation is performed. The lower this value, the higher the accuracy of the tuning of the squeezing force.
-*   **Permissible error for the set squeezing force**
+    此值是当前计算完成后，计算的命令电流与之前命令电流的变化量。此值越低，挤压力的调节精度越高。
+*   **设定挤压力的允许误差**
 
-    This is the squeezing force permissible error among the servo gun parameters and can be used to check the current state after the test squeezing.
-*   **Distance between electrodes**
+    这是伺服枪参数中的挤压力允许误差，可用于检查测试挤压后的当前状态。
+*   **电极之间的距离**
 
-    This allows you to monitor the distance between the electrodes of the servo gun (possible to monitor the state of squeezing and opening).
-*   **Count of repeated calculations**
+    这使您能够监控伺服枪电极之间的距离（可以监控挤压和打开的状态）。
+*   **重复计算的次数**
 
-    This is the number of times the command current has been updated by pressing the `[Command current calculation]` button so far. If the degree of convergence does not decrease after several repetitions, use the `[Command current individual calculation]` button or check the state of the squeezing force gauge and servo gun.
-*   **Measured currrent**
+    这是迄今为止通过按下`[命令电流计算]`按钮更新命令电流的次数。如果收敛度在几次重复后没有降低，请使用`[命令电流单独计算]`按钮或检查挤压力计和伺服枪的状态。
+*   **测量的电流**
 
-    This is the currently measured current and will be monitored in a way that it can get close to the command current when squeezing is performed.
+    这是当前测量的电流，并将在执行挤压时以接近命令电流的方式进行监测。
 
 <br>
 
 {% hint style="info" %}  
-The operation by selecting `[CTRL]` key + `[Servo gun manual pressure]` button will work until the squeezing is completed with one execution, making it impossible to stop the operation by releasing the button in the middle. Therefore, stopping the squeeze operation requires you to release the enable switch or press the emergency stop button. Also, if the squeezing force gauge thickness is different from the actual value, the squeezing force will be different in automatic mode. So please input the correct value.
+通过选择`[CTRL]`键 + `[伺服枪手动压力]`按钮进行的操作将在一次执行中一直工作到挤压完成，在中途释放按钮会使操作无法停止。因此，要停止挤压操作，必须释放使能开关或按下紧急停止按钮。此外，如果挤压力计的厚度与实际值不同，则在自动模式下挤压力也会不同。因此，请输入正确的值。
 
-You can set and operate the servo gun using the function buttons on the right side of the current screen. The related settings and operations are as follows.
+您可以使用当前屏幕右侧的功能按钮设置和操作伺服枪。相关设置和操作如下。
 
-* `[SHIFT]` + `[Servo gun wide opening]`: Opens the servo gun wide (by the specified opening distance).
-* `[SHIFT]` + `[Servo gun narrow opening]`: Opens the servo gun narrowly (by the specified opening distance).
-* `[SHIFT]` + `[Servo gun manual pressure]`: Squeezes the servo gun using the squeezing force at the current cursor position.
-* `[CTRL]` + `[Servo gun wide opening]`: Sets the distance for servo gun wide opening.
-* `[CTRL]` + `[Servo gun narrow opening]`: Sets the distance for servo gun narrow opening.
-* `[CTRL]` + `[Servo gun manual pressure]`: Squeezes the servo gun using the squeezing force at the current cursor position and applies the same control as in automatic mode.
+* `[SHIFT]` + `[伺服枪宽开口]`：宽幅打开伺服枪（按指定的打开距离）。
+* `[SHIFT]` + `[伺服枪窄开口]`：窄幅打开伺服枪（按指定的打开距离）。
+* `[SHIFT]` + `[伺服枪手动压力]`：在当前光标位置使用挤压力挤压伺服枪。
+* `[CTRL]` + `[伺服枪宽开口]`：设定伺服枪宽开口的距离。
+* `[CTRL]` + `[伺服枪窄开口]`：设定伺服枪窄开口的距离。
+* `[CTRL]` + `[伺服枪手动压力]`：在当前光标位置使用挤压力挤压伺服枪，并应用与自动模式相同的控制。
 
 {% endhint %}

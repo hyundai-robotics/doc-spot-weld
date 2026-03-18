@@ -1,20 +1,20 @@
-﻿### 4.1.3 Gun search reference position record
+### 4.1.3 枪搜索参考位置记录
 
-The consumption amount of an electrode is measured based on an unconsumed new tip. Therefore, the process of registering the reference position with a new tip is absolutely necessary at least once in the beginning, and this is called gun search reference position record.
+电极的消耗量是基于未消耗的新尖测量的。因此，使用新尖注册参考位置的过程在开始时至少必须执行一次，这被称为枪搜索参考位置记录。
 
 {% hint style="info" %}
-**The gun search reference position must be recorded at least once before the execution of gun search**
+**在执行枪搜索之前，必须至少记录一次枪搜索参考位置**
 {% endhint %}
 
- When it comes to the method of recording a gun search reference position, new tips should be attached first and then the recording should be executed according to the following procedures.
+ 关于记录枪搜索参考位置的方法，应该首先附上新尖，然后根据以下程序执行记录。
 
 
 <p align="center">
  <img src="../../_assets/image_51_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.2 Use environment setting screen</p></em>
+ <em><p align="center">图 4.2 使用环境设置屏幕</p></em>
 </p>
 
 
->1. Set 'Gun search reference position record' to 'enable'.
->2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to 'incomplete'.
->3. Set 'Gun search reference position record' to 'disable'. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.
+>1. 将'枪搜索参考位置记录'设置为'启用'。
+>2. 执行创建的枪搜索程序。在现场监控屏幕上，枪搜索的状态将初始化为'不完整'。
+>3. 将'枪搜索参考位置记录'设置为'禁用'。之后，将使用枪搜索程序计算与参考位置相比的变化量作为消耗量。

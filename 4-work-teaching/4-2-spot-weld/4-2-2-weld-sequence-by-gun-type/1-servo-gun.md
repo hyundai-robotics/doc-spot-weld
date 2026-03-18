@@ -1,22 +1,20 @@
-﻿### 4.2.2.1 Servo gun
+### 4.2.2.1 伺服枪
 
-If the gun type is servo gun, the spot welding function is played back as shown in the figure below.
+如果枪类型是伺服枪，则点焊功能如下面的图所示回放。
 
 <p align="center">
  <img src="../../../_assets/image_66_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.8 Playback motions of servo gun spot welding</p></em>
+ <em><p align="center">图 4.8 伺服枪点焊的回放动作</p></em>
 </p>
-
 
 <br>
 
+1. 在 N-1 步骤位置，移动电极和固定电极分别按移动电极间隙和固定电极间隙远离其记录位置。
 
-1. At the N-1 step position, the moving and fixed electrodes move away from their recorded positions by the moving electrode clearance and fixed electrode clearance, respectively.
+2. 通过机器人均衡操作，固定电极移动到步骤的记录位置，移动电极在消耗量的影响下移动到记录位置。
 
-2. Through the robot equalizing operation, the fixed electrode moves to the recorded position of the step, and the moving electrode moves to the recorded position while being shifted by the consumption amount.
+3. 移动电极使用指定的挤压力进行挤压操作。当达到目标挤压力时，在该位置输出焊接执行信号和焊接条件信号。
 
-3. The moving electrode performs the squeezing operation using the specified squeezing force. When the target squeezing force is reached, the welding execution signal is output together with the welding condition signal at that position.
+4. 当接收到焊接完成信号 (WI) 时，移动电极和固定电极按各自的间隙量打开。
 
-4. When the welding completion signal (WI) is received, the moving and fixed electrodes open by their respective clearance amounts.
-
-5. The system moves to the next step.
+5. 系统移动到下一步骤。

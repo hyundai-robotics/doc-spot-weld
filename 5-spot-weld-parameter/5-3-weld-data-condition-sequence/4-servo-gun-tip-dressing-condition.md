@@ -1,22 +1,22 @@
-﻿### 5.3.4 Servo gun tip dressing condition
+### 5.3.4 伺服枪头修整条件
 
-Sets various conditions for the execution of tip dressing for the servo gun
+设置伺服枪头修整操作的各种条件
 
 <p align="center">
  <img src="../../_assets/image_61_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 5.15 Servo gun tip dressing condition setting </p></em>
+ <em><p align="center">图 5.15 伺服枪头修整条件设置 </p></em>
 </p>
 
 </br>
 
-(1)  **Welding signal output**
-  - Selects whether to output the welding signal for the tip dressing operation.
+(1)  **焊接信号输出**
+  - 选择是否输出焊接信号以进行枪头修整操作。
 
-(2)  **Tip dressing time**
-  - Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the `spot` statement. However, the welding sequence number should be set to "**64**".
+(2)  **修整时间**
+  - 设置执行修整所需的时间。修整应通过使用 `spot` 语句以相同方式进行。然而，焊接序列号应设置为 "**64**"。
 
-(3)  **Execution of gun search during tip dressing**
-  - Selects whether to execute gun search during tip dressing.
+(3)  **修整期间的枪搜索执行**
+  - 选择是否在修整期间执行枪搜索。
 
-(4)  **Tip dresser thickness**
-  - Inputs the tip dresser thickness.
+(4)  **修整器厚度**
+  - 输入修整器的厚度。

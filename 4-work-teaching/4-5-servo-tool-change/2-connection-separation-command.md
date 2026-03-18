@@ -1,36 +1,35 @@
-﻿### 4.5.2 Connection/disconnection commands 
+### 4.5.2 连接/断开命令
 
-In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
+在伺服工具更换环境中，伺服枪的连接/分离可以通过以下两种方式进行。当伺服枪连接时，枪号和工具号会根据设定值自动变化，当伺服枪分离时，枪号和工具号会自动变为0。
 
 (1) R358
 
-This is a function for servo gun change by using a R code, and can be used in the motor on state (the enable switch is on) in manual mode.
+这是通过使用R代码进行伺服枪更换的功能，能够在手动模式下（使能开关开启）在马达开启状态下使用。
 
-Operation = **R358, #1, #2, #3**
+操作 = **R358, #1, #2, #3**
 
-| **Parameter** |   **#1**   | **#2** |    **#3**   |
+| **参数** |   **#1**   | **#2** |    **#3**   |
 | :------: | :--------: | :----: | :---------: |
-|    Meaning    |    Connection/separation   |   Axis specification  |     Gun number     |
-|   Set value   | Connection=1, Separation=0 |  Servo gun=1 | The number of the gun targeted for change |
+|    意义    |    连接/分离   |   轴规格  |     枪号     |
+|   设置值   | 连接=1, 分离=0 | 伺服枪=1 | 目标更换的枪号 |
 
-| Example of use | R358,1,1,2 (connects the servo gun G2) |
+| 使用示例 | R358,1,1,2（连接伺服枪G2） |
 | :--: | :--:|
-|      | R358,1,0 (separates the servo gun)      |
+|      | R358,1,0（分离伺服枪）      |
 
 <br>
 
 (2) toolchng
 
-This is a function for welding gun change through the execution of a work program. 
+这是通过执行工作程序进行焊接枪更换的功能。
 
-```toolchng on/off/fixed,tg=<target for change>,is=<connection complete signal>,wait=<connection completion wait time>```
+```toolchng on/off/fixed,tg=<目标更换>,is=<连接完成信号>,wait=<连接完成等待时间>```
 
-|     **on/off**  |       **on**       |      Connection of the servo tool     |      |
+|     **on/off**  |       **on**       |      伺服工具的连接     |      |
 | :-------------: | :----------------: | :-------------: | :------------------------: |
-|             |       **off**      |        Separation of the servo tool   |      |
-|      **Target for change**            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>array [ ] for multi guns</p>         | Connection/separation of the relevant additional axis  |
-|                         **Mechanical connection completion check signal**                        |     **1~4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |    <p>Parameter to be ignored in off state</p><p></p>          |  |     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0-5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
-|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0~5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |  <p>Parameter to be ignored</p><p>in off state</p>  |
+|             |       **off**      |        伺服工具的分离   |      |
+|      **目标更换**            |     **G1\~G16**    |         <p>连接/分离焊接枪的编号</p><p>多枪数组 [ ]</p>         | 相关附加轴的连接/分离  |
+|                         **机械连接完成检查信号**                        |     **1~4096**    | <p>机械连接完成检查的输入信号编号</p> |    <p>在断开状态下忽略的参数</p><p></p>          |  |     <p><strong>连接完成</strong></p><p><strong>等待时间</strong></p>     | **\<0-5.0> (秒)** | <p>连接完成等待时间</p><p>（如果没有参数或值为0，则无限等待）</p> |          <p>在断开状态下忽略的参数</p><p></p>          |
+|     <p><strong>连接完成</strong></p><p><strong>等待时间</strong></p>     | **\<0~5.0> (秒)** | <p>连接完成等待时间</p><p>（如果没有参数或值为0，则无限等待）</p> |  <p>在断开状态下忽略的参数</p>  |
 
-
-Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.
+连接完成只有在机械连接和机器人控制器内部处理完成后才会被最终确认。连接完成等待时间是等待上述两个过程都完成的时间。

@@ -1,3 +1,3 @@
-﻿#### 4.4.1.2 Auto registration method
+#### 4.4.1.2 自动注册方法
 
-While the `[GUN]` key LED is turned on, perform manual squeezing and then press the `[Record]` key. Then the panel thickness will be automatically registered.
+当 `[GUN]` 键 LED 点亮时，执行手动挤压，然后按下 `[Record]` 键。然后面板厚度将自动注册。

@@ -1,28 +1,28 @@
-﻿# 1. Overview
+﻿# 1. 概述
 
-This manual provides explanations based on the systems below. If the system used in the field is different from the ones described here, the worker on the site should refer to and use this manual according to the on-site system.
+本手册基于以下系统提供说明。如果现场使用的系统与这里描述的系统不同，现场工作人员应根据现场系统参考并使用本手册。
 
-*   **System specifications described in the manual**
+*   **手册中描述的系统规格**
 
-    Robot guns (for change of welding guns): A servo gun (G1), a servo gun (G2), an equalizerless gun (G3), and an equalizer-fitted gun (G4)
+    焊枪机器人（用于更换焊接枪）：伺服枪（G1）、伺服枪（G2）、无平衡器枪（G3）和带平衡器枪（G4）
 
-    Stationary guns: Servo gun (G5), servo gun (G6), and equalizerless gun (G7)
+    固定枪：伺服枪（G5）、伺服枪（G6）和无平衡器枪（G7）
 
-1.  Servo gun
+1.  伺服枪
 
-    The servo gun is set as an additional axis of the robot. It is used in a way that the rotational force of the servo motor is transmitted to the ball screw to operate the gun tips, thereby controlling the squeezing and opening operations.
-2.  Equalizer-fitted gun
+    伺服枪被设置为机器人额外的轴。它通过将伺服电机的旋转力传输到滚珠丝杠来操作枪头，从而控制挤压和开启操作。
+2.  带平衡器枪
 
-     This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signals, and is based on a method of mechanically performing the equalizing operation during welding.
-3.  Equalizerless gun
+     这是一种点焊枪，通过气压执行挤压和开启动作，并由焊接条件输出信号和焊接（电气化）输出信号控制，基于在焊接过程中机械执行平衡操作的方法。
+3.  无平衡器枪
 
-    This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signal, and is based on a method in which the equalizing operation is performed by the robot as the gun has no cylinder for the equalizing operation for the welding.
+    这是一种点焊枪，通过气压执行挤压和开启动作，并由焊接条件输出信号和焊接（电气化）输出信号控制，基于机器人执行平衡操作的方法，因为该枪没有进行焊接的平衡操作的气缸。
    
 </br>
 </br>
 
-**[Essential manuals]**
+**[基本手册]**
 
-- [${cont_model} Controller Operation Manual](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
+- [${cont_model} 控制器操作手册](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
 
-- ${cont_model} Additional Axis Function Manual
+- ${cont_model} 附加轴功能手册

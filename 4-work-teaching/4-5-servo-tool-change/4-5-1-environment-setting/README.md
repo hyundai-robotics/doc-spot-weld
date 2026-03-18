@@ -1,7 +1,7 @@
-﻿### 4.5.1 Environment setting
+### 4.5.1 环境设置
 
-The environment setting for servo tool change can be progressed according to the following order.
+伺服工具更换的环境设置可以按照以下顺序进行。
 
-A.   Setting the tool number and gun type corresponding to the gun number
+A.   设置与枪号对应的工具编号和枪型
 
-B.   Setting the servo tool parameter
+B.   设置伺服工具参数

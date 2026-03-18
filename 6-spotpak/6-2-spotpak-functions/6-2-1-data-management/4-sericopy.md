@@ -1,15 +1,15 @@
-﻿#### 6.2.1.4 Series Copy
+#### 6.2.1.4 系列复制
 
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_8_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.8 Data Series Copy</p></em>
+<em><p align="center">图 6.8 数据系列复制</p></em>
 </p>
 
 <br>
 
 
-The Series Copy function is used when you want to copy only the data that contains group (series) information.
-From the programs shown in the screen, you can select the desired items and specify both the target welder and the group range to be copied.
+系列复制功能用于仅复制包含组（系列）信息的数据。
+从屏幕上显示的程序中，您可以选择所需的项目并指定要复制的目标焊接机和组范围。

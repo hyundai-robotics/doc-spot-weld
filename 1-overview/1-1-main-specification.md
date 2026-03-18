@@ -1,14 +1,14 @@
-﻿# 1.1 Main specifications
+﻿# 1.1 主要规格
 
-|       **Item**       |                          **Specification**                          |
+|       **项目**       |                          **规格**                          |
 | :----------------: | :------------------------------------------------------: |
-|     Spot welding setting file     |           spotweld.json            |
-|      Maximum welder count     |              4 units                 |
-| Count of multiple guns for simultaneous welding</br>(the same gun type) |           4 units                   |
-|            |                 16 units                   |
-|       Welding condition number      |                         1 - 1024                        |
-|   Output data dependent on welding condition   |                         1 - 1024                        |
-|       Welding sequence number      |                   1 -  63 (64 is exclusively for tip dressing)                   |
-|     Position modification (servo gun)    | SPOT command step - Consumption amount automatic compensation position</br>Other steps - Positions that do not consider the consumption amount |
-|    Inspection of the tool number corresponding to the gun umber   |                     Inspection of robot guns and no inspection of stationary guns                    |
-|     Welding condition signal output     |   To be outputted in sync with the output of the welding execution signal</br>Impossible to output only the welding condition signal   |
+|     点焊设置文件     |           spotweld.json            |
+|      最大焊机数量     |              4 台                 |
+| 同时焊接的多个枪的数量</br>(相同枪种) |           4 台                   |
+|            |                 16 台                   |
+|       焊接条件编号      |                         1 - 1024                        |
+|   依赖于焊接条件的输出数据   |                         1 - 1024                        |
+|       焊接顺序编号      |                   1 -  63 (64 专用于喷嘴打磨)                   |
+|     位置修正（伺服枪）    | SPOT命令步骤 - 消耗量自动补偿位置</br>其他步骤 - 不考虑消耗量的位置 |
+|    与枪号对应的工具编号检查   |                     机器手臂枪的检查，不检查固定枪                    |
+|     焊接条件信号输出     |   与焊接执行信号的输出同步输出</br>无法仅输出焊接条件信号   |

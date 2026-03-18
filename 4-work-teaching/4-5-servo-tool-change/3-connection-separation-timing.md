@@ -1,15 +1,14 @@
-﻿### 4.5.3 Connection/disconnection timing
-
+### 4.5.3 连接/断开时机
 
 <p align="center">
  <img src="../../_assets/image_10_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.17 Connection and seperation timing chart</p></em>
+ <em><p align="center">图 4.17 连接和分离时机图</p></em>
 </p>
 
-*   Connection
+*   连接
 
-    If the robot and servo gun are mechanically connected during the execution of the connection command (toolchng on), the connection completion signal will be entered, the connection will be processed inside the controller, the encoder power for driving the axis of the servo gun will be entered, and the motor on operation will be executed.
+    如果机器人和伺服枪在执行连接命令（toolchng on）期间机械连接，则连接完成信号将被输入，连接将在控制器内部处理，伺服枪驱动轴的编码器电源将被输入，并将执行电机运行。
 
-*   Disconnection
+*   断开
 
-     The separation command will execute the processing of the separation according to the sequence opposite to that of the connection command.
+     分离命令将根据与连接命令相反的顺序执行分离处理。

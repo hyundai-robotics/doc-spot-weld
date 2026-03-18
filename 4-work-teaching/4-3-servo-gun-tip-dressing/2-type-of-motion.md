@@ -1,21 +1,20 @@
-﻿### 4.3.2 Type of operation
+### 4.3.2 操作类型
 
-To perform a tip dressing operation using the servo tip dressing condition, the welding sequence number in the `spot` statement must be designated as 64 as shown below.
-
+要执行使用伺服尖端修整条件的尖端修整操作，`spot` 语句中的焊接序列号必须指定为 64，如下所示。
 
 <p align="center">
  <img src="../../_assets/image_77_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.11 Servo gun tip dressing operation</p></em>
+ <em><p align="center">图 4.11 伺服枪尖端修整操作</p></em>
 </p>
 
 <Br>
 
-1. At the N-1 step position, the moving electrode moves away from the recorded position by the amount of the moving electrode clearance, and the fixed electrode moves away from the recorded position by the amount of the fixed electrode clearance.
+1. 在 N-1 步骤位置，移动电极远离记录位置，移动电极的间隙量，固定电极远离记录位置，固定电极的间隙量。
 
-2. The robot moves to the recorded position of the step.
+2. 机器人移动到步骤的记录位置。
 
-3. The moving electrode performs the squeezing operation using the squeezing force set in the welding condition. When the target squeezing force is reached, the welding condition signal is output at that position. Whether the welding execution signal is also output at this time depends on the "Welding signal output" setting in the tip dressing condition.
+3. 移动电极使用焊接条件中设置的挤压力执行挤压操作。当达到目标挤压力时，在该位置输出焊接条件信号。此时是否输出焊接执行信号取决于尖端修整条件中的“焊接信号输出”设置。
 
-4. After the configured tip dressing time has elapsed, the moving and fixed electrodes open by their respective clearance amounts.
+4. 在配置的尖端修整时间经过后，移动电极和固定电极分别按其间隙量打开。
 
-5. The system moves to the next step.
+5. 系统移动到下一步骤。

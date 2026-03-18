@@ -1,29 +1,28 @@
-﻿### 5.2.1.1.1 Real-time squeezing force control
+### 5.2.1.1.1 实时挤压力控制
 
-Real-time pressurization force control improves the accuracy of servo gun force by using data measured by a force sensor for control. To enable real-time pressurization force control, the force sensor must communicate with the robot controller, and the communication specifications are configured in the menu below.
+实时加压力控制通过使用力传感器测量的数据来提高伺服枪力的精度。要启用实时加压力控制，力传感器必须与机器人控制器进行通信，并且通信规范配置在下面的菜单中。
 
-Since only digital data can be received, the sensor's analog output signal must be input to the controller through an analog-to-digital converter (ADC).
+由于只能接收数字数据，传感器的模拟输出信号必须通过模数转换器（ADC）输入到控制器中。
 
 <p align=center>
 <img src="../../../../_assets/image_30_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
+<em><p align="center">图 5.6 实时挤压力控制的设置</p></em>
 </p>
 
 <br>
 
+-  控制器滤波器使用（可选）：如果需要额外的控制器滤波器，则启用。
 
--  Controller filter use (optional): Enable if an additional controller filter is required.
+-  截止频率：在启用控制器滤波器时激活；设置滤波器带宽。
 
--  Cut-off frequency: Activated when the controller filter is enabled; sets the filter bandwidth.
+-  重置信号输出：分配一个输出信号用于力传感器初始化，该信号在伺服枪施加压力时每次触发（例如，Kistler）。
 
--  Reset signal output: Assigns an output signal for force sensor initialization, which is triggered each time the servo gun applies pressure (e.g., Kistler).
+-  通信范围：设置分配信号的最小和最大范围。
 
--  Communication range: Sets the minimum and maximum range of the assigned signal.
+-  值范围：设置分配信号的值范围。
 
--  Value Range: Sets the value range of the assigned signal.
+-  加压输入端口：分配用于输入的信号地址。
 
--  Pressurization input port: The address of the signal assigned for input.
+-  输入端口长度：分配给信号的位数。
 
--  Input port length: The number of bits assigned to the signal.
-
--  Gains (p, i, d, pr): Pressurization force control tuning parameters (modifiable only in Developer Mode).
+-  增益（p, i, d, pr）：加压力控制调节参数（仅在开发者模式下可修改）。

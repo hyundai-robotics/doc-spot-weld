@@ -1,11 +1,10 @@
-﻿### 6.1.3 Menu Structure
+### 6.1.3 菜单结构
 
-The menu structure of the welder interface is dynamically configured according to the controller settings below.
-To access these menus, the communication settings must first be correctly configured.
+焊接机界面的菜单结构根据以下控制器设置动态配置。要访问这些菜单，通信设置必须首先正确配置。
 
 <br>
 
 <p align=center>
 <img src="../../_assets/6_3_eng.png"></img>
-<em><p align="center">Figure 6.3 Menu Tree</p></em>
+<em><p align="center">图 6.3 菜单树</p></em>
 </p>

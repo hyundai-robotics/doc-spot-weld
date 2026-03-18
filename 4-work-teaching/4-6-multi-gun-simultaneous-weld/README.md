@@ -1,3 +1,3 @@
-﻿# 4.6 Simultaneous welding with multiple guns
+﻿# 4.6 同时使用多个焊枪进行焊接
 
-In general, spot welding is performed with one welding gun at a time. The function of simultaneous welding with multiple guns is the act of welding with multiple welding guns at the same time. For this, the gun type (servo gun, equalizerless gun, or equalizer-fitted gun) should be all the same.
+一般来说，点焊是一次使用一个焊枪进行的。同时使用多个焊枪的焊接功能是指同时使用多个焊枪进行焊接。为此，焊枪类型（伺服焊枪、无平衡器焊枪或带平衡器焊枪）必须完全相同。

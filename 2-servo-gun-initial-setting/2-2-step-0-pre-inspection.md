@@ -1,26 +1,26 @@
-﻿# 2.2 Step 0. Pre-inspection
+﻿# 2.2 步骤 0. 预检
 
-Pre-inspection is an item that must be performed in advance for the initial setting of the servo gun, and it is required to complete the following setting before entering main menus.
+预检是进行伺服枪初始设置之前必须执行的项目，需要在进入主菜单之前完成以下设置。
 
-* **Additional axis parameter**
-  * To input the motor and amp specifications, etc. of the motor of the servo gun that is to be used for the designated additional axis.
-  * Soft limit can be set arbitrarily because it is changed during the initial setting procedure.
-* **Setting of the tool number corresponding to the gun number**&#x20;
-  * To designate the servo gun and gun number that you want to set now.
-* **Tool data setting**
-  * To input load estimation, tool angle/length, etc.
-* **Servo gun parameter setting**
-  * To set necessary items such as command value offset, squeezing force permissible error.
+* **附加轴参数**
+  * 输入将用于指定附加轴的伺服枪的电机和放大器规格等。
+  * 软限制可以随意设置，因为它在初始设置过程中会更改。
+* **对应于枪号的工具编号设置**&#x20;
+  * 指定您现在想要设置的伺服枪和枪号。
+* **工具数据设置**
+  * 输入负载估算、工具角度/长度等。
+* **伺服枪参数设置**
+  * 设置必要项目，例如命令值偏移、压缩力允许误差。
 
-Pre-inspection is a step to check whether the pre-setting items have been completed. If they are not performed, you can move to the screen where you can perform relevant settings. You must complete the relevant settings before proceeding with the initial setting of the servo gun.
+预检是检查预设项目是否已完成的步骤。如果未执行，您可以移动到可以执行相关设置的屏幕。在继续进行伺服枪的初始设置之前，必须完成相关设置。
 
 <p align="center">
  <img src="../_assets/image_27_eng.PNG" width="90%"></img>
- <em><p align="center">Figure 2.4 Pre-inspection proceeding procedure</p></em>
+ <em><p align="center">图 2.4 预检进行流程</p></em>
 </p>
 
 {% hint style="warning" %}
-If you complete the setting on the "**Additional axis parameter setting**" screen, you will be asked to reboot after completing the pre-inspection.  
+如果您在“**附加轴参数设置**”屏幕上完成设置，预检完成后将要求您重启。
 
-After rebooting, you should enter the "**Servo gun automatic setting**" screen and continue the setting. 
+重启后，您应该进入“**伺服枪自动设置**”屏幕并继续设置。 
 {% endhint %}

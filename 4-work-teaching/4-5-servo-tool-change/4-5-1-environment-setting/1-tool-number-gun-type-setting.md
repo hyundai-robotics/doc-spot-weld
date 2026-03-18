@@ -1,28 +1,25 @@
-﻿### 4.5.1.1 Setting of the tool number and gun type corresponding to the gun number
+### 4.5.1.1 与枪号对应的工具编号和枪型的设置
 
-In the `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter` menu, set the gun type and tool number targeted for the servo tool change.
+在`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)`菜单中，设置针对伺服工具更换的枪型和工具编号。
 
 <p align="center">
  <img src="../../../_assets/image_24_eng.PNG" width="90%"></img>
- <em><p align="center">Figure 4.14 Addition of a spot gun</p></em>
+ <em><p align="center">图4.14 点焊枪的添加</p></em>
 </p>
 
+图4.14显示了两个伺服枪的设置情况如下。
 
-The figure 4.14 shows a case in which two servo guns are set as below.
+* **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> 需要设置伺服工具参数
+* **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> 需要设置伺服工具参数
+* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> 不需要设置伺服工具参数
+* **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> 需要设置伺服工具参数
 
-* **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> Required to set the servo tool parameters
-* **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> Required to set the servo tool parameters
-* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> Not required to set the servo tool parameters
-* **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> Required to set the servo tool parameters
-
- In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.
-
+在设置为伺服枪的情况下，在伺服工具更换的目标中，相关伺服枪的伺服工具参数应如下一节所示进行设置。
 
 <br>
 
-
 {% hint style="warning" %}
- 
- All welding guns used for welding gun change must use the same welding controller.
-  
+
+所有用于焊接枪更换的焊接枪必须使用相同的焊接控制器。
+
 {% endhint %}

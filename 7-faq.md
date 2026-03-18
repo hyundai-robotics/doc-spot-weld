@@ -1,73 +1,70 @@
-﻿# 7. Frequently Asked Questions
+﻿# 7. 常见问题解答
 
-* How does the servo gun axis operate when using the shift function? 
+* 使用换档功能时伺服枪轴如何操作？
 
-  All shift-related functions (Offline, Online, Search, and Palletizing) are applied only to the robot axes. The servo gun axis moves to the positions recorded in the program and is not affected by the shift operation.
+  所有与换档相关的功能（离线、在线、搜索和堆垛）仅适用于机器人轴。伺服枪轴移动到程序中记录的位置，不受换档操作的影响。
 
-* What happens to the servo gun axis during coordinate conversion?  
-  Only the robot motion elements are subject to coordinate conversion. The servo gun axis is not converted.
+* 坐标转换期间伺服枪轴发生什么？
 
-* How does the system operate when the counterpart program call function is used?  
+  仅机器人运动元素会进行坐标转换。伺服枪轴不进行转换。
 
-  Shifting is applied by adding the relative position offset to the robot axes.
+* 当使用对方程序调用功能时，系统如何操作？
 
-* What happens to the servo gun axis during mirror image conversion?  
+  通过向机器人轴添加相对位置偏移来应用换档。
 
-  Mirror image conversion is applied to an additional axis only when the axis specification is set to Base and the axis configuration is Linear. Therefore, the servo gun axis is not subject to mirror image conversion.
+* 镜像转换期间伺服枪轴发生什么？
 
-* How can I change the currently selected gun number?  
+  仅当轴规格设置为基座且轴配置为线性时，镜像转换才应用于额外轴。因此，伺服枪轴不受镜像转换的影响。
 
-  You can change the selected gun number using R210: Spot Gun Number Selection.
-  If the selected gun is a robot-mounted gun, the corresponding tool number will automatically be updated based on the tool number assigned to that gun.
-  When the gun number is changed using R210 in a multi-gun environment, the system switches to a single-gun environment corresponding to the selected gun.
+* 如何更改当前选定的枪号？
 
-* How can I select and manually squeeze multiple guns?  
+  您可以使用 R210: Spot Gun Number Selection 更改选定的枪号。如果选定的枪是机器人安装的枪，则相应的工具号将根据分配给该枪的工具号自动更新。当在多枪环境中使用 R210 更改枪号时，系统将切换到与选定枪对应的单枪环境。
 
-  Multiple guns can be selected only if they are of the same gun type.   Use R214: Selection of Simultaneous Welding Guns to select multiple guns. To deselect a gun after multiple guns have been selected, enter the gun number to be deselected using R214. However, the first selected gun (Master Gun) cannot be deselected.
+* 如何选择并手动挤压多个枪？
 
-* How can I change the squeezing force during the servo gun squeezing process?  
+  只能选择同类型的多个枪。使用 R214: Selection of Simultaneous Welding Guns 选择多个枪。在选择多个枪后，要取消选择某个枪，请使用 R214 输入要取消选择的枪号。然而，首个选定的枪（主枪）不能被取消选择。
 
-  If the selected gun type is a servo gun, the squeezing force can be adjusted using R211: Servo Gun Squeezing Force Setting.
+* 如何在伺服枪挤压过程中更改挤压力？
 
-* How can I manually change the moving electrode wear amount of the servo gun? 
+  如果选定的枪类型为伺服枪，则可以使用 R211: Servo Gun Squeezing Force Setting 调整挤压力。
 
-  If the selected gun type is a servo gun, the moving electrode wear amount can be modified using R212: Servo Gun Moving Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+* 如何手动更改伺服枪的移动电极磨损量？
 
-* How can I manually change the fixed electrode wear amount of the servo gun? 
+  如果选定的枪类型为伺服枪，则可以使用 R212: Servo Gun Moving Electrode Wear Preset 修改移动电极磨损量。执行枪搜索时，此值会自动更新。
 
-  If the selected gun type is a servo gun, the fixed electrode wear amount can be modified using R213: Servo Gun Fixed Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+* 如何手动更改伺服枪的固定电极磨损量？
 
-* How can I manually change the fixed electrode wear amount of an equalizerless gun?   
+  如果选定的枪类型为伺服枪，则可以使用 R213: Servo Gun Fixed Electrode Wear Preset 修改固定电极磨损量。执行枪搜索时，此值会自动更新。
 
-  If the selected gun type is an equalizerless gun, the fixed electrode wear amount can be modified using R220: Equalizerless Gun Fixed Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+* 如何手动更改无平衡器枪的固定电极磨损量？
 
-* The robot is currently operating in automatic mode, and I want to change the squeezing force defined in the welding condition. How can I do this?   
+  如果选定的枪类型为无平衡器枪，则可以使用 R220: Equalizerless Gun Fixed Electrode Wear Preset 修改固定电极磨损量。执行枪搜索时，此值会自动更新。
 
-  Use R215: Spot Welding Condition Squeezing Force Setting to change the squeezing force value defined in the welding condition, even while the robot is operating in automatic mode.
+* 机器人当前在自动模式下工作，我想更改焊接条件中定义的挤压力。该如何操作？
 
-* Can I manually change the currently selected welding condition and welding sequence numbers?  
+  即使机器人在自动模式下运行，也可以使用 R215: Spot Welding Condition Squeezing Force Setting 更改焊接条件中定义的挤压力值。
 
-  To change the welding condition number, press cond.sel. To change the welding sequence number, press seq.sel, and then select the desired number.  
+* 我可以手动更改当前选定的焊接条件和焊接顺序号吗？
 
-* Is there a shortcut to access the menu path `[F2: system] - 4: Application parameter - 1: Spot welding`?  
+  要更改焊接条件号，请按 cond.sel。要更改焊接顺序号，请按 seq.sel，然后选择所需的号码。
+* 有没有快捷方式访问菜单路径 `[F2: 系统] - 4: 应用参数 - 1: 点焊 ([F2: system] - 4: Application parameter - 1: Spot welding)`?  
   
-  Yes. In Manual Mode, place the cursor on a spot welding-related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the `[property]` button to quickly access the corresponding menu.
+  是的。在手动模式下，将光标放在初始屏幕上与点焊相关的命令（例如，spot、gunsea、igunsea 或 egunsea）上，然后按 `[property]` 按钮即可快速访问相应菜单。
 
-* How can I manually change the panel thickness?  
+* 如何手动更改面板厚度?  
 
-  If the selected gun type is a servo gun, the panel thickness can be changed using R220: Panel Thickness Setting (Sv).
+  如果选定的枪类型是伺服枪，可以使用 R220: 面板厚度设置 (Sv) 更改面板厚度。
 
-* How can I reset the recorded positions of the spot welding steps to normal values at once?  
+* 如何一次性将点焊步骤的记录位置重置为正常值?  
 
-  Set <Valid> for the item "Automatic Adjustment of Servo Gun Welding Step Record Position" under `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting`, and then play back the work program.
+  在 `[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 - 1: 环境设置 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting)` 下为“伺服枪焊接步骤记录位置的自动调整”项目设置 <Valid>，然后播放工作程序。
 
-* Is it possible to detect any missed welding points?  
+* 是否可以检测到漏焊点?  
   
-  Yes. When you initialize the welding count in the Work Program Start menu and then perform welding normally, the welding count will increase accordingly.
-  To detect missed welding points, you must compare:
-  the total number of welding spots required for completion, and the actual number of weldings performed. Refer to the chapter [ 4.9 Calculation of spots in spot welding](./4-work-teaching/4-9-spot-weld-calculation.md).
+  是的。当您在工作程序开始菜单中初始化焊接计数，然后正常进行焊接时，焊接计数将相应增加。
+  要检测漏焊点，必须比较：
+  完成所需的焊接点总数和实际进行的焊接数。请参阅章节 [ 4.9 点焊的计算](./4-work-teaching/4-9-spot-weld-calculation.md)。
 
+* 似乎如果对固定伺服枪进行的顶端修整和枪搜索操作与处理操作独立进行，工作时间可以减少。有什么方法可以实现这一点?  
 
-* It seems that the working time could be reduced if tip dressing and gun search operations for a stationary servo gun were performed independently from handling operations. Is there any way to achieve this?  
-
-  Yes. This can be easily implemented by using the multi-task function.  By separating handling operations and stationary servo gun operations into different tasks, they can be executed independently and simultaneously. Please refer to the [Multi-task Function Manual](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model}) for detailed instructions.
+  是的。这可以很容易地通过使用多任务功能来实现。通过将处理操作和固定伺服枪操作分离到不同的任务中，它们可以独立且同时执行。有关详细说明，请参阅 [多任务功能手册](https://hrbook-hrc.web.app/#/view/doc-multi-task/zh/README?cont_model=${cont_model})。

@@ -1,11 +1,10 @@
-﻿# 4.10 Consumption amount setting
+﻿# 4.10 消费量设置
 
-Consumption amount information for the spot gun can be accessed using spot system variables. The spot system variables display the wear amount of the moving electrode, the fixed electrode, and the total wear amount for each gun. These values can be modified or read using variable assignment statements in the command window.
-
+喷嘴的消费量信息可以通过点焊系统变量访问。点焊系统变量显示移动电极、固定电极的磨损量以及每个喷嘴的总磨损量。这些值可以通过命令窗口中的变量赋值语句进行修改或读取。
 
 <p align="center">
  <img src="../_assets/image_93_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.23 Spot tip-consumption system variable</p></em>
+ <em><p align="center">图 4.23 点焊喷嘴消费系统变量</p></em>
 </p>
 
 </br>
@@ -13,7 +12,7 @@ Consumption amount information for the spot gun can be accessed using spot syste
 <br>
 
 {% hint style="warning" %}
-- This variable can apply only to servo and equalizerless guns. 
-- In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.  
-- Any manually set wear amount values will be overwritten by the measured values after a gun search is performed.  
+- 此变量仅适用于伺服枪和无调节枪。 
+- 对于无调节枪，总消费量等于固定电极消费量。  
+- 任何手动设置的磨损量值将在执行枪搜索后被测量值覆盖。  
 {% endhint %}

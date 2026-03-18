@@ -1,26 +1,27 @@
-﻿# 4.1 Gun search
+﻿# 4.1 枪搜索
 
-Gun search is a function to measure the consumption amount of an electrode. Use this function when you need to re-measure the consumption amount of the electrode after polishing it through tip dressing or after replacing the existing tip with a new one. If  the gun type is servo gun or equalizerless gun, the gun automatically compensates the squeezing position as much as the consumption amount when executing the spot command, which makes it essential to manage the consumption amount and shows that the accuracy of the consumption amount affects the welding quality.
+枪搜索是用于测量电极消耗量的功能。当需要在经过尖端修饰后重新测量电极的消耗量或在用新尖端替换现有尖端后使用此功能时。如果枪类型为伺服枪或无均衡器枪，枪在执行点命令时会自动根据消耗量补偿挤压位置，这使得管理消耗量至关重要，并显示消耗量的准确性影响焊接质量。
 
- The types of gun search provided by our company and their simple characteristics are as follows.
+我们公司提供的枪搜索类型及其简单特征如下。
 
 * gunsea
-  + This is the gun search function for a servo gun and is executed with one squeezing operation.
-  + The total consumption amount of the moving and fixed electrodes is measured and distributed according to the designated ratio.
-  + This function is used if the consumption ratio between the moving electrode and fixed electrode is the same or fixed.
+  + 这是伺服枪的枪搜索功能，通过一次挤压操作执行。
+  + 移动电极和固定电极的总消耗量被测量并根据指定比例分配。
+  + 如果移动电极与固定电极之间的消耗比例相同或固定，则使用此功能。
 
 * gunsea 2
-  + This is the gun search function for a servo gun and is executed with one squeezing operation and one moving operation.
-  + The total consumption amount of the moving and fixed electrodes is measured (one squeezing operation) and then the moving electrode consumption amount is measured separately.
-  + This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
+  + 这是伺服枪的枪搜索功能，通过一次挤压操作和一次移动操作执行。
+  + 移动电极和固定电极的总消耗量被测量（一次挤压操作），然后单独测量移动电极的消耗量。
+  + 如果移动电极与固定电极之间的消耗比例不固定，则使用此功能。
 
 * igunsea
-  + In the same way as gun search  2, this is the gun search function for a servo gun and executed with one squeezing operation and one moving operation. However, the moving electrode consumption amount is measured using a sensor.
-  + The total consumption amount of the moving and fixed electrodes is measured (one sequeezing operation) and then the moving electrode consumption amount is measured (one moving operation) separately.
-  + This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
+  + 与枪搜索 2 相同，这是伺服枪的枪搜索功能，通过一次挤压操作和一次移动操作执行。然而，移动电极的消耗量是通过传感器测量的。
+  + 移动电极和固定电极的总消耗量被测量（一次挤压操作），然后单独测量移动电极的消耗量（一次移动操作）。
+  + 如果移动电极与固定电极之间的消耗比例不固定，则使用此功能。
 
 * egunsea
-  + This is the gun search function for an equalizerless gun and, in the same way as the igunsea function, the consumption amount is measured by receiving a sensor signal.
+  + 这是无均衡器枪的枪搜索功能，与 igunsea 功能相同，消耗量是通过接收传感器信号测量的。
 
-</br>
-The gun search state can be checked from the /Monitoring/Spot section.
+<br>
+
+可通过 /Monitoring/Spot 部分检查枪搜索状态。

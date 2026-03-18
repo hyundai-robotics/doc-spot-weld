@@ -1,3 +1,3 @@
-﻿### 5.2.1 Servo gun
+### 5.2.1 伺服枪
 
- Servo guns are currently the most widely used type of spot welding gun. Since the servo gun is controlled as an additional axis separate from the robot axes, extensive control settings are required in addition to the auxiliary axis configuration.
+ 伺服枪是目前最广泛使用的点焊枪类型。由于伺服枪作为与机器人轴分开的附加轴进行控制，因此除了辅助轴配置之外，还需要 extensive 控制设置。

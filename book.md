@@ -1,1020 +1,970 @@
 ﻿
 [__SOURCE](README.md)
-# ${cont_model} Controller Function Manual - Spot Welding
-
+# ${cont_model} 控制器功能手册 - 点焊
 [__SOURCE](0-about-this-manual/precautions.md)
-# Precautions
+# 注意事项
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
-
+{% include file="en/precautions.md" %}
 [__SOURCE](1-overview/README.md)
-# 1. Overview
+# 1. 概述
 
-This manual provides explanations based on the systems below. If the system used in the field is different from the ones described here, the worker on the site should refer to and use this manual according to the on-site system.
+本手册基于以下系统提供说明。如果现场使用的系统与这里描述的系统不同，现场工作人员应根据现场系统参考并使用本手册。
 
-*   **System specifications described in the manual**
+*   **手册中描述的系统规格**
 
-    Robot guns (for change of welding guns): A servo gun (G1), a servo gun (G2), an equalizerless gun (G3), and an equalizer-fitted gun (G4)
+    焊枪机器人（用于更换焊接枪）：伺服枪（G1）、伺服枪（G2）、无平衡器枪（G3）和带平衡器枪（G4）
 
-    Stationary guns: Servo gun (G5), servo gun (G6), and equalizerless gun (G7)
+    固定枪：伺服枪（G5）、伺服枪（G6）和无平衡器枪（G7）
 
-1.  Servo gun
+1.  伺服枪
 
-    The servo gun is set as an additional axis of the robot. It is used in a way that the rotational force of the servo motor is transmitted to the ball screw to operate the gun tips, thereby controlling the squeezing and opening operations.
-2.  Equalizer-fitted gun
+    伺服枪被设置为机器人额外的轴。它通过将伺服电机的旋转力传输到滚珠丝杠来操作枪头，从而控制挤压和开启操作。
+2.  带平衡器枪
 
-     This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signals, and is based on a method of mechanically performing the equalizing operation during welding.
-3.  Equalizerless gun
+     这是一种点焊枪，通过气压执行挤压和开启动作，并由焊接条件输出信号和焊接（电气化）输出信号控制，基于在焊接过程中机械执行平衡操作的方法。
+3.  无平衡器枪
 
-    This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signal, and is based on a method in which the equalizing operation is performed by the robot as the gun has no cylinder for the equalizing operation for the welding.
+    这是一种点焊枪，通过气压执行挤压和开启动作，并由焊接条件输出信号和焊接（电气化）输出信号控制，基于机器人执行平衡操作的方法，因为该枪没有进行焊接的平衡操作的气缸。
    
 </br>
 </br>
 
-**[Essential manuals]**
+**[基本手册]**
 
-- [${cont_model} Controller Operation Manual](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
+- [${cont_model} 控制器操作手册](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
 
-- ${cont_model} Additional Axis Function Manual
-
+- ${cont_model} 附加轴功能手册
 [__SOURCE](1-overview/1-1-main-specification.md)
-# 1.1 Main specifications
+# 1.1 主要规格
 
-|       **Item**       |                          **Specification**                          |
+|       **项目**       |                          **规格**                          |
 | :----------------: | :------------------------------------------------------: |
-|     Spot welding setting file     |           spotweld.json            |
-|      Maximum welder count     |              4 units                 |
-| Count of multiple guns for simultaneous welding</br>(the same gun type) |           4 units                   |
-|            |                 16 units                   |
-|       Welding condition number      |                         1 - 1024                        |
-|   Output data dependent on welding condition   |                         1 - 1024                        |
-|       Welding sequence number      |                   1 -  63 (64 is exclusively for tip dressing)                   |
-|     Position modification (servo gun)    | SPOT command step - Consumption amount automatic compensation position</br>Other steps - Positions that do not consider the consumption amount |
-|    Inspection of the tool number corresponding to the gun umber   |                     Inspection of robot guns and no inspection of stationary guns                    |
-|     Welding condition signal output     |   To be outputted in sync with the output of the welding execution signal</br>Impossible to output only the welding condition signal   |
-
+|     点焊设置文件     |           spotweld.json            |
+|      最大焊机数量     |              4 台                 |
+| 同时焊接的多个枪的数量</br>(相同枪种) |           4 台                   |
+|            |                 16 台                   |
+|       焊接条件编号      |                         1 - 1024                        |
+|   依赖于焊接条件的输出数据   |                         1 - 1024                        |
+|       焊接顺序编号      |                   1 -  63 (64 专用于喷嘴打磨)                   |
+|     位置修正（伺服枪）    | SPOT命令步骤 - 消耗量自动补偿位置</br>其他步骤 - 不考虑消耗量的位置 |
+|    与枪号对应的工具编号检查   |                     机器手臂枪的检查，不检查固定枪                    |
+|     焊接条件信号输出     |   与焊接执行信号的输出同步输出</br>无法仅输出焊接条件信号   |
 [__SOURCE](1-overview/1-2-operating-order/README.md)
-# 1.2 Operation sequence
+# 1.2 操作顺序
 
-Two procedures are provided for the servo gun setting: manual setting and automatic setting.
+提供了两种伺服枪设置程序：手动设置和自动设置。
 [__SOURCE](1-overview/1-2-operating-order/1-servo-gun-auto-setting.md)
-### 1.2.1  Operation sequence that uses the servo gun automatic setting
+### 1.2.1  使用伺服枪自动设置的操作顺序
 
-The procedure for the servo gun automatic setting is as shown in the flowchart below.
+伺服枪自动设置的程序如下图所示。
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_78_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 1.1 Operation sequence of the servo gun automatic setting </p></em>
+ <em><p align="center">图 1.1 伺服枪自动设置的操作序列 </p></em>
 </p>
 [__SOURCE](1-overview/1-2-operating-order/2-servo-gun-manual-setting.md)
-### 1.2.2 Operation sequence that uses the servo gun manual setting
+### 1.2.2 使用伺服枪手动设置的操作顺序
 
-The procedure for the servo gun manual setting is as shown in the flowchart below.
+伺服枪手动设置的程序如下面的流程图所示。
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_46_eng.PNG" width="80%"></img>
- <em><p align="center">Figure 1.2 Operation sequence of the servo gun manual setting</p></em>
+ <em><p align="center">图 1.2 伺服枪手动设置的操作顺序</p></em>
 </p>
 [__SOURCE](1-overview/1-3-servo-gun-terms-for-movement-between-electrodes.md)
-# 1.3 Servo gun electrode movement terms
+# 1.3 伺服枪电极运动术语
 
 
 <p align="center">
  <img src="../_assets/image_8_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 1.3 Terms for the moving and fixed electrodes</p></em>
+ <em><p align="center">图 1.3 运动电极和固定电极的术语</p></em>
 </p>
 [__SOURCE](2-servo-gun-initial-setting/README.md)
-# 2. Initial setting of the servo gun
-
-
+# 2. 伺服枪的初始设置
 [__SOURCE](2-servo-gun-initial-setting/2-1-initial-setting-procedure/README.md)
-# 2.1 Procedure for initial setting of the servo gun
+# 2.1 伺服枪初始设置的程序
 
-This function is related to spot welding and other applications that use a servo gun. If necessary to use a gun other than a servo gun (pneumatic gun, etc.), refer to only [2.1.1 Setting of the tool number and gun type corresponding to the gun number](1-tool-number-gun-type-setting.md) and [2.1.2 Setting of the tool angle/distance](2-tool-angle-distance-setting.md) in this chapter, and [3. Related functions](../../3-Related-functions/README.md) in the next chapter.
+此功能与点焊及其他使用伺服枪的应用相关。如果需要使用伺服枪以外的枪（气动枪等），请仅参考本章中的[2.1.1 与枪编号相对应的工具编号和枪类型设置](1-tool-number-gun-type-setting.md)和[2.1.2 工具角度/距离设置](2-tool-angle-distance-setting.md)，以及下一章中的[3. 相关功能](../../3-Related-functions/README.md)。
 
-The initial setting of the servo gun is an essential process to makie it possible to perform spot welding using a servo gun. After completing the procedure for the initial setting of the servo gun, the following items will be possible.
+伺服枪的初始设置是进行点焊的必要过程。完成伺服枪的初始设置程序后，将能够实现以下项目。
 
-* Operation of the moving electrode of the servo gun
-* Squeeze with the specified squeezing force
-* Signal input and output for spot welding
+* 伺服枪移动电极的操作
+* 以指定的挤压力进行挤压
+* 点焊的信号输入和输出
 
-After completing the procedure for initial setting, you need to set related functions and spot welding parameters (welding conditions, sequence, etc.) according to the purpose of use, and then teach the work.
+完成初始设置程序后，您需要根据使用目的设置相关功能和点焊参数（焊接条件、顺序等），然后进行工件的教学。
 
-Through the `[6: Servo gun auto setting]` function (`[F2: system] - 4: Application parameter - 1: Spot welding`), our company provides settings and procedures for the environment for spot welding and servo gun operation.
+通过`[6: 伺服枪自动设置]`功能（`[F2: 系统] - 4: 应用参数 - 1: 点焊 ([F2: system] - 4: Application parameter - 1: Spot welding)`），我们公司提供点焊和伺服枪操作环境的设置和程序。
 
 <p align="center">
  <img src="../../_assets/image_60_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.1 Screen for entering the 'Servo gun automatic setting' menu</p></em>
+ <em><p align="center">图 2.1 输入“伺服枪自动设置”菜单的屏幕</p></em>
 </p>
 
 {% hint style="warning" %}
-You can enter the menu only when the currently selected gun number is for the servo gun.
-("**Additional axis parameter setting**", "**Load estimation**", "**Tool data inputting**", "**Welding gun paramater**" are the contents that should be essentially set prior to the servo gun automatic setting.) If multiple guns are to be used, their individual settings should be performed by chaning the gun number.
+仅当当前选择的枪编号为伺服枪时，您才能进入菜单。
+("**附加轴参数设置**"、"**负载估算**"、"**工具数据输入**"、"**焊接枪参数**" 是在伺服枪自动设置之前必须设置的内容。）如果要使用多个枪，则应通过更改枪编号进行单独设置。
 {% endhint %}
 
 </br>
 
 ---
 
-The initial setting for the servo gun and spot welding is performed largely in five steps as shown below, and the progress of each step will be indicated, allowing you to monitor the progress.
-
+伺服枪和点焊的初始设置主要分为以下五个步骤进行，每个步骤的进展将被指示，从而让您可监控进度。
 
 <p align="center">
  <img src="../../_assets/image_3_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.1.2 Procedure for 'servo gun automatic setting'</p></em>
+ <em><p align="center">图 2.1.2 “伺服枪自动设置”的程序</p></em>
 </p>
 
-The standard procedure for the servo gun initial setting is as follows.
+伺服枪初始设置的标准程序如下。
 
-* [Step 0. Pre-inspection](../2-2-step-0-pre-inspection.md): Inspection of essential pre-setting items for the setting of the servo gun operation environment 
-  * Additional axis parameter
-  * Setting of the tool number corresponding to the gun number
-  * Tool data setting (including load estimation)
-  * Servo gun parameter setting
-* [Step 1. Default setting](../2-3-step-1-default-setting/README.md): Setting of the servo gun operation environment
-  * Encoder offset compensation
-  * Axis origin setting
-  * Soft limit setting
-  * Squeezing force-current table setting
-* [Step 2. Application setting](../2-4-step-2-application-setting/README.md): Setting of application functions that use the servo gun
-  * Gun search
-  * Gun arm deflection amount compensation
-  * Panel thickness measurement compensation
-* [Step 3. Setting check](../2-5-step-3-setting-check.md): Process for checking the current setting
-* [Step 4. Signal setting](../2-6-step-4-signal-setting.md): Assignment of input and output signals for spot welding application
+* [步骤 0. 预检](../2-2-step-0-pre-inspection.md)：检查伺服枪操作环境设置的必要预设项目
+  * 附加轴参数
+  * 与枪编号相对应的工具编号设置
+  * 工具数据设置（包括负载估算）
+  * 伺服枪参数设置
+* [步骤 1. 默认设置](../2-3-step-1-default-setting/README.md)：设置伺服枪操作环境
+  * 编码器偏移补偿
+  * 轴原点设置
+  * 软件限制设置
+  * 挤压力-电流表设置
+* [步骤 2. 应用设置](../2-4-step-2-application-setting/README.md)：设置使用伺服枪的应用功能
+  * 枪搜索
+* 枪臂偏转量补偿
+  * 面板厚度测量补偿
+* [第3步. 设置检查](../2-5-step-3-setting-check.md): 检查当前设置的过程
+* [第4步. 信号设置](../2-6-step-4-signal-setting.md): 针对点焊应用的输入和输出信号分配
 
 </br>
 
-The servo gun initial setting procedure screen not only shows the indication process and the status about completion, but also makes it possible to proceed with related items or move to the screen where related items can be performed.
+伺服枪初始设置程序界面不仅显示指示过程和完成状态，还可以继续相关项目或转到可以执行相关项目的界面。
 
-In other words, the initial setting related to the servo gun can all be completed from the above screen without going to relevant menus. The initial setting can be proceeded with in the following two ways.
+换句话说，与伺服枪相关的初始设置可以通过上述界面完成，而无需进入相关菜单。初始设置可以通过以下两种方式进行。
 
-1. Move the cursor to the relevant procedure and then input by selecting `[Enter]`.
-2. Press `[F1: Go to unset items]` to automatically proceed with the initial setting not yet conducted.
+1. 将光标移动到相关程序，然后选择 `[Enter]` 输入。
+2. 按 `[F1: 前往未设置项目] ([F1: Go to unset items])` 自动进行尚未进行的初始设置。
 
-The `[F1: Go to unset items]` butten makes it possible to inspect the procedures not yet conducted among all procedures, allowing them to be performed automatically. At the time of initial setting, you can complete the setting by following the guide just by clicking `[F1: Go to unset items]`.
-
+`[F1: 前往未设置项目] ([F1: Go to unset items])` 按钮使得可以检查所有程序中尚未进行的程序，并允许它们自动执行。在初始设置时，只需点击 `[F1: 前往未设置项目] ([F1: Go to unset items])`，即可按指南完成设置。
 [__SOURCE](2-servo-gun-initial-setting/2-1-initial-setting-procedure/1-tool-number-gun-type-setting.md)
-### 2.1.1 Setting of the tool number and gun type corresponding to the gun number
+### 2.1.1 与枪号对应的工具编号和枪型设置
 
-This function sets the tool number and gun type corresponding to each spot welding gun number.
+此功能设置与每个点焊枪号对应的工具编号和枪型。
 
-It allows various welding guns to be configured according to the welder and tool number assigned to each. Since the welding method differs depending on the gun type, these settings must be configured correctly.
+它允许根据分配给每个焊接工和工具编号配置各种焊接枪。由于焊接方法因枪型不同而异，因此这些设置必须正确配置。
 
-Guns can be added using the `[+]` button on the right, and up to 16 guns can be registered.
+可以使用右侧的 `[+]` 按钮添加枪，最多可以注册 16 支枪。
 
 <p align="center">
  <img src="../../_assets/image_31_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.2 Gun default setting</p></em>
+ <em><p align="center">图 2.2 枪默认设置</p></em>
 </p>
 
-(1) Tool number  
-Tool refers to an object attached to the tip of the robot's R1 axis, and the robot must have the corresponding tool information registered. The tool number is the number assigned to match the corresponding gun number. The selected tool number must have the appropriate load estimation and tool data entered. Since each gun typically has a different shape, a unique tool number should be assigned to each gun number. Because stationary guns are not attached to the tip of the R1 axis, they may be assigned arbitrary tool settings without issue. During work teaching, if the gun number specified in the Spot command does not match the tool number specified in the `move` command, playback will not be possible. Please ensure these values are consistent.
+(1) 工具编号  
+工具是指附加在机器人 R1 轴尖端的物体，机器人必须注册相应的工具信息。工具编号是分配给匹配相应枪号的编号。所选工具编号必须输入适当的负载估计和工具数据。由于每支枪的形状通常不同，因此每个枪号应分配一个唯一的工具编号。由于固定枪未附加在 R1 轴尖端，因此可以随意分配工具设置而不会出现问题。在工作教学期间，如果点命令中指定的枪号与 `move` 命令中指定的工具编号不匹配，则无法播放。请确保这些值一致。
 
+(2) 焊接工编号  
+焊接工指定与相应枪号相关联的焊接工。当使用该枪进行焊接时，信号将输入和输出到分配给选择的焊接工的端口。多个枪可以通过伺服工具更换功能共享和使用相同的焊接工。
 
-
-(2) Welder number
-Welder designates the welder associated with the corresponding gun number. When welding is performed with that gun, signals are input to and output from the ports assigned to the selected welder. Multiple guns can share and use the same welder through the servo tool change function.
-
-(3) Gun type
-Gun type indicates the type of the selected gun. One of three types can be chosen.
-If the selected gun is a servo gun, the information for the additional axis assigned to that gun must be specified. For the additional axis information, the same additional axis may be assigned to multiple guns when using the servo tool change function.
+(3) 枪型  
+枪型指示所选枪的类型。可以选择三种类型之一。  
+如果所选枪是伺服枪，则必须指定分配给该枪的附加轴信息。在使用伺服工具更换功能时，相同的附加轴可以分配给多个枪。
 
 </br>
 
 {% hint style="info" %}
--	If the gun number corresponding to the tool number is not set, the tool number may be used for other purposes.
+-	如果与工具编号对应的枪号未被设置，则工具编号可以用于其他目的。
 
--	When setting the gun type as servo gun, it is required to set the additional axis number corresponding to the gun number in the following method.  
-
+-	设置枪型为伺服枪时，需要以以下方式设置与枪号对应的附加轴编号。  
 {% endhint %}
 
 <center>
 
-|Gun number	|Gun usage|	Additional axis number|
+|枪号	|枪的用途|	附加轴编号|
 |:---:|:---:|:---:|
-|G1, G2|	Change of welding guns including the servo gun|	Additional axis 1|
-|G5|	Stationary servo gun 1|	Additional axis 2|
-|G6|	Stationary servo gun 2|	Additional axis 3|
+|G1, G2|	更换焊接枪，包括伺服枪|	附加轴 1|
+|G5|	固定伺服枪 1|	附加轴 2|
+|G6|	固定伺服枪 2|	附加轴 3|
 
 </center>
 [__SOURCE](2-servo-gun-initial-setting/2-1-initial-setting-procedure/2-tool-angle-distance-setting.md)
-### 2.1.2 Setting of the tool angle/distance
+### 2.1.2 工具角度/距离的设置
 
-When performing spot welding, the equalizing operation (the process in which the fixed electrode contacts the panel after passing through the clearance position) is essential. This operation requires the tool coordinate system to be set correctly. 
-The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: [Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})).
+在进行点焊时，均衡操作（固定电极接触面板并通过间隙位置的过程）是至关重要的。此操作要求工具坐标系统设置正确。
+工具坐标系统的 +Z 轴必须朝向从固定电极到移动电极的方向对齐。（注意：[控制器操作手册](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/README?cont_model=${cont_model})）。
 
 <p align="center">
  <img src="../../_assets/image_38_eng.PNG">
-  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun : {0˚, 180˚, 0˚}</p></em>
+  <em><p align="center">图 2.3 焊接枪的工具长度和角度设置 : {0˚, 180˚, 0˚}</p></em>
  </img>
 </p>
 
 <br>
 
-*   Tool length
+*   工具长度
 
-    When setting the tool length, measure the distance from the center of the robot R1-axis flange to the tool tip (upper part of the fixed electrode) with a new, unused electrode installed.
+    在设置工具长度时，使用安装了新的、未使用的电极，测量机器人 R1 轴法兰中心到工具尖端（固定电极的上部）的距离。
 
-    Use the reference tool coordinate system and follow its positive (+) axis directions.
-    Input the measured X, Y, and Z length values accordingly.
+    使用参考工具坐标系统并按照其正 (+) 轴方向进行操作。
+    相应输入测量的 X、Y 和 Z 长度值。
 
-    Alternatively, the tool length can be set by using `[F1: Auto calibration]` function in the menu of tool data setting.
+    或者，可以通过菜单中的 `[F1: 自动标定] ([F1: Auto calibration])` 功能设置工具长度。
 
 <br>
 
-*   Tool angle
+*   工具角度
 
-    Input the rotation angles (Rx, Ry, Rz) for the three axes based on the flange coordinate system, or use the `[F2: Angle calibration]` function.
+    根据法兰坐标系统输入三轴的旋转角度 (Rx, Ry, Rz)，或使用 `[F2: 角度标定] ([F2: Angle calibration])` 功能。
 
-    Set the tool angle so that the upward direction of the fixed electrode corresponds to +Z of the tool coordinate system.
+    设置工具角度，使固定电极的上升方向与工具坐标系统的 +Z 对应。
 
-    To verify the setting:
+    验证设置的步骤：
 
-    1. Set the teach pendant coordinate system to `[crd.sys tool]` (4th button in the Status Display window).
+    1. 将教学挂轨坐标系统设置为 `[crd.sys tool]` （状态显示窗口中的第四个按钮）。
 
-    2. Press the `[Z+]` jog key.
+    2. 按下 `[Z+]` 移动键。
 
-    3. Check the movement direction.
+    3. 检查运动方向。
 
-    If the movement direction matches the squeezing direction of the fixed electrode (upward direction shown in Figure 2.3), the tool angle setting is correct.
+    如果运动方向与固定电极的挤压方向相匹配（图 2.3 中显示的上升方向），则工具角度设置是正确的。
 [__SOURCE](2-servo-gun-initial-setting/2-2-step-0-pre-inspection.md)
-# 2.2 Step 0. Pre-inspection
+# 2.2 步骤 0. 预检
 
-Pre-inspection is an item that must be performed in advance for the initial setting of the servo gun, and it is required to complete the following setting before entering main menus.
+预检是进行伺服枪初始设置之前必须执行的项目，需要在进入主菜单之前完成以下设置。
 
-* **Additional axis parameter**
-  * To input the motor and amp specifications, etc. of the motor of the servo gun that is to be used for the designated additional axis.
-  * Soft limit can be set arbitrarily because it is changed during the initial setting procedure.
-* **Setting of the tool number corresponding to the gun number**&#x20;
-  * To designate the servo gun and gun number that you want to set now.
-* **Tool data setting**
-  * To input load estimation, tool angle/length, etc.
-* **Servo gun parameter setting**
-  * To set necessary items such as command value offset, squeezing force permissible error.
+* **附加轴参数**
+  * 输入将用于指定附加轴的伺服枪的电机和放大器规格等。
+  * 软限制可以随意设置，因为它在初始设置过程中会更改。
+* **对应于枪号的工具编号设置**&#x20;
+  * 指定您现在想要设置的伺服枪和枪号。
+* **工具数据设置**
+  * 输入负载估算、工具角度/长度等。
+* **伺服枪参数设置**
+  * 设置必要项目，例如命令值偏移、压缩力允许误差。
 
-Pre-inspection is a step to check whether the pre-setting items have been completed. If they are not performed, you can move to the screen where you can perform relevant settings. You must complete the relevant settings before proceeding with the initial setting of the servo gun.
+预检是检查预设项目是否已完成的步骤。如果未执行，您可以移动到可以执行相关设置的屏幕。在继续进行伺服枪的初始设置之前，必须完成相关设置。
 
 <p align="center">
  <img src="../_assets/image_27_eng.PNG" width="90%"></img>
- <em><p align="center">Figure 2.4 Pre-inspection proceeding procedure</p></em>
+ <em><p align="center">图 2.4 预检进行流程</p></em>
 </p>
 
 {% hint style="warning" %}
-If you complete the setting on the "**Additional axis parameter setting**" screen, you will be asked to reboot after completing the pre-inspection.  
+如果您在“**附加轴参数设置**”屏幕上完成设置，预检完成后将要求您重启。
 
-After rebooting, you should enter the "**Servo gun automatic setting**" screen and continue the setting. 
+重启后，您应该进入“**伺服枪自动设置**”屏幕并继续设置。 
 {% endhint %}
-
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/README.md)
-# 2.3 Step 1. Default setting
+# 2.3 第一步。默认设置
 
-After the pre-inspection is completed, the default setting can be performed. The default setting is an essential setting process to determine the reference position of the moving electrode of the servo gun, move the servo gun to a desired position, and supply the desired squeezing force.
+在预检完成后，可以进行默认设置。默认设置是确定伺服枪移动电极的参考位置、将伺服枪移动到期望位置以及提供所需挤压力的必要设置过程。
 
-The default setting consists of four items as shown in the figure below.
+默认设置包括如下图所示的四个项目。
 
 <p align="center">
  <img src="../../_assets/image_17_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.5 Default setting proceeding screen</p></em>
+ <em><p align="center">图 2.5 默认设置进行屏幕</p></em>
 </p>
 
 </br>
 
-(1) **Encoder offset compensation**
-   * Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can have the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
-   * For manual setting, refer to the chapter [2.3.2.1 Servo gun encoder offset setting](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md).
+(1) **编码器偏移补偿**
+   * 通常，当编码器数据由于更换伺服枪电机等而发生变化时，编码器的原点应设定在能够具有相同机械位置的位置。在伺服枪的情况下，设置应在电极机械上完全打开的状态下进行。
+   * 手动设置，请参考章节 [2.3.2.1 伺服枪编码器偏移设置](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)。
   
-(2) **Axis origing setting**
-   * In general, the setting of the axis origin of the servo gun should be performed at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
-   * For manual setting, refer to the chapter [2.3.2.2 Servo gun axis origin](2-3-2-manual-setting/2-servo-gun-axis-origin.md).
+(2) **轴原点设置**
+   * 通常，伺服枪的轴原点设置应在移动电极和固定电极（各自附有新尖端）相遇的位置进行。由于伺服枪的大多数操作是以此轴原点作为参考，因此进行此设置非常重要。
+   * 手动设置，请参考章节 [2.3.2.2 伺服枪轴原点](2-3-2-manual-setting/2-servo-gun-axis-origin.md)。
    
-  
-(3) **Soft limit setting**
-   * In general, the soft limit of the servo gun should be set to '**Minimum**' while the moving electrode is fully open, and set to '**Maximum**' while the moving electrode is at the closest position with all tips removed.
-   * For manual setting, refer to the chapter [2.3.2.3 Servo gun soft limit](2-3-2-manual-setting/3-servo-gun-soft-limit.md).
+(3) **软限制设置**
+   * 通常，伺服枪的软限制应在移动电极完全打开时设置为 '**最小值**'，在移动电极与所有尖端移除后的最接近位置时设置为 '**最大值**'。
+   * 手动设置，请参考章节 [2.3.2.3 伺服枪软限制](2-3-2-manual-setting/3-servo-gun-soft-limit.md)。
     
-(4) **Squeezing force - current table setting**
-   * To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun..
-   * To use this function, it is necessary to select five representative values among the areas of the squeezing force to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the direction of gravity and when it is in direction of anti-gravity, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
-   * For more details, refer to the chapter [2.3.3 Servo gun squeezing force - current table tunning](2-3-3-servo-gun-force-current-table-tuning/README.md).
+(4) **挤压力 - 电流表设置**
+   * 为了以期望的挤压力挤压安装到机器人的各种伺服枪，需要使供给伺服枪的电流与产生的挤压力相对应。为此，我公司提供伺服枪挤压力 - 电流表。需要对该表进行调试以匹配伺服枪。
+   * 使用此功能时，需要在要使用的挤压力范围中选择五个代表值。调试伺服枪挤压力 - 电流表是找到与这五个代表性挤压力相匹配的电流的过程。该表可能会因伺服枪的姿态而有所不同，因此需要对每个情况下进行调试，即在移动电极朝向重力和朝向反重力时，通过这种方法，可以在伺服枪的各种姿态中高精度地进行挤压。
+   * 有关更多详细信息，请参考章节 [2.3.3 伺服枪挤压力 - 电流表调试](2-3-3-servo-gun-force-current-table-tuning/README.md)。
 
 </br>
 
-The default setting can be performed with automatic settng and manual setting.
+默认设置可以通过自动设置和手动设置进行。
 
-(1) **Automatic setting**: The servo gun automatically moves to the designated position and then perform the designated setting.
-   * Items that can be automatically set
-     * Encoder offset compensation
-     * Axis origin setting
-     * Soft limit setting
-   * The setting of the squeezing force - current table cann not be automatically performed because it requires user intervention such as the installation of a squeezing force gauge.
+(1) **自动设置**：伺服枪自动移动到指定位置，然后执行指定设置。
+   * 可以自动设置的项目
+     * 编码器偏移补偿
+     * 轴原点设置
+     * 软限制设置
+   * 由于需要用户干预（如安装挤压力计），挤压力 - 电流表的设置无法自动执行。
    
-(2) **Manual setting**: The servo gun needs to be moved to the designated position through the operation by the user and the designated function will be performed on the dedicated setting screen.
-  
+(2) **手动设置**：伺服枪需要通过用户操作移动到指定位置，并在专用设置屏幕上执行指定功能。
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/1-auto-setting.md)
-### 2.3.1 Automatic setting
+### 2.3.1 自动设置
 
-Progress the automatic setting of the default setting of the servo gun by pressing the `[All auto setup]` button. As the moving electrode of the servo gun moves automatically, the following conditions must be satisfied in advance.
+通过按下 `[All auto setup]` 按钮来进展伺服枪默认设置的自动设置。伺服枪的移动电极自动移动时，必须满足以下条件。
 
-* Moving and fixed electrodes with new tipes attached
-* No worker around the servo gun
-* No workpiece between the moving electrode and fixed electrode
-* Manual mode
-* Motor on
-* Prohibition of maximum opening of the moving electrode (a gap of certain distance from the maximum opening position)
+* 附有新类型的移动电极和固定电极
+* 伺服枪周围没有工人
+* 移动电极与固定电极之间没有工件
+* 手动模式
+* 电动机开启
+* 禁止移动电极的最大开启（与最大开启位置有一定距离的间隙）
 
-In the case of `[All auto setup]`, the following procedures will proceed automatically.
+在 `[All auto setup]` 的情况下，以下流程将自动进行。
 
-  *  (1) Encoder offset compensation  
-      - The moving electrode moves to the maximum opening position.  
-      - The servo gun stops at the maximum opening position and then encoder offset compenation will be executed.
-  *  (2) Axis origin setting
-      - The servo gun performs the squeezing operation three times and opening operation two times.
-      - After the third squeezing operation, the servo gun moves to the position where the two electrodes meet with each other.
-      - Confirms the relevant position with the user.
-      - Executes the setting of the axis origin.
-  *  (3) Soft limit setting  
-      - Will be automatically executed after the axis origin setting.
-  *  (4) Squeezing force - current table setting 
-      - Automatic change to the menu for the setting will occur.
+  *  (1) 编码器偏差补偿  
+      - 移动电极移动到最大开启位置。  
+      - 伺服枪在最大开启位置停止，然后执行编码器偏差补偿。
+  *  (2) 轴原点设置
+      - 伺服枪进行三次挤压操作和两次开启操作。
+      - 在第三次挤压操作后，伺服枪移动到两个电极相遇的位置。
+      - 与用户确认相关位置。
+      - 执行轴原点的设置。
+  *  (3) 软极限设置  
+      - 在轴原点设置后将自动执行。
+  *  (4) 挤压力 - 电流表设置 
+      - 将自动切换到设置的菜单。
 
-In the case of automatic setting of the servo gun's default setting, the servo gun's '**encoder offset compensation**' position and '**axis origin compensation**' position are automatically recognized, allowing the '**encoder offset compensation**', '**axis origin compensation**' and '**soft limit setting**' to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the '**squeeze force - current table setting**' does not proceed automatically. Please refer to the chapter [2.3.3 Squeeze force - current table setting](./2-3-3-servo-gun-force-current-table-tuning/README.md) for setting.
+在伺服枪默认设置的自动设置情况下，伺服枪的 '**编码器偏差补偿**' 位置和 '**轴原点补偿**' 位置被自动识别，允许在相关位置进行 '**编码器偏差补偿**'、'**轴原点补偿**' 和 '**软极限设置**'。在伺服枪默认设置的自动设置中，'**挤压力 - 电流表设置**' 不会自动进行。有关设置，请参阅章节 [2.3.3 挤压力 - 电流表设置](./2-3-3-servo-gun-force-current-table-tuning/README.md)。
 
-In the case of '**all automatic setting**', the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press '**Yes**' to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press 'Yes'. If you do not want automatic setting, please click '**No**' to end the setting.
+在 '**全自动设置**' 的情况下，伺服枪移动到轴原点的位置并与用户确认轴原点的位置。在此过程中，检查移动电极的位置和反馈电流（1A 或以下）。如果移动电极与固定电极略微接触，请按 '**Yes**' 继续设置。如果反馈电流过高或移动电极与固定电极没有接触，请使用 jog 键进行微调，然后按 'Yes'。如果您不想进行自动设置，请点击 '**No**' 结束设置。
 
 <p align="center">
  <img src="../../_assets/image_76_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.6 Confirmation with the user on the position of the axis origin</p></em>
+ <em><p align="center">图 2.6 与用户确认轴原点的位置</p></em>
 </p>
 
 {% hint style="warning" %}
-`Warning` If the servo gun has a stopper other than a metal material such as a bumper attached at the maximum opening position of the servo gun, it may be difficult to estimate the maximum opening position. It is recommended to perform setting after removing the stopper.
+`警告 (Warning)` 如果伺服枪的最大开启位置上有非金属材料（如缓冲器）附着的限位器，可能难以估计最大开启位置。建议在移除限位器后进行设置。
 {% endhint %}
 
-The configuration and functionality of the servo gun default setting screen is as follows.
+伺服枪默认设置屏幕的配置和功能如下。
 
 <p align="center">
  <img src="../../_assets/image_62_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.7 Configuration of the default setting</p></em>
+ <em><p align="center">图 2.7 默认设置的配置</p></em>
 </p>
 
 <br>
 
-1. **Status**: Shows the current setting status of the servo gun (X: Before setting, O: Either complete or changed)
+1. **状态**: 显示伺服枪当前的设置状态（X: 设置前，O: 完成或已更改）
 
-2. **Individual auto-set**:  Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` button will allow automatic setting to be performed only for the checked items.
+2. **单独自动设置**: 仅支持自动设置选中的项目功能，而不是全部。按下 `[Checked auto setup]` 按钮将仅对选中的项目执行自动设置。
 
-3. **Manual setting**: Moves to the screen for setting the relevant items.  
-    - Encoder offset compensation: Moves to the screen of `[F2: system] - 3: Robot parameter - 4: Encoder offset`
-    - Axis origin setting: Moves to the screen of `[F2: system] - 3: Robot parameter - 2: Axis origin`
-    - Soft limit setting: Moves to the screen of `[F2: system] - 3: Robot parameter - 3: Soft limit`
-    - Squeeze force - current table setting: Moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding- 7: Servo gun squeeze force tuning`
+3. **手动设置**: 转到设置相关项目的屏幕。  
+    - 编码器偏移补偿: 转到 `[F2: 系统] - 3: 机器人参数 - 4: 编码器偏移 ([F2: system] - 3: Robot parameter - 4: Encoder offset)` 的屏幕
+    - 轴原点设置: 转到 `[F2: 系统] - 3: 机器人参数 - 2: 轴原点 ([F2: system] - 3: Robot parameter - 2: Axis origin)` 的屏幕
+    - 软极限设置: 转到 `[F2: 系统] - 3: 机器人参数 - 3: 软极限 ([F2: system] - 3: Robot parameter - 3: Soft limit)` 的屏幕
+    - 压力 - 当前表设置: 转到 `[F2: 系统] - 4: 应用参数 - 1: Spot welding- 7: Servo gun squeeze force tuning ([F2: system] - 4: Application parameter - 1: Spot welding- 7: Servo gun squeeze force tuning)` 的屏幕
 
-4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+4. **指南**: 表示设置的当前状态或在发生错误时的原因和措施。
 
-5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+5. **监控**: 表示设置的当前状态和伺服枪的位置、反馈电流、设置值等。
 
-6. `[All auto setup]`: Commands the execution of all automatic setting of all items
+6. `[全部自动设置]`: 命令执行所有项目的全部自动设置
 
-7. `[Checked auto setup]`: Automatically sets only the items that are designated as the items of individual automatic setting
+7. `[选中自动设置]`: 仅自动设置指定为单独自动设置项目的项目
 
-8. **Execution stop**: Stops the setting that is in progress.
+8. **执行停止**: 停止正在进行的设置。
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/README.md)
-### 2.3.2 Manual setting
+### 2.3.2 手动设置
 
-The procedure for manually performing the default setting of the servo gun is as follows.
+手动执行伺服枪的默认设置的程序如下。
 
-1. Servo gun encoder offset setting
-2. Servo gun axis orign setting
-3. Servo gun soft limit setting
-
+1. 伺服枪编码器偏移设置
+2. 伺服枪轴原点设置
+3. 伺服枪软限制设置
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)
-#### 2.3.2.1 Servo gun encoder offset setting
+#### 2.3.2.1 伺服枪编码器偏移设置
 
-Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can match the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
+通常，当因为更换伺服枪电机等原因更改编码器数据时，编码器的原点应设置在可以与相同机械位置匹配的位置。对伺服枪来说，设置应在机械上最大打开状态下进行。
 
-The encoder compensation procedure for the axis of the servo gun is as follows.
+伺服枪轴的编码器补偿程序如下。
 
-(1) Manually release the brake of the axis of the servo gun and then open the moving electrode to the maximum.
+(1) 手动释放伺服枪轴的刹车，然后将移动电极打开到最大位置。
 
 <p align="center">
  <img src="../../../_assets/image_71_eng.PNG"></img>
- <em><p align="center">Figure 2.8 Servo gun's maximum open position</p></em>
+ <em><p align="center">图 2.8 伺服枪的最大开启位置</p></em>
 </p>
 
 <br>
 
-(2) In the default setting screen of the'**Servo gun auto setting**' menu, press the `Manual setting` button of the '**Encoder offset compensation**' menu (Figure 2.9), or select the relevant servo gun axis in  `[F2: system] - 3: Robot parameter - 4: Encoder offset` with the cursor and then press the `[Reset]` button. When the current encoder value becomes "**00400000**", press the `[F7: OK]` button. 
+(2) 在 '**伺服枪自动设置**' 菜单的默认设置屏幕中，按下 '**编码器偏移补偿**' 菜单的 `手动设置 (Manual setting)` 按钮（图 2.9），或者使用光标在 `[F2: 系统] - 3: 机器人参数 - 4: 编码器偏移 ([F2: system] - 3: Robot parameter - 4: Encoder offset)` 中选择相关的伺服枪轴，然后按下 `[Reset]` 按钮。当当前编码器值变为 "**00400000**" 时，按下 `[F7: 确认] ([F7: OK])` 按钮。
 
 <p align="center">
  <img src="../../../_assets/image_36_eng.PNG" width=80%></img>
- <em><p align="center">Figure 2.9 Moving to the encoder offset compensation screen</p></em>
+ <em><p align="center">图 2.9 转到编码器偏移补偿屏幕</p></em>
 </p>
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/2-servo-gun-axis-origin.md)
-#### 2.3.2.2 Servo gun axis origin
+#### 2.3.2.2 伺服枪轴原点
 
-In general, the axis origin of the servo gun should be set at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
+一般而言，伺服枪的轴原点应该设置在移动电极和固定电极各自配备新尖端的位置相交处。由于伺服枪的大多数操作是以此轴原点为参考，因此进行此设置非常重要。
 
-The axis origin setting procedure for the axis of the servo gun is as follows.
+伺服枪轴的原点设置程序如下。
 
-1) Manually operate the axis of the servo gun to bring it into the state as shown in the figure below.
+1) 手动操作伺服枪的轴，将其带入如下图所示的状态。
 
 <p align="center">
  <img src="../../../_assets/image_19_eng.PNG"></img>
- <em><p align="center">Figure 2.10 Position of the origin of the servo gun</p></em>
+ <em><p align="center">图 2.10 伺服枪原点位置</p></em>
 </p>
 
-1) In the default setting screen of the '**Servo gun automatic setting**' menu, press the `Manual setting` button of the '**Axis origin setting**' menu (figure below), or select the relevant axis of the servo gun in `[F2: system] - 3: Robot parameter - 2: Axis origin` with the cursor and then press the `[Reset]` button. When the current position of the axis is indicated as 0.0 mm, input by selecting the `[F7: OK]` button. 
-
+1) 在 '**伺服枪自动设定**' 菜单的默认设置屏幕中，按下 '**轴原点设定**' 菜单的 `手动设置 (Manual setting)` 按钮（如下图所示），或者在 `[F2: 系统] - 3: 机器人参数 - 2: 轴原点 ([F2: system] - 3: Robot parameter - 2: Axis origin)` 中选择相关的伺服枪轴，并按下 `[Reset]` 按钮。当轴的当前位置显示为 0.0 mm 时，通过选择 `[F7: 确认] ([F7: OK])` 按钮输入。
 
 <p align="center">
  <img src="../../../_assets/image_80_eng.PNG" width="80%"></img>
- <em><p align="center">Figure 2.11 Moving to the axis origin screen</p></em>
+ <em><p align="center">图 2.11 移动到轴原点屏幕</p></em>
 </p>
-
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/3-servo-gun-soft-limit.md)
-#### 2.3.2.3 Servo gun soft limit
+#### 2.3.2.3 伺服枪软极限
 
-In general, the soft limit of the servo gun should be set to 'Minimum' while the moving electrode is fully open, and set to 'Maximum' while the moving electrode is at the closest position with all tips removed.
+一般来说，伺服枪的软极限应该在移动电极完全打开时设置为“最小”，在移动电极与所有尖端移除后处于最接近位置时设置为“最大”。
 
-The soft limit setting procedure for the axis of the servo gun.
+伺服枪轴的软极限设置程序。
 
-1. Manually operate the servo gun to bring it to the condition as shown in the figure below
+1. 手动操作伺服枪，使其达到如下图所示的条件
 
 
 <p align="center">
  <img src="../../../_assets/image_90_eng.PNG" ></img>
  <img src="../../../_assets/image_2_eng.PNG" ></img>
- <em><p align="center">Figure 2.12 Setting of the servo gun soft limit</p></em>
+ <em><p align="center">图 2.12 伺服枪软极限设置</p></em>
 </p>
 
 <br>
 
-2. In the default setting screen of the '**Servo gun automatic setting**' menu, press the `[Manual setting]` button of the '**Soft limit setting**' menu (Figure below), or select the relevant axis of the servo gun in `[F2: system] - 3: Robot parameter - 3: Soft limit` with the cursor and then press the `[Reset]` button. If the indication is performed normally, input by selecting the `[F7: OK]` button.
+2. 在“**伺服枪自动设置**”菜单的默认设置屏幕中，按下“**软极限设置**”菜单的 `[Manual setting]` 按钮（如下图所示），或使用光标在 `[F2: 系统] - 3: 机器人参数 - 3: 软极限 ([F2: system] - 3: Robot parameter - 3: Soft limit)` 中选择相关的伺服枪轴，然后按下 `[Reset]` 按钮。如果指示正常进行，通过选择 `[F7: 确认] ([F7: OK])` 按钮输入。 
 
 <p align="center">
  <img src="../../../_assets/image_41_eng.PNG" width="80%"></img>
- <em><p align="center">Figure 2.13 Moving to the servo gun soft limit setting screen </p></em>
+ <em><p align="center">图 2.13 移动到伺服枪软极限设置屏幕</p></em>
 </p>
-
-
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/README.md)
-### 2.3.3 Servo gun squeezing force - current table tunning
+### 2.3.3 伺服枪挤压力 - 电流表调试
 
-To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun. The accuracy of this tuning determines the accuracy of the servo gun squeezing force. In consideratin of it, tuning must be performed before using the servo gun.
+为了以所需的挤压力挤压要安装到机器人上的各种伺服枪，必须使供给伺服枪的电流与产生的挤压力相对应。为此，我们公司提供了伺服枪挤压力 - 电流表。必须调整此表以匹配伺服枪。此调试的准确性决定了伺服枪挤压力的准确性。考虑到这一点，调试必须在使用伺服枪之前进行。
 
-To use this function, it is necessary to select five representative values among the squeezing forces to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the gravity direction and in anti-gravity direction, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
+要使用此功能，必须在要使用的挤压力中选择五个代表性值。调试伺服枪挤压力 - 电流表的过程是寻找与这五个代表性挤压力匹配的电流。该表可能会因伺服枪的姿势而有所不同，因此在移动电极方向为重力方向和反重力方向的每种情况下，都需要进行调试，通过这种方法，可以在伺服枪的各种姿势下以高精度进行挤压。
 
-Our company provide manual mode for the tuning of the servo gun squeezing force - current table.
+我们公司提供手动模式用于伺服枪挤压力 - 电流表的调试。
 
-*   Tuning in manual mode
+*   手动模式下的调试
 
-    Tuning can be performed regardless of the communication with the squeezing force gauge, and the user can directly tune the table by inputting the measured squeezing force.
-
+    调试可以在与挤压力测量仪进行通信的情况下进行，用户可以通过输入测量的挤压力直接调试表。
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/1-manual-tuning-mode.md)
-#### 2.3.3.1 Manual tuning mode
+#### 2.3.3.1 手动调节模式
 
-The manual tuning mode is a function to manually perform the servo gun squeezing force - current table setting. After the servo gun squeezing occurs, if the user directly inputs the measured squeezing force by using the teaching pendant, the optimal command current will be automatically calculated. This process should be repeated to increase the accuracy. The accuracy can be verified by the degree of convergence and test squeezing.
+手动调节模式是一个功能，用于手动执行伺服枪挤压力 - 电流表设置。在伺服枪挤压之后，如果用户通过教导 pendant 直接输入测量到的挤压力，将自动计算出最优指令电流。这个过程应重复进行，以提高准确性。准确性可以通过收敛程度和测试挤压来验证。
 
-The procedure for setting the servo gun squeezing force - current table in manual mode, recommended by our company, is as follows.
+在手动模式下，设置伺服枪挤压力 - 电流表的步骤，由我公司推荐如下。
 
 <p align="center">
  <img src="../../../_assets/image_84_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.14 Servo gun manual tuning screen</p></em>
+ <em><p align="center">图 2.14 伺服枪手动调节屏幕</p></em>
 </p>
  
 
-1. Set the direction of the moving electrode that needs tuning (gravity or anti-gravity).
+1. 设置需要调节的移动电极的方向（重力或反重力）。
 
-2. With the `[SHIFT]` key + `[Servo gun manual pressure]` button or by jogging the axis of the servo gun, bring the moving electrode to the position where it can contact the squeezing force gauge, and then measure the thickness of the squeezing force gauge (distance between electrodes).
+2. 按下 `[SHIFT]` 键 + `[Servo gun manual pressure]` 按钮，或通过移动伺服枪的轴，将移动电极移到可以接触挤压力计的位置，然后测量挤压力计的厚度（电极之间的距离）。
 
-3.  Input the measured thickness into the squeezing force gauge thicknes section shown at the upper part of the screen (distance between electrodes).
+3. 输入测量到的厚度到屏幕上方所示的挤压力计厚度部分（电极之间的距离）。
 
-4. Input the desired representative value of the squeezing force that you want to set into the '**Set squeezing force**' section.
+4. 输入您要设置的目标挤压力的代表值到 '**设置挤压力**' 部分。
 
-5. Squeeze the servo gun according to the line that indicates the set squeezing force with which you want to perform squeezing. (In the figure below, squeezing is performed with 100 kfg currently indicated with a green focus. svgun man press: `[CTRL]`,`[SHIFT]` + `[Servo gun manual pressure]`)
+5. 根据指示您想要执行挤压的设定挤压力的线来挤压伺服枪。（在下面的图中，挤压是用当前指示为绿色焦点的100 kfg进行的。 svgun man press: `[CTRL]`, `[SHIFT]` + `[Servo gun manual pressure]`）
 
-6. Input the squeezing force measured with the squeezing force gauge into the '**Measured squeezing force**' section.
+6. 将通过挤压力计测得的挤压力输入到 '**测量的挤压力**' 部分。
 
-7. Repeat steps 3-6 for all set squeezing forces.
+7. 对所有设定的挤压力重复步骤 3-6。
 
-8. After completing the inputting, press the `[Command current calculation]` button to calculate the command current that matches the set squeezing force.
+8. 完成输入后，按下 `[指令电流计算]` 按钮，以计算与设定挤压力相匹配的指令电流。
 
-9. When necessary to check the degree of convergence and perform repetead calculation of the command current through test squeezing, repeat steps 3-8.
+9. 如有必要检查收敛程度并通过测试挤压进行重复计算指令电流，重复步骤 3-8。
 
-10. If you want to calculate only the command current for a specific squeezing force, input the measured squeezing force and then execute the `[Command current individual calculation]` process.
+10. 如果您只想计算特定挤压力的指令电流，请输入测得的挤压力，然后执行 `[指令电流单独计算]` 过程。
 
-11. Save the current setting by pressing `[Save]`. After that, change the direction of the moving electrode and then repeat steps 1-8 above.
+11. 通过按下 `[保存]` 保存当前设置。之后，改变移动电极的方向，然后重复以上步骤 1-8。
 
 </br>
 
-To squeeze the servo gun, you should press `[SHIFT]` + `[Servo gun manual pressure]`  or `[CTRL]` + `[Servo gun manual pressure]`. Considering that with the `[CTRL]` + `[Servo gun manual pressure]`, you can perform controlling in the same manner as the automatic mode does, it is recommended to use `[CTRL]` + `[Servo gun manual pressure]`. 
+要挤压伺服枪，您应该按下 `[SHIFT]` + `[Servo gun manual pressure]` 或 `[CTRL]` + `[Servo gun manual pressure]`。考虑到使用 `[CTRL]` + `[Servo gun manual pressure]` 时，您可以以与自动模式相同的方式执行控制，建议使用 `[CTRL]` + `[Servo gun manual pressure]`。
 
-The figure below is a screen showing the state after performing `[command current calculation]` twice. If the degree of convergence is low enough, it is needed to carry out squeezing with the set squeezing force and check the difference with the measured pressure, and then decide whether to continute to proceed.
+下图是执行 `[指令电流计算]` 两次后的状态屏幕。如果收敛程度足够低，需要使用设定的挤压力进行挤压并检查与测量压力的差异，然后决定是否继续。
 
-At least one measured squeezing force should be entered for the command current calculation. If the initial command current exceeds the range where the servo gun can perform squeezing, you can reset the initial value by inputting only one or two measured squeezing forces and then performing the 'command current calculation.' If the command current calculation is performed without inputting all of the measured squeezing forces, the overall accuracy will be lower. Considering it, it is recommended to perform 'command current calculation' after inputting all measured squeezing forces, except for the case of resetting the initial command current.
+至少需要输入一个测量的挤压力以进行指令电流计算。如果初始指令电流超过伺服枪能够执行挤压的范围，您可以通过只输入一到两个测得的挤压力，然后执行 '指令电流计算' 来重置初始值。如果在未输入所有测量挤压力的情况下进行指令电流计算，整体准确性将降低。考虑到这一点，建议在输入所有测量挤压力后进行 '指令电流计算'，除非重置初始指令电流的情况。
 
-The explanation for the setting items is as follow.
+设定项的解释如下。
 
-*   **Direction of the moving electrode**
+*   **移动电极的方向**
 
-    This is the direction of the moving electrode of the servo gun currently being tuned. The direction should be set once each for the direction of gravity direction of anti-gravity direction.
-*   **Set squeezing force**
+    这是当前正在调节的伺服枪移动电极的方向。每种方向应分别设置一次，包括重力方向和反重力方向。
+*   **设置挤压力**
 
-    This is the representative value of the squeezing force that is to be used. This is for finding the command current corresponding to the set squeezing force.
-*   **Measured squeezing force**
+    这是要使用的挤压力的代表值。用于找到对应于设定挤压力的指令电流。
+*   **测量的挤压力**
 
-    This is the squeezing force measured when squeezing is performed with the current command current. The user should input the value directly by using the squeezing force gauage.
-*   **Command current**
+    这是在执行当前命令电流时测量的挤压力。用户应通过使用挤压力计直接输入该值。
+*   **命令电流**
 
-    This is the command current corresponding to the currently set sequeeze force.
-*   **Degree of convergence**
+    这是与当前设置的挤压力相对应的命令电流。
+*   **收敛度**
 
-   This value is the amount of variation of the calculated command current compared to the previous command current after the current calculation is performed. The lower this value, the higher the accuracy of the tuning of the squeezing force.
-*   **Permissible error for the set squeezing force**
+    此值是当前计算完成后，计算的命令电流与之前命令电流的变化量。此值越低，挤压力的调节精度越高。
+*   **设定挤压力的允许误差**
 
-    This is the squeezing force permissible error among the servo gun parameters and can be used to check the current state after the test squeezing.
-*   **Distance between electrodes**
+    这是伺服枪参数中的挤压力允许误差，可用于检查测试挤压后的当前状态。
+*   **电极之间的距离**
 
-    This allows you to monitor the distance between the electrodes of the servo gun (possible to monitor the state of squeezing and opening).
-*   **Count of repeated calculations**
+    这使您能够监控伺服枪电极之间的距离（可以监控挤压和打开的状态）。
+*   **重复计算的次数**
 
-    This is the number of times the command current has been updated by pressing the `[Command current calculation]` button so far. If the degree of convergence does not decrease after several repetitions, use the `[Command current individual calculation]` button or check the state of the squeezing force gauge and servo gun.
-*   **Measured currrent**
+    这是迄今为止通过按下`[命令电流计算]`按钮更新命令电流的次数。如果收敛度在几次重复后没有降低，请使用`[命令电流单独计算]`按钮或检查挤压力计和伺服枪的状态。
+*   **测量的电流**
 
-    This is the currently measured current and will be monitored in a way that it can get close to the command current when squeezing is performed.
+    这是当前测量的电流，并将在执行挤压时以接近命令电流的方式进行监测。
 
 <br>
 
 {% hint style="info" %}  
-The operation by selecting `[CTRL]` key + `[Servo gun manual pressure]` button will work until the squeezing is completed with one execution, making it impossible to stop the operation by releasing the button in the middle. Therefore, stopping the squeeze operation requires you to release the enable switch or press the emergency stop button. Also, if the squeezing force gauge thickness is different from the actual value, the squeezing force will be different in automatic mode. So please input the correct value.
+通过选择`[CTRL]`键 + `[伺服枪手动压力]`按钮进行的操作将在一次执行中一直工作到挤压完成，在中途释放按钮会使操作无法停止。因此，要停止挤压操作，必须释放使能开关或按下紧急停止按钮。此外，如果挤压力计的厚度与实际值不同，则在自动模式下挤压力也会不同。因此，请输入正确的值。
 
-You can set and operate the servo gun using the function buttons on the right side of the current screen. The related settings and operations are as follows.
+您可以使用当前屏幕右侧的功能按钮设置和操作伺服枪。相关设置和操作如下。
 
-* `[SHIFT]` + `[Servo gun wide opening]`: Opens the servo gun wide (by the specified opening distance).
-* `[SHIFT]` + `[Servo gun narrow opening]`: Opens the servo gun narrowly (by the specified opening distance).
-* `[SHIFT]` + `[Servo gun manual pressure]`: Squeezes the servo gun using the squeezing force at the current cursor position.
-* `[CTRL]` + `[Servo gun wide opening]`: Sets the distance for servo gun wide opening.
-* `[CTRL]` + `[Servo gun narrow opening]`: Sets the distance for servo gun narrow opening.
-* `[CTRL]` + `[Servo gun manual pressure]`: Squeezes the servo gun using the squeezing force at the current cursor position and applies the same control as in automatic mode.
+* `[SHIFT]` + `[伺服枪宽开口]`：宽幅打开伺服枪（按指定的打开距离）。
+* `[SHIFT]` + `[伺服枪窄开口]`：窄幅打开伺服枪（按指定的打开距离）。
+* `[SHIFT]` + `[伺服枪手动压力]`：在当前光标位置使用挤压力挤压伺服枪。
+* `[CTRL]` + `[伺服枪宽开口]`：设定伺服枪宽开口的距离。
+* `[CTRL]` + `[伺服枪窄开口]`：设定伺服枪窄开口的距离。
+* `[CTRL]` + `[伺服枪手动压力]`：在当前光标位置使用挤压力挤压伺服枪，并应用与自动模式相同的控制。
 
 {% endhint %}
 [__SOURCE](2-servo-gun-initial-setting/2-4-step-2-application-setting/README.md)
-# 2.4 Step 2. Application setting
+# 2.4 第 2 步. 应用设置
 
-When the default setting is completed, the application setting can be performed. The application setting is the item that can be performed after the **squeezing force - current table tuning**. It consists of a procedure for setting the reference position for the gun search, a procedure for estimating the amount of the servo gun arm deflection during the squeeze operation, and a compensation procedure for accurate measurement of the panel thickness.
+完成默认设置后，可以进行应用设置。应用设置是在 **挤压力 - 电流表调谐** 之后可以执行的项目。它包括设置枪搜索的参考位置、估计挤压操作期间伺服枪臂偏转量的程序，以及用于准确测量面板厚度的补偿程序。
 
-The application setting consists of three items as shown in the figure below.
+应用设置由下图所示的三个项目组成。
 
 <p align="center">
  <img src="../../_assets/image_58_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.15 Servo gun application setting screen</p></em>
+ <em><p align="center">图 2.15 伺服枪应用设置屏幕</p></em>
 </p>
 
 <br>
 
-1. **Gun search**
-     * Sets the reference position for measuring the consumption amount of the tip and checks the consumption amount once.
-     * For manual setting, refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).
+1. **枪搜索**
+     * 设置测量尖端消耗量的参考位置，并检查一次消耗量。
+     * 有关手动设置，请参阅 [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)。
 
-2. **Gun arm deflection amount compensation**
-      * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force - current table.
-      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`, set the gun number that needs to be set and then press `[Advanced condition]` to enter.
+2. **枪臂偏转量补偿**
+      * 枪臂偏转量补偿应设置以补偿伺服枪在执行挤压时发生的枪臂偏转。根据在挤压力 - 电流表中设置的挤压力设置偏转量。
+      * 有关手动设置，请按上述图中的手动设置按钮，或者在 `[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)` 的屏幕中，设置需要设置的枪号，然后按 `[Advanced condition]` 进入。
 
-3. **Panel thickness measurement compensation**
-      * The panel thickness measurement compensation is a setting to improve the accuracy of the panel thickness measured with the ThickCheck command.
-      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`, set the gun number that needs to be set and the press the `[Advanced condition]` button to enter.
+3. **面板厚度测量补偿**
+      * 面板厚度测量补偿是一项设置，用于提高使用 ThickCheck 命令测量的面板厚度的准确性。
+      * 有关手动设置，请按上述图中的手动设置按钮，或者在 `[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)` 的屏幕中，设置需要设置的枪号，然后按 `[Advanced condition]` 按钮进入。
 
-Among spot setting items, the 'gun search' setting is essential. If 'gun search' is not set, it is impossible to execute and teach commands related to spot welding (for example, spot gn=1,...). On the other hand, **gun arm deflection amount compensation** and **panel thickness measurement compensation** has nothing to do with the execution and teaching of commands related to spot welding, but are necessary settings for accurate operation and accurate panel thickness measurement.
+在点设置项目中，'枪搜索' 设置是必要的。如果未设置 '枪搜索'，将无法执行和教学与点焊相关的命令（例如，spot gn=1，...）。另一方面，**枪臂偏转量补偿** 和 **面板厚度测量补偿** 与执行和教学与点焊相关的命令无关，但对于准确操作和准确测量面板厚度而言是必要的设置。
 
-The application setting can be progressed in automatic setting and manual setting.
+应用设置可以在自动设置和手动设置中进行。
 
-(1) Automatic setting  
+(1) 自动设置  
 
-   * The servo gun automatically moves to execute **gun search**, **gun arm deflection amount compensation** and **panel thickness measurement compensation**. All items of the application setting can be performed automatically.  
+   * 伺服枪自动移动以执行 **枪搜索**、**枪臂偏转量补偿** 和 **面板厚度测量补偿**。应用设置的所有项目均可自动执行。  
   
-(2) Manual setting
+(2) 手动设置
 
-   * The user directly performs **gun search** and inputs the **gun arm deflection amount compensation** and **panel thickness measurement compensation** values.  
-
+   * 用户直接执行 **枪搜索** 并输入 **枪臂偏转量补偿** 和 **面板厚度测量补偿** 值。
 [__SOURCE](2-servo-gun-initial-setting/2-4-step-2-application-setting/1-auto-setting.md)
-### 2.4.1 Automatic setting
+### 2.4.1 自动设置
 
-Progress the automatic setting of the application setting of the servo gun by pressing the `[All auto setup]` button. The moving electrode of the servo gun moves automatically. In addition, the set values are affected by the squeezing force, so the following conditions must be satisfied.
+通过按下 `[All auto setup]` 按钮，进行伺服枪应用设置的自动设置。伺服枪的移动电极将自动移动。此外，设定值受压缩力的影响，因此必须满足以下条件。
 
-* Moving and fixed electrodes with new tipes attached
-* No worker around the servo gun
-* No workpiece between the moving electrode and fixed electrode
-* Manual mode
-* Motor on
-* Completion of the servo gun's default setting (step 1) 
+* 附有新类型的移动和固定电极
+* 周围没有工人
+* 移动电极与固定电极之间没有工件
+* 手动模式
+* 电机开启
+* 完成伺服枪的默认设置（步骤 1） 
 
+在 `[All auto setup]` 的情况下，以下过程将自动进行。
 
-In the case of `[All auto setup]`, the following procedures will proceed automatically.
-
-1. Gun search
-   * Gun search will be performed while servo gun squeezing occurs two times.
-   * First time: 'Gun search reference position record' valid
-   * Second time: 'Gun search reference position record' invalid 
-2. Gun arm deflection amount compensation
-   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
-3. Panel thickness measurement compensation  
-   * Gun arm deflection amount compensation will be performed while servo gun squeezing occurs five times.
+1. 枪搜索
+   * 在伺服枪压缩发生两次时将进行枪搜索。
+   * 第一次：'枪搜索参考位置记录' 有效
+   * 第二次：'枪搜索参考位置记录' 无效 
+2. 枪臂偏转量补偿
+   * 在伺服枪压缩发生五次时将进行枪臂偏转量补偿。
+3. 面板厚度测量补偿  
+   * 在伺服枪压缩发生五次时将进行面板厚度测量补偿。
 
 {% hint style="info" %}
-The gun search that can be performed through '**automatic setting**' is only for gun search 1. When using other gun searches other than gun search 1, you should refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).  
+通过 '**自动设置**' 进行的枪搜索仅限于枪搜索 1。当使用除枪搜索 1 之外的其他枪搜索时，请参考 [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md)。  
 {% endhint %}
 
-In the case of 'all automatic setting', the 'gun arm deflection amount compensation' and 'panel thickness measurement compensation' will be performed at the same time, so the servo gun performs squeezing only five times. For execution of 'gun search', the squeezing force and gun search speed should be designated. If you press the `[Gunsea cond setup]` button, the squeezing force and moving speed that will be used during gun search can be set as shown in the figure below.
-
+在'all automatic setting'的情况下，'枪臂偏转量补偿'和'面板厚度测量补偿'将同时进行，因此伺服枪仅执行五次压缩。对于'枪搜索'的执行，应指定压缩力和枪搜索速度。如果按下 `[Gunsea cond setup]` 按钮，枪搜索时将使用的压缩力和移动速度可以如下面图所示进行设置。
 
 <p align="center">
  <img src="../../_assets/image_22_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.16 Gun search condition setting screen</p></em>
+ <em><p align="center">图 2.16 枪搜索条件设置屏幕</p></em>
 </p>
 
 {% hint style="info" %}
-In the case of '**gun arm deflection compensation**' and '**panel thickness measurement compensation**', it is difficult to manually measure and fill in the values, so it is recommended to use automatic setting.
+在 '**枪臂偏转补偿**' 和 '**面板厚度测量补偿**' 的情况下，手动测量和填写值是困难的，因此建议使用自动设置。
 
-The 'gun arm deflection amount compensation' value is a value used instead of the 'gun arm deflection amount/100 kgf\[mm]' among the servo gun parameters. When the 'gun arm deflection amount compensation' value is set, the already set 'gun arm deflection amount/100 kgf\[mm]' will not be used. On the contrary, if a 'gun arm deflection amount compensation' value is not set, the 'gun arm deflection amount/100 kgf\[mm] will be used.'
+'枪臂偏转量补偿' 值是伺服枪参数中用于代替 '枪臂偏转量/100 kgf\[mm]' 的值。当设置 '枪臂偏转量补偿' 值时，已经设置的 '枪臂偏转量/100 kgf\[mm]' 将不再使用。相反，如果没有设置 '枪臂偏转量补偿' 值，则将使用 '枪臂偏转量/100 kgf\[mm]。'
 {% endhint %}
 
-The configuration and functionality of the servo gun application setting screen is as follows.
+伺服枪应用设置屏幕的配置和功能如下。
 
 <p align="center">
  <img src="../../_assets/image_55_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.17 Servo gun applicaiton setting screen</p></em>
+ <em><p align="center">图 2.17 伺服枪应用设置屏幕</p></em>
 </p>
+1. **状态**: 显示伺服枪的当前设置状态（设置之前、完成或更改）。
 
+2. **单独自动设置**: 支持仅对选中的项目进行自动设置的功能，而不是全部。按下`[Checked auto setup]`按钮将仅对选中的项目执行自动设置。
 
-<br>
+3. **手动设置**: 移动到设置相关项目的屏幕
+     *   枪臂偏转量补偿  
+         自动移动到屏幕`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 3: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter)`
+     *   面板厚度测量补偿  
+         自动移动到屏幕`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 3: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter)`
 
-1. **Status**: Shows the current setting status of the servo gun (before setting, complete or changed).
+4. **指南**: 指示设置的当前状态或发生错误时的原因和措施。
 
-2. **Individual auto-set**: Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` button will allow automatic setting to be performed only for the checked items.
+5. **监控**: 指示设置的当前状态、伺服枪的位置、反馈电流、设定值等。
 
-3. **Manual setting**: Moves to the screen for setting the relevant items
-     *   Gun arm deflection amount compensation  
-         Automatically moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter`
-     *   Panel thickness measurement compensation  
-         Automatically moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 3: Welding gun parameter`
+6. `[All auto setup]`: 命令执行所有项目的自动设置。
 
-4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+7. `[Checked auto setup]`: 仅自动设置被指定为单独自动设置项目的项目。
 
-5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+8. **执行停止**: 停止正在进行中的设置。
 
-6. `[All auto setup]`: Commands the execution of all automatic setting of all items.
-
-7. `[Checked auto setup]`: Automatically sets only the items that are designated as the items of individual automatic setting.
-
-8. **Execution stop**: Stops the setting that is in progress.
-
-9. **Gun search condition setting**: Sets the speed and squeeze force for gun search.
-
+9. **枪搜索条件设置**: 设置枪搜索的速度和夹紧力。
 [__SOURCE](2-servo-gun-initial-setting/2-5-step-3-setting-check.md)
-# 2.5 Step 3. Setting check
+# 2.5 第 3 步. 设置检查
 
-When the application setting is completed, you can check the setting performed so far through the 'setting check' procedure. The setting check procedure can be executed only when the default and application settings are completed.
+当应用设置完成后，可以通过“设置检查”程序检查到目前为止所进行的设置。设置检查程序仅在默认设置和应用设置完成后才能执行。
 
- As shown below, When '**Step 0. Pre-inspection**', '**Step 1. Default setting**', and '**Step 2. Application setting**' are completed, press the 『**Proceed with the prior-to-setting items**』 key or bring the focus onto the '**Step 3. Setting check**' section and then press the Enter key to progress the setting check procedure.
-
+如下面所示，当“**第 0 步. 预检**”、“**第 1 步. 默认设置**”和“**第 2 步. 应用设置**”完成后，按下『**继续进行之前的设置项目**』键，或将焦点移动到“**第 3 步. 设置检查**”部分，然后按下 Enter 键以继续设置检查程序。
 
 <p align="center">
  <img src="../_assets/image_21_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.18 Servo gun setting check screen</p></em>
+ <em><p align="center">图 2.18 伺服枪设置检查屏幕</p></em>
 </p>
 
->The setting check will proceed while the servo gun is moving, so the following conditions must be satisfie.
+>设置检查将在伺服枪移动时进行，因此必须满足以下条件。
 >
->* Attachment of a tip that is in the same state as the tip used for the setting (impossible to check correctly if a new tip is attached and tip dressing is performed)
->* No worker around the servo gun
->* No workpiece between the moving electrode and fixed electrode
->* Manual mode
->* Motor on
->* Completion of the default setting of the servo gun
->* Completion of the application setting of the servo gun
+>* 附加与用于设置的尖端处于相同状态的尖端（如果附加了新尖端并进行尖端修整，则无法正确检查）
+>* 伺服枪周围没有工人
+>* 移动电极和固定电极之间没有工件
+>* 手动模式
+>* 电机开启
+>* 伺服枪的默认设置已完成
+>* 伺服枪的应用设置已完成
 
-When the setting check proceeds as the above conditions are satisfied, the screen changes to the 'Application Setting' screen to make it possible to monitor the movement status of the servo gun.
+当设置检查进行时满足上述条件，屏幕将变为“应用设置”屏幕，以便监控伺服枪的运动状态。
 
-When the 'setting check' is completed, the error estimated during verification will be displayed. Considering that the displayed value is an error, if a value close to 0 is indicated, the setting can be regarded as normal. If the error is a value greater than zero, the setting should be performed again or it is needed to check for any change with the servo gun or surrounding environment. If the setting check result is satisfactory, press 'Yes' to end the 'setting check' procedure. If the result is unsastisfactory, press 'No' to perform resetting or check the servo gun or surrounding environment.
-
+当“设置检查”完成后，在验证过程中产生的错误将被显示。考虑到显示值是错误，如果指示的值接近 0，则设置可以视为正常。如果错误值大于零，则需要重新执行设置或检查伺服枪或周围环境是否有变化。如果设置检查结果令人满意，请按“是”结束“设置检查”程序。如果结果不满意，请按“否”执行重置或检查伺服枪或周围环境。
 [__SOURCE](2-servo-gun-initial-setting/2-6-step-4-signal-setting.md)
-# 2.6 Step 4. Signal setting
+# 2.6 第四步. 信号设置
 
-Step 3. When Step 3. 'Setting check' is completed, it is now possible to move and squeeze the servo gun normally. However, for spot welding, it is necessary to set the inputs and outputs of the spot welding machine signals and other signals. In 'Signal setting', input and output signals related to spot welding can be set.
+第三步. 当第三步“设置检查”完成后，伺服枪现在可以正常移动和挤压。然而，对于点焊，必须设置点焊机信号和其他信号的输入和输出。在“信号设置”中，可以设置与点焊相关的输入和输出信号。
 
-As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \`Enter` key or, while previous items are completed, if you press the 『**Proceed with the prior-to-setting items**』 key, you can enter the screen for setting relevant items.
+如下面的图所示，将光标移动到“**第四步. 输入信号设置**”或“**第四步. 输出信号设置**”，然后按下 \`输入 (Enter)` 键，或者在前面的项目完成后，如果按下『**继续进行前期设置项目**』键，则可以进入相关项目的设置屏幕。
 
 <p align="center">
  <img src="../_assets/image_85_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
+ <em><p align="center">图 2.19 伺服枪信号设置</p></em>
 </p>
 
 <br>
 
-1. **Input signal setting**
-       * Refer to the chapter [5.4 Input signal assignment](../5-spot-weld-parameter/5-4-input-signal-assign.md). 
-2. **Output signal setting**
-       * Refer to the chapter [5.5 Output signal assignment](../5-spot-weld-parameter/5-5-output-signal-assign.md).
- 
-
-
+1. **输入信号设置**
+       * 请参考章节 [5.4 输入信号分配](../5-spot-weld-parameter/5-4-input-signal-assign.md). 
+2. **输出信号设置**
+       * 请参考章节 [5.5 输出信号分配](../5-spot-weld-parameter/5-5-output-signal-assign.md).
 [__SOURCE](3-Related-functions/README.md)
-# 3. Related functions
-
-
+# 3. 相关功能
 [__SOURCE](3-Related-functions/3-1-monitoring/README.md)
-# 3.1 Monitoring
+# 3.1 监控
 
-Various current data and setting states that are used in spot welding are provided to the user in a way that they can be monitored. The monitoring screen related to spot welding is as follow.
+各种用于点焊的电流数据和设定状态以可监控的方式提供给用户。与点焊相关的监控屏幕如下。
 
-* Spot welding gun axis data
-* Spot welding input and output signals
-* Spot welding operation information
+* 点焊枪轴数据
+* 点焊输入和输出信号
+* 点焊操作信息
 [__SOURCE](3-Related-functions/3-1-monitoring/1-spot-gun-axis-data.md)
-### 3.1.1 Spot gun axis data
+### 3.1.1 点焊枪轴数据
 
-This indicates the data of the currently selected spot gun in real time.  
-(`[pane layout] - [F1: select] - spot gun data`)
-
+这表示当前选择的点焊枪的实时数据。  
+(`[pane layout] - [F1: 选择] - 点焊枪 数据 ([pane layout] - [F1: select] - spot gun data)`)
 
 <p align="center">
  <img src="../../_assets/image_18_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.1 Spot monitoring pane</p></em>
+ <em><p align="center">图 3.1 点焊监控面板</p></em>
 </p>
 
 <p align="center">
  <img src="../../_assets/image_89_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.2 Spot gun data monitoring</p></em>
+ <em><p align="center">图 3.2 点焊枪数据监控</p></em>
 </p>
 
 <br>
 
-*  Current data (servo gun)
+*  当前数据（伺服枪）
 
-      Cur indicates the feedback current of the axis of the servo gun and Cmd indicates the current limit command value (A).
+      Cur表示伺服枪轴的反馈电流，Cmd表示电流限制命令值（A）。
 
-*  Squeezing force data (servo gun)
+*  压力数据（伺服枪）
 
-     The command current and feedback current are converted into squeezing force and displayed using the 'squeezing force - current table' of the welding gun parameter. Cmd indicates the command squeezing force and Cur indicates the feedback squeeze.
+     命令电流和反馈电流被转换为压力，并使用焊枪参数的“压力 - 电流表”进行显示。Cmd表示命令压力，Cur表示反馈压力。
 
-*  Actual squeezing force during weling (servo gun)
+*  焊接过程中的实际压力（伺服枪）
 
-     Indicates the average squeezing force from the point of the matching of the squeezing force to the time of opening.
+     表示从压力匹配点到打开时间的平均压力。
 
-*  Distance between electrodes (servo gun)
+*  电极间距（伺服枪）
 
-     Indicates the distance (mm) from the axis origin to the moving electrode.
+     表示从轴原点到移动电极的距离（mm）。
 
-*   Electrode consumption amount (servo gun, equalizerless gun)  
+*   电极消耗量（伺服枪，无平衡枪）
 
-     Inidicates the consumption amount (mm) detected through gun search. (In the case of the equalizerless gun, only the consumption amount of the fixed electrode is managed.)
+     表示通过枪搜索检测的消耗量（mm）。 （对于无平衡枪，仅管理固定电极的消耗量。）
 
-*  Gun search status (servo gun, equalizerless gun) 
+*  枪搜索状态（伺服枪，无平衡枪）
 
-     Indicates whether gun search is performed.
+     表示是否进行了枪搜索。
 
-*   Welder number
+*   焊接机编号
 
-     Indicates the welder number corredponding to the currently selected gun number.
+     表示与当前选择的枪号对应的焊接机编号。
 
-*  SvClamp (servo gun)
+*  SvClamp（伺服枪）
 
-     Indicates the status of the clamping operation of the currently selected gun.
-
+     表示当前选择的枪的夹紧操作状态。
 [__SOURCE](3-Related-functions/3-1-monitoring/2-input-output-signal.md)
-### 3.1.2 Input and output signals
+### 3.1.2 输入和输出信号
 
-The input/output status of the assigned signals related to spot welding is organized and monitored for convenient use.
-(`[pane layout] - [F1: select] - spot i/o data`)
+与点焊相关的分配信号的输入/输出状态被组织和监控，以便于使用。
+(`[pane layout] - [F1: 选择] - 点焊 i/o 数据 ([pane layout] - [F1: select] - spot i/o data)`)
 
 <br>
 
 <p align="center">
  <img src="../../_assets/image_40_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.3 Spot welding input/output signal monitoring</p></em>
+ <em><p align="center">图 3.3 点焊输入/输出信号监控</p></em>
 </p>
 [__SOURCE](3-Related-functions/3-1-monitoring/3-operating-info.md)
-### 3.1.3 Information of the operating time
+### 3.1.3 操作时间信息
 
-This allows you to check the information of the operating time related to the spot welding.
+这允许您查看与点焊相关的操作时间信息。
 
-(`[pane layout] - [F1: select] - spot run info.`)
+(`[pane layout] - [F1: 选择] - 点焊 运行信息 ([pane layout] - [F1: select] - spot run info.)`)
 
 <br>
 
 <p align="center">
  <img src="../../_assets/image_91_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.4 Spot welding operation information monitoring</p></em>
+ <em><p align="center">图 3.4 点焊操作信息监控</p></em>
 </p>
 
 <br>
 
-*   **Total (after initialization)**
+*   **总计（初始化后）**
 
-      Indicates the operation time and welding count of each welder since initialization of the system.
-*   **Total (after input of power)**
+      表示自系统初始化以来每个焊机的操作时间和焊接次数。
+*   **总计（通电后）**
 
-     Indicates the operation time and welding count of each welder since input of the power.
-*   **Latest cycle**
+     表示自供电以来每个焊机的操作时间和焊接次数。
+*   **最新周期**
 
-     Indicates the operation time and welding count of each welder of the immediately preceeding cycle.
-*   **Current cycle**
+     表示前一个周期中每个焊机的操作时间和焊接次数。
+*   **当前周期**
 
-     Indicates the operation time and welding count of each welder of the current cycle.
+     表示当前周期中每个焊机的操作时间和焊接次数。
 
 ---
--	Spot welding operation information clearing
+-	点焊操作信息清除
 
-When the spot welding operation information window is activated, the `[Clear]` button will be displayed. Pressing the button will bring up a dialog box for clearing the operation information as shown in Figure 3.5.
+当点焊操作信息窗口被激活时，将显示`[清除]`按钮。按下该按钮将弹出一个用于清除操作信息的对话框，如图 3.5 所示。
 
 <p align="center">
  <img src="../../_assets/image_92_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.5 Spot welding operation information initialization screen</p></em>
+ <em><p align="center">图 3.5 点焊操作信息初始化界面</p></em>
 </p>
 [__SOURCE](3-Related-functions/3-1-monitoring/4-state-flag.md)
-### 3.1.4 State flag
+### 3.1.4 状态标志
 
-Various necessary states related to spot welding will be indicate as shown in the screen below.
+与点焊相关的各种必要状态将如下面的屏幕所示进行指示。
 
 <p align="center">
  <img src="../../_assets/image_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.6 Indication of spot welding related states</p></em>
+ <em><p align="center">图 3.6 点焊相关状态的指示</p></em>
 </p>
 
+-  焊接条件和焊接顺序（面板厚度）
 
--  Welding condition and welding sequence (panel thickness)
+    - 指示当前选择的焊接条件编号和焊接顺序编号。
+    - 指示当前设置的面板厚度。由于伺服枪的轴位置将在记录焊接步骤时根据设置的面板厚度自动生成，因此需要准确设置。也可以使用 R220 进行手动设置。当在手动压缩操作后进行焊接步骤记录时，设置将根据伺服枪的当前位置自动完成。
 
-    - Indicates the currently selected welding condition number and welding sequence number.
-    - Indicates the currently set panel thickness. Accurate setting is required because the position of the axis of the servo gun will be automatically created based on the set panel thickness during the recording of the welding steps of the servo gun. It is also possible to perform manual setting with R220. When the recording of the welding steps is performed after the manual squeezing operation, the setting will be automatically performed by taking into consideration the current position of the servo gun.
+-  工具编号
 
--  Tool number
+    - 指示当前选择的枪编号对应的工具编号。换句话说，如果您更改枪编号，工具编号将自动更改为在 `[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)` 中设置的工具编号。
 
-    - Indicates the tool number corresponding to the currently selected gun number. In other words, if you change the gun number, the tool number will automatically change to the tool number set in `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`.
+-  枪编号
 
--  Gun number
-
-    - This indicates the currently selected gun number, numbers of multiple guns, and servo gun separation state (![](<../../_assets/image_39_eng.PNG>)). For example, if G5 and G6 are indicated, it means that stationary guns G5 and G6 are selected for simultaneous welding. In addition , there is a mark of a lock, so you can konw that the servo gun is disconnected. 
-
-
+    - 这指示当前选择的枪编号、多把枪的编号及伺服枪分离状态 (![](<../../_assets/image_39_eng.PNG>)). 例如，如果 G5 和 G6 被指示，意味着选中了静止枪 G5 和 G6 进行同时焊接。此外，还有一个锁的标记，因此可以知道伺服枪已断开。
 [__SOURCE](3-Related-functions/3-2-servo-gun-simple-maintenance.md)
-# 3.2 Simple maintenance of the servo gun
+# 3.2 伺服枪的简单维护
 
-This provides support to simply conduct a series of settings to restart the servo gun from a single window after repairing it. When you press the \`CTRL`+\`GUN` keys on the initial screen, a dialog box for simple maintenance will be displayed.
+这提供了支持，可以在修理后从一个窗口简单地进行一系列设置以重新启动伺服枪。当您在初始屏幕上按下 \`CTRL\`+\`GUN\` 键时，将显示简单维护的对话框。
 
 <p align="center">
  <img src="../_assets/image_26_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.7 Simple maintenance of the servo gun</p></em>
+ <em><p align="center">图 3.7 伺服枪的简单维护</p></em>
 </p>
 
->*   **Serial encoder reset**  
->    Executes the "**encoder reset**" or "**error clear**" operation for the serial encoder attached to the servo gun motor. Power must be supplied again for the changed setting to be applied. When "encoder reset" is performed, the encoder information will be initialized after that, requiring you to newly perform the encoder offset setting, axis origin setting, and gun search reference position recording.
->*   **Encoder offset**  
->    Sets the encoder origin of the axis of the servo gun.  It should be set at the position where the moving electrode is maximally opened through the releasing of the brake manually.
->*   **Axis origin**  
->    Sets the axis origin of the servo gun. The axis origin of the servo gun should be set at the poistion where electrodes are in contact with each other after new electrodes are installed.
->*   **Gun search execution**  
->    Executes the gunsea command only by operating the axis of the servo gun at the current position.
->*   **Welding execution**  
->    Executes the spot command only by operating the axis of the servo gun at the current position.
-
+>*   **串行编码器重置**  
+>    执行连接到伺服枪电机的 "**编码器重置**" 或 "**错误清除**" 操作。必须重新供电以应用更改的设置。当执行 "编码器重置" 时，编码器信息将被初始化，您需要重新进行编码器偏移设置、轴原点设置和枪搜索参考位置记录。
+>*   **编码器偏移**  
+>    设置伺服枪的轴的编码器原点。 应在通过手动释放制动器使移动电极最大打开的位置进行设置。
+>*   **轴原点**  
+>    设置伺服枪的轴原点。伺服枪的轴原点应设置在新安装的电极相互接触的位置。
+>*   **枪搜索执行**  
+>    仅通过在当前位置操作伺服枪的轴来执行枪搜索命令。
+>*   **焊接执行**  
+>    仅通过在当前位置操作伺服枪的轴来执行点焊命令。
 [__SOURCE](3-Related-functions/3-3-user-key.md)
-# 3.3 User keys
+# 3.3 用户键
 
-This is a description of the user keys related to spot welding. There is a button for the user keys at the bottom right of the initial main screen. Each time you press the button, the registered menu changes. Press each user key related to spot welding twice to enter the relevant menu.
-
+这是与点焊相关的用户键的描述。在初始主屏幕的右下角有一个用户键按钮。每次按下按钮时，注册的菜单会更改。按下与点焊相关的每个用户键两次以进入相应的菜单。
 
 <p align="center">
  <img src="../_assets/image_33_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.8 Spot welding user keys</p></em>
+ <em><p align="center">图 3.8 点焊用户键</p></em>
 </p>
 
-
->*   **Servo gun wide opening**  
->    Manually moves the servo gun to the wide opening position.
->*   **Servo gun manual closing**  
->    Manually moves the servo gun to the narrow opening position.
->*   **Servo gun manual squeezing**  
->    Manually spueezes the servo gun. 
->*   **Welding condition change**  
->    Manually changes the currently selected welding condition number.
->*   **Welding sequence change**  
->    Manually changes the currently selected welding sequence number.
-
+>*   **伺服枪宽开口**  
+>    手动将伺服枪移动到宽开口位置。
+>*   **伺服枪手动关闭**  
+>    手动将伺服枪移动到窄开口位置。
+>*   **伺服枪手动挤压**  
+>    手动挤压伺服枪。
+>*   **焊接条件改变**  
+>    手动更改当前选择的焊接条件编号。
+>*   **焊接序列改变**  
+>    手动更改当前选择的焊接序列编号。
 [__SOURCE](3-Related-functions/3-4-weld-gun-manual-open-close-pressure.md)
-# 3.4 Welding gun manual closing and squeezing
+# 3.4 焊枪手动关闭和挤压
 
-The procedure for manual closing and squeezing of the welding gun is as follows.
+焊枪的手动关闭和挤压程序如下。
 
 </br>
 
-1. Check whether the mode is manual. In the case of the servo gun, input the operation preparation signal to drive the axis of the servo gun. 
-2.  Select the gun number for the manual closing or squeezing operation. The method to select a gun number is as follows.
+1. 检查模式是否为手动。如果是伺服枪，输入操作准备信号以驱动伺服枪的轴。
+2. 选择手动关闭或挤压操作的枪号。选择枪号的方法如下。
 
-    | **Gun type** |   Whether to change  | R code |
+    | **枪类型** |   是否更改  | R 代码 |
     | :-----: | :---------: | :--------------: |
-    | single gun |    For change of the welding gun  | R358 (welding gun connection/separation) |
-    |    single gun     | Not for change of the welding gun |   R210 (welding gun selection)  |
-    | Multiple guns |      -       |  R214 (selection of guns for simultaneous welding) |
+    | 单枪 |    更改焊枪  | R358 (焊枪连接/分离) |
+    |    单枪     | 不更改焊枪 |   R210 (焊枪选择)  |
+    | 多枪 |      -       |  R214 (同时焊接的枪选择) |
 
 
-3.  Check whether the following user keys are registerd.
+3. 检查以下用户键是否已注册。
 
 
 
-    |       **Wide opening**  |       **Narrow opening**    | **Manual squeezing**   |
+    |       **宽开口**  |       **窄开口**    | **手动挤压**   |
     | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
     | <img src="../_assets/image_86_eng.PNG"></img>|<img src="../_assets/image_16_eng.PNG"></img> | <img src="../_assets/image_43_eng.PNG"></img> |
 
 
-1.  When you press the `[SHIFT]+[user key]` at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
+1. 当同时按下 `[SHIFT]+[用户键]` 时，将执行以下操作。当选择多个枪时，所有选中的枪将以相同方式操作。
 
-    |                  **Servo gun**                 |
+    |                  **伺服枪**                 |
     | :--------------------------------------: |
     | <img src="../_assets/image_13_eng.PNG"></img> |
 
 
 
-The servo gun has the following characteristics during the manual closing and squeezing operations.
+在手动关闭和挤压操作期间，伺服枪具有以下特性。
 
-* The servo gun automatically stops at the wide opening position, the narrow opening position, and the position where the squeezing force reaches the set value.
-* The moving speed is the speed entered at **Step FWD/BWD maximum speed** by `[F7: cond.set]`.
-* If the set squeezing force is small, the servo gun will not move even when it is operated. Considering it, set a sufficient squeezing force (R211: Squeezing force setting).
-* When it comes to multiple guns, if there is a difference in the moving distance between two guns, the gun that reaches first will stop while the other gun will stop after moving as much as the remaining distance.
+* 伺服枪会自动停在宽开口位置、窄开口位置以及挤压力达到设定值的位置。
+* 移动速度为通过`[F7: 条件设置] ([F7: cond.set])`输入的 **步骤 FWD/BWD 最大速度**。
+* 如果设定的挤压力较小，即使操作也不会移动伺服枪。考虑到这一点，请设定足够的挤压力（R211: 挤压力设置）。
+* 当涉及多个枪时，如果两个枪之间的移动距离存在差异，先达到的枪会停止，而另一个枪则会在移动剩余距离后停止。
 
 <p align="center">
  <img src="../_assets/image_53_eng.PNG"></img>
- <em><p align="center">Figure 3.9 Spot gun manual operation</p></em>
+ <em><p align="center">图 3.9 点焊枪手动操作</p></em>
 </p>
-
 [__SOURCE](4-work-teaching/README.md)
-# 4. Work teaching
-
-
+# 4. 工作教学
 [__SOURCE](4-work-teaching/4-1-gun-search/README.md)
-# 4.1 Gun search
+# 4.1 枪搜索
 
-Gun search is a function to measure the consumption amount of an electrode. Use this function when you need to re-measure the consumption amount of the electrode after polishing it through tip dressing or after replacing the existing tip with a new one. If  the gun type is servo gun or equalizerless gun, the gun automatically compensates the squeezing position as much as the consumption amount when executing the spot command, which makes it essential to manage the consumption amount and shows that the accuracy of the consumption amount affects the welding quality.
+枪搜索是用于测量电极消耗量的功能。当需要在经过尖端修饰后重新测量电极的消耗量或在用新尖端替换现有尖端后使用此功能时。如果枪类型为伺服枪或无均衡器枪，枪在执行点命令时会自动根据消耗量补偿挤压位置，这使得管理消耗量至关重要，并显示消耗量的准确性影响焊接质量。
 
- The types of gun search provided by our company and their simple characteristics are as follows.
+我们公司提供的枪搜索类型及其简单特征如下。
 
 * gunsea
-  + This is the gun search function for a servo gun and is executed with one squeezing operation.
-  + The total consumption amount of the moving and fixed electrodes is measured and distributed according to the designated ratio.
-  + This function is used if the consumption ratio between the moving electrode and fixed electrode is the same or fixed.
+  + 这是伺服枪的枪搜索功能，通过一次挤压操作执行。
+  + 移动电极和固定电极的总消耗量被测量并根据指定比例分配。
+  + 如果移动电极与固定电极之间的消耗比例相同或固定，则使用此功能。
 
 * gunsea 2
-  + This is the gun search function for a servo gun and is executed with one squeezing operation and one moving operation.
-  + The total consumption amount of the moving and fixed electrodes is measured (one squeezing operation) and then the moving electrode consumption amount is measured separately.
-  + This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
+  + 这是伺服枪的枪搜索功能，通过一次挤压操作和一次移动操作执行。
+  + 移动电极和固定电极的总消耗量被测量（一次挤压操作），然后单独测量移动电极的消耗量。
+  + 如果移动电极与固定电极之间的消耗比例不固定，则使用此功能。
 
 * igunsea
-  + In the same way as gun search  2, this is the gun search function for a servo gun and executed with one squeezing operation and one moving operation. However, the moving electrode consumption amount is measured using a sensor.
-  + The total consumption amount of the moving and fixed electrodes is measured (one sequeezing operation) and then the moving electrode consumption amount is measured (one moving operation) separately.
-  + This function is used if the consumption ratio between the moving electrode and fixed electrode is not fixed.
+  + 与枪搜索 2 相同，这是伺服枪的枪搜索功能，通过一次挤压操作和一次移动操作执行。然而，移动电极的消耗量是通过传感器测量的。
+  + 移动电极和固定电极的总消耗量被测量（一次挤压操作），然后单独测量移动电极的消耗量（一次移动操作）。
+  + 如果移动电极与固定电极之间的消耗比例不固定，则使用此功能。
 
 * egunsea
-  + This is the gun search function for an equalizerless gun and, in the same way as the igunsea function, the consumption amount is measured by receiving a sensor signal.
+  + 这是无均衡器枪的枪搜索功能，与 igunsea 功能相同，消耗量是通过接收传感器信号测量的。
 
-</br>
-The gun search state can be checked from the /Monitoring/Spot section.
+<br>
 
+可通过 /Monitoring/Spot 部分检查枪搜索状态。
 [__SOURCE](4-work-teaching/4-1-gun-search/1-execute-order.md)
-### 4.1.1 Execution sequence
+### 4.1.1 执行顺序
 
 <p align="center">
  <img src="../../_assets/image_23_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.1 Gun search execution sequence of the servo gun</p></em>
+ <em><p align="center">图 4.1 伺服枪的枪械搜索执行顺序</p></em>
 </p>
 [__SOURCE](4-work-teaching/4-1-gun-search/2-command-sentence-about-gun-search.md)
-### 4.1.2 Commands related to gun search
-
+### 4.1.2 与枪搜索相关的命令
 
 (1) gunsea
 
- This is a statement to be used for executing gun search 1 when the gun type is servo gun or executing gun search 2 by using the squeezing force.
-
+这是在枪型为伺服枪时执行枪搜索 1 的语句，或通过使用挤压力执行枪搜索 2。
 
 ```gunsea gun=<gun number>,sea=<search number>,pre=<squeezing force>,spd=<search speed>```
 
-|   **Item**   | <p align="center">   **Content**   </p>| 
+|   **项目**   | <p align="center">   **内容**   </p>| 
 |:--------: | ----------------------------------------------------------------- |
-|   **Gun number**  |  the gun number to measure the tip length (array[ ] for multi inputs)  | 
-|  **Search number**  |  the gun search 1 operation or gun search operation 2             |
-|   **Squeezing force**  |  the command squeezing force for detection of squeezing force matching.(array[ ] for multi inputs)       |
-|  **Search speed**  |the operation speed of the gun's axis for the search operation (10 mm/s recommended)|
-
+|   **枪号**  |  用于测量尖端长度的枪号（多输入时为 array[ ]）  | 
+|  **搜索号**  |  枪搜索 1 操作或枪搜索操作 2             |
+|   **挤压力**  |  用于检测匹配的挤压力命令。（多输入时为 array[ ]）       |
+|  **搜索速度**  |枪的轴在搜索操作中的操作速度（建议 10 mm/s）|
 
 <br>
 
 {% hint style="info" %}
-[Use example]    
+[使用示例]    
 
-A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing force 100 kgf and 200 kgf respectively
+一个对于伺服枪 5 和 6 执行枪搜索 1 的案例，平衡力分别为 100 kgf 和 200 kgf
 
  --> ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
 
@@ -1023,183 +973,166 @@ A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing 
 ---
 (2) igunsea
 
-This is a statement to be used for executing gun search 2 based on the input signal when the gun type is servo gun.
+这是在枪型为伺服枪时根据输入信号执行枪搜索 2 的语句。
 
 ```igunsea gun=<gun number>,spd=<search speed>,di=<input signal>```
 
-|  **Item**  |   <p align="center">   **Content**   </p>  |
+|  **项目**  |   <p align="center">   **内容**   </p>  |
 | :------: | ---------------------------------------------------------------------- |
-| **Gun number** |  the gun number to search                  |
-| **Search speed** | the operation speed of the gun's axis for the search operation (10 mm/s recommended)|
-| **Input signal** |  the input signal address for the reception of the phottube output    |
+| **枪号** |  用于搜索的枪号                  |
+| **搜索速度** | 枪的轴在搜索操作中的操作速度（建议 10 mm/s）|
+| **输入信号** |  用于接收光电管输出的输入信号地址    |
 
 </br>
 
 ---
 (2) egunsea
 
-This is used when the gun type is equalizerless gun.
+这是在枪型为无平衡器枪时使用的。
 
 ```egunsea gun=<gun number>,spd=<search speed>,dist=<search distance>,di=<input signal>```
-
-|  **Item**  |  <p align="center">   **Content**   </p>   |
+|  **项目**  |  <p align="center">   **内容**   </p>   |
 | :------: | ---------------------------------------------------------------------- |
-| **Gun number** |   the gun number to search                                                            |
-| **Search speed** | the operation speed of the gun's axis for the search operation (10 mm/s recommended)  |
-| **Input signal** |  the input signal address for reception of the phot tube output |     
+| **枪号** |   要搜索的枪号                                                            |
+| **搜索速度** | 枪轴在搜索操作中的运行速度（推荐10 mm/s）  |
+| **输入信号** |  接收光电管输出的输入信号地址 |
 [__SOURCE](4-work-teaching/4-1-gun-search/3-gun-search-standard-position-record.md)
-### 4.1.3 Gun search reference position record
+### 4.1.3 枪搜索参考位置记录
 
-The consumption amount of an electrode is measured based on an unconsumed new tip. Therefore, the process of registering the reference position with a new tip is absolutely necessary at least once in the beginning, and this is called gun search reference position record.
+电极的消耗量是基于未消耗的新尖测量的。因此，使用新尖注册参考位置的过程在开始时至少必须执行一次，这被称为枪搜索参考位置记录。
 
 {% hint style="info" %}
-**The gun search reference position must be recorded at least once before the execution of gun search**
+**在执行枪搜索之前，必须至少记录一次枪搜索参考位置**
 {% endhint %}
 
- When it comes to the method of recording a gun search reference position, new tips should be attached first and then the recording should be executed according to the following procedures.
+ 关于记录枪搜索参考位置的方法，应该首先附上新尖，然后根据以下程序执行记录。
 
 
 <p align="center">
  <img src="../../_assets/image_51_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.2 Use environment setting screen</p></em>
+ <em><p align="center">图 4.2 使用环境设置屏幕</p></em>
 </p>
 
 
->1. Set 'Gun search reference position record' to 'enable'.
->2. Execute the created gun search program. In the spot monitoring screen, the state of the gun search will be initialized to 'incomplete'.
->3. Set 'Gun search reference position record' to 'disable'. After that, the amount of variation compared to the reference position will be calculated as a consumption amount by using the gun search program.
-
+>1. 将'枪搜索参考位置记录'设置为'启用'。
+>2. 执行创建的枪搜索程序。在现场监控屏幕上，枪搜索的状态将初始化为'不完整'。
+>3. 将'枪搜索参考位置记录'设置为'禁用'。之后，将使用枪搜索程序计算与参考位置相比的变化量作为消耗量。
 [__SOURCE](4-work-teaching/4-1-gun-search/4-1-4-gun-search-movements-by-gun-type/README.md)
-#### 4.1.4 Gun search operation by gun type
-
-
+#### 4.1.4 按枪类型进行枪支搜索操作
 [__SOURCE](4-work-teaching/4-1-gun-search/4-1-4-gun-search-movements-by-gun-type/1-servo-gun.md)
-#### 4.1.4.1 Servo gun
+#### 4.1.4.1 服务枪
 
-The gun search function of the servo gun is initially set in a way that the total electrode consumption amount reflects 50% of each of the fixed electrode consumption amount and moving electrode consumption amount. Therefore, the electrode consumption amount can be calculated by using only gun search 1. If you want to calculate the consumption amounts of the fixed and moving electrodes respectively, please refer to the description of gun search 2.
+服务枪的枪搜索功能最初设置为总电极消耗量反映固定电极消耗量和移动电极消耗量各50%。因此，可以仅通过枪搜索1来计算电极消耗量。如果您想分别计算固定电极和移动电极的消耗量，请参阅枪搜索2的说明。
 
 {% hint style="info" %}
-If the set value of **Moving electrode consumption amount/Total consumption amount (%)** is "0", the gun search 2 operation must be performed. If it is not "0", the total consumption amount will be distributed according to the set ratio through the gun search 1 operation.
+如果设置的**移动电极消耗量/总消耗量（%）**的值为“0”，则必须执行枪搜索2操作。如果不为“0”，总消耗量将通过枪搜索1操作按设置的比例进行分配。
 {% endhint %}
-
 
 <br>
 
-(1) Gun search 1  
-  - Measures the total electrode consumption amount by making the moving electrode squeeze the fixed electrode.
+(1) 枪搜索1  
+  - 通过使移动电极挤压固定电极来测量总电极消耗量。
 
 <p align="center">
  <img src="../../../_assets/image_47_eng.PNG"></img>
  <img src="../../../_assets/image_7_eng.PNG" width="55%"></img>
- <em><p align="center">Firgure 4.3 Gun search 1</p></em>
+ <em><p align="center">图4.3 枪搜索1</p></em>
 </p>
 
+1. 服务枪移动到步骤的记录位置。  
 
-1. The servo gun moves to the record position of the step.  
+2. 移动电极以达到设定的挤压力挤压固定电极。  
 
-2. The fixed electrode is squeezed with the moving electrode until the set squeeze force is reached.  
+3. 当检测到挤压力匹配时，测量总电极消耗量并执行开启操作。总电极消耗量 = 挤压力匹配检测位置 - 枪搜索1参考位置
 
-3.  When the squeezing force matching is detected, the total electrode consumption amount is measured and the opening operation is executed. Total electrode consumption amount = Squeezing force matching detection position  - gun search 1 reference position
+4. 服务枪打开到步骤的记录位置。  
 
-4. The servo gun opens up to the record position of the step.  
-
-5. In an environment where only gun search 1 is operating, the measured total electrode consumption amount is distributed according to the ratio between the moving electrode and fixed electrode as shown in the figure below. (default is 50 : 50.)
+5. 在仅运行枪搜索1的环境中，测量的总电极消耗量按移动电极与固定电极之间的比例进行分配，如下图所示。（默认是50 : 50。）
 
 <p align="center">
   <img src="../../../_assets/image_70_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.4 Calculation of the electrode consumption amount through gun search 1</p></em>
+ <em><p align="center">图4.4 通过枪搜索1计算电极消耗量</p></em>
 </p>
 
+(2) 枪搜索2
 
-(2) Gun search 2
+- 测量移动电极消耗量。可以通过使用挤压力或外部信号进行测量。
 
-- Measures the moving electrode consumption amount. The measurement can be performed by using a squeezing force or an external signal.
+-   **使用挤压力**
 
--   **By using a squeezing force**
+    通过使移动电极挤压校准夹具来测量移动电极消耗量。
 
-    Measures the moving electrode consumption amount by making the moving electrode squeeze the calibration jig.
+-   **使用外部信号**
 
--   **By using an external signal**
-
-    When the moving electrode moves to the position where the sensor is located and then the input from the sensor is detected, the moving electrode consumption amount is measured.
-
-<p align="center">
- <img src="../../../_assets/image_29_eng.PNG"></img>
- <img src="../../../_assets/image_4_eng.PNG" width="55%"></img>
- <em><p align="center">Figure 4.5 Gun search by using a squeezing force</p></em>
+    当移动电极移动到传感器所在的位置并检测到传感器输入时，测量移动电极消耗量。
+<img src="../../../_assets/image_29_eng.PNG"></img>
+<img src="../../../_assets/image_4_eng.PNG" width="55%"></img>
+<em><p align="center">图4.5 使用挤压力的枪搜索</p></em>
 </p>
 
 <Br>
 
-1. Movement to the record position of the step occurs.
+1. 发生步骤的记录位置移动。
 
-2. The calibration jig is squeezed with the moving electrode through searching unitil the set squeezing force is reached.
+2. 校准夹具通过搜索被移动电极挤压，直到达到设定的挤压力。
 
-3.  When the squeezing force matching is detected, the moving electrode consumption amount is detected and the opening operation is executed.   
-    - Moving electrode consumption amount = Squeezing force matching detection position - reference position for gun search 2 that uses the squeezing force
-    - Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount
+3. 当检测到匹配的挤压力时，检测移动电极的消耗量并执行开口操作。   
+    - 移动电极消耗量 = 挤压力匹配检测位置 - 用于枪搜索2的参考位置
+    - 固定电极消耗量 = 枪搜索1检测到的总消耗量 - 移动电极消耗量
 
-4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated. 
-
-
-
+4. 完成开口后，更新移动电极和固定电极的消耗量。 
 
 <p align="center">
- <img src="../../../_assets/image_79_eng.PNG"></img>
- <img src="../../../_assets/image_73_eng.PNG" width="55%"></img>
- <em><p align="center">Figure 4.6 Gun search 2 that uses an external signal input</p></em>
+<img src="../../../_assets/image_79_eng.PNG"></img>
+<img src="../../../_assets/image_73_eng.PNG" width="55%"></img>
+<em><p align="center">图4.6 使用外部信号输入的枪搜索2</p></em>
 </p>
 
 <Br>
 
-1. Movement to the record position of the step occurs.  
+1. 发生步骤的记录位置移动。  
 
-2. The moving electrode approaches at the search speed and switches the phototube contact signal.  
+2. 移动电极以搜索速度靠近并切换光电管接触信号。  
 
-3.  When a signal is detected by the photo tube, the moving electrode consumption amount is detected and the opening operation is executed.  
-    - Moving electrode consumption amount = External signal detection position - reference position for gun search 2 that uses the external signal
-    - Fixed electrode consumption amount = total consumption amount detected by gun search 1 - moving electrode consumption amount
+3. 当光电管检测到信号时，检测移动电极的消耗量并执行开口操作。  
+    - 移动电极消耗量 = 外部信号检测位置 - 用于外部信号的枪搜索2的参考位置
+    - 固定电极消耗量 = 枪搜索1检测到的总消耗量 - 移动电极消耗量
 
-4. When the opening is completed, the consumption amounts of the moving and fixed electrodes are updated.
-
+4. 完成开口后，更新移动电极和固定电极的消耗量。
 [__SOURCE](4-work-teaching/4-1-gun-search/4-1-4-gun-search-movements-by-gun-type/2-eqless-gun.md)
-#### 4.1.4.2 Equalizerless gun
+#### 4.1.4.2 无均衡器枪
 
-As an equalizerless gun only manages the consumption amount on the fixed electrode, so the gun search function here measures the fixed electrode consumption amount.
-
+由于无均衡器枪仅管理固定电极上的消耗量，因此这里的枪搜索功能测量固定电极的消耗量。
 
 <p align=center>
  <img src="../../../_assets/image_64_eng.PNG"></img>
  <img src="../../../_assets/image_34_eng.PNG" width="55%"></img>
- <em><p align="center">Figure 4.7 Gun search of an equalizerless gun</p></em>
+ <em><p align="center">图 4.7 无均衡器枪的枪搜索</p></em>
 </p>
 
 <br>
 
+1. 机器人移动到步骤的记录位置。
 
+2. 固定电极以搜索速度靠近并激活光电管接触信号。
 
-1. The robot moves to the recorded position of the step.
+3. 当光电管检测到信号时，测量固定电极的消耗量并执行开启操作。
 
-2. The fixed electrode approaches at the search speed and activates the phototube contact signal.
+   固定电极消耗量 = 传感器检测位置 − 枪搜索记录位置
 
-3. When the phototube detects a signal, the fixed electrode consumption amount is measured and the opening operation is executed.
-
-   Fixed electrode consumption  = sensor detection position − gun search recorded position
-
-4. When the opening operation is completed, the fixed electrode consumption amount is updated.
+4. 当开启操作完成时，固定电极的消耗量会被更新。
 [__SOURCE](4-work-teaching/4-2-spot-weld/README.md)
-# 4.2 Spot welding
+# 4.2 点焊
 
-While the fixed and moving electrodes are squeezing, the current flows from the welder, allowing the spot welding to be performed.
-
+在固定电极和移动电极挤压时，电流从焊接机流出，从而进行点焊。
 [__SOURCE](4-work-teaching/4-2-spot-weld/1-spot-command-sentence.md)
-### 4.2.1 Spot statement
+### 4.2.1 点焊说明
 
-If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the `[GUN]` key is turned on while the step is being recorded with the `[Record]` key, the `spot` statement will be recorded along with the `move` statement. (one-touch recording method)
+如果在点焊未完成时停止并重新启动点焊，则会再次执行点焊步骤。如果在利用 `[Record]` 键记录步骤时打开了 `[GUN]` 键，则 `spot` 语句将与 `move` 语句一起记录。（一键记录方法）
 
- When recording the welding step, if you make the fixed electrode contact the panel through a jogging operation and then record the `spot` statement in one-touch method, while squeezing the panel through a manual squeezing operation, the panel thickness will be set. Once the panel thickness is set, if you make the fixed electrode contact the panel through a jogging operation and then record the `spot` statement in one-touch method without a manual squeezing operation, the recording will take place by taking into consideration the position for which the panel thickness and the consumption amount are compensated.
+在记录焊接步骤时，如果通过操纵操作使固定电极接触面板，然后以一键方式记录 `spot` 语句，同时通过手动挤压操作挤压面板，则面板厚度将被设置。一旦面板厚度设置完成，如果通过操纵操作使固定电极接触面板，然后以一键方式记录 `spot` 语句而没有手动挤压操作，则记录将考虑面板厚度和消耗量补偿的位置。
 
-While the gun type is servo gun, if the `spot` statement exists during `[Position modification]`, the position will be automatically modified to a position for which the electrode consumption amount is compensated.
+当枪类型为伺服枪时，如果在 `[Position modification]` 期间存在 `spot` 语句，则位置将自动修改为补偿电极消耗量的位置。
 
 </br>
 
@@ -1208,13 +1141,13 @@ While the gun type is servo gun, if the `spot` statement exists during `[Positio
 
 <center>
 
-|   **Item**    |        **Content**       |
+|   **项目**    |        **内容**       |
 | :--------: |:---------: |
-|    **Gun number**    |  the welding gun number |
-|    **Condition number**   |  the welding condition |
-|   **Sequence number**  |  the welding sequence |
-|   **Pressure value**  |  the pressurization force value  |
-|   **Output data**  | the output value transmitted in 12-bit format |
+|    **枪编号**    |  焊接枪编号 |
+|    **条件编号**   |  焊接条件 |
+|   **序列编号**  |  焊接序列 |
+|   **压力值**  |  加压强度值  |
+|   **输出数据**  | 以12位格式传输的输出值 |
 
 </center>
 
@@ -1222,326 +1155,297 @@ While the gun type is servo gun, if the `spot` statement exists during `[Positio
 
 {% hint style="info" %}
 
-\[Example of use\]  
-- All parameters of  ```spot``` command can be entered in array format [ ] when using multiple guns.
+\[使用示例\]  
+- 使用多个枪时，```spot``` 命令的所有参数可以以数组格式 [ ] 输入。
 
 {% endhint %}
 
 {% hint style="info" %}
-\[Example of use\]  
-- When performing spot welding using servo guns 5 and 6 with welding conditions 7 and 8, welding sequences 9 and 10, and welding pressures of 100 kgf and 200 kgf, respectively.
+\[使用示例\]  
+- 当使用伺服枪 5 和 6 进行点焊，焊接条件为 7 和 8，焊接序列为 9 和 10，焊接压力分别为 100 kgf 和 200 kgf 时。
 
   ```spot gun=[5,6],cnd=[7,8],seq=[9,10],pre=[100,200]```
 
 {% endhint %}
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/README.md)
-### 4.2.2 Welding sequence by gun type
+### 4.2.2 按枪类型的焊接顺序
 
-The controller executes the `spot` statement in the program to make the welding work take place and the playback of the spot welding function may vary depending on gun type.
-
+控制器执行程序中的 `spot` 语句以进行焊接工作，点焊功能的播放可能会根据枪类型而有所不同。
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/1-servo-gun.md)
-### 4.2.2.1 Servo gun
+### 4.2.2.1 伺服枪
 
-If the gun type is servo gun, the spot welding function is played back as shown in the figure below.
+如果枪类型是伺服枪，则点焊功能如下面的图所示回放。
 
 <p align="center">
  <img src="../../../_assets/image_66_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.8 Playback motions of servo gun spot welding</p></em>
+ <em><p align="center">图 4.8 伺服枪点焊的回放动作</p></em>
 </p>
-
 
 <br>
 
+1. 在 N-1 步骤位置，移动电极和固定电极分别按移动电极间隙和固定电极间隙远离其记录位置。
 
-1. At the N-1 step position, the moving and fixed electrodes move away from their recorded positions by the moving electrode clearance and fixed electrode clearance, respectively.
+2. 通过机器人均衡操作，固定电极移动到步骤的记录位置，移动电极在消耗量的影响下移动到记录位置。
 
-2. Through the robot equalizing operation, the fixed electrode moves to the recorded position of the step, and the moving electrode moves to the recorded position while being shifted by the consumption amount.
+3. 移动电极使用指定的挤压力进行挤压操作。当达到目标挤压力时，在该位置输出焊接执行信号和焊接条件信号。
 
-3. The moving electrode performs the squeezing operation using the specified squeezing force. When the target squeezing force is reached, the welding execution signal is output together with the welding condition signal at that position.
+4. 当接收到焊接完成信号 (WI) 时，移动电极和固定电极按各自的间隙量打开。
 
-4. When the welding completion signal (WI) is received, the moving and fixed electrodes open by their respective clearance amounts.
-
-5. The system moves to the next step.
+5. 系统移动到下一步骤。
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/2-eqless-gun.md)
-### 4.2.2.2 Equalizerless gun
+### 4.2.2.2 无平衡器枪
 
-If the gun type is equalizerless gun, the spot welding function is played back as shown in the figure below.
+如果枪型是无平衡器枪，则点焊功能按照下图所示进行回放。
 
 <p align="center">
  <img src="../../../_assets/image_5_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.9 Playback of spot welding by ann equalizerless gun</p></em>
+ <em><p align="center">图 4.9 无平衡器枪的点焊回放</p></em>
 </p>
 
 <Br>
 
 
-1. At the N-1 step position, the fixed electrode moves away from the recorded position by the fixed electrode clearance.
+1. 在 N-1 步骤位置，固定电极离开记录位置，留出固定电极间隙。
 
-2. Through the robot equalizing operation, the fixed electrode moves to the recorded position of the step, and pneumatic pressure causes the moving electrode to squeeze the panel.
+2. 通过机器人平衡操作，固定电极移动到步骤的记录位置，气动压力使移动电极挤压面板。
 
-3. When the target squeezing force is reached, the welding execution signal is output together with the welding condition signal at that position.
+3. 当达到目标挤压力时，输出焊接执行信号和该位置的焊接状态信号。
 
-4. When the welding completion signal (WI) is received, the fixed electrode moves away from the recorded position by the fixed electrode clearance, and the moving electrode moves to a position where pneumatic pressure is not supplied.
+4. 当接收到焊接完成信号 (WI) 时，固定电极离开记录位置，留出固定电极间隙，移动电极移动到不供应气动压力的位置。
 
-5. The system moves to the next step.
+5. 系统移动到下一个步骤。
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/3-eq-gun.md)
-### 4.2.2.3 Equalizer-fitted gun
+### 4.2.2.3 配平器装配的枪
 
-If the gun type is equalizer-fitted gun, the spot welding function is played back as shown in the figure below.
+如果枪的类型是配平器装配的枪，如下图所示，点焊功能将被回放。
 
 <p align="center">
  <img src="../../../_assets/image_82_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.10 Playback of spot welding by an equalizer-fitted gun</p></em>
+ <em><p align="center">图4.10 配平器装配的枪的点焊回放</p></em>
 </p>
 
 <br>
 
+1. 在N-1步位置，机器人移动到记录的步骤位置。
 
+2. 焊接执行信号与焊接条件信号一起输出。
+配平装置使固定电极夹紧面板，气动压力使移动电极夹紧面板。
 
-1. At the N-1 step position, the robot moves to the recorded position of the step.
+3. 当接收到焊接完成信号（WI）时，固定电极移动到配平装置不活动的位置，移动电极移动到没有气动压力供应的位置。
 
-2. The welding execution signal is output together with the welding condition signal.
-The equalizing device causes the fixed electrode to squeeze the panel, and pneumatic pressure causes the moving electrode to squeeze the panel.
-
-3. When the welding completion signal (WI) is received, the fixed electrode moves to a position where the equalizing device is inactive, and the moving electrode moves to a position where pneumatic pressure is not supplied.
-
-4. The system moves to the next step.
+4. 系统移动到下一步。
 [__SOURCE](4-work-teaching/4-3-servo-gun-tip-dressing/README.md)
-# 4.3 Servo gun trip dressing
-
-
+# 4.3 伺服枪行程装饰
 [__SOURCE](4-work-teaching/4-3-servo-gun-tip-dressing/1-condition-setting.md)
-### 4.3.1 Condition setting
+### 4.3.1 条件设置
 
-The tip dressing condition for the servo gun can be set in `[F2: system] - 4: Application parameter - 1: Spot welding - 4: Welding data (Cnd, Seq) - 4:Servo gun tip dressing condition` Refer to the relevant menus.
-
+伺服枪的尖端修整条件可以在`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 4: 焊接数据（条件，序列） - 4:伺服枪尖修整条件 ([F2: system] - 4: Application parameter - 1: Spot welding - 4: Welding data (Cnd, Seq) - 4:Servo gun tip dressing condition)`中设置。请参阅相关菜单。
 [__SOURCE](4-work-teaching/4-3-servo-gun-tip-dressing/2-type-of-motion.md)
-### 4.3.2 Type of operation
+### 4.3.2 操作类型
 
-To perform a tip dressing operation using the servo tip dressing condition, the welding sequence number in the `spot` statement must be designated as 64 as shown below.
-
+要执行使用伺服尖端修整条件的尖端修整操作，`spot` 语句中的焊接序列号必须指定为 64，如下所示。
 
 <p align="center">
  <img src="../../_assets/image_77_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.11 Servo gun tip dressing operation</p></em>
+ <em><p align="center">图 4.11 伺服枪尖端修整操作</p></em>
 </p>
 
 <Br>
 
-1. At the N-1 step position, the moving electrode moves away from the recorded position by the amount of the moving electrode clearance, and the fixed electrode moves away from the recorded position by the amount of the fixed electrode clearance.
+1. 在 N-1 步骤位置，移动电极远离记录位置，移动电极的间隙量，固定电极远离记录位置，固定电极的间隙量。
 
-2. The robot moves to the recorded position of the step.
+2. 机器人移动到步骤的记录位置。
 
-3. The moving electrode performs the squeezing operation using the squeezing force set in the welding condition. When the target squeezing force is reached, the welding condition signal is output at that position. Whether the welding execution signal is also output at this time depends on the "Welding signal output" setting in the tip dressing condition.
+3. 移动电极使用焊接条件中设置的挤压力执行挤压操作。当达到目标挤压力时，在该位置输出焊接条件信号。此时是否输出焊接执行信号取决于尖端修整条件中的“焊接信号输出”设置。
 
-4. After the configured tip dressing time has elapsed, the moving and fixed electrodes open by their respective clearance amounts.
+4. 在配置的尖端修整时间经过后，移动电极和固定电极分别按其间隙量打开。
 
-5. The system moves to the next step.
+5. 系统移动到下一步骤。
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/README.md)
-# 4.4 Servo gun opening position recording
+# 4.4 伺服枪开口位置记录
 
-The recording of the spot welding step of the servo gun is usually performed according to the following procedure.
+伺服枪的点焊步骤记录通常根据以下程序进行。
 
-1. Check that the state is the one-touch record state. (\[GUN] key LED turned on.)
-2. Contact the fixed electrode of the servo gun to the workpiece.
-3. Squeeze the moving electrode to the workpiece by performing manual squeezing operation.
-4. Press the `[Record]` key to record the Spot statement together with the  step. -> Automatic registration of the panel thickness
-5. Separate the moving electrode with a manual closing operation.
-6. Movement to the next position occurs.
+1. 检查状态是否为一键记录状态。(\[GUN] 键 LED 亮起。)
+2. 将伺服枪的固定电极接触到工件上。
+3. 通过手动压紧操作将移动电极挤压到工件上。
+4. 按下`[Record]`键记录点焊说明以及步骤。 -> 自动注册面板厚度
+5. 通过手动闭合操作分离移动电极。
+6. 移动到下一个位置。
 
- Servo gun opening position recording is a procedure without the steps (3) and (5) above, making it possible to save a significant amount of time. For this, the controller should know the thickness of the panel to weld.
-
+伺服枪开口位置记录是一种省略上述步骤 (3) 和 (5) 的过程，可以节省大量时间。为此，控制器应了解要焊接的面板厚度。
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/4-4-1-panel-thickness-registration/README.md)
-### 4.4.1 Panel thickness registration
+### 4.4.1 面板厚度登记
 
-When it comes to the servo gun opening position recording, the position of the moving electrode will be calculated by using the pre-designated panel thickness, so the panel thickness should be registered. There are two provided methods of registering the panel thickness. One is that the user inputs it manually and the other is that the panel thickness is automatically registered while the panel is squeezed.
-
+在伺服枪开口位置记录时，移动电极的位置将通过使用预先指定的面板厚度来计算，因此必须注册面板厚度。提供了两种面板厚度登记的方法。一种是用户手动输入，另一种是面板在被挤压时自动登记面板厚度。
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/4-4-1-panel-thickness-registration/1-manual-input-method.md)
-### 4.4.1.1 Manual input method
+### 4.4.1.1 手动输入方法
 
-Execute "**R220: Set the panel thickness**" to input the panel thickness.
+执行 "**R220: 设置面板厚度**" 来输入面板厚度。
 
 
 <p align="center">
  <img src="../../../_assets/image_14_eng.PNG" ></img>
- <em><p align="center">Figure 4.12 Panel thickness input</p></em>
+ <em><p align="center">图 4.12 面板厚度输入</p></em>
 </p>
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/4-4-1-panel-thickness-registration/2-auto-registration-method.md)
-#### 4.4.1.2 Auto registration method
+#### 4.4.1.2 自动注册方法
 
-While the `[GUN]` key LED is turned on, perform manual squeezing and then press the `[Record]` key. Then the panel thickness will be automatically registered.
-
+当 `[GUN]` 键 LED 点亮时，执行手动挤压，然后按下 `[Record]` 键。然后面板厚度将自动注册。
 [__SOURCE](4-work-teaching/4-4-servo-gun-open-position-record/2-how-to-teaching.md)
-### 4.4.2 How to teach
+### 4.4.2 如何教学
 
-(1)  In a state that the panel thickness is registered, proceed with teaching while keeping the moving electrode open and only the fixed electrode in contact with the panel.
+(1) 在注册面板厚度的状态下，进行教学时保持移动电极开放，仅让固定电极与面板接触。
 
 
 
 <p align="center">
  <img src="../../_assets/image_83_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.13 Method of working when the panel thickness is the same</p></em>
+ <em><p align="center">图 4.13 面板厚度相同时的工作方法</p></em>
 </p>
 
 </br>
 
-(2) When the panel thickness is changed, perform teaching after registering the panel thickness again.
-
+(2) 当面板厚度改变时，请在重新注册面板厚度后进行教学。
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/README.md)
-# 4.5 Servo tool change
+# 4.5 伺服工具更换
 
-The servo tool change function is used to connect and separate the robot R1 axis and welding gun if there are two or more guns to perform work in combination with the robot R1 axis. For more details, refer to [Servo Tool Change Function Manual](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README?cont_model=${cont_model}).
-
+伺服工具更换功能用于在有两个或更多焊枪与机器人 R1 轴组合进行工作时，连接和分离机器人 R1 轴和焊枪。更多详细信息，请参阅 [Servo Tool Change Function Manual](https://hrbook-hrc.web.app/#/view/doc-svtool-change/zh/README?cont_model=${cont_model})。
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/README.md)
-### 4.5.1 Environment setting
+### 4.5.1 环境设置
 
-The environment setting for servo tool change can be progressed according to the following order.
+伺服工具更换的环境设置可以按照以下顺序进行。
 
-A.   Setting the tool number and gun type corresponding to the gun number
+A.   设置与枪号对应的工具编号和枪型
 
-B.   Setting the servo tool parameter
-
+B.   设置伺服工具参数
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/1-tool-number-gun-type-setting.md)
-### 4.5.1.1 Setting of the tool number and gun type corresponding to the gun number
+### 4.5.1.1 与枪号对应的工具编号和枪型的设置
 
-In the `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter` menu, set the gun type and tool number targeted for the servo tool change.
+在`[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)`菜单中，设置针对伺服工具更换的枪型和工具编号。
 
 <p align="center">
  <img src="../../../_assets/image_24_eng.PNG" width="90%"></img>
- <em><p align="center">Figure 4.14 Addition of a spot gun</p></em>
+ <em><p align="center">图4.14 点焊枪的添加</p></em>
 </p>
 
+图4.14显示了两个伺服枪的设置情况如下。
 
-The figure 4.14 shows a case in which two servo guns are set as below.
+* **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> 需要设置伺服工具参数
+* **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> 需要设置伺服工具参数
+* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> 不需要设置伺服工具参数
+* **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> 需要设置伺服工具参数
 
-* **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> Required to set the servo tool parameters
-* **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> Required to set the servo tool parameters
-* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> Not required to set the servo tool parameters
-* **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> Required to set the servo tool parameters
-
- In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.
-
+在设置为伺服枪的情况下，在伺服工具更换的目标中，相关伺服枪的伺服工具参数应如下一节所示进行设置。
 
 <br>
 
-
 {% hint style="warning" %}
- 
- All welding guns used for welding gun change must use the same welding controller.
-  
+
+所有用于焊接枪更换的焊接枪必须使用相同的焊接控制器。
+
 {% endhint %}
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/2-servo-tool-parameter-setting.md)
-### 4.5.1.2 Servo tool parameter setting
+### 4.5.1.2 伺服工具参数设置
 
- In the `[F2: system] - 4: Application parameter - 11: Servo tool change - 2: Servo tool parameter setting` menu, set the gun type and tool number targeted for the servo tool change.
+在`[F2: 系统] - 4: 应用参数 - 11: 伺服工具更换 - 2: 伺服工具参数设置 ([F2: system] - 4: Application parameter - 11: Servo tool change - 2: Servo tool parameter setting)`菜单中，设置用于伺服工具更换的枪类型和工具编号。
 
-If the gun targeted for servo tool change is a servo gun, you need to set the parameter of the servo gun you want to use because the currently set parameter for the additional axis and the parameter of the servo gun you want to use may be different. When another welding gun is used with the welding gun change function, the set parameter will replace the value of the existing parameter for the additional axis, as shown in the figure below, the same setting items as the parameter for the additional axis are used.
-
-
+如果用于伺服工具更换的枪是伺服枪，则需要设置您希望使用的伺服枪的参数，因为当前设置的附加轴参数与您希望使用的伺服枪参数可能会不同。当使用焊接枪更换功能时，设置的参数将替换附加轴现有参数的值，如下图所示，与附加轴参数相同的设置项将被使用。
 
 <p align="center">
  <img src="../../../_assets/image_67_eng.PNG" width="75%"></img>
- <em><p align="center">Figure 4.15 Application of the parameter for the additional axis during tool change</p></em>
+ <em><p align="center">图 4.15 工具更换过程中附加轴参数的应用</p></em>
 </p>
 
-
-The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
-
-
+伺服工具的参数设置项大多与附加轴的参数设置项相同。您需要在设置枪编号和枪类型的屏幕中添加您已设定的伺服枪。当点击确认按钮时，枪编号对应的附加轴编号将被自动设置。
 
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.16 Additional axis parameter setting screen</p></em>
+ <em><p align="center">图 4.16 附加轴参数设置屏幕</p></em>
 </p>
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/2-connection-separation-command.md)
-### 4.5.2 Connection/disconnection commands 
+### 4.5.2 连接/断开命令
 
-In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
+在伺服工具更换环境中，伺服枪的连接/分离可以通过以下两种方式进行。当伺服枪连接时，枪号和工具号会根据设定值自动变化，当伺服枪分离时，枪号和工具号会自动变为0。
 
 (1) R358
 
-This is a function for servo gun change by using a R code, and can be used in the motor on state (the enable switch is on) in manual mode.
+这是通过使用R代码进行伺服枪更换的功能，能够在手动模式下（使能开关开启）在马达开启状态下使用。
 
-Operation = **R358, #1, #2, #3**
+操作 = **R358, #1, #2, #3**
 
-| **Parameter** |   **#1**   | **#2** |    **#3**   |
+| **参数** |   **#1**   | **#2** |    **#3**   |
 | :------: | :--------: | :----: | :---------: |
-|    Meaning    |    Connection/separation   |   Axis specification  |     Gun number     |
-|   Set value   | Connection=1, Separation=0 |  Servo gun=1 | The number of the gun targeted for change |
+|    意义    |    连接/分离   |   轴规格  |     枪号     |
+|   设置值   | 连接=1, 分离=0 | 伺服枪=1 | 目标更换的枪号 |
 
-| Example of use | R358,1,1,2 (connects the servo gun G2) |
+| 使用示例 | R358,1,1,2（连接伺服枪G2） |
 | :--: | :--:|
-|      | R358,1,0 (separates the servo gun)      |
+|      | R358,1,0（分离伺服枪）      |
 
 <br>
 
 (2) toolchng
 
-This is a function for welding gun change through the execution of a work program. 
+这是通过执行工作程序进行焊接枪更换的功能。
 
-```toolchng on/off/fixed,tg=<target for change>,is=<connection complete signal>,wait=<connection completion wait time>```
+```toolchng on/off/fixed,tg=<目标更换>,is=<连接完成信号>,wait=<连接完成等待时间>```
 
-|     **on/off**  |       **on**       |      Connection of the servo tool     |      |
+|     **on/off**  |       **on**       |      伺服工具的连接     |      |
 | :-------------: | :----------------: | :-------------: | :------------------------: |
-|             |       **off**      |        Separation of the servo tool   |      |
-|      **Target for change**            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>array [ ] for multi guns</p>         | Connection/separation of the relevant additional axis  |
-|                         **Mechanical connection completion check signal**                        |     **1~4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |    <p>Parameter to be ignored in off state</p><p></p>          |  |     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0-5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
-|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0~5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |  <p>Parameter to be ignored</p><p>in off state</p>  |
+|             |       **off**      |        伺服工具的分离   |      |
+|      **目标更换**            |     **G1\~G16**    |         <p>连接/分离焊接枪的编号</p><p>多枪数组 [ ]</p>         | 相关附加轴的连接/分离  |
+|                         **机械连接完成检查信号**                        |     **1~4096**    | <p>机械连接完成检查的输入信号编号</p> |    <p>在断开状态下忽略的参数</p><p></p>          |  |     <p><strong>连接完成</strong></p><p><strong>等待时间</strong></p>     | **\<0-5.0> (秒)** | <p>连接完成等待时间</p><p>（如果没有参数或值为0，则无限等待）</p> |          <p>在断开状态下忽略的参数</p><p></p>          |
+|     <p><strong>连接完成</strong></p><p><strong>等待时间</strong></p>     | **\<0~5.0> (秒)** | <p>连接完成等待时间</p><p>（如果没有参数或值为0，则无限等待）</p> |  <p>在断开状态下忽略的参数</p>  |
 
-
-Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.
-
+连接完成只有在机械连接和机器人控制器内部处理完成后才会被最终确认。连接完成等待时间是等待上述两个过程都完成的时间。
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/3-connection-separation-timing.md)
-### 4.5.3 Connection/disconnection timing
-
+### 4.5.3 连接/断开时机
 
 <p align="center">
  <img src="../../_assets/image_10_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 4.17 Connection and seperation timing chart</p></em>
+ <em><p align="center">图 4.17 连接和分离时机图</p></em>
 </p>
 
-*   Connection
+*   连接
 
-    If the robot and servo gun are mechanically connected during the execution of the connection command (toolchng on), the connection completion signal will be entered, the connection will be processed inside the controller, the encoder power for driving the axis of the servo gun will be entered, and the motor on operation will be executed.
+    如果机器人和伺服枪在执行连接命令（toolchng on）期间机械连接，则连接完成信号将被输入，连接将在控制器内部处理，伺服枪驱动轴的编码器电源将被输入，并将执行电机运行。
 
-*   Disconnection
+*   断开
 
-     The separation command will execute the processing of the separation according to the sequence opposite to that of the connection command.
-
+     分离命令将根据与连接命令相反的顺序执行分离处理。
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-sample-program.md)
-### 4.5.4 Sample program
+### 4.5.4 示例程序
 
 
 <br>
 
 ```python
 
-S10   move L, ...                    # Move to servo tool disengagement position
-      toolchng off,tg=G1,is=di1      # Execute servo tool disengagement (current connection state)
-                                     # Servo tool disengagement output (dedicated output)
-      do11=1                         # ATC cam open output
-      wait di11                      # Check ATC cam open completion signal
-S11   move L, ...                    # Robot movement
-S12   move L, ...                    # Robot movement
-S13   move L, ...                    # Robot movement
-S14   move L, ...                    # Move to servo tool connection position
-      wait di12                      # Check connection-ready signal
-      do11=0                         # ATC cam close output
-      toolchng on,tg=G1,is=di1       # Execute mechanical connection
-                                     # Servo tool connection processing
-S15   move L, ...                    # Robot movement
+S10   move L, ...                    # 移动到伺服工具脱离位置
+      toolchng off,tg=G1,is=di1      # 执行伺服工具脱离（当前连接状态）
+                                     # 伺服工具脱离输出（专用输出）
+      do11=1                         # ATC 凸轮打开输出
+      wait di11                      # 检查 ATC 凸轮打开完成信号
+S11   move L, ...                    # 机器人移动
+S12   move L, ...                    # 机器人移动
+S13   move L, ...                    # 机器人移动
+S14   move L, ...                    # 移动到伺服工具连接位置
+      wait di12                      # 检查连接准备信号
+      do11=0                         # ATC 凸轮关闭输出
+      toolchng on,tg=G1,is=di1       # 执行机械连接
+                                     # 伺服工具连接处理
+S15   move L, ...                    # 机器人移动
 
 ```
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/5-fixed-toolchng.md)
-### 4.5.5 Servo gun change with position-variable fixed electrodes  
+### 4.5.5 带位置可变固定电极的伺服枪更换  
 
+当整个伺服枪被更换时，需要额外的设备，如ATC（自动换刀器）和枪架。然而，通过操作一个移动电极保持固定、仅更换固定电极的系统，则不需要额外设备，并且可以减少换装所需的时间。
 
+为了支持此功能，必须管理每个固定电极的磨损量和软限制。因此，要求进行类似于焊接枪更换（伺服工具更换）功能的操作。因此，在使用此功能之前，用户必须先熟悉焊接枪更换（伺服工具更换）功能。
 
-When the entire servo gun is replaced, additional equipment such as an ATC (Automatic Tool Changer) and a gun stand is required. However, by operating a system in which the moving electrode remains fixed and only the fixed electrode is changed, no additional equipment is necessary, and the time required for changeover can be reduced.
-
-To support this function, wear amount and soft limits must be managed for each fixed electrode. Therefore, an operation similar to the Welding Gun Change (Servo Tool Change) function is required. Accordingly, before using this function, users must first become familiar with the Welding Gun Change (Servo Tool Change) function.
-
-The difference between this function and the Servo Gun Change function is that no mechanical or electrical connection/disconnection operations are performed. In addition, since the motor and encoder information always remain the same, these data are not updated.
+该功能与伺服枪更换功能的区别在于不执行任何机械或电气连接/断开操作。此外，由于电机和编码器信息始终保持不变，因此这些数据不会被更新。
 
 <br>
 
@@ -1558,60 +1462,56 @@ S13   move L, ...                    # Robot movement
 
 ```
 [__SOURCE](4-work-teaching/4-6-multi-gun-simultaneous-weld/README.md)
-# 4.6 Simultaneous welding with multiple guns
+# 4.6 同时使用多个焊枪进行焊接
 
-In general, spot welding is performed with one welding gun at a time. The function of simultaneous welding with multiple guns is the act of welding with multiple welding guns at the same time. For this, the gun type (servo gun, equalizerless gun, or equalizer-fitted gun) should be all the same.
-
+一般来说，点焊是一次使用一个焊枪进行的。同时使用多个焊枪的焊接功能是指同时使用多个焊枪进行焊接。为此，焊枪类型（伺服焊枪、无平衡器焊枪或带平衡器焊枪）必须完全相同。
 [__SOURCE](4-work-teaching/4-6-multi-gun-simultaneous-weld/1-multi-gun-manual-selection.md)
-### 4.6.1 Manual selection of multiple guns
+### 4.6.1 手动选择多个枪
 
 <p align="center">
  <img src="../../_assets/image_32_eng_.PNG" width="60%"></img>
- <em><p align="center">Figure 4.19 Screen with multi-gun applied</p></em>
+ <em><p align="center">图 4.19 应用多枪的屏幕</p></em>
 </p>
 
-The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.
+通过伺服工具更换功能选择 G1（主枪）和 G2（从枪）作为多个枪的程序如下。
 
-1. Select `R358` and then connect G1. After the connection is completed, the parameter related to the additional axis to which G1 is assigned should be set.
-2. Select `R358` and then connect G2. After the connection is completed, the parameter related to the additional axis to which G2 is assigned should be set.
-3. The state of the selected gun is indicated in state flag as follows.
+1. 选择 `R358` 然后连接 G1。连接完成后，应设置与 G1 分配的附加轴相关的参数。
+2. 选择 `R358` 然后连接 G2。连接完成后，应设置与 G2 分配的附加轴相关的参数。
+3. 所选枪的状态在状态标志中如下所示。
 
 <br>
 
 {% hint style="info" %}
-* `R210` for changing the master gun number
-  - Environment with a single gun  --> `R210 + 3`  --> Environment with a single gun (Example: G1  --> G3)
-  - Environment with multiple guns  --> `R210 + 1`  --> Environment with a single gun (Example: G1 and G3  --> G1)
-* `R214` for selecting multiple guns
-  -  When selecting another number different from the set gun number
+* `R210` 用于更改主枪编号
+  - 单枪环境  --> `R210 + 3`  --> 单枪环境（示例：G1  --> G3）
+  - 多枪环境  --> `R210 + 1`  --> 单枪环境（示例：G1 和 G3  --> G1）
+* `R214` 用于选择多个枪
+  -  当选择与设定枪编号不同的另一个编号
 
-      A. Environment with a single gun  --> `R214 + 3`  --> Environment with multiple guns (Example: G1  --> G1 and G3)
+      A. 单枪环境  --> `R214 + 3`  --> 多枪环境（示例：G1  --> G1 和 G3）
 
-      B. Environment with multiple guns  --> `R214 + 2`  --> Environment with multiple guns(Example: G1 and G3  --> G1, G3, and G2)
-  -  When selecting the same number as the set gun number
+      B. 多枪环境  --> `R214 + 2`  --> 多枪环境（示例：G1 和 G3  --> G1、G3 和 G2）
+  -  当选择与设定枪编号相同的编号
 
-      A. Environment with multiple guns  --> `R214 + 3`  -->  Environment with multiple guns(Example: G1, G3 and G2  --> G1 and G2)
+      A. 多枪环境  --> `R214 + 3`  -->  多枪环境（示例：G1、G3 和 G2  --> G1 和 G2）
 
-      B. Environment with multiple guns  --> `R214 + 1`  --> Environment with a single gun (Example: G1 and G2  --> G1)
+      B. 多枪环境  --> `R214 + 1`  --> 单枪环境（示例：G1 和 G2  --> G1）
 
-      C. The master gun number (G1) does not change.  
+      C. 主枪编号（G1）不变。  
 {% endhint %}
-
-
 [__SOURCE](4-work-teaching/4-6-multi-gun-simultaneous-weld/2-support-function.md)
-### 4.6.2 Support functions
+### 4.6.2 支持功能
 
-The functions to be provided for simultaneous weldig with multiple guns are as follows.
+同时使用多个焊枪的功能如下：
 
-1. Manual opening and closing
-2. Manual squeezing
-3. `spot` statement
-4. `gunsea` statement
-
+1. 手动打开和关闭
+2. 手动挤压
+3. `spot` 语句
+4. `gunsea` 语句
 [__SOURCE](4-work-teaching/4-7-panel-thickness-abnormal-detection-when-servo-gun-welding.md)
-# 4.7  Detection of panel thickness abnormality
+# 4.7 检测面板厚度异常
 
- This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the `thickcheck` statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
+这是一个在焊接过程中利用伺服枪测量面板厚度以检测零部件的任何异常和材料安装缺失的功能。该功能可以通过添加 `thickcheck` 语句简单执行。面板厚度是否异常应根据测量值是否在正常范围内来判断。
 
 <br>
 
@@ -1625,115 +1525,103 @@ thickcheck thick=<thickness variable>, ref=<reference value>, tol=<tolerance val
 
 * **thick**
 
-    Specipies the variable to store the measured panel thickness by squeezing the servo gun.
+    指定通过挤压伺服枪来存储测量的面板厚度的变量。
 
 * **ref**
 
-    Specipies the normal panel thickness.
+    指定正常面板厚度。
 
 * **tol**
 
-    Specipies the tolerance.
+    指定容差。
 
 * **addr(branch line)**
 
-   Specipies the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation "**E1493 Measured panel thickness exceeded the normal range**" occurs and then the robot stops and the output signal set in the "**Panel thickness abnormal**" section is turned on. If the branch line is recorded, the situation "**W0152 Measured panel thickness exceeded the normal range**" occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the "**Panel thickness abnormal**" section is turned on only for 200 ms.
+   指定检测到面板异常时的处理方法。如果未记录分支线，则出现情况 "**E1493 测量的面板厚度超过正常范围**"，然后机器人停止，并且在“**面板厚度异常**”部分设置的输出信号被打开。如果记录了分支线，则出现情况 "**W0152 测量的面板厚度超过正常范围**"，机器人将继续操作，因为程序跳转到分支线。在这种情况下，“**面板厚度异常**”部分设置的输出信号仅在 200 毫秒内开启。
 
- *  Sample code 
+ *  示例代码 
 
 ```python
 
-S10   move L, ...                               # Move to a spot point
-      thickcheck thick=v0,ref=4.0,tol=1.0       # Check the panel thickness
-      spot gun=1, cnd=1, seq=1                  # perform spot welding
+S10   move L, ...                               # 移动到一个点
+      thickcheck thick=v0,ref=4.0,tol=1.0       # 检查面板厚度
+      spot gun=1, cnd=1, seq=1                  # 执行点焊
 
 ```
 <Br>
 
 {% hint style="warning" %}  
-The following should be in place first for accurate measurement of the panel.
+首先应确保以下内容到位，以便准确测量面板。
 
-1. Gun search (precise management of the consumption amounts of the moving and fixed electrodes)
-2. Setting of gun arm deflection amount (Setting of the gun arm deflection amount for each squeezing force)
-3. Setting of panel thickness(Setting of the panel thickness for each squeezing force)
+1. 炮口搜索（对移动和固定电极的消耗量进行精确管理）
+2. 炮臂偏转量设置（根据每个挤压力设置炮臂的偏转量）
+3. 面板厚度设置（根据每个挤压力设置面板厚度）
 {% endhint %}
 
-
-
 [__SOURCE](4-work-teaching/4-8-servo-gun-based-work-product-handling.md)
-# 4.8 Handling of workpieces with the servo gun
+# 4.8 使用伺服枪处理工件
 
- This is a function to transport a workpiece in small size without using a separate hanger.
+这是一个在不使用单独挂架的情况下运输小型工件的功能。
 
 <p align="center">
  <img src="../_assets/image_52_eng_.PNG" width="50%"></img>
- <em><p align="center">Figure 4.21 Servo gun's handling function</p></em>
+ <em><p align="center">图 4.21 伺服枪的处理功能</p></em>
 </p>
 
 </br>
 
 ```svclamp on/off gun=<gun number>,cnd=<condition number>```
 
-
-
-
-|   **Item**    |        **Content**       |
+|   **项目**    |        **内容**       |
 | :--------: |:---------: |
-|    **on/off**    |  on: clamping, off: releasing |
-|    **Gun number**    |  the welding gun number (array [ ] for multi-guns) |
-|    **Condition number**   |  the welding condition |
+|    **开/关**    |  开：夹紧，关：释放 |
+|    **枪编号**    |  焊接枪编号（用于多枪的数组 [ ]） |
+|    **条件编号**   |  焊接条件 |
 
 
 <br>
 
-
-
-The `svclamp` statement can be used to hold a workpiece and perform opening operation. In the svclamp on state, the servo gun does not open.
-
-
+`svclamp` 语句可用于固定工件并执行打开操作。在 svclamp 开启状态下，伺服枪不会打开。
 
 <br>
 
 ```python
 
-S10   move L, ...                    # Move to a holding position
-      svclamp on, gun=1, cnd=1       # Hold the workpiece using a servo gun
-S11   move L, ...                    # Robot movement
-S12   move L, ...                    # Robot movement
-S13   move L, ...                    # Move to a releasing position
-      svclamp off, gun=1, cnd=1      # Release the workpiece 
-S12   move L, ...                    # Robot movement
+S10   move L, ...                    # 移动到固定位置
+      svclamp on, gun=1, cnd=1       # 使用伺服枪固定工件
+S11   move L, ...                    # 机器人移动
+S12   move L, ...                    # 机器人移动
+S13   move L, ...                    # 移动到释放位置
+      svclamp off, gun=1, cnd=1      # 释放工件 
+S12   move L, ...                    # 机器人移动
 
 ```
 [__SOURCE](4-work-teaching/4-9-spot-weld-calculation.md)
-# 4.9 Calculation of spots in spot welding
+# 4.9 点焊中点数的计算
 
-The function for storing spot welding point counts is provided by the built-in PLC. The PLC stores the number of welding points for initialization, power-on, the previous cycle, and the current cycle, respectively, and the user can reset these values manually.
+用于存储点焊点计数的功能由内置PLC提供。PLC分别存储初始化、上电、前一个周期和当前周期的焊接点数，用户可以手动重置这些值。
 
-For more details, refer to "[3.4.3 S Relay - OP_TIME](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/en/3-relay/4-sw-relay/3-slot-op-time?cont_model=${cont_model})" in the Built-in PLC Manual.
+有关更多详细信息，请参阅内置PLC手册中的 "[3.4.3 S Relay - OP_TIME](https://hrbook-hrc.web.app/#/view/doc-hi6-embedded-plc/zh/3-relay/4-sw-relay/3-slot-op-time?cont_model=${cont_model})"。
 
 
 <p align="center">
  <img src="../_assets/image_94_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.22 Spot count</p></em>
+ <em><p align="center">图 4.22 点数</p></em>
 </p>
 
 </br>
 
 {% hint style="warning" %}
-The spot command executed in the sub task will not be calculated.
+在子任务中执行的点命令将不会被计算。
 {% endhint %}
-
-
 [__SOURCE](4-work-teaching/4-10-amount-of-abrasion-setting.md)
-# 4.10 Consumption amount setting
+# 4.10 消费量设置
 
-Consumption amount information for the spot gun can be accessed using spot system variables. The spot system variables display the wear amount of the moving electrode, the fixed electrode, and the total wear amount for each gun. These values can be modified or read using variable assignment statements in the command window.
-
+喷嘴的消费量信息可以通过点焊系统变量访问。点焊系统变量显示移动电极、固定电极的磨损量以及每个喷嘴的总磨损量。这些值可以通过命令窗口中的变量赋值语句进行修改或读取。
 
 <p align="center">
  <img src="../_assets/image_93_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.23 Spot tip-consumption system variable</p></em>
+ <em><p align="center">图 4.23 点焊喷嘴消费系统变量</p></em>
 </p>
 
 </br>
@@ -1741,636 +1629,555 @@ Consumption amount information for the spot gun can be accessed using spot syste
 <br>
 
 {% hint style="warning" %}
-- This variable can apply only to servo and equalizerless guns. 
-- In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.  
-- Any manually set wear amount values will be overwritten by the measured values after a gun search is performed.  
+- 此变量仅适用于伺服枪和无调节枪。 
+- 对于无调节枪，总消费量等于固定电极消费量。  
+- 任何手动设置的磨损量值将在执行枪搜索后被测量值覆盖。  
 {% endhint %}
-
 [__SOURCE](5-spot-weld-parameter/README.md)
-# 5.  Spot welding parameters
-
-
+# 5.  点焊参数
 [__SOURCE](5-spot-weld-parameter/5-1-use-environment-setting.md)
-# 5.1 Use environment setting
+# 5.1 使用环境设置
 
-Sets the use environment related to spot welding to perform appropriate operation for given situations.
+设置与点焊相关的使用环境，以便在给定情况下执行适当的操作。
 
 <p align="center">
  <img src="../_assets/image_20_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 5.1 Spot use environment setting screen</p></em>
+ <em><p align="center">图 5.1 点焊使用环境设置屏幕</p></em>
 </p>
 
 </br>
 
-(1)  **Servo gun spot statement execution method**
-  - During the execution of the `spot` statement, if the selected gun type is a servo gun, the squeezing operation and welding signal output can be inhibited regardless of the welding sequence. This function is useful for verifying the teaching position. The spot welding execution sequence will vary depending on the status of this setting.
-
+(1)  **伺服枪点焊语句执行方法**
+  - 在执行 `spot` 语句期间，如果选择的枪类型是伺服枪，则可以抑制挤压操作和焊接信号输出，而不受焊接顺序的影响。此功能对验证教学位置非常有用。点焊执行顺序将根据此设置的状态而有所不同。
 
 <center>
 
-|Output method| <p align=center> Content </p>|  
+|输出方法| <p align=center> 内容 </p>|  
 |:---:|----------------------------------------------------|  
-|Wd-On|Executes every welding sequence designated in the spot welding function. </br> Clearance position  --> Squeezing  --> Squeezing force matching inspection  --> Welding signal output </br>  --> Welding completion wait  --> Clearance position |
-|Sq-On|Executes the welding sequence except for the signals related to welding. </br> Clerance position  --> Squeezing  --> Squeezing force matching inspection  --> Clerance position|
-|Sq-Off|Does not perform squeezing operation, electrification signal output, WI wait, etc.</br>Clearance position|
+|Wd-On|执行点焊功能中指定的每个焊接序列。 </br> 清空位置  --> 挤压  --> 挤压力匹配检查  --> 焊接信号输出 </br>  --> 焊接完成等待  --> 清空位置 |
+|Sq-On|执行焊接序列，但不包括与焊接相关的信号。 </br> 清空位置  --> 挤压  --> 挤压力匹配检查  --> 清空位置|
+|Sq-Off|不执行挤压操作、电气信号输出、WI 等待等。</br>清空位置|
 
 </center>
 
 
 </br>
 
-(2)  **Gun search reference position record**
-  - In the case of a gun type (servo gun, equalizerless gun) for which the controller manages the tip consumption amount, the reference position should be determined first, and then the actual c35onsumption amount will be calculated based on it.
+(2)  **枪搜索参考位置记录**
+  - 对于控制器管理枪头消耗量的枪类型（伺服枪、无平衡枪），应首先确定参考位置，然后基于此计算实际消耗量。
     
-  - disable  
-   The actual consumption amount is calculated based on the determined reference position.
-  - enable  
-    As the reference position is to be determined to calculate the consumption amount,  it would be no problem to perform recording once initially while new tips are attached.
+  - 禁用  
+   实际消耗量是基于确定的参考位置计算的。
+  - 启用  
+    由于参考位置需要确定以计算消耗量，因此在新枪头安装时，初次记录一次是没有问题的。
 
+(3)  **伺服枪力的单位**  
+  - 选择用于伺服枪控制的挤压力单位。
 
-(3)  **Unit of the servo gun force**  
-  - Selects the unit of the squeezing force for the control of the servo gun.
+(4)  **伺服枪焊接步骤记录位置的自动调整**
+  - 选择是否在执行 `spot` 语句期间，考虑在枪头挤压时测量的面板厚度来调整 `move` 语句中记录的伺服枪位置。完成教学或伺服枪发生变形后，将其设置为“启用”。之后，在自动模式下播放工作程序一次，然后根据最佳条件简单调整记录位置。凭借这些功能，此功能可以得到有效应用。
 
-(4)  **Automatic adjustment of servo gun welding step record position**
-  - Selects whether to adjust the position of the servo gun in the `move` statement recorded in consideration of the panel thickness measured while the gun is squeezed during the execution of the `spot` statement. Set it to "enable" after teaching is completed or deformation of the servo gun has occurred. After that, play back the work program once in automatic mode, then the record position will be simply adjusted based on optimal conditoins. With those features, this function can be usefully applied.
-
-(5) **Servo Gun Real-Time Data Storage Function**
-  - During spot welding, specified data are saved to a file at 2 ms intervals. The stored data can be used for welding quality inspection and analysis.
+(5) **伺服枪实时数据存储功能**
+  - 在点焊期间，指定数据以 2 毫秒的间隔保存到文件中。存储的数据可用于焊接质量检查和分析。
       
-      -  Collection time, position, current, pressurization force, welding progress status    
+      -  收集时间、位置、电流、加压力、焊接进度状态    
 
 <p align="center">
  <img src="../_assets/image_20_1_eng.png" width="70%"></img>
- <em><p align="center">Figure 5.1.1 Real-Time Data Storage</p></em>
+<em><p align="center">图 5.1.1 实时数据存储</p></em>
 </p>
   
-  - Each time a gun search is performed, specified data are saved to a file.
+  - 每次执行枪搜索时，指定数据将保存到文件中。
       
-      -  Collection time, robot tool-end position, moving electrode wear amount, fixed electrode wear amount
+      -  收集时间，机器人工具末端位置，移动电极磨损量，固定电极磨损量
 
 <p align="center">
  <img src="../_assets/image_20_2_eng.png" width="70%"></img>
- <em><p align="center">Figure 5.1.2 Gun Search Data Storage</p></em>
+ <em><p align="center">图 5.1.2 枪搜索数据存储</p></em>
 </p>
 
 <br>
 
 {% hint style="info" %}  
- To enable this function, the "Spot Welding Option Function" must be set to Enabled on the license key registration screen.  
+ 要启用此功能，必须在许可密钥注册屏幕上将“点焊选项功能”设置为启用。  
 {% endhint %}
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/README.md)
-# 5.2 Welding gun parameter
+# 5.2 焊接枪参数
 
-If the gun type is servo gun or equalizerless gun, individual parameters can be set for each gun.
-
-
+如果枪类型是伺服枪或无平衡枪，则可以为每把枪设置单独的参数。
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/README.md)
-### 5.2.1 Servo gun
+### 5.2.1 伺服枪
 
- Servo guns are currently the most widely used type of spot welding gun. Since the servo gun is controlled as an additional axis separate from the robot axes, extensive control settings are required in addition to the auxiliary axis configuration.
-
+ 伺服枪是目前最广泛使用的点焊枪类型。由于伺服枪作为与机器人轴分开的附加轴进行控制，因此除了辅助轴配置之外，还需要 extensive 控制设置。
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/README.md)
-### 5.2.1.1 Servo gun default setting
+### 5.2.1.1 伺服枪默认设置
 
 <p align=center>
 <img src="../../../../_assets/image_44_eng.PNG" width="70%"></img>
 <img src="../../../../_assets/image_87_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.2 Servo gun default setting screen</p></em>
+<em><p align="center">图 5.2 伺服枪默认设置屏幕</p></em>
 </p>
 
-(1)  **Manual stroke distance (mm)**  
-  Specifies the target position for performing wide and narrow opening operations of the servo gun using the user key.
+(1)  **手动行程距离 (mm)**  
+  指定伺服枪在使用用户键进行宽和窄开口操作时的目标位置。
 
-(2)  **Maximum tip consumption (mm)**  
-  If the moving or fixed electrode consumption amount detected through gun search exceeds the set value, an error will be generated and operation will stop.
+(2)  **最大尖端消耗 (mm)**  
+  如果通过枪搜索检测到的移动或固定电极消耗量超过设定值，将产生错误并停止操作。
 
-(3)  **Tip change consumption (mm)**  
-  If the moving or fixed electrode consumption amount detected by gun search exceeds the value set here, an electrode consumption alarm signal will be output together with a warning message to indicate that electrode replacement is required.
-  If it is set to 0.0 mm, no abnormality will be detected.
+(3)  **尖端更换消耗 (mm)**  
+  如果通过枪搜索检测到的移动或固定电极消耗量超过此处设定的值，将输出电极消耗报警信号，并伴随警告信息以指示需要更换电极。  
+  如果设置为 0.0 mm，则不会检测到任何异常。
 
-(4)  **Bend offset per 100kgf (mm)**  
-  Sets the gun arm deflection caused by the squeezing force as a deflection amount per 100 kgf. During spot welding, the squeezing operation is performed by calculating the gun arm deflection based on both this setting and the commanded squeezing force.
-
+(4)  **每100kgf的弯曲偏移 (mm)**  
+  将由于夹紧力引起的枪臂弯曲设置为每100 kgf的弯曲量。在点焊过程中，通过根据此设置和指令夹紧力计算枪臂弯曲来执行夹紧操作。
 
 <p align=center>
 <img src="../../../../_assets/image_50_eng.PNG" ></img>
-<em><p align="center">Figure 5.3 Gun arm deflection amount/100Kgf graph</p></em>
+<em><p align="center">图 5.3 枪臂弯曲量/100Kgf 图</p></em>
 </p>
 
-(5)  **Pressure tolerance (%)**  
-  During the squeezing force matching process, force matching is considered complete when the actual squeezing force falls within the specified accuracy range of the commanded squeezing force.
-  If this value is set to 0, the notification "W0110: Set in a way that squeezing force detection does not occur" will be displayed, and squeezing force matching will not be performed.
+(5)  **压力公差 (%)**  
+  在夹紧力匹配过程中，当实际夹紧力落在指令夹紧力的指定精度范围内时，认为力匹配已完成。  
+  如果此值设置为 0，将显示通知 "W0110: 设置为不发生夹紧力检测的方式"，并且不进行夹紧力匹配。
 
-(6)  **Press fault check time (s)**  
+(6)  **按压故障检查时间 (s)**  
 
-  Sets the time from the start of squeezing until squeezing force matching is achieved.
+  设置从开始夹紧到实现夹紧力匹配的时间。
 
-  If squeezing force matching occurs within this time, the welding signal will be output immediately. If squeezing force matching does not occur within this time, the notification "E1314: Exceeds the time for detection of abnormal squeezing force" will be issued and operation will stop.
+  如果在此时间内发生夹紧力匹配，将立即输出焊接信号。如果在此时间内未发生夹紧力匹配，将发出通知 "E1314: 超过异常夹紧力检测时间"，并停止操作。
 
-  If the time is set to 0.0 sec, squeezing force matching  detection will continue to wait.
+  如果时间设置为 0.0 秒，夹紧力匹配检测将继续等待。
 
+(7)  **指令偏移 (mm)**  
+  执行 `spot` 语句时，伺服枪必须产生指定的夹紧力。为此，移动电极被指令移动到夹紧位置。夹紧位置定义为在夹紧方向上添加指令值偏移到记录位置所得到的位置。
 
-(7)  **Command offset (mm)**  
-  When the `spot` statement is executed, the servo gun must generate the specified squeezing force. To do this, the moving electrode is commanded to move to the squeezing position. The squeezing position is defined as the position obtained by adding the command value offset to the recorded position in the squeezing direction.
+(8)  **安装现场**   
+  选择所选伺服枪的类型（机器人枪或固定枪）。  
+  当使用固定伺服枪时，设置预先定义了固定枪坐标系的用户坐标系编号。（如果值为 0，将使用机器人坐标系。）
 
-(8)  **Installed site**   
-  Selects the type (robot gun or stationary gun) of the selected servo gun.
-  When using a stationary servo gun, set the user coordinate system number in which the coordinate system of the stationary gun has been defined in advance. (If the value is 0, the robot coordinate system will be used.)
-
-  The user coordinate system should be defined so that the travel direction of the fixed electrode corresponds to the positive Z (+) direction.
-
-<p align=center>
+  用户坐标系应定义为固定电极的运动方向对应于正 Z (+) 方向。
 <img src="../../../../_assets/image_81_eng.PNG" ></img>
-<em><p align="center">Figure 5.4 Stationary gun coordinate system</p></em>
+<em><p align="center">图 5.4 静态枪坐标系统</p></em>
 </p>
- 
-(9)  **Moving tip / total consumption (%)**  
-  Regarding the method for measuring the consumption amount of the servo gun, one option is to measure it using Gun Search 1 only, and the other is to measure it using both Gun Search 1 and Gun Search 2.
 
-  If the value is set to 0, the consumption amount will be calculated using both Gun Search 1 and Gun Search 2. If the value is set to a value other than 0, the total consumption amount measured through Gun Search 1 will be distributed between the moving electrode consumption amount and the fixed electrode consumption amount according to the specified ratio (%).
+(9)  **移动尖端 / 总消耗 (%)**  
+  关于测量伺服枪消耗量的方法，有一种选择是仅使用枪搜索 1 来测量，另一种是同时使用枪搜索 1 和枪搜索 2 进行测量。
 
-(10)  **Real-time pressure control**
+  如果值设置为 0，则消耗量将通过枪搜索 1 和枪搜索 2 进行计算。如果值设置为非 0，则通过枪搜索 1 测量的总消耗量将根据指定的比例 (%) 在移动电极消耗量和固定电极消耗量之间分配。
 
-  Sets whether to use the real-time squeezing force control function.
+(10)  **实时压力控制**
 
-  This function controls the system to ensure that the specified squeezing force is achieved by using the actual squeezing force measured with a squeezing force gauge.
+  设置是否使用实时挤压力控制功能。
 
-  If this function is enabled, the `[Realtime signal]` button will be activated, allowing the related parameters to be configured.
+  此功能控制系统，以确保通过使用挤压力计测量的实际挤压力达到指定的挤压力。
+
+  如果启用此功能，将激活 `[Realtime signal]` 按钮，允许配置相关参数。
   
-(11)  **Current - force table**  
+(11)  **电流 - 力 table**  
 
-  A squeezing force table with up to five levels can be created by measuring the squeezing force using a force gauge. If different squeezing forces are set for the gravity direction and the anti-gravity direction, compensation will be applied according to the operating direction of the gun.
+  可以通过使用力计测量挤压力来创建最多五个级别的挤压力表。如果为重力方向和反重力方向设置不同的挤压力，则将根据枪的操作方向进行补偿。
 
-  The squeezing force-current table defines the current values corresponding to each of the five squeezing force levels. The table must be configured so that both the squeezing force and the current value increase as the level increases.
+  挤压力-电流表定义了与每个挤压力级别对应的电流值。表格必须配置，以便随着级别的增加，挤压力和电流值均增加。
 
-  The upper and lower limits set for the squeezing force are used as the allowable range during playback or manual operation.
+  为挤压力设置的上下限用作播放或手动操作期间的允许范围。
 
 <p align=center>
 <img src="../../../../_assets/image_54_eng.PNG" ></img>
 <img src="../../../../_assets/image_11_eng.PNG" ></img>
-<em><p align="center">Figure 5.5 Gravitation direction and anti-gravitation direction</p></em>
+<em><p align="center">图 5.5 重力方向和反重力方向</p></em>
 </p>
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/1-1-real-time-force-control.md)
-### 5.2.1.1.1 Real-time squeezing force control
+### 5.2.1.1.1 实时挤压力控制
 
-Real-time pressurization force control improves the accuracy of servo gun force by using data measured by a force sensor for control. To enable real-time pressurization force control, the force sensor must communicate with the robot controller, and the communication specifications are configured in the menu below.
+实时加压力控制通过使用力传感器测量的数据来提高伺服枪力的精度。要启用实时加压力控制，力传感器必须与机器人控制器进行通信，并且通信规范配置在下面的菜单中。
 
-Since only digital data can be received, the sensor's analog output signal must be input to the controller through an analog-to-digital converter (ADC).
+由于只能接收数字数据，传感器的模拟输出信号必须通过模数转换器（ADC）输入到控制器中。
 
 <p align=center>
 <img src="../../../../_assets/image_30_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.6 Setting of real-time squeezing force control</p></em>
+<em><p align="center">图 5.6 实时挤压力控制的设置</p></em>
 </p>
 
 <br>
 
+-  控制器滤波器使用（可选）：如果需要额外的控制器滤波器，则启用。
 
--  Controller filter use (optional): Enable if an additional controller filter is required.
+-  截止频率：在启用控制器滤波器时激活；设置滤波器带宽。
 
--  Cut-off frequency: Activated when the controller filter is enabled; sets the filter bandwidth.
+-  重置信号输出：分配一个输出信号用于力传感器初始化，该信号在伺服枪施加压力时每次触发（例如，Kistler）。
 
--  Reset signal output: Assigns an output signal for force sensor initialization, which is triggered each time the servo gun applies pressure (e.g., Kistler).
+-  通信范围：设置分配信号的最小和最大范围。
 
--  Communication range: Sets the minimum and maximum range of the assigned signal.
+-  值范围：设置分配信号的值范围。
 
--  Value Range: Sets the value range of the assigned signal.
+-  加压输入端口：分配用于输入的信号地址。
 
--  Pressurization input port: The address of the signal assigned for input.
+-  输入端口长度：分配给信号的位数。
 
--  Input port length: The number of bits assigned to the signal.
-
--  Gains (p, i, d, pr): Pressurization force control tuning parameters (modifiable only in Developer Mode).
+-  增益（p, i, d, pr）：加压力控制调节参数（仅在开发者模式下可修改）。
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/2-application-setting.md)
-### 5.2.1.2 Servo gun application setting
+### 5.2.1.2 伺服枪应用设置
 
 
 <p align=center>
 <img src="../../../_assets/image_6_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.7 Servo gun application setting</p></em>
+<em><p align="center">图 5.7 伺服枪应用设置</p></em>
 </p>
 
 
-(1)  **Gun arm deflection amount (mm)**  
+(1)  **枪臂偏转量 (mm)**  
 
- - Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press 'Default value calculation', the value of 0.31 mm per 100 kgf will be set as the default value.
+ - 设置左侧设定的挤压力的枪臂偏转量。考虑到手动测量和填写数值较为困难，建议使用伺服枪自动设置。如果您按下“默认值计算”，将设置为每 100 kgf 的默认值为 0.31 mm。
  
-(2)  **Panel thickness compensation(mm)**  
+(2)  **面板厚度补偿 (mm)**  
 
-  - Sets the panel thickness compensation amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+  - 设置左侧设定的挤压力的面板厚度补偿量。考虑到手动测量和填写数值较为困难，建议使用伺服枪自动设置。
 
 {% hint style="warning" %}  
 
-When it comes to 'gun arm deflection amount compensation' and 'panel thickness measurement compensation', it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+关于“枪臂偏转量补偿”和“面板厚度测量补偿”，由于手动测量和填写数值较为困难，建议使用伺服枪自动设置。
 
-The 'gun arm deflection amount compensation' value is a value used instead of the 'gun arm deflection amount/100 kgf\[mm]' among the servo gun parameters. When the 'gun arm deflection amount compensation' value is set, the already set 'gun arm deflection amount/100 kgf\[mm]' will not be used. On the contrary, if a 'gun arm deflection amount compensation' value is not set, the 'gun arm deflection amount/100 kgf\[mm] will be used.'  
+“枪臂偏转量补偿”值是在伺服枪参数中，用于替代“枪臂偏转量/100 kgf\[mm]”的值。当设置“枪臂偏转量补偿”值时，已经设置的“枪臂偏转量/100 kgf\[mm]”将不再使用。相反，如果未设置“枪臂偏转量补偿”值，将使用“枪臂偏转量/100 kgf\[mm]”。  
 {% endhint %}
-
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/2-eqless-gun.md)
-### 5.2.2. Equalizerless gun
+### 5.2.2. 无均衡器枪
 
-If the gun type is "equalizerless gun," the parameter setting screen for the equalizerless gun will be displayed as shown below.
-
+如果枪的类型是“无均衡器枪”，则将显示如下的无均衡器枪参数设置屏幕。
 
 <p align=center>
 <img src="../../_assets/image_42_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.8 Equalizerless gun setting</p></em>
+<em><p align="center">图 5.8 无均衡器枪设置</p></em>
 </p>
 
 <br>
 
-(1)  **Fixed tip maximum consumption (mm)**
-   - If the consumption amount measured by the `egunsea` statement exceeds the value set here, an error will be generated.
+(1)  **固定尖端最大消耗 (mm)**
+   - 如果通过 `egunsea` 语句测量的消耗量超过此处设置的值，将生成错误。
 
-(2)  **Fixed tip change consumption (mm)**
-   - If the consumption amount measured by the `egunsea` statement exceeds the value set here, a warning will be issued.
+(2)  **固定尖端更换消耗 (mm)**
+   - 如果通过 `egunsea` 语句测量的消耗量超过此处设置的值，将发出警告。
 
-(3)  **Bend offset per 100kgf**
-   - Sets the bend compensation amount per 100 kgf.
+(3)  **每 100kgf 的弯曲偏移**
+   - 设置每 100 kgf 的弯曲补偿量。
 
-(4)  **Installed site**
-   - Selects whether the chosen equalizerless gun is a robot gun or a stationary gun.
-
-
+(4)  **安装位置**
+   - 选择所选的无均衡器枪是机器人枪还是固定枪。
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/README.md)
-# 5.3 Welding data (condition, sequence)
+# 5.3 焊接数据（条件，顺序）
 
-Sets various parameters related to spot welding to perform appropriate operation in line with the work environment.
-
-
+设置与点焊相关的各种参数，以便根据工作环境执行适当的操作。
 
 <p align=center>
 <img src="../../_assets/image_59_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.9 Welding data setting</p></em>
+<em><p align="center">图 5.9 焊接数据设置</p></em>
 </p>
-
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/1-common-data.md)
-### 5.3.1 Common data
+### 5.3.1 公共数据
 
-Sets the data to be commonly applied regardless of the spot welding sequence.
-
+设置无论点焊顺序如何都要共同应用的数据。
 
 <p align=center>
 <img src="../../_assets/image_63_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.10 Common data setting</p></em>
+<em><p align="center">图 5.10 公共数据设置</p></em>
 </p>
 
 </br>
 
-*  Number of re-weld attempts
+*  重新焊接尝试次数
 
-    If the welding completion (WI) signal is not received within the configured welding completion wait time, re-welding will be performed. The number of re-weld attempts can be set up to three. If the WI signal is still not received after the specified number of re-weld attempts, an error will be generated.
-
+    如果在配置的焊接完成等待时间内未收到焊接完成 (WI) 信号，将进行重新焊接。重新焊接的尝试次数最多可以设置为三次。如果在指定的重新焊接尝试次数后仍未收到 WI 信号，将生成错误。
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/README.md)
-### 5.3.2 Welding condition
+### 5.3.2 焊接条件
 
-Sets spot welding conditions to perform welding in accordance with the work environment.
+设置点焊条件，以根据工作环境执行焊接。
 
 <p align=center>
 <img src="../../../_assets/image_75_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.11 Welding condition setting</p></em>
+<em><p align="center">图 5.11 焊接条件设置</p></em>
 </p>
 
-(1)  **Condition number**  
-  - Allows quick selection of the desired welding condition. This number usually corresponds to the condition name.
+(1)  **条件编号**  
+  - 允许快速选择所需的焊接条件。此编号通常对应于条件名称。
 
-(2)  **Output data (binary)**  
-  - Sets the data to be transmitted to the welder for the specified welding condition number during execution of the `spot` statement.
+(2)  **输出数据（binary）**  
+  - 在执行 `spot` 语句期间，设置要传输到焊接机的指定焊接条件编号的数据。
 
-(3)  **Initial squeezing force**
+(3)  **初始夹紧力**
 
-  - Sets the panel squeezing force applied during execution of the `spot` statement. This value is used as the initial squeezing force when configuring multi-step squeezing force control.
+  - 设置在执行 `spot` 语句期间施加的面板夹紧力。此值在配置多步骤夹紧力控制时用作初始夹紧力。
 
-(4)  **Multi-step squeezing force and auxiliary condition**
+(4)  **多步骤夹紧力和辅助条件**
 
-  -  Specifies the auxiliary condition number used to manage multi-step squeezing force and pivoting settings. If a number is entered, the corresponding condition must be edited in the `5: Multi-level Press Condition` menu.
+  -  指定用于管理多步骤夹紧力和旋转设置的辅助条件编号。如果输入一个数字，则必须在 `5: 多级压制条件` 菜单中编辑对应的条件。
 
-(5)  **Moving electrode clearance**
-  - Sets the opening position of the moving electrode before and after execution of the `spot` statement.
+(5)  **移动电极间隙**
+  - 设置在执行 `spot` 语句之前和之后移动电极的开口位置。
 
-(6)  **Fixed electrode clearance**
-  - Sets the opening position of the fixed electrode before and after execution of the `spot` statement.
-
+(6)  **固定电极间隙**
+  - 设置在执行 `spot` 语句之前和之后固定电极的开口位置。
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/README.md)
-#### 5.3.2.1. Multi-step pressurizations and auxiliary conditions
-
-
+#### 5.3.2.1. 多步骤加压和辅助条件
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/1-multi-pressure-ctrl.md)
-#### 5.3.2.1.1 Multi-step squeezing force control
+#### 5.3.2.1.1 多步挤压力控制
 
-This function changes the pressurization force during pressurization in servo gun spot welding. The pressurization force can be changed either by generating a predefined profile or by a signal input.
+该功能在伺服枪点焊过程中改变加压力。加压力可以通过生成预定义的配置文件或通过信号输入进行更改。
 
 <p align=center>
 <img src="../../../../_assets/image_65_eng.PNG" width="70%"></img>
 <img src="../../../../_assets/image_37_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.12 Setting of multi-step squeezing force</p></em>
+<em><p align="center">图 5.12 多步挤压力设置</p></em>
 </p>
 
 <br>
 
-(1)  **Condition number**  
-  - Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.  
+(1)  **条件编号**  
+  - 指示多步挤压条件和辅助条件的条件编号。  
 
-(2)  **Force change type**  
+(2)  **力变化类型**  
 
-   - Indicates the method to change the squeezing force. "Profile creation" is a method in which the point of time for change and the time required for change are designated and then the squeezing force is changed in order at the relevant point of time for change. "Signal input" is a method in which the squeezing force is changed when there is a signal input from an external device.
+   - 指示改变挤压力的方法。“配置文件创建”是一种方法，其中指定更改的时间点和所需的更改时间，然后在相关的时间点按顺序更改挤压力。“信号输入”是一种方法，当外部设备输入信号时更改挤压力。
 
-(3)  **State change process**  
-   - When a WI signal is input while executing multi-stage pressurization conditions, select whether to process the WI signal immediately upon receipt or to process the WI signal after all multi-stage pressurization conditions have been completed. 
+(3)  **状态变化过程**  
+   - 在执行多级加压条件时，如果输入了 WI 信号，则选择是立即处理 WI 信号还是在完成所有多级加压条件后处理 WI 信号。 
 
-(4)  **\<Profile creation>**  
-   - Will be activated when profile creation is selected as the method to change the squeezing force.
+(4)  **\<配置文件创建>**  
+   - 当选择配置文件创建作为更改挤压力的方法时将被激活。
 
-        * Point of time for change:  Specipies the point of time for starting multi-step squeezing by dividing the spot welding steps into `Initial squeezing force reached` -> `Welding execution output` -> `Welding completion input`.
-        * Time required for change:  The squeezing force will be changed after the time required for change after the point of time for change is reached.
-        * Squeezing force:  The target squeezing force to change to
-        * Output data:  Output value transmitted in 12-bit format upon completion of pressurization
+        * 更改时间点：通过将点焊步骤划分为 `Initial squeezing force reached` -> `焊接执行输出 (Welding execution output)` -> `Welding completion input` 来指定开始多步挤压的时间点。
+        * 所需更改时间：在达到更改时间点后，挤压力将在所需更改时间后更改。
+        * 挤压力：要更改为的目标挤压力
+        * 输出数据：在加压完成时以 12 位格式传输的输出值
   
-(5)  **\<Signal input>**  
-  - Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be entered.
+(5)  **\<信号输入>**  
+  - 当选择的更改挤压力的方法为信号输入时将被激活。需要输入与外部设备通信所需的信息。
 
-    * Communication range:  Range from minimum to maximum of the assigned signal
-    * Value range:  Minimum and maximum values of the assigned signal
-    * Squeezing force port:  The number of the signal assigned for input
-    * Port assignment:  The number of bits assigned to the signal
-    * Request for change:  Port for the input signal for the request for change
-    * Time of delay:  For inputting the time if a delay is needed after the input of the request
-    * Squeezing force:  The requested squeezing force to change to. You can designate the squeezing force or receive an input signal. When the squeezing force is designated, the squeezing force for which a signal is received will be ignored.
-
+    * 通信范围：指定信号的最小值和最大值范围
+    * 值范围：指定信号的最小值和最大值
+    * 挤压力端口：分配用于输入的信号编号
+    * 端口分配：分配给信号的位数
+    * 更改请求：用于输入更改请求信号的端口
+    * 延迟时间：如果在输入请求后需要延迟，输入的时间
+    * 挤压力：请求更改为的挤压力。您可以指定挤压力或接收输入信号。当指定挤压力时，将忽略接收到信号的挤压力。
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/2-moving-when-pressing-pivot.md)
-#### 5.3.2.1.2 Gun Movement During Pressurization (Pivot)
+#### 5.3.2.1.2 枪在加压期间的运动 (Pivot)
 
-This function moves the gun during the pressurization phase in servo gun spot welding. At the specified movement timing, the robot moves by the defined distance, speed, and direction.
+此功能在伺服枪点焊的加压阶段移动枪。在指定的运动时机，机器人按定义的距离、速度和方向移动。
 
-Since this function moves the robot based on the tool coordinate system, servo gun tool data, wear amount, gun arm deflection, teaching posture, and robot calibration can affect performance. To apply this function effectively, the above factors must be continuously monitored and managed.
+由于此功能基于工具坐标系统移动机器人，伺服枪工具数据、磨损量、枪臂偏转、教学姿态和机器人校准都会影响性能。要有效应用此功能，必须持续监控和管理上述因素。
 
 <p align=center>
 <img src="../../../../_assets/image_57_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.13 Pivot setup</p></em>
+<em><p align="center">图 5.13 Pivot 设置</p></em>
 </p>
 
-(1)  **Condition number**
+(1)  **条件编号**
 
--   Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.
-  
-(2)  **Point to start movement**
--   Specifies the start timing of movement by dividing the spot welding stages into
-`Initial squeeze arrived`  --> `Welding execution output`  --> `Welding complete input`.
+-   指示多步骤挤压条件和辅助条件的条件编号。
 
-(3)  **Shift value (sft)**
--   Regardless of whether a robot-mounted gun or a stationary gun is used, the coordinate system and movement position for shift movement are determined.
+(2)  **开始运动的点**
+-   通过将点焊阶段划分为 `初始压力到达 (Initial squeeze arrived)`  --> `焊接执行输出 (Welding execution output)`  --> `焊接完成输入 (Welding complete input)` 来指定运动的开始时机。
 
-(4)  **Move speed\[mm/s, sec, %]**
--   Sets the movement speed.
+(3)  **偏移值 (sft)**
+-   无论使用机器人安装的枪还是固定枪，偏移运动的坐标系统和运动位置均由此确定。
 
-(5)  **Process for WI during motion**
--   Selects whether to stop the movement immediately when welding completion occurs during robot movement, or to complete the movement and then proceed to the next step.
+(4)  **移动速度\[mm/s, sec, %]**
+-   设置运动速度。
 
-(6)  **Movement start delay**
--   When the movement timing is reached, the robot waits for the specified delay time before starting the movement.
+(5)  **运动过程中的 WI**
+-   选择在机器人运动期间焊接完成时是否立即停止运动，或完成运动后再进行下一步。
 
+(6)  **运动开始延迟**
+-   当达到运动时机时，机器人在开始运动之前等待指定的延迟时间。
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/5-3-2-weld-condition/1-multiple-pressure-additional-condition/3-initial-sequence.md)
-#### 5.3.2.1.3 Initial sequence
+#### 5.3.2.1.3 初始顺序
 
-The multi-stage pressure setting conditions can be applied not only to spot welding but also to other welding applications such as dissimilar material joining. Some applications (e.g., RSR) require an input/output signal sequence after reaching the initial pressure.
+多级压力设置条件不仅可以应用于点焊，还可以应用于其他焊接应用，如异种材料连接。一些应用（例如，RSR）在达到初始压力后需要输入/输出信号序列。
 
-By registering the input/output signals required for the sequence procedure as shown below, the system proceeds to the multi-stage pressurization process after completing the signal input/output sequence once the initial pressure has been reached.
+通过注册下方所示的序列程序所需的输入/输出信号，系统在达到初始压力后完成信号输入/输出序列后，进而进行多级加压过程。
 
-Up to five sequences are available, and users may configure as many as required.
+最多可以提供五个序列，用户可以根据需要配置所需的序列。
 
 <br>
 
 <p align=center>
 <img src="../../../../_assets/image_56.png" width="70%"></img>
-<em><p align="center">Figure 5.13_1 Initial sequence setting</p></em>
+<em><p align="center">图 5.13_1 初始顺序设置</p></em>
 </p>
-
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/3-weld-sequence.md)
-### 5.3.3 Welding sequence
+### 5.3.3 焊接顺序
 
-Sets the spot welding sequence to define robot operation according to the work environment.
-
+设置点焊顺序，以根据工作环境定义机器人的操作。
 
 <p align=center>
 <img src="../../_assets/image_1_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.14 Welding sequence setting</p></em>
+<em><p align="center">图 5.14 焊接顺序设置</p></em>
 </p>
 
-(1)  **Sequence number**
-  - Allows quick selection of the desired welding sequence. This number usually corresponds to the sequence name.
+(1)  **序列号**
+  - 允许快速选择所需的焊接序列。该编号通常对应于序列名称。
 
-(2)  **Welding signal output delay time (GWT)**
-  - Servo gun: Defines the waiting time before the welding signal is output after squeezing force matching is completed.
-  - Pneumatic gun: Defines the waiting time before the welding signal is output after execution of the `spot` statement.
+(2)  **焊接信号输出延迟时间 (GWT)**
+  - 伺服枪：定义在挤压力匹配完成后焊接信号输出之前的等待时间。
+  - 气动枪：定义在执行 `spot` 语句后焊接信号输出之前的等待时间。
 
-(3)  **Welding signal pulse output (0=level)**
-  - Specifies the duration for which the welding signal is output.
-If this value is set to 0, the welding signal continues to be output until the welding completion (WI) signal is received.
+(3)  **焊接信号脉冲输出 (0=水平)**
+  - 指定焊接信号输出的持续时间。如果该值设置为 0，则焊接信号将持续输出，直到接收到焊接完成 (WI) 信号。
 
-(4)  **Welding completion (WI) wait time**
-  - Specifies the waiting time for the welding completion (WI) signal to be received.
-If this value is set to 0, the system waits indefinitely until the signal is received.
+(4)  **焊接完成 (WI) 等待时间**
+  - 指定接收焊接完成 (WI) 信号的等待时间。如果该值设置为 0，则系统将无限期地等待信号。
 
-(5)  **Robot wait time after welding completion (RWT)**
-  - Generally specifies the waiting time for deposition detection after the welding completion (WI) signal is received. If this value is set to 0.0, deposition detection is not performed. When using the deposition detection signal, a value greater than 0.3 seconds (300 ms) is recommended. However, increasing this value will lengthen the welding time and increase the overall cycle time.
-
+(5)  **焊接完成后机器人等待时间 (RWT)**
+  - 通常指定在接收到焊接完成 (WI) 信号后等待沉积检测的时间。如果该值设置为 0.0，则不执行沉积检测。当使用沉积检测信号时，建议设置为大于 0.3 秒 (300 毫秒) 的值。然而，增大该值会延长焊接时间并增加整体循环时间。
 [__SOURCE](5-spot-weld-parameter/5-3-weld-data-condition-sequence/4-servo-gun-tip-dressing-condition.md)
-### 5.3.4 Servo gun tip dressing condition
+### 5.3.4 伺服枪头修整条件
 
-Sets various conditions for the execution of tip dressing for the servo gun
+设置伺服枪头修整操作的各种条件
 
 <p align="center">
  <img src="../../_assets/image_61_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 5.15 Servo gun tip dressing condition setting </p></em>
+ <em><p align="center">图 5.15 伺服枪头修整条件设置 </p></em>
 </p>
 
 </br>
 
-(1)  **Welding signal output**
-  - Selects whether to output the welding signal for the tip dressing operation.
+(1)  **焊接信号输出**
+  - 选择是否输出焊接信号以进行枪头修整操作。
 
-(2)  **Tip dressing time**
-  - Sets the time necessary for executing tip dressing. Tip dressing should be performed in the same manner by using the `spot` statement. However, the welding sequence number should be set to "**64**".
+(2)  **修整时间**
+  - 设置执行修整所需的时间。修整应通过使用 `spot` 语句以相同方式进行。然而，焊接序列号应设置为 "**64**"。
 
-(3)  **Execution of gun search during tip dressing**
-  - Selects whether to execute gun search during tip dressing.
+(3)  **修整期间的枪搜索执行**
+  - 选择是否在修整期间执行枪搜索。
 
-(4)  **Tip dresser thickness**
-  - Inputs the tip dresser thickness.
-
+(4)  **修整器厚度**
+  - 输入修整器的厚度。
 [__SOURCE](5-spot-weld-parameter/5-4-input-signal-assign.md)
-# 5.4 Input signal assignment for each welder
+# 5.4 每个焊工的输入信号分配
 
-Assigns the signals related to spot welding, allowing the controller to monitor their state and perform necessary processing.
+分配与点焊相关的信号，使控制器能够监控其状态并执行必要的处理。
 
 
 <p align=center>
 <img src="../_assets/image_15_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.15 Input signal assignment</p></em>
+<em><p align="center">图 5.15 输入信号分配</p></em>
 </p>
 
-(1)  **Welding completion**
-  - Only when this welding completion signal is entered during the execution of spot welding, the controller executes the handling of welding completion. There are four welding completion signals in total and they are individually controllable. 
+(1)  **焊接完成**
+  - 仅当在执行点焊时输入此焊接完成信号，控制器才会执行焊接完成的处理。总共有四个焊接完成信号，它们可以单独控制。
 
-(2)  **Deposition error**
-  - To be used when receiving and handling the input of the gun's deposition signal.
+(2)  **沉积错误**
+  - 用于接收和处理枪的沉积信号输入。
 
-(3)  **Welder abnormal**
-  - To be used to stop the operation of the robot when the signal of welder abnormal is entered.
-
-[__SOURCE](5-spot-weld-parameter/5-5-output-signal-assign.md)
-# 5.5 Output signal assignment for each welder
-
-Assigns the signals related to spot welding and transfers their state to the outside.
-
-<p align=center>
-<img src="../_assets/image_45_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.17 Output signal assignment</p></em>
-</p>
-
-(1)  **Welder number**
-  - Selects the welder number to set. Up to four welders can be added.
-
-(2)  **Welding condition**
-  - Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the `spot` statement.
-
-(3)  **Welding execution**
-  - To be used to output a command for welding to the welder during the execution of the `spot` statement.
-
-(4)  **Welder abnormal**
-  - To be used to output the entered spot welder abnormal signal to the outside.
-
-(5)  **Electrode consumption alarm**
-  - To be used to output a signal if the consumption amount detected by the gun search is larger than the electrode replacement required consumption amount.
-
-(6) **Deposition error**
-  - To be used to output to the outside the state that deposition has occurred to the spot gun.
-
-(7)  **Servo gun squeezing in progress**
-  - This is a signal that is turned on when squeezing starts upon the execution of the `spot` statement and turned off when the opening procedure starts.
-
-(8)  **Welding gun search in progress**
-  - This is a signal that is turned on when gun search starts upon the execution of the `gunsea`, `igunsea` or `egunsea` statement and turned off when the opening procedure starts.
-    
+(3)  **焊工异常**
+  - 当输入焊工异常信号时，用于停止机器人的操作。
 [__SOURCE](6-spotpak/README.md)
 # 6. Spot-Pak
 
-
-
-Spot-Pak is the name of Hyundai Robotics' integrated control system for spot welding.
-This manual describes the settings related to the interface between the welder and the robot controller, as well as TP (Teach Pendant) operations.
+Spot-Pak是现代机器人集成控制系统，用于点焊。 本手册描述了焊接机与机器人控制器之间接口的相关设置，以及TP（教导盒）操作。
 
 <br>
 
 {% hint style="info" %}
- *Available from ${cont_model} V60.28 official release.
- *Currently supports three welders: Chowel, Obara, and Hyosung.
+ *适用于${cont_model} V60.28官方发布。
+ *目前支持三种焊接机：Chowel、Obara和Hyosung。
 {% endhint %}
 
 <br>
 
 {% hint style="info" %}
- * If you want a Quick Start, please refer to [6.1.4 Operating Procedure](6-1-spotpak-overall/4-procedure.md).
+ * 如果您想要快速入门，请参见[6.1.4 操作程序](6-1-spotpak-overall/4-procedure.md)。
 {% endhint %}
-
 [__SOURCE](6-spotpak/6-1-spotpak-overall/README.md)
-# 6.1 Overview of the Welder Interface
+# 6.1 焊接机界面概述
 
-This function enables the robot controller to integrally control the spot welding timer through DeviceNet communication.
-The ${cont_model} controller and the spot welder share data with each other via DeviceNet.
+此功能使机器人控制器能够通过DeviceNet通信集成控制点焊计时器。
+${cont_model}控制器与点焊机通过DeviceNet互相共享数据。
 
-By combining the robot controller and the spot welding timer into a single integrated system, users can perform welding program editing and file management using the ${cont_model} Teach Pendant (TP).
+通过将机器人控制器和点焊计时器组合成一个集成系统，用户可以使用${cont_model}教导挂件（TP）进行焊接程序编辑和文件管理。
 
-The robot controller performs the major functions that are normally handled through the welder's teaching box-such as welding schedule programming, stepper programming, weld result monitoring, and history file management-directly from the robot controller's Teaching Pendant.
+机器人控制器直接通过机器人控制器的教学挂件执行通常通过焊接机教学盒处理的主要功能，例如焊接计划编程、步进编程、焊接结果监控和历史文件管理。
 
-In other words, the system provides a user interface that allows the robot Teach Pendant to perform the functions of the Teaching Box-the operation panel of a standalone welder. It also enables monitoring by displaying welding results, various signals, and the status of errors or faults.
+换句话说，系统提供了一个用户界面，使机器人教导挂件能够执行教学盒的功能——独立焊接机的操作面板。它还通过显示焊接结果、各种信号以及错误或故障的状态来实现监控。
 
-Communication between the robot controller and the timer uses DeviceNet.
-The robot controller is configured as the master, and the timer is configured as the slave.
+机器人控制器与计时器之间的通信使用DeviceNet。
+机器人控制器配置为主设备，计时器配置为从设备。
 
-<p align="center"> <img src="../../_assets/6_1.png"> </p> <p align="center"><em>Figure 6.1 (a) Spot welding system with a separate welder (b) Integrated spot welding system</em></p>
+<p align="center"> <img src="../../_assets/6_1.png"> </p> <p align="center"><em>图6.1 (a) 配有单独焊接机的点焊系统 (b) 集成点焊系统</em></p>
 [__SOURCE](6-spotpak/6-1-spotpak-overall/1-features.md)
+#### 6.1.1 优势与特点
 
-#### 6.1.1 Advantages and Features
+### 优势
 
-### Advantages
+- 与其他外部设备的简单连接，减少整体系统设置时间（短启动时间）
 
-- Easy connection with other peripheral devices, reducing overall system setup time (Short start-up time)
+- 使用DeviceNet减少接线需求（降低资本成本）
 
-- Use of DeviceNet reduces wiring requirements (Lower capital costs)
+- 减少停机时间
 
-- Reduced downtime
+- 单一控制器：用于机器人和焊接操作的机器人教学挂件
 
-- A single controller : the robot Teach Pendant for robot and welder operations
+### 特点
 
-### Features
+- 通过DeviceNet消息方式确保机器人控制器与焊接机之间的可靠通信。
 
-- Ensures reliable communication between the robot controller and the welder through the DeviceNet message method.
+- 支持最多连接四个焊接定时器（适用于伺服枪和气动枪）。
 
-- Supports connection of up to four welding timers (applicable to both servo guns and pneumatic guns).
+- 即使更改定时器型号，也无需修改机器人控制器软件。
 
-- No modification of the robot controller software is required even when the timer model is changed.
+- 机器人控制器能够处理单独的文件，如焊接计划、公共焊接数据和步进数据。
 
-- The robot controller can handle individual files such as welding schedules, common welding data, and stepper data.
+- 焊接结果数据由控制器管理，使得可以共享错误和异常历史，方便进行错误分析。
 
-- Weld result data is managed by the controller, enabling sharing of error and abnormality history and allowing error analysis.
-
-- Welding quality can be improved by monitoring real-time weld results via the robot TP and modifying the schedule and stepper programs accordingly.
+- 通过机器人TP监控实时焊接结果并相应地修改计划和步进程序，可以提高焊接质量。
 
 <Br>
 
-Table 6.1 File Types and Descriptions
+表6.1 文件类型及描述
 
-|File Type |	File Name <br> (# = Timer No.)  |	Description  |
+|文件类型 |	文件名 <br> (# = 定时器编号)  |	描述  |
 |:--:|:--:|:--:|
-|Timer characteristic data |	ROBOT.NS# |	Stores timer-related information |
-|Welding program data	| ROBOT.ND# |	Stores various welding program data |
-
-
+|定时器特性数据 |	ROBOT.NS# |	存储定时器相关信息 |
+|焊接程序数据	| ROBOT.ND# |	存储各种焊接程序数据 |
 [__SOURCE](6-spotpak/6-1-spotpak-overall/2-configure.md)
-### 6.1.2 System Configuration
+### 6.1.2 系统配置
 
-The DeviceNet used in ${cont_model} is part of its industrial communication functionality and utilizes the CifX communication card manufactured by Hilscher.
-
+用于 ${cont_model} 的 DeviceNet 是其工业通信功能的一部分，并利用 Hilscher 制造的 CifX 通信卡。
 
 <p align=center>
-<img src="../../_assets/6_2_eng.png"></img>
-<em><p align="center">Figure 6.2 DeviceNet Communication Configuration</p></em>
+<img src="../../_assets/6_2_eng.png" width="60%"></img>
+<em><p align="center">图 6.2 DeviceNet 通信配置</p></em>
 </p>
-
-
-
 [__SOURCE](6-spotpak/6-1-spotpak-overall/3-menu.md)
-### 6.1.3 Menu Structure
+### 6.1.3 菜单结构
 
-The menu structure of the welder interface is dynamically configured according to the controller settings below.
-To access these menus, the communication settings must first be correctly configured.
+焊接机界面的菜单结构根据以下控制器设置动态配置。要访问这些菜单，通信设置必须首先正确配置。
 
 <br>
 
 <p align=center>
 <img src="../../_assets/6_3_eng.png"></img>
-<em><p align="center">Figure 6.3 Menu Tree</p></em>
+<em><p align="center">图 6.3 菜单树</p></em>
 </p>
 [__SOURCE](6-spotpak/6-1-spotpak-overall/4-procedure.md)
-### 6.1.4 Operating Procedure
+### 6.1.4 操作程序
 
-Operation of the welder interface proceeds in the following order:
+焊接机界面的操作按以下顺序进行：
 
-- Industrial communication configuration, starting with DeviceNet settings
+- 工业通信配置，首先进行DeviceNet设置
 
-- Editing welding conditions on the welder
+- 在焊接机上编辑焊接条件
 
-- Configuring input/output signals on the Spot Welding Setup screen
+- 在点焊设置屏幕上配置输入/输出信号
 
-- Creating PLC programs according to the timer specifications
+- 根据计时器规格创建PLC程序
 
-- Creating robot programs (jobs)
+- 创建机器人程序（工作）
 
 <br>
 
 <p align=center>
 <img src="../../_assets/6_4_eng.png"></img>
-<em><p align="center">Figure 6.4 Operation Flow</p></em>
+<em><p align="center">图6.4 操作流程</p></em>
 </p>
 
 
@@ -2379,57 +2186,51 @@ Operation of the welder interface proceeds in the following order:
 
 {% hint style="info" %}
 
- * For industrial communication settings required for DeviceNet configuration, refer to [Industrial Communication Function Manual](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/en-${cont_model}/README?cont_model=${cont_model})
+ * 有关DeviceNet配置所需的工业通信设置，请参阅[工业通信功能手册](https://hrbook-hrc.web.app/#/view/doc-industrial-communication/zh-${cont_model}/README?cont_model=${cont_model})
 
 
 {% endhint %}
-
-
-
-
-
-
 [__SOURCE](6-spotpak/6-1-spotpak-overall/5-install.md)
-### 6.1.5 Installation Method
+### 6.1.5 安装方法
 
-SPOTPAK is developed as a plug-in type application.
-The content displayed on the TP is written in HTML and JavaScript, and it communicates with a Python program that transfers the user's operation requests to the main program.
+SPOTPAK 被开发为一种插件类型的应用程序。
+显示在 TP 上的内容使用 HTML 和 JavaScript 编写，并与一个将用户操作请求传递给主程序的 Python 程序进行通信。
 
-The provided software contains all the functions described in this manual, but it may be modified to meet user-specific requirements.
-Please follow the procedure below to install the plug-in program.
+提供的软件包含本手册中描述的所有功能，但可以根据用户的特定要求进行修改。
+请按照以下步骤安装插件程序。
 
 
 <br>
 
 
 
- [Installation Procedure]
+ [安装流程]
 
- - 1. Save the "spotpak" plug-in program to a USB drive.
+ - 1. 将 "spotpak" 插件程序保存到 USB 驱动器。
 
- - 2. Connect the USB drive to the TP.
+ - 2. 将 USB 驱动器连接到 TP。
 
- - 3. Navigate to: Service > 5: File Management > USB > 'spotpak' folder > Copy
+ - 3. 导航至：服务 > 5: 文件管理 > USB > 'spotpak' 文件夹 > 复制
 
- - 4. Go to: MAIN > apps > Paste
+ - 4. 转到：MAIN > 应用 > 粘贴
 
- - 5. Reboot the controller.
+ - 5. 重启控制器。
 
- - 6. Navigate to: System > 5: Application Parameters > SPOTPAK
+ - 6. 导航至：系统 > 5: 应用参数 > SPOTPAK
 
  <br>
 
  {% hint style="info" %}  
-Currently, the "spotpak" folder is provided individually upon request by the spot function development team. However, once a plugin installation/distribution program is deployed on the website, users will be able to download it directly.
+目前，"spotpak" 文件夹是由点功能开发团队单独应请求提供的。然而，一旦插件安装/分发程序在网站上发布，用户将能够直接下载。
 
-When the development of this function is completed, a link to the relevant page will be provided.  
+当该功能的开发完成时，将提供相关页面的链接。  
 {% endhint %}
 [__SOURCE](6-spotpak/6-2-spotpak-functions/README.md)
-# 6.2 Main Functions of the Welder Interface
+# 6.2 焊接机界面的主要功能
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/README.md)
-### 6.2.1 Data Management
+### 6.2.1 数据管理
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/1-specfile.md)
-### 6.2.1.1 Importing Characteristic Data
+### 6.2.1.1 导入特性数据
 
 
 
@@ -2437,124 +2238,121 @@ When the development of this function is completed, a link to the relevant page 
 
 <p align=center>
 <img src="../../../_assets/6_5_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.5 Characteristic Data Import Screen</p></em>
+<em><p align="center">图 6.5 特性数据导入界面</p></em>
 </p>
 
 <br>
 
-The characteristic data is essential information that must be prepared in advance in order to use the welder interface functions.
-It contains the structure of the welder's configuration data, menu composition, and other necessary elements.
-All functions of the welder interface require this characteristic data.
+特性数据是使用焊接机接口功能前必须提前准备的基本信息。
+它包含焊接机配置数据的结构、菜单组成及其他必要元素。
+焊接机接口的所有功能都需要这些特性数据。
 
 <br>
 
-The functions of each part of the screen shown in Figure 6.5 are as follows:
-- ① Welder Status: Indicates the ON/OFF-LINE status of the welder.
-Red indicates ON-LINE, and black indicates OFF-LINE.
+图 6.5 中显示的屏幕各部分功能如下：
+- ① 焊接机状态：指示焊接机的在线/离线状态。
+红色表示在线，黑色表示离线。
 
-- ② Welder selection: Select the number of the welder from which the characteristic data will be downloaded.
+- ② 焊接机选择：从中选择要下载特性数据的焊接机编号。
 
-- ③ Characteristic Data: Displays characteristics related to the current welder using the downloaded characteristic data.
+- ③ 特性数据：使用下载的特性数据显示与当前焊接机相关的特性。
 
-- ④ `[Download]` Button: Downloads the characteristic data of the welder specified in [Select Welder Number].
-When the download is completed successfully, a message saying "Characteristic data has been saved." will appear.
-
+- ④ `[Download]` 按钮：下载在 [Select Welder Number] 中指定的焊接机的特性数据。
+当下载成功完成时，会出现一条消息说“特性数据已保存。”
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/2-backup.md)
-#### 6.2.1.2 Data Backup
+#### 6.2.1.2 数据备份
 
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_6_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.6 Data Backup</p></em>
+<em><p align="center">图 6.6 数据备份</p></em>
 </p>
 
 <br>
 
 
-The Data Backup function is used when you want to back up the welder's configuration data to the ${cont_model} controller.
-Enter the number of the welder from which the data will be retrieved, then press OK to start the backup.
-The process takes approximately 1 to 2 minutes.
-Once the backup is completed, a message will appear stating: "Data has been successfully backed up."
+数据备份功能用于将焊机的配置数据备份到 ${cont_model} 控制器。
+输入要提取数据的焊机编号，然后按 OK 开始备份。
+该过程大约需要 1 到 2 分钟。
+备份完成后，会出现一条消息，说明：“数据已成功备份。”
 
-The backed-up data can be effectively used in the following cases:
+备份的数据可以在以下情况下有效使用：
 
-- ① When you want to store a backup of the welder's configuration values
+- ① 当您想要存储焊机的配置值备份时
 
-- ② When you want to modify the data of another welder connected to the ${cont_model} controller
+- ② 当您想要修改连接到 ${cont_model} 控制器的另一台焊机的数据时
 
-- ③ When you want to apply batch updates to welders connected to another ${cont_model} controller
+- ③ 当您想要对连接到另一台 ${cont_model} 控制器的焊机应用批量更新时
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/3-datacopy.md)
-#### 6.2.1.3 Data Copy
+#### 6.2.1.3 数据复制
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_7_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.7 Data Copy</p></em>
+<em><p align="center">图 6.7 数据复制</p></em>
 </p>
 
 <br>
 
+数据复制功能允许您将一个焊接机的数据复制到另一个焊接机。此外，通过使用“使用保存的数据”复选框，您可以复制通过数据备份功能存储在控制器中的数据。
 
-The Data Copy function allows you to copy the data of one welder to another welder.
-Additionally, by using the Use Saved Data checkbox, you can copy data that has been stored in the controller through the Data Backup function.
-
-Only PROGRAM data is copied through the Data Copy function; MONITOR data is not included.
+数据复制功能仅复制程序数据；监视器数据不包含在内。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/4-sericopy.md)
-#### 6.2.1.4 Series Copy
+#### 6.2.1.4 系列复制
 
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_8_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.8 Data Series Copy</p></em>
+<em><p align="center">图 6.8 数据系列复制</p></em>
 </p>
 
 <br>
 
 
-The Series Copy function is used when you want to copy only the data that contains group (series) information.
-From the programs shown in the screen, you can select the desired items and specify both the target welder and the group range to be copied.
+系列复制功能用于仅复制包含组（系列）信息的数据。
+从屏幕上显示的程序中，您可以选择所需的项目并指定要复制的目标焊接机和组范围。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/5-initialize.md)
-#### 6.2.1.5 Initialization
+#### 6.2.1.5 初始化
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_9_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.9 Welder Data Initialization</p></em>
+<em><p align="center">图6.9 焊接机数据初始化</p></em>
 </p>
 
 <br>
 
-The Initialization menu is used when you need to reset the status of the welder.
+初始化菜单在需要重置焊接机状态时使用。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-1-data-management/6-clock.md)
-#### 6.2.1.6 Time Synchronization
+#### 6.2.1.6 时间同步
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_10_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.10 Welder Time Setting</p></em>
+<em><p align="center">图 6.10 焊工时间设置</p></em>
 </p>
 
 <br>
 
-This function is used to synchronize the welder's time with the robot controller by transferring the controller's current time to the welder.
+此功能用于通过将控制器的当前时间传输到焊工来同步焊工的时间与机器人控制器。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/README.md)
-#### 6.2.2 Data Setup/Monitoring
+#### 6.2.2 数据设置/监控
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/1-progmon.md)
-#### 6.2.2.1 Program / Monitoring
+#### 6.2.2.1 程序 / 监控
 
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_11_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.11 Program Class</p></em>
+<em><p align="center">图 6.11 程序类</p></em>
 </p>
 
 <br>
@@ -2563,41 +2361,41 @@ This function is used to synchronize the welder's time with the robot controller
 
 <p align=center>
 <img src="../../../_assets/6_12_eng.png"  width="70%"></img>
-<em><p align="center">Figure 6.12 Monitoring Class</p></em>
+<em><p align="center">图 6.12 监控类</p></em>
 </p>
 
 <br>
-The welder data is largely categorized into PROGRAM and MONITOR, and the contents within each menu may vary depending on the welder version.
+焊接数据主要分为程序和监控，内容可能因焊接机版本而异。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/2-siglesched.md)
-#### 6.2.2.2 Single Scheduled Program
+#### 6.2.2.2 单一计划程序
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_13_eng.png"  width="70%"></img>
-<em><p align="center">Figure 6.13 Single Scheduled Program</p></em>
+<em><p align="center">图 6.13 单一计划程序</p></em>
 </p>
 
 <br>
 
-A single scheduled program refers to a program that is applied commonly to all welding conditions, similar to a COMMON PROGRAM.
+单一计划程序是指适用于所有焊接条件的程序，与 COMMON PROGRAM 类似。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/3-multisched.md)
-#### 6.2.2.3 Multi-Scheduled Program
+#### 6.2.2.3 多调度程序
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_14_eng.png"  width="70%"></img>
-<em><p align="center">Figure 6.14 Multi-Scheduled Program</p></em>
+<em><p align="center">图 6.14 多调度程序</p></em>
 </p>
 
 <br>
 
-A multi-scheduled program refers to a program in which the user can select a specific series.
-In this case, the series can be selected using the `[Series Number]` button.
+多调度程序是指用户可以选择特定系列的程序。
+在这种情况下，可以使用 `[Series Number]` 按钮选择系列。
 
-If you want to copy a specific single data item to a desired range of series, you can use the `[Batch Write Data]` button to access the batch write menu.
+如果您想将特定的单个数据项复制到所需系列的范围内，可以使用 `[Batch Write Data]` 按钮访问批量写入菜单。
 [__SOURCE](6-spotpak/6-2-spotpak-functions/6-2-2-data-setting-monitoring/4-batch.md)
-#### 6.2.2.4 Batch Write Data
+#### 6.2.2.4 批量写入数据
 
 
 
@@ -2606,339 +2404,322 @@ If you want to copy a specific single data item to a desired range of series, yo
 
 <p align=center>
 <img src="../../../_assets/6_15_eng.png"  width="70%"></img>
-<em><p align="center">Figure 6.15 Batch Write Data</p></em>
+<em><p align="center">图 6.15 批量写入数据</p></em>
 </p>
 
 <br>
 
-You can copy the data of a specific row from a multi-schedued program to a selected series range of another welder.
+您可以从一个多调度程序中将特定行的数据复制到另一个焊接机的选定系列范围。
 [__SOURCE](6-spotpak/6-3-spotpak-error/README.md)
-# 6.3 Abnormalities and Errors
+# 6.3 异常和错误
 
 <br>
 
-  - Code: There is an error in the characteristic data file.
-  - Description: A problem has occurred with the stored characteristic data file.
-Please update the characteristic data through Data Management  --> Import Characteristic Data.
-
-
-<br>
- 
-   - Code: The value exceeds the allowable range. [Range]
-   - Description: The entered value is outside the permitted range.
-Please re-enter a value within the valid range.
+  - 代码：特征数据文件中发生错误。
+  - 描述：存储的特征数据文件出现问题。
+请通过数据管理 --> 导入特征数据来更新特征数据。
 
 <br>
 
-   - Code: The source welder number and the destination welder number are the same.
-   - Description: This error occurs in Data Copy when the same welder number is entered for both the source and destination.
+   - 代码：值超出了允许范围。[范围]
+   - 描述：输入的值超出了允许的范围。
+请重新输入有效范围内的值。
 
 <br>
 
-   - Code: Class information was not saved correctly.
-   - Description: A problem has occurred with the class-related information in the characteristic data.
-Please update the characteristic data through Data Management  --> Import Characteristic Data.
+   - 代码：源焊机编号和目标焊机编号相同。
+   - 描述：当为源和目标都输入相同的焊机编号时，在数据复制时会出现此错误。
 
 <br>
 
-   - Code: Error information was not saved correctly.
-   - Description: A problem has occurred in the welder-error-related information within the characteristic data.
-Please update the characteristic data through Data Management  --> Import Characteristic Data.
+   - 代码：类信息未正确保存。
+   - 描述：特征数据中的类相关信息出现了问题。
+请通过数据管理 --> 导入特征数据来更新特征数据。
 
 <br>
 
- - Code: Data transmission between the main board and the T/P has failed.
- - Description: This error appears when a communication fault occurs while writing or retrieving welder data.
-Please check the connection status between the controller and the T/P.
+   - 代码：错误信息未正确保存。
+   - 描述：特征数据中与焊机错误相关的信息出现了问题。
+请通过数据管理 --> 导入特征数据来更新特征数据。
 
 <br>
 
-  -  Code: The welder is not connected.
-  -  Description: The welder with the specified number is not properly connected via DeviceNet.
-Please check the connection status.
+ - 代码：主板与 T/P 之间的数据传输失败。
+ - 描述：在写入或检索焊机数据时发生通信故障时会出现此错误。
+请检查控制器与 T/P 之间的连接状态。
 
 <br>
 
-  -  Code: Copy operation failed.
-  -  Description: Data copying between welders was not completed successfully.
-Please verify the welder's network and communication status, then try again.
+  - 代码：焊机未连接。
+  - 描述：指定编号的焊机未通过 DeviceNet 正确连接。
+请检查连接状态。
 
 <br>
 
- - Code: There is an error in the welder data file.
- - Description: A problem occurred while loading the welder data file.
-Please check whether the file exists and verify the integrity of the data.
+  - 代码：复制操作失败。
+  - 描述：焊机之间的数据复制未能成功完成。
+请验证焊机的网络和通信状态，然后重试。
+ - Code: 焊接机数据文件中出现错误。
+ - Description: 加载焊接机数据文件时发生问题。
+请检查文件是否存在并验证数据完整性。
 
 <br>
 
-  - Code: Characteristic data was not saved correctly.
-  - Description: An error occurred while saving the characteristic data file.
-Please check that sufficient storage space is available on the T/P, then try again.
+  - Code: 特征数据未正确保存。
+  - Description: 保存特征数据文件时发生错误。
+请检查 T/P 上是否有足够的存储空间，然后重试。
 <br>
 
-  - Code: Failed to save data.
-  - Description: An error occurred during the data saving process.
-Please ensure that there is enough storage space on the T/P and try again.
-
-<br>
-
-   - Code: Welder versions do not match.
-   - Description: The versions of the welders involved in the data copy operation do not match, so the copy cannot be performed.
-Please check whether the file version or the welder version has been changed.
+  - Code: 数据保存失败。
+  - Description: 数据保存过程发生错误。
+请确保 T/P 上有足够的存储空间，然后重试。
 
 <br>
 
-   - Code: Timeout occurred.
-   - Description: This occurs when communication between the main board and the T/P is unstable, or when the controller's processing time is excessively long.
-Please try again.
+   - Code: 焊接机版本不匹配。
+   - Description: 在数据复制操作中涉及的焊接机版本不匹配，因此无法执行复制。
+请检查文件版本或焊接机版本是否已更改。
+
 <br>
 
-   - Code: Data contains errors.
-   - Description: Some values in the backed-up data file fall outside the valid range.
+   - Code: 超时发生。
+   - Description: 当主板与 T/P 之间的通信不稳定，或控制器的处理时间过长时，会发生此情况。
+请重试。
+<br>
 
+   - Code: 数据包含错误。
+   - Description: 备份数据文件中的某些值超出了有效范围。
 [__SOURCE](7-faq.md)
-# 7. Frequently Asked Questions
+# 7. 常见问题解答
 
-* How does the servo gun axis operate when using the shift function? 
+* 使用换档功能时伺服枪轴如何操作？
 
-  All shift-related functions (Offline, Online, Search, and Palletizing) are applied only to the robot axes. The servo gun axis moves to the positions recorded in the program and is not affected by the shift operation.
+  所有与换档相关的功能（离线、在线、搜索和堆垛）仅适用于机器人轴。伺服枪轴移动到程序中记录的位置，不受换档操作的影响。
 
-* What happens to the servo gun axis during coordinate conversion?  
-  Only the robot motion elements are subject to coordinate conversion. The servo gun axis is not converted.
+* 坐标转换期间伺服枪轴发生什么？
 
-* How does the system operate when the counterpart program call function is used?  
+  仅机器人运动元素会进行坐标转换。伺服枪轴不进行转换。
 
-  Shifting is applied by adding the relative position offset to the robot axes.
+* 当使用对方程序调用功能时，系统如何操作？
 
-* What happens to the servo gun axis during mirror image conversion?  
+  通过向机器人轴添加相对位置偏移来应用换档。
 
-  Mirror image conversion is applied to an additional axis only when the axis specification is set to Base and the axis configuration is Linear. Therefore, the servo gun axis is not subject to mirror image conversion.
+* 镜像转换期间伺服枪轴发生什么？
 
-* How can I change the currently selected gun number?  
+  仅当轴规格设置为基座且轴配置为线性时，镜像转换才应用于额外轴。因此，伺服枪轴不受镜像转换的影响。
 
-  You can change the selected gun number using R210: Spot Gun Number Selection.
-  If the selected gun is a robot-mounted gun, the corresponding tool number will automatically be updated based on the tool number assigned to that gun.
-  When the gun number is changed using R210 in a multi-gun environment, the system switches to a single-gun environment corresponding to the selected gun.
+* 如何更改当前选定的枪号？
 
-* How can I select and manually squeeze multiple guns?  
+  您可以使用 R210: Spot Gun Number Selection 更改选定的枪号。如果选定的枪是机器人安装的枪，则相应的工具号将根据分配给该枪的工具号自动更新。当在多枪环境中使用 R210 更改枪号时，系统将切换到与选定枪对应的单枪环境。
 
-  Multiple guns can be selected only if they are of the same gun type.   Use R214: Selection of Simultaneous Welding Guns to select multiple guns. To deselect a gun after multiple guns have been selected, enter the gun number to be deselected using R214. However, the first selected gun (Master Gun) cannot be deselected.
+* 如何选择并手动挤压多个枪？
 
-* How can I change the squeezing force during the servo gun squeezing process?  
+  只能选择同类型的多个枪。使用 R214: Selection of Simultaneous Welding Guns 选择多个枪。在选择多个枪后，要取消选择某个枪，请使用 R214 输入要取消选择的枪号。然而，首个选定的枪（主枪）不能被取消选择。
 
-  If the selected gun type is a servo gun, the squeezing force can be adjusted using R211: Servo Gun Squeezing Force Setting.
+* 如何在伺服枪挤压过程中更改挤压力？
 
-* How can I manually change the moving electrode wear amount of the servo gun? 
+  如果选定的枪类型为伺服枪，则可以使用 R211: Servo Gun Squeezing Force Setting 调整挤压力。
 
-  If the selected gun type is a servo gun, the moving electrode wear amount can be modified using R212: Servo Gun Moving Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+* 如何手动更改伺服枪的移动电极磨损量？
 
-* How can I manually change the fixed electrode wear amount of the servo gun? 
+  如果选定的枪类型为伺服枪，则可以使用 R212: Servo Gun Moving Electrode Wear Preset 修改移动电极磨损量。执行枪搜索时，此值会自动更新。
 
-  If the selected gun type is a servo gun, the fixed electrode wear amount can be modified using R213: Servo Gun Fixed Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+* 如何手动更改伺服枪的固定电极磨损量？
 
-* How can I manually change the fixed electrode wear amount of an equalizerless gun?   
+  如果选定的枪类型为伺服枪，则可以使用 R213: Servo Gun Fixed Electrode Wear Preset 修改固定电极磨损量。执行枪搜索时，此值会自动更新。
 
-  If the selected gun type is an equalizerless gun, the fixed electrode wear amount can be modified using R220: Equalizerless Gun Fixed Electrode Wear Preset. When a gun search is performed, this value is automatically updated.
+* 如何手动更改无平衡器枪的固定电极磨损量？
 
-* The robot is currently operating in automatic mode, and I want to change the squeezing force defined in the welding condition. How can I do this?   
+  如果选定的枪类型为无平衡器枪，则可以使用 R220: Equalizerless Gun Fixed Electrode Wear Preset 修改固定电极磨损量。执行枪搜索时，此值会自动更新。
 
-  Use R215: Spot Welding Condition Squeezing Force Setting to change the squeezing force value defined in the welding condition, even while the robot is operating in automatic mode.
+* 机器人当前在自动模式下工作，我想更改焊接条件中定义的挤压力。该如何操作？
 
-* Can I manually change the currently selected welding condition and welding sequence numbers?  
+  即使机器人在自动模式下运行，也可以使用 R215: Spot Welding Condition Squeezing Force Setting 更改焊接条件中定义的挤压力值。
 
-  To change the welding condition number, press cond.sel. To change the welding sequence number, press seq.sel, and then select the desired number.  
+* 我可以手动更改当前选定的焊接条件和焊接顺序号吗？
 
-* Is there a shortcut to access the menu path `[F2: system] - 4: Application parameter - 1: Spot welding`?  
+  要更改焊接条件号，请按 cond.sel。要更改焊接顺序号，请按 seq.sel，然后选择所需的号码。
+* 有没有快捷方式访问菜单路径 `[F2: 系统] - 4: 应用参数 - 1: 点焊 ([F2: system] - 4: Application parameter - 1: Spot welding)`?  
   
-  Yes. In Manual Mode, place the cursor on a spot welding-related command (e.g., spot, gunsea, igunsea, or egunsea) on the initial screen, and press the `[property]` button to quickly access the corresponding menu.
+  是的。在手动模式下，将光标放在初始屏幕上与点焊相关的命令（例如，spot、gunsea、igunsea 或 egunsea）上，然后按 `[property]` 按钮即可快速访问相应菜单。
 
-* How can I manually change the panel thickness?  
+* 如何手动更改面板厚度?  
 
-  If the selected gun type is a servo gun, the panel thickness can be changed using R220: Panel Thickness Setting (Sv).
+  如果选定的枪类型是伺服枪，可以使用 R220: 面板厚度设置 (Sv) 更改面板厚度。
 
-* How can I reset the recorded positions of the spot welding steps to normal values at once?  
+* 如何一次性将点焊步骤的记录位置重置为正常值?  
 
-  Set <Valid> for the item "Automatic Adjustment of Servo Gun Welding Step Record Position" under `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting`, and then play back the work program.
+  在 `[F2: 系统] - 4: 应用参数 - 1: 点焊 - 2: 焊接枪参数 - 1: 环境设置 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter - 1: Environment Setting)` 下为“伺服枪焊接步骤记录位置的自动调整”项目设置 <Valid>，然后播放工作程序。
 
-* Is it possible to detect any missed welding points?  
+* 是否可以检测到漏焊点?  
   
-  Yes. When you initialize the welding count in the Work Program Start menu and then perform welding normally, the welding count will increase accordingly.
-  To detect missed welding points, you must compare:
-  the total number of welding spots required for completion, and the actual number of weldings performed. Refer to the chapter [ 4.9 Calculation of spots in spot welding](./4-work-teaching/4-9-spot-weld-calculation.md).
+  是的。当您在工作程序开始菜单中初始化焊接计数，然后正常进行焊接时，焊接计数将相应增加。
+  要检测漏焊点，必须比较：
+  完成所需的焊接点总数和实际进行的焊接数。请参阅章节 [ 4.9 点焊的计算](./4-work-teaching/4-9-spot-weld-calculation.md)。
 
+* 似乎如果对固定伺服枪进行的顶端修整和枪搜索操作与处理操作独立进行，工作时间可以减少。有什么方法可以实现这一点?  
 
-* It seems that the working time could be reduced if tip dressing and gun search operations for a stationary servo gun were performed independently from handling operations. Is there any way to achieve this?  
-
-  Yes. This can be easily implemented by using the multi-task function.  By separating handling operations and stationary servo gun operations into different tasks, they can be executed independently and simultaneously. Please refer to the [Multi-task Function Manual](https://hrbook-hrc.web.app/#/view/doc-multi-task/en/README?cont_model=${cont_model}) for detailed instructions.
+  是的。这可以很容易地通过使用多任务功能来实现。通过将处理操作和固定伺服枪操作分离到不同的任务中，它们可以独立且同时执行。有关详细说明，请参阅 [多任务功能手册](https://hrbook-hrc.web.app/#/view/doc-multi-task/zh/README?cont_model=${cont_model})。
 [__SOURCE](8-error-warning/README.md)
-# 8. Errors and warnings
+# 8. 错误和警告
 [__SOURCE](8-error-warning/8.1.md)
-# 8.1 Error messages
+# 8.1 错误消息
 
-|                          Code                          |       <p align=center> Content </p>                                    |       <p align=center> Measure              </p>                                                          |
+|                          代码                          |       <p align=center> 内容 </p>                                    |       <p align=center> 措施              </p>                                                          |
 | :---------------------------------------------------: | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-|               <p>E0007 </p><p>Deposition detection</p>               | A deposition signal is entered upon the ending of the welding sequence.                                                              | <ul><li>Check the deposition detection signal.</li><li>Remove the deposition.</li></ul>                                                                 |
-|        <p>E0154 </p><p>Maximum electrode </p><p>consumption amount exceeded</p>        | The total electrode consumption amount detected by gun search exceeded the maximum electrode consumption amount (of both moving and fixed electrodes) set in the welding gun parameter.                        | <ul><li> Check the maximum electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                   |
-|       <p>E0155 </p><p>Maximum moving electrode </p><p>consumption amount exceeded</p>       | The moving electrode consumption amount detected by gun search exceeded the maximum (moving) electrode consumption amount set in the welding gun parameter.                              | <ul><li>Check the maximum (moving) electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                |
-|       <p>E0156 </p><p>Maximum fixed electrode </p><p>consumption amount exceeded</p>       | The fixed electrode consumption amount detected by gun search exceeded the maximum (fixed) electrode consumption amount set in the welding gun parameter.                              | <ul><li>Check the maximum (fixed) electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                |
-|        <p>E0171 </p><p>Gun opening time (five seconds) </p><p>exceeded</p>       | After the squeezing operation in the spot welding and gun search function was performed, the opening time exceeded five seconds.                                               | <ul><li>Check whether the gun has deposited to the welding workpiece or any interference has occurred.</li><li>Check whether deposition or interference has occurred to the gun of the moving side.</li></ul>                                |
-|         <p>E1036 </p><p>Electrification wait time</p><p>exceeded</p>        | During the execution of the welding by the servo gun, the welding completion (WI) signal has not been entered during the welding completion (WI) wait time in the welding sequence menu.                        | Check the wiring diagram of the welding completion (WI) signal and related peripheral facilities.                                                                                   |
-|     <p>E1038 </p><p>Position where the electrode consumption</p><p>amount compensation cannot be performed</p>    | At the time of recording the position by performing the electrode consumption amount compensation, the robot posture was created in a way that the electrode consumption amount compensation cannot be performed.                            | Required to make sure that the robot posture does not deviate from the operation area while trying to perform compensation for as much as the detected electrode consumption amount.                                                                      |
-|           <p>E1281 </p><p>The welder abnormal signal is entered.</p>          | Occurs when the welder abnormal signal is entered during welding.                                                           | 1) Check the welding power supply unit.                                                                                                    |
-|     <p>E1306 </p><p>Gun search reference position </p><p>not recorded</p>     | An error that occurs when the gun search function or spot welding function is played back without performing the gun search reference position record.                           | Attach unconsumed new electrodes and then perform the gun search reference position record operation.                                                                            |
-|           <p>E1307 </p><p>Gun search not completed normally</p>          | An error that occurs if the spot welding function is played back without completing the gun search normally, or if gun search 2 is performed without performing gun search 1.           |  Execute gun search 1 and 2 to detect the tip consumption amount first. Then start the work.                                                                             |
-|        <p>E1308 </p><p>The tool number designation for steps is false.</p>        | An error that occurs if a tool number corresponding to the welding gun number is designated wrongly for the execution of the steps where the spot welding function and gun search function are recorded.                | Match between the gun number in the function and the tool number in the step by checking the setting status of the menu of Setting of the tool number and gun type corresponding to the gun number.                                                       |
-|        <p>E1310 </p><p>Set squeezing force exceeded the current limit range.</p>       |  An error that occurs if the current limit value calculated from the command squeezing force exceeds the current limit value (IP) of the servo amp.                            | Required to lower the set squeezing force or increase the capacity of the servo gun driving motor.                                                                                 |
-| <p>E1311 </p><p>The set squeezing force</p><p>exceeded the overload</p><p>detection level.</p> | This error occurs if the command squeezing force exceeds the overload detection level.                                                     | Lower the set squeezing force in anticipation of an overload error.                                                                                         |
-|     <p>E1312 </p><p>The gun squeezing target position</p><p>calculation result shows deviation from the operation area.</p>    | An error that occurs when the servo gun squeezing position (sample position) calculation result shows that the robot deviates from the operation area.                                      | Change the robot posture and then record the position.                                                                                            |
-|       <p>E1313 </p><p>The set squeezing force </p><p>exceeded the range</p>      | This error occurs if the squeezing force set in the welding condition exceeded the squeezing force range set in the squeezing table of the welding gun parameter.                     | Lower the set squeezing force.                                                                                                    |
-|        <p>E1314 </p><p>Squeezing force matching </p><p>detection time exceeded</p>       | An error that occurs if squeezing force matching does not occur even after the passage of the squeezing force abnormality detection time in the welding gun parameter after the moving electrode started squeezing at the record position.          | <ol><li>Check the offset value of the command value. </li><li>Check the squeezing force abnormality detection time. </li><li>Check the accuracy of the squeezing force.</li></ol>                             |
-|      <p>E1320 </p><p>The sensor does not work </p><p>during gun search</p>      | This error occurs if the sensor does not work even when the robot moves to the target position during the consumption amount detection operation by the sensor in line with the gun search function of the servo gun or equalizerless gun. | <ol><li>Check whether the sensor works when the electrodes approach the sensor.</li><li>Check the wiring diagram and connection of connectors.</li><li>Check whether the specification of the contact of the sensor is appropriate.</li></ol><p></p> |
-|         <p>E1326 </p><p>Gun search 2 </p><p>environment inappropriate</p>        | This error occurs if gun search 2 is executed in an environment where the consumption amount is to be measured only by gun search 1.                    | Set the environment in a way that the gun's consumption amount compensation can be performed by gun search 1 and gun search 2.                                                                                |
+|               <p>E0007 </p><p>沉积检测</p>               | 在焊接序列结束时输入沉积信号。                                                              | <ul><li>检查沉积检测信号。</li><li>移除沉积物。</li></ul>                                                                 |
+|        <p>E0154 </p><p>最大电极 </p><p>消耗量超出</p>        | 焊枪搜索检测到的电极总消耗量超过焊接枪参数中设置的最大电极消耗量（移动和固定电极的总和）。                        | <ul><li>检查焊接枪参数中的最大电极消耗量。</li><li>更换电极。</li></ul>                                                   |
+|       <p>E0155 </p><p>最大移动电极 </p><p>消耗量超出</p>       | 焊枪搜索检测到的移动电极消耗量超过焊接枪参数中设置的最大（移动）电极消耗量。                              | <ul><li>检查焊接枪参数中的最大（移动）电极消耗量。</li><li>更换电极。</li></ul>                                                |
+|       <p>E0156 </p><p>最大固定电极 </p><p>消耗量超出</p>       | 焊枪搜索检测到的固定电极消耗量超过焊接枪参数中设置的最大（固定）电极消耗量。                              | <ul><li>检查焊接枪参数中的最大（固定）电极消耗量。</li><li>更换电极。</li></ul>                                                |
+|        <p>E0171 </p><p>枪打开时间（五秒） </p><p>超出</p>       | 在进行点焊和焊枪搜索功能的挤压操作后，打开时间超过五秒。                                               | <ul><li>检查焊枪是否已沉积在焊接工件上或是否发生干扰。</li><li>检查移动侧焊枪是否发生沉积或干扰。</li></ul>                                |
+|         <p>E1036 </p><p>放电等待时间</p><p>超出</p>        | 在执行伺服枪焊接期间，在焊接序列菜单中的焊接完成（WI）等待时间内未输入焊接完成（WI）信号。                        | 检查焊接完成（WI）信号及相关外围设施的接线图。                                                                                   |
+|     <p>E1038 </p><p>电极消耗</p><p>量补偿无法执行的位置</p>    | 在执行电极消耗量补偿时记录位置时，机器人姿态以无法执行电极消耗量补偿的方式创建。                            | 必须确保在尝试进行补偿时，机器人姿态不偏离操作区域，以适应检测到的电极消耗量。                                                                      |
+|           <p>E1281 </p><p>焊接异常信号已输入。</p>          | 在焊接过程中输入焊接异常信号时发生。                                                           | 1) 检查焊接电源单元。                                                                                                    |
+|     <p>E1306 </p><p>焊枪搜索参考位置 </p><p>未记录</p>     | 当未执行焊枪搜索参考位置记录而播放焊枪搜索功能或点焊功能时发生错误。                           | 附上未消耗的新电极，然后执行焊枪搜索参考位置记录操作。                                                                            |
+|           <p>E1307 </p><p>枪搜索未正常完成</p>          | 如果播放点焊功能而未正常完成枪搜索，或在未执行枪搜索1的情况下执行枪搜索2，则会发生错误。           |  首先执行枪搜索1和2以检测尖端消耗量。然后开始工作。                                                                             |
+|        <p>E1308 </p><p>步骤的工具编号指定错误。</p>        | 如果为执行记录的点焊功能和枪搜索功能的步骤错误地指定了与焊枪编号对应的工具编号，则会发生错误。                | 通过检查与枪编号对应的工具编号设置状态，确保功能中的枪编号与步骤中的工具编号匹配。                                                       |
+|        <p>E1310 </p><p>设置的挤压力超过当前限制范围。</p>       |  如果根据命令的挤压力计算出的电流限制值超过伺服放大器的电流限制值（IP），则会发生错误。                            | 需要降低设定的挤压力或增加伺服枪驱动电机的容量。                                                                                 |
+| <p>E1311 </p><p>设定的挤压力</p><p>超过过载</p><p>检测水平。</p> | 如果命令的挤压力超过过载检测水平，将发生此错误。                                                     | 降低设定的挤压力，以防止过载错误。                                                                                         |
+|     <p>E1312 </p><p>枪挤压目标位置</p><p>计算结果显示偏离操作区域。</p>    | 当伺服枪挤压位置（样本位置）计算结果显示机器人偏离操作区域时，将发生错误。                                      | 更改机器人姿态，然后记录该位置。                                                                                            |
+|       <p>E1313 </p><p>设定的挤压力 </p><p>超出范围</p>      | 如果焊接条件中设定的挤压力超过焊接枪参数中的挤压力范围，则会发生此错误。                     | 降低设定的挤压力。                                                                                                    |
+|        <p>E1314 </p><p>挤压力匹配 </p><p>检测时间超过</p>       | 如果在移动电极开始在记录位置挤压后，尽管经过了挤压力异常检测时间，仍未进行挤压力匹配，则会发生此错误。          | <ol><li>检查命令值的偏差。</li><li>检查挤压力异常检测时间。</li><li>检查挤压力的准确性。</li></ol>                             |
+|      <p>E1320 </p><p>传感器在枪搜索 </p><p>期间不工作</p>      | 如果在进行电极消耗量检测操作时，机器人移动到目标位置时传感器不工作，将发生此错误，这与伺服枪或无均衡器的枪的枪搜索功能一致。 | <ol><li>检查当电极接近传感器时传感器是否工作。</li><li>检查接线图和连接器的连接。</li><li>检查传感器的接触规格是否合适。</li></ol><p></p> |
+|         <p>E1326 </p><p>枪搜索2 </p><p>环境不适合</p>        | 如果在仅通过枪搜索1测量消耗量的环境中执行枪搜索2，将发生此错误。                    | 设置环境，以便通过枪搜索1和枪搜索2进行枪的消耗量补偿。                                                                                |
 
 
-
-
-|  Code        |      Content          |       Measure    |
+|  代码        |      内容          |       措施    |
 |-------------| ------------- | ----------------- |
-|               E0007  Deposition detection              | A deposition signal is entered upon the ending of the welding sequence. | Check the deposition detection signal. Remove the deposition.    |
+|               E0007  沉积检测              | 在焊接序列结束时输入沉积信号。 | 检查沉积检测信号。 移除沉积物。    |
 [__SOURCE](8-error-warning/8.2.md)
-# 8.2 Warning messages
+# 8.2 警告信息
 
-|                  Code             |       Content                                                                  |       Measure                                                                                                   |
+|                  代码             |       内容                                                                  |       措施                                                                                                   |
 | :----------------------------------------------------: | -------------------------------------- | ---------------------------------------------------- |
-|      <p>W0009 </p><p>Brake slip occurred</p><p>(the set value exceeded)</p>     | The brake slip measured during stud welding exceeded the brake deviation detection range set in the welding sequence.                  | Check the set brake deviation detection range, and, if necessary, change the value to a greater one.                                                               |
-|       <p>W0105 </p><p>Electrode replacement required total consumption amount </p><p>exceeded</p>       | This warning occurs if the total consumption amount detected by gun search exceeded the electrode replacement required consumption amount (both of moving and fixed electrodes) set in the welding gun parameter.       | <ol><li>Check the set maximum electrode consumption amount.</li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol>        |
-|      <p>W0106 </p><p>The moving electrode exceeded </p><p>the electrode replacement required consumption amount</p>      | This warning occurs if the moving electrode consumption amount detected by gun search exceeded the (moving) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (moving) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol>   |
-|      <p>W0107 </p><p>The fixed electrode exceeded </p><p>the electrode replacement required consumption amount</p>     | This warning occurs if the fixed electrode consumption amount detected by gun search exceeded the (fixed) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (fixed) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol> |
-| <p>W0108 </p><p>During the jog operation, </p><p>the actual squeezing force exceeded </p><p>the set value</p> | When squeezing is performed through manual operation of the axis, the actual squeezing force exceeds the set squeezing force. When this occurs, operate the servo gun axis in the opposite direction. | <ol><li>Check whether the squeezing force of the axis that will be operated is sufficiently set.</li><li>As a mechanical problem with the servo gun is anticipated, you need to contact the servo gun manufacturer for inquiry. </li></ol><p></p> |
-|  <p>W0109 </p><p>Impossible to manually </p><p>operate the servo gun not </p><p>selected</p> | The servo gun you want to operate is different from the selected servo gun.                                             | When you select a servo gun, you need to perform manual jog operation. First, select the servo gun you want to operate with the R210 code and then perform the operation.                                          |
-
+|      <p>W0009 </p><p>刹车滑动发生</p><p>(设置值超出)</p>     | 在钉焊过程中测量到的刹车滑动超出了焊接序列中设置的刹车偏差检测范围。                  | 检查设置的刹车偏差检测范围，如果必要，调整值为更大的值。                                                               |
+|       <p>W0105 </p><p>电极更换所需总消耗量 </p><p>超过</p>       | 如果枪搜索检测到的总消耗量超过焊接枪参数中设置的电极更换所需消耗量（包括移动和固定电极），则会发生此警告。       | <ol><li>检查设置的最大电极消耗量。</li><li>检查枪搜索参考位置是否正常注册。</li><li>更换电极。</li></ol>        |
+|      <p>W0106 </p><p>移动电极超过 </p><p>电极更换所需消耗量</p>      | 如果枪搜索检测到的移动电极消耗量超过焊接枪参数中设置的（移动）电极更换所需消耗量，则会发生此警告。             | <ol><li>检查设置的（移动）电极更换所需消耗量。</li><li>检查枪搜索参考位置是否正常注册。</li><li>更换电极。</li></ol>   |
+|      <p>W0107 </p><p>固定电极超过 </p><p>电极更换所需消耗量</p>     | 如果枪搜索检测到的固定电极消耗量超过焊接枪参数中设置的（固定）电极更换所需消耗量，则会发生此警告。             | <ol><li>检查设置的（固定）电极更换所需消耗量。</li><li>检查枪搜索参考位置是否正常注册。</li><li>更换电极。</li></ol> |
+| <p>W0108 </p><p>在手动操作期间，</p><p>实际挤压力超过 </p><p>设置值</p> | 当通过轴的手动操作进行挤压时，实际挤压力超过设置的挤压力。当这种情况发生时，按相反方向操作伺服枪轴。 | <ol><li>检查将要操作的轴的挤压力是否设置足够。</li><li>由于预期会出现伺服枪的机械问题，需要联系伺服枪制造商进行询问。</li></ol><p></p> |
+|  <p>W0109 </p><p>无法手动 </p><p>操作未 </p><p>选择的伺服枪</p> | 您想要操作的伺服枪与所选的伺服枪不同。                                             | 选择伺服枪时，您需要进行手动点动操作。首先，用R210代码选择您想要操作的伺服枪，然后执行操作。                                          |
 [__SOURCE](9-spot-monitoring/README.md)
-# 9. Spot Monitoring Function
+# 9. 点焊监控功能
 
-The Spot Monitoring function visualizes data generated during spot welding in graph form, enabling rapid identification of the root cause when a problem occurs. In addition, when checking function behavior, users can review the magnitude and timing of each data item displayed in the graph, helping to determine normal or abnormal conditions directly on the TP without the inconvenience of analyzing data files on a PC.
+点焊监控功能以图形形式可视化在点焊过程中生成的数据，使得在问题发生时能够快速识别根本原因。此外，在检查功能行为时，用户可以查看图中显示的每个数据项的大小和时间，帮助直接在TP上判断正常或异常情况，而无需在PC上分析数据文件的麻烦。
 
-### Installation Method
+### 安装方法
 
-This function is developed using a plugin-based approach. By simply saving the corresponding code to the designated folder, the menu is automatically displayed without requiring a separate build process, allowing users to select and execute the desired function.
+该功能采用基于插件的方法开发。通过简单地将相应代码保存到指定文件夹，菜单会自动显示，无需单独的构建过程，用户可以选择并执行所需的功能。
 
-Until dedicated features for plugin program installation and security are officially provided, obtain the source code from the spot welding developer (spot function administrator) and copy it to the following path:
+在专门的插件程序安装和安全功能正式提供之前，请从点焊开发者（点功能管理员）获得源代码，并将其复制到以下路径：
 
 [MAIN > apps > spot_mon]
-
 
 </br>
 
 <p align=center>
 <img src="../_assets/image_95_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.1 Spot Data Monitoring Function Menu</p></em>
+<em><p align="center">图 9.1 点数据监控功能菜单</p></em>
 </p>
-
-
 [__SOURCE](9-spot-monitoring/9-1-spot-data.md)
-## 9.1 Spot Data Monitoring Function
+## 9.1 点数据监控功能
 
-Spot data monitoring allows selective visualization of data generated while executing the spot command. Data collection is created using the existing gathering function, and the generated data file is utilized for monitoring.
+点数据监控允许选择性地可视化在执行点命令时生成的数据。数据收集是使用现有的收集功能创建的，生成的数据文件用于监控。
 
-### Data File Creation
+### 数据文件创建
 
-To collect data for spot data monitoring, edit the options as shown below:
-([Service > 16: Data Gathering], Engineer Mode)
+要收集点数据监控的数据，请按如下所示编辑选项：
+([Service > 16: 数据收集], 工程师模式)
 
 <p align=center>
 <img src="../_assets/image_96_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.2 Spot Data Collection Option Input</p></em>
+<em><p align="center">图 9.2 点数据收集选项输入</p></em>
 </p>
 
 <br>
 
-Execute the gathering command in the user program.
+在用户程序中执行收集命令。
 <p align=center>
 <img src="../_assets/image_97_eng.PNG" width="50%"></img>
-<em><p align="center">Figure 9.3 Execution of Gathering Command</p></em>
+<em><p align="center">图 9.3 执行收集命令</p></em>
 </p>
 
 
-### - Data File and Graph Option Selection
+### - 数据文件和图表选项选择
 
-Enter the Spot Data Monitoring function and select the Spot Data menu.
+进入点数据监控功能并选择点数据菜单。
 <p align=center>
 <img src="../_assets/image_98_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.4 Spot Data Graph Menu</p></em>
+<em><p align="center">图 9.4 点数据图表菜单</p></em>
 </p>
 
-An option selection window for graph creation and function buttons at the bottom of the screen are displayed.
+屏幕底部显示图表创建和功能按钮的选项选择窗口。
 <p align=center>
 <img src="../_assets/image_99_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.5 Graph Creation Options and Function Buttons</p></em>
+<em><p align="center">图 9.5 图表创建选项和功能按钮</p></em>
 </p>
 
 
-By pressing the `[file choice]` button, select the GDT file to be used for graph generation from the saved files, and then press the `[save]` button.
+通过按下 `[file choice]` 按钮，从保存的文件中选择用于图表生成的 GDT 文件，然后按下 `[save]` 按钮。
 <p align=center>
 <img src="../_assets/image_100_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.6 GDT File Selection</p></em>
+<em><p align="center">图 9.6 GDT 文件选择</p></em>
 </p>
 
 
-### - Graph Creation and Zoom Function
-When the `[Graph]` button is pressed from the function buttons shown in Figure 9.5, graphs are displayed for the selected options as shown below.
+### - 图表创建和缩放功能
+从图 9.5 中显示的功能按钮按下 `[Graph]` 按钮时，将显示所选选项的图表，如下所示。
 <p align=center>
 <img src="../_assets/image_101_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.7 Graph Generation for Selected Items</p></em>
+<em><p align="center">图 9.7 选定项目的图表生成</p></em>
 </p>
 
-To view details more closely, use a finger or stylus to select an area on the screen. The selected area will be displayed as an enlarged graph.
+要更仔细地查看细节，请使用手指或触控笔在屏幕上选择一个区域。所选区域将以放大的图形显示。
 <p align=center>
 <img src="../_assets/image_102_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.8 Graph Zoom Function</p></em>
-</p>
+<em><p align="center">图 9.8 图形缩放功能</p></em>
+</p><
 [__SOURCE](9-spot-monitoring/9-2-gunsea-history.md)
-## 9.2 Gun Search Data History Management
+## 9.2 枪搜索数据历史管理
 
-No separate user procedure is required for gun search data history management. Each time the gunsea command is executed, the wear amount of each tip is automatically saved to a history file.
+枪搜索数据历史管理不需要单独的用户程序。每次执行 gunsea 命令时，每个尖端的磨损量自动保存到历史文件中。
 
-The files are stored under the 'MAIN > log' folder with the name gunsearchlog_x.txt, and up to 10 files are stored in a rotating manner.
-
+文件存储在 'MAIN > log' 文件夹下，名称为 gunsearchlog_x.txt，最多可以循环方式存储 10 个文件。
 
 <p align=center>
 <img src="../_assets/image_103_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.9 Gun Search History Management Files</p></em>
+<em><p align="center">图 9.9 枪搜索历史管理文件</p></em>
 </p>
-
 [__SOURCE](9-spot-monitoring/9-3-gunsea-data.md)
-## 9.3 Gun Search Data Monitoring Function
+## 9.3 枪搜索数据监控功能
 
-By selecting a saved wear history file, users can view the trend of tip wear changes in graph form. To access this function, select the following menu item:
+通过选择保存的磨损历史文件，用户可以查看刀尖磨损变化的趋势图。要访问此功能，请选择以下菜单项：
 
 <p align=center>
 <img src="../_assets/image_104_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.10 Gun Search Data Menu</p></em>
+<em><p align="center">图 9.10 枪搜索数据菜单</p></em>
 </p>
 
 
-### - Data File and Graph Option Selection
+### - 数据文件和图形选项选择
 
-An option selection window for graph creation and function buttons at the bottom of the screen are displayed.
+屏幕底部显示用于图形创建的选项选择窗口和功能按钮。
 <p align=center>
 <img src="../_assets/image_105_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.11 Graph Creation Options and Function Buttons</p></em>
+<em><p align="center">图 9.11 图形创建选项和功能按钮</p></em>
 </p>
 
 
-Click the `[file choice]` button, choose the desired log file from the saved files, and then click the `[save]` button.
+点击`[file choice]`按钮，从保存的文件中选择所需的日志文件，然后点击`[save]`按钮。
 <p align=center>
 <img src="../_assets/image_106_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.12 Log File Selection</p></em>
+<em><p align="center">图 9.12 日志文件选择</p></em>
 </p>
 
 
-### - Graph Creation and Zoom Function
+### - 图形创建和缩放功能
 
-Press the `[Graph]` button among the function buttons shown in Figure 9.5 to display graphs for the selected options, as shown below.
+按下图 9.5 中所示功能按钮中的`[Graph]`按钮，以显示所选选项的图形，如下所示。
 <p align=center>
 <img src="../_assets/image_107_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 9.13 Graph Creation for Selected Items</p></em>
+<em><p align="center">图 9.13 选定项目的图形创建</p></em>
 </p>
-

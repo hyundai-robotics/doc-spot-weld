@@ -1,25 +1,24 @@
-﻿# 2.5 Step 3. Setting check
+﻿# 2.5 第 3 步. 设置检查
 
-When the application setting is completed, you can check the setting performed so far through the 'setting check' procedure. The setting check procedure can be executed only when the default and application settings are completed.
+当应用设置完成后，可以通过“设置检查”程序检查到目前为止所进行的设置。设置检查程序仅在默认设置和应用设置完成后才能执行。
 
- As shown below, When '**Step 0. Pre-inspection**', '**Step 1. Default setting**', and '**Step 2. Application setting**' are completed, press the 『**Proceed with the prior-to-setting items**』 key or bring the focus onto the '**Step 3. Setting check**' section and then press the Enter key to progress the setting check procedure.
-
+如下面所示，当“**第 0 步. 预检**”、“**第 1 步. 默认设置**”和“**第 2 步. 应用设置**”完成后，按下『**继续进行之前的设置项目**』键，或将焦点移动到“**第 3 步. 设置检查**”部分，然后按下 Enter 键以继续设置检查程序。
 
 <p align="center">
  <img src="../_assets/image_21_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.18 Servo gun setting check screen</p></em>
+ <em><p align="center">图 2.18 伺服枪设置检查屏幕</p></em>
 </p>
 
->The setting check will proceed while the servo gun is moving, so the following conditions must be satisfie.
+>设置检查将在伺服枪移动时进行，因此必须满足以下条件。
 >
->* Attachment of a tip that is in the same state as the tip used for the setting (impossible to check correctly if a new tip is attached and tip dressing is performed)
->* No worker around the servo gun
->* No workpiece between the moving electrode and fixed electrode
->* Manual mode
->* Motor on
->* Completion of the default setting of the servo gun
->* Completion of the application setting of the servo gun
+>* 附加与用于设置的尖端处于相同状态的尖端（如果附加了新尖端并进行尖端修整，则无法正确检查）
+>* 伺服枪周围没有工人
+>* 移动电极和固定电极之间没有工件
+>* 手动模式
+>* 电机开启
+>* 伺服枪的默认设置已完成
+>* 伺服枪的应用设置已完成
 
-When the setting check proceeds as the above conditions are satisfied, the screen changes to the 'Application Setting' screen to make it possible to monitor the movement status of the servo gun.
+当设置检查进行时满足上述条件，屏幕将变为“应用设置”屏幕，以便监控伺服枪的运动状态。
 
-When the 'setting check' is completed, the error estimated during verification will be displayed. Considering that the displayed value is an error, if a value close to 0 is indicated, the setting can be regarded as normal. If the error is a value greater than zero, the setting should be performed again or it is needed to check for any change with the servo gun or surrounding environment. If the setting check result is satisfactory, press 'Yes' to end the 'setting check' procedure. If the result is unsastisfactory, press 'No' to perform resetting or check the servo gun or surrounding environment.
+当“设置检查”完成后，在验证过程中产生的错误将被显示。考虑到显示值是错误，如果指示的值接近 0，则设置可以视为正常。如果错误值大于零，则需要重新执行设置或检查伺服枪或周围环境是否有变化。如果设置检查结果令人满意，请按“是”结束“设置检查”程序。如果结果不满意，请按“否”执行重置或检查伺服枪或周围环境。

@@ -1,21 +1,19 @@
-﻿# 3.3 User keys
+﻿# 3.3 用户键
 
-This is a description of the user keys related to spot welding. There is a button for the user keys at the bottom right of the initial main screen. Each time you press the button, the registered menu changes. Press each user key related to spot welding twice to enter the relevant menu.
-
+这是与点焊相关的用户键的描述。在初始主屏幕的右下角有一个用户键按钮。每次按下按钮时，注册的菜单会更改。按下与点焊相关的每个用户键两次以进入相应的菜单。
 
 <p align="center">
  <img src="../_assets/image_33_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.8 Spot welding user keys</p></em>
+ <em><p align="center">图 3.8 点焊用户键</p></em>
 </p>
 
-
->*   **Servo gun wide opening**  
->    Manually moves the servo gun to the wide opening position.
->*   **Servo gun manual closing**  
->    Manually moves the servo gun to the narrow opening position.
->*   **Servo gun manual squeezing**  
->    Manually spueezes the servo gun. 
->*   **Welding condition change**  
->    Manually changes the currently selected welding condition number.
->*   **Welding sequence change**  
->    Manually changes the currently selected welding sequence number.
+>*   **伺服枪宽开口**  
+>    手动将伺服枪移动到宽开口位置。
+>*   **伺服枪手动关闭**  
+>    手动将伺服枪移动到窄开口位置。
+>*   **伺服枪手动挤压**  
+>    手动挤压伺服枪。
+>*   **焊接条件改变**  
+>    手动更改当前选择的焊接条件编号。
+>*   **焊接序列改变**  
+>    手动更改当前选择的焊接序列编号。

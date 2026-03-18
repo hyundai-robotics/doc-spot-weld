@@ -1,44 +1,44 @@
-﻿# 3.4 Welding gun manual closing and squeezing
+﻿# 3.4 焊枪手动关闭和挤压
 
-The procedure for manual closing and squeezing of the welding gun is as follows.
+焊枪的手动关闭和挤压程序如下。
 
 </br>
 
-1. Check whether the mode is manual. In the case of the servo gun, input the operation preparation signal to drive the axis of the servo gun. 
-2.  Select the gun number for the manual closing or squeezing operation. The method to select a gun number is as follows.
+1. 检查模式是否为手动。如果是伺服枪，输入操作准备信号以驱动伺服枪的轴。
+2. 选择手动关闭或挤压操作的枪号。选择枪号的方法如下。
 
-    | **Gun type** |   Whether to change  | R code |
+    | **枪类型** |   是否更改  | R 代码 |
     | :-----: | :---------: | :--------------: |
-    | single gun |    For change of the welding gun  | R358 (welding gun connection/separation) |
-    |    single gun     | Not for change of the welding gun |   R210 (welding gun selection)  |
-    | Multiple guns |      -       |  R214 (selection of guns for simultaneous welding) |
+    | 单枪 |    更改焊枪  | R358 (焊枪连接/分离) |
+    |    单枪     | 不更改焊枪 |   R210 (焊枪选择)  |
+    | 多枪 |      -       |  R214 (同时焊接的枪选择) |
 
 
-3.  Check whether the following user keys are registerd.
+3. 检查以下用户键是否已注册。
 
 
 
-    |       **Wide opening**  |       **Narrow opening**    | **Manual squeezing**   |
+    |       **宽开口**  |       **窄开口**    | **手动挤压**   |
     | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
     | <img src="../_assets/image_86_eng.PNG"></img>|<img src="../_assets/image_16_eng.PNG"></img> | <img src="../_assets/image_43_eng.PNG"></img> |
 
 
-1.  When you press the `[SHIFT]+[user key]` at the same time, the following operation will be performed. When multiple guns are selected, all of the selected guns will operate in the same way.
+1. 当同时按下 `[SHIFT]+[用户键]` 时，将执行以下操作。当选择多个枪时，所有选中的枪将以相同方式操作。
 
-    |                  **Servo gun**                 |
+    |                  **伺服枪**                 |
     | :--------------------------------------: |
     | <img src="../_assets/image_13_eng.PNG"></img> |
 
 
 
-The servo gun has the following characteristics during the manual closing and squeezing operations.
+在手动关闭和挤压操作期间，伺服枪具有以下特性。
 
-* The servo gun automatically stops at the wide opening position, the narrow opening position, and the position where the squeezing force reaches the set value.
-* The moving speed is the speed entered at **Step FWD/BWD maximum speed** by `[F7: cond.set]`.
-* If the set squeezing force is small, the servo gun will not move even when it is operated. Considering it, set a sufficient squeezing force (R211: Squeezing force setting).
-* When it comes to multiple guns, if there is a difference in the moving distance between two guns, the gun that reaches first will stop while the other gun will stop after moving as much as the remaining distance.
+* 伺服枪会自动停在宽开口位置、窄开口位置以及挤压力达到设定值的位置。
+* 移动速度为通过`[F7: 条件设置] ([F7: cond.set])`输入的 **步骤 FWD/BWD 最大速度**。
+* 如果设定的挤压力较小，即使操作也不会移动伺服枪。考虑到这一点，请设定足够的挤压力（R211: 挤压力设置）。
+* 当涉及多个枪时，如果两个枪之间的移动距离存在差异，先达到的枪会停止，而另一个枪则会在移动剩余距离后停止。
 
 <p align="center">
  <img src="../_assets/image_53_eng.PNG"></img>
- <em><p align="center">Figure 3.9 Spot gun manual operation</p></em>
+ <em><p align="center">图 3.9 点焊枪手动操作</p></em>
 </p>

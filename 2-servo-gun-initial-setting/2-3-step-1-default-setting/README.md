@@ -1,44 +1,42 @@
-﻿# 2.3 Step 1. Default setting
+﻿# 2.3 第一步。默认设置
 
-After the pre-inspection is completed, the default setting can be performed. The default setting is an essential setting process to determine the reference position of the moving electrode of the servo gun, move the servo gun to a desired position, and supply the desired squeezing force.
+在预检完成后，可以进行默认设置。默认设置是确定伺服枪移动电极的参考位置、将伺服枪移动到期望位置以及提供所需挤压力的必要设置过程。
 
-The default setting consists of four items as shown in the figure below.
+默认设置包括如下图所示的四个项目。
 
 <p align="center">
  <img src="../../_assets/image_17_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.5 Default setting proceeding screen</p></em>
+ <em><p align="center">图 2.5 默认设置进行屏幕</p></em>
 </p>
 
 </br>
 
-(1) **Encoder offset compensation**
-   * Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can have the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
-   * For manual setting, refer to the chapter [2.3.2.1 Servo gun encoder offset setting](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md).
+(1) **编码器偏移补偿**
+   * 通常，当编码器数据由于更换伺服枪电机等而发生变化时，编码器的原点应设定在能够具有相同机械位置的位置。在伺服枪的情况下，设置应在电极机械上完全打开的状态下进行。
+   * 手动设置，请参考章节 [2.3.2.1 伺服枪编码器偏移设置](2-3-2-manual-setting/1-servo-gun-encoder-offset-setting.md)。
   
-(2) **Axis origing setting**
-   * In general, the setting of the axis origin of the servo gun should be performed at the position where both the moving and fixed electrodes, with a new tip attached individually, meet each other. As most operations of the servo gun are performed with this axis origin as the reference, it is very important to carry out setting for this.
-   * For manual setting, refer to the chapter [2.3.2.2 Servo gun axis origin](2-3-2-manual-setting/2-servo-gun-axis-origin.md).
+(2) **轴原点设置**
+   * 通常，伺服枪的轴原点设置应在移动电极和固定电极（各自附有新尖端）相遇的位置进行。由于伺服枪的大多数操作是以此轴原点作为参考，因此进行此设置非常重要。
+   * 手动设置，请参考章节 [2.3.2.2 伺服枪轴原点](2-3-2-manual-setting/2-servo-gun-axis-origin.md)。
    
-  
-(3) **Soft limit setting**
-   * In general, the soft limit of the servo gun should be set to '**Minimum**' while the moving electrode is fully open, and set to '**Maximum**' while the moving electrode is at the closest position with all tips removed.
-   * For manual setting, refer to the chapter [2.3.2.3 Servo gun soft limit](2-3-2-manual-setting/3-servo-gun-soft-limit.md).
+(3) **软限制设置**
+   * 通常，伺服枪的软限制应在移动电极完全打开时设置为 '**最小值**'，在移动电极与所有尖端移除后的最接近位置时设置为 '**最大值**'。
+   * 手动设置，请参考章节 [2.3.2.3 伺服枪软限制](2-3-2-manual-setting/3-servo-gun-soft-limit.md)。
     
-(4) **Squeezing force - current table setting**
-   * To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun..
-   * To use this function, it is necessary to select five representative values among the areas of the squeezing force to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the direction of gravity and when it is in direction of anti-gravity, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
-   * For more details, refer to the chapter [2.3.3 Servo gun squeezing force - current table tunning](2-3-3-servo-gun-force-current-table-tuning/README.md).
+(4) **挤压力 - 电流表设置**
+   * 为了以期望的挤压力挤压安装到机器人的各种伺服枪，需要使供给伺服枪的电流与产生的挤压力相对应。为此，我公司提供伺服枪挤压力 - 电流表。需要对该表进行调试以匹配伺服枪。
+   * 使用此功能时，需要在要使用的挤压力范围中选择五个代表值。调试伺服枪挤压力 - 电流表是找到与这五个代表性挤压力相匹配的电流的过程。该表可能会因伺服枪的姿态而有所不同，因此需要对每个情况下进行调试，即在移动电极朝向重力和朝向反重力时，通过这种方法，可以在伺服枪的各种姿态中高精度地进行挤压。
+   * 有关更多详细信息，请参考章节 [2.3.3 伺服枪挤压力 - 电流表调试](2-3-3-servo-gun-force-current-table-tuning/README.md)。
 
 </br>
 
-The default setting can be performed with automatic settng and manual setting.
+默认设置可以通过自动设置和手动设置进行。
 
-(1) **Automatic setting**: The servo gun automatically moves to the designated position and then perform the designated setting.
-   * Items that can be automatically set
-     * Encoder offset compensation
-     * Axis origin setting
-     * Soft limit setting
-   * The setting of the squeezing force - current table cann not be automatically performed because it requires user intervention such as the installation of a squeezing force gauge.
+(1) **自动设置**：伺服枪自动移动到指定位置，然后执行指定设置。
+   * 可以自动设置的项目
+     * 编码器偏移补偿
+     * 轴原点设置
+     * 软限制设置
+   * 由于需要用户干预（如安装挤压力计），挤压力 - 电流表的设置无法自动执行。
    
-(2) **Manual setting**: The servo gun needs to be moved to the designated position through the operation by the user and the designated function will be performed on the dedicated setting screen.
-  
+(2) **手动设置**：伺服枪需要通过用户操作移动到指定位置，并在专用设置屏幕上执行指定功能。

@@ -1,44 +1,37 @@
-﻿# 4.8 Handling of workpieces with the servo gun
+﻿# 4.8 使用伺服枪处理工件
 
- This is a function to transport a workpiece in small size without using a separate hanger.
+这是一个在不使用单独挂架的情况下运输小型工件的功能。
 
 <p align="center">
  <img src="../_assets/image_52_eng_.PNG" width="50%"></img>
- <em><p align="center">Figure 4.21 Servo gun's handling function</p></em>
+ <em><p align="center">图 4.21 伺服枪的处理功能</p></em>
 </p>
 
 </br>
 
 ```svclamp on/off gun=<gun number>,cnd=<condition number>```
 
-
-
-
-|   **Item**    |        **Content**       |
+|   **项目**    |        **内容**       |
 | :--------: |:---------: |
-|    **on/off**    |  on: clamping, off: releasing |
-|    **Gun number**    |  the welding gun number (array [ ] for multi-guns) |
-|    **Condition number**   |  the welding condition |
+|    **开/关**    |  开：夹紧，关：释放 |
+|    **枪编号**    |  焊接枪编号（用于多枪的数组 [ ]） |
+|    **条件编号**   |  焊接条件 |
 
 
 <br>
 
-
-
-The `svclamp` statement can be used to hold a workpiece and perform opening operation. In the svclamp on state, the servo gun does not open.
-
-
+`svclamp` 语句可用于固定工件并执行打开操作。在 svclamp 开启状态下，伺服枪不会打开。
 
 <br>
 
 ```python
 
-S10   move L, ...                    # Move to a holding position
-      svclamp on, gun=1, cnd=1       # Hold the workpiece using a servo gun
-S11   move L, ...                    # Robot movement
-S12   move L, ...                    # Robot movement
-S13   move L, ...                    # Move to a releasing position
-      svclamp off, gun=1, cnd=1      # Release the workpiece 
-S12   move L, ...                    # Robot movement
+S10   move L, ...                    # 移动到固定位置
+      svclamp on, gun=1, cnd=1       # 使用伺服枪固定工件
+S11   move L, ...                    # 机器人移动
+S12   move L, ...                    # 机器人移动
+S13   move L, ...                    # 移动到释放位置
+      svclamp off, gun=1, cnd=1      # 释放工件 
+S12   move L, ...                    # 机器人移动
 
 ```

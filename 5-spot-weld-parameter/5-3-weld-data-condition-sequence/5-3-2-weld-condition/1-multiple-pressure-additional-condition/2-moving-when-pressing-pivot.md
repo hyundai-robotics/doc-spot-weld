@@ -1,30 +1,29 @@
-﻿#### 5.3.2.1.2 Gun Movement During Pressurization (Pivot)
+#### 5.3.2.1.2 枪在加压期间的运动 (Pivot)
 
-This function moves the gun during the pressurization phase in servo gun spot welding. At the specified movement timing, the robot moves by the defined distance, speed, and direction.
+此功能在伺服枪点焊的加压阶段移动枪。在指定的运动时机，机器人按定义的距离、速度和方向移动。
 
-Since this function moves the robot based on the tool coordinate system, servo gun tool data, wear amount, gun arm deflection, teaching posture, and robot calibration can affect performance. To apply this function effectively, the above factors must be continuously monitored and managed.
+由于此功能基于工具坐标系统移动机器人，伺服枪工具数据、磨损量、枪臂偏转、教学姿态和机器人校准都会影响性能。要有效应用此功能，必须持续监控和管理上述因素。
 
 <p align=center>
 <img src="../../../../_assets/image_57_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.13 Pivot setup</p></em>
+<em><p align="center">图 5.13 Pivot 设置</p></em>
 </p>
 
-(1)  **Condition number**
+(1)  **条件编号**
 
--   Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.
-  
-(2)  **Point to start movement**
--   Specifies the start timing of movement by dividing the spot welding stages into
-`Initial squeeze arrived`  --> `Welding execution output`  --> `Welding complete input`.
+-   指示多步骤挤压条件和辅助条件的条件编号。
 
-(3)  **Shift value (sft)**
--   Regardless of whether a robot-mounted gun or a stationary gun is used, the coordinate system and movement position for shift movement are determined.
+(2)  **开始运动的点**
+-   通过将点焊阶段划分为 `初始压力到达 (Initial squeeze arrived)`  --> `焊接执行输出 (Welding execution output)`  --> `焊接完成输入 (Welding complete input)` 来指定运动的开始时机。
 
-(4)  **Move speed\[mm/s, sec, %]**
--   Sets the movement speed.
+(3)  **偏移值 (sft)**
+-   无论使用机器人安装的枪还是固定枪，偏移运动的坐标系统和运动位置均由此确定。
 
-(5)  **Process for WI during motion**
--   Selects whether to stop the movement immediately when welding completion occurs during robot movement, or to complete the movement and then proceed to the next step.
+(4)  **移动速度\[mm/s, sec, %]**
+-   设置运动速度。
 
-(6)  **Movement start delay**
--   When the movement timing is reached, the robot waits for the specified delay time before starting the movement.
+(5)  **运动过程中的 WI**
+-   选择在机器人运动期间焊接完成时是否立即停止运动，或完成运动后再进行下一步。
+
+(6)  **运动开始延迟**
+-   当达到运动时机时，机器人在开始运动之前等待指定的延迟时间。

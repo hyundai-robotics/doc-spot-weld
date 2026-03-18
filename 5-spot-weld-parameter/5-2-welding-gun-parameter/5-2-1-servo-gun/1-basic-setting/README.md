@@ -1,80 +1,76 @@
-﻿### 5.2.1.1 Servo gun default setting
+### 5.2.1.1 伺服枪默认设置
 
 <p align=center>
 <img src="../../../../_assets/image_44_eng.PNG" width="70%"></img>
 <img src="../../../../_assets/image_87_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.2 Servo gun default setting screen</p></em>
+<em><p align="center">图 5.2 伺服枪默认设置屏幕</p></em>
 </p>
 
-(1)  **Manual stroke distance (mm)**  
-  Specifies the target position for performing wide and narrow opening operations of the servo gun using the user key.
+(1)  **手动行程距离 (mm)**  
+  指定伺服枪在使用用户键进行宽和窄开口操作时的目标位置。
 
-(2)  **Maximum tip consumption (mm)**  
-  If the moving or fixed electrode consumption amount detected through gun search exceeds the set value, an error will be generated and operation will stop.
+(2)  **最大尖端消耗 (mm)**  
+  如果通过枪搜索检测到的移动或固定电极消耗量超过设定值，将产生错误并停止操作。
 
-(3)  **Tip change consumption (mm)**  
-  If the moving or fixed electrode consumption amount detected by gun search exceeds the value set here, an electrode consumption alarm signal will be output together with a warning message to indicate that electrode replacement is required.
-  If it is set to 0.0 mm, no abnormality will be detected.
+(3)  **尖端更换消耗 (mm)**  
+  如果通过枪搜索检测到的移动或固定电极消耗量超过此处设定的值，将输出电极消耗报警信号，并伴随警告信息以指示需要更换电极。  
+  如果设置为 0.0 mm，则不会检测到任何异常。
 
-(4)  **Bend offset per 100kgf (mm)**  
-  Sets the gun arm deflection caused by the squeezing force as a deflection amount per 100 kgf. During spot welding, the squeezing operation is performed by calculating the gun arm deflection based on both this setting and the commanded squeezing force.
-
+(4)  **每100kgf的弯曲偏移 (mm)**  
+  将由于夹紧力引起的枪臂弯曲设置为每100 kgf的弯曲量。在点焊过程中，通过根据此设置和指令夹紧力计算枪臂弯曲来执行夹紧操作。
 
 <p align=center>
 <img src="../../../../_assets/image_50_eng.PNG" ></img>
-<em><p align="center">Figure 5.3 Gun arm deflection amount/100Kgf graph</p></em>
+<em><p align="center">图 5.3 枪臂弯曲量/100Kgf 图</p></em>
 </p>
 
-(5)  **Pressure tolerance (%)**  
-  During the squeezing force matching process, force matching is considered complete when the actual squeezing force falls within the specified accuracy range of the commanded squeezing force.
-  If this value is set to 0, the notification "W0110: Set in a way that squeezing force detection does not occur" will be displayed, and squeezing force matching will not be performed.
+(5)  **压力公差 (%)**  
+  在夹紧力匹配过程中，当实际夹紧力落在指令夹紧力的指定精度范围内时，认为力匹配已完成。  
+  如果此值设置为 0，将显示通知 "W0110: 设置为不发生夹紧力检测的方式"，并且不进行夹紧力匹配。
 
-(6)  **Press fault check time (s)**  
+(6)  **按压故障检查时间 (s)**  
 
-  Sets the time from the start of squeezing until squeezing force matching is achieved.
+  设置从开始夹紧到实现夹紧力匹配的时间。
 
-  If squeezing force matching occurs within this time, the welding signal will be output immediately. If squeezing force matching does not occur within this time, the notification "E1314: Exceeds the time for detection of abnormal squeezing force" will be issued and operation will stop.
+  如果在此时间内发生夹紧力匹配，将立即输出焊接信号。如果在此时间内未发生夹紧力匹配，将发出通知 "E1314: 超过异常夹紧力检测时间"，并停止操作。
 
-  If the time is set to 0.0 sec, squeezing force matching  detection will continue to wait.
+  如果时间设置为 0.0 秒，夹紧力匹配检测将继续等待。
 
+(7)  **指令偏移 (mm)**  
+  执行 `spot` 语句时，伺服枪必须产生指定的夹紧力。为此，移动电极被指令移动到夹紧位置。夹紧位置定义为在夹紧方向上添加指令值偏移到记录位置所得到的位置。
 
-(7)  **Command offset (mm)**  
-  When the `spot` statement is executed, the servo gun must generate the specified squeezing force. To do this, the moving electrode is commanded to move to the squeezing position. The squeezing position is defined as the position obtained by adding the command value offset to the recorded position in the squeezing direction.
+(8)  **安装现场**   
+  选择所选伺服枪的类型（机器人枪或固定枪）。  
+  当使用固定伺服枪时，设置预先定义了固定枪坐标系的用户坐标系编号。（如果值为 0，将使用机器人坐标系。）
 
-(8)  **Installed site**   
-  Selects the type (robot gun or stationary gun) of the selected servo gun.
-  When using a stationary servo gun, set the user coordinate system number in which the coordinate system of the stationary gun has been defined in advance. (If the value is 0, the robot coordinate system will be used.)
-
-  The user coordinate system should be defined so that the travel direction of the fixed electrode corresponds to the positive Z (+) direction.
-
-<p align=center>
+  用户坐标系应定义为固定电极的运动方向对应于正 Z (+) 方向。
 <img src="../../../../_assets/image_81_eng.PNG" ></img>
-<em><p align="center">Figure 5.4 Stationary gun coordinate system</p></em>
+<em><p align="center">图 5.4 静态枪坐标系统</p></em>
 </p>
- 
-(9)  **Moving tip / total consumption (%)**  
-  Regarding the method for measuring the consumption amount of the servo gun, one option is to measure it using Gun Search 1 only, and the other is to measure it using both Gun Search 1 and Gun Search 2.
 
-  If the value is set to 0, the consumption amount will be calculated using both Gun Search 1 and Gun Search 2. If the value is set to a value other than 0, the total consumption amount measured through Gun Search 1 will be distributed between the moving electrode consumption amount and the fixed electrode consumption amount according to the specified ratio (%).
+(9)  **移动尖端 / 总消耗 (%)**  
+  关于测量伺服枪消耗量的方法，有一种选择是仅使用枪搜索 1 来测量，另一种是同时使用枪搜索 1 和枪搜索 2 进行测量。
 
-(10)  **Real-time pressure control**
+  如果值设置为 0，则消耗量将通过枪搜索 1 和枪搜索 2 进行计算。如果值设置为非 0，则通过枪搜索 1 测量的总消耗量将根据指定的比例 (%) 在移动电极消耗量和固定电极消耗量之间分配。
 
-  Sets whether to use the real-time squeezing force control function.
+(10)  **实时压力控制**
 
-  This function controls the system to ensure that the specified squeezing force is achieved by using the actual squeezing force measured with a squeezing force gauge.
+  设置是否使用实时挤压力控制功能。
 
-  If this function is enabled, the `[Realtime signal]` button will be activated, allowing the related parameters to be configured.
+  此功能控制系统，以确保通过使用挤压力计测量的实际挤压力达到指定的挤压力。
+
+  如果启用此功能，将激活 `[Realtime signal]` 按钮，允许配置相关参数。
   
-(11)  **Current - force table**  
+(11)  **电流 - 力 table**  
 
-  A squeezing force table with up to five levels can be created by measuring the squeezing force using a force gauge. If different squeezing forces are set for the gravity direction and the anti-gravity direction, compensation will be applied according to the operating direction of the gun.
+  可以通过使用力计测量挤压力来创建最多五个级别的挤压力表。如果为重力方向和反重力方向设置不同的挤压力，则将根据枪的操作方向进行补偿。
 
-  The squeezing force-current table defines the current values corresponding to each of the five squeezing force levels. The table must be configured so that both the squeezing force and the current value increase as the level increases.
+  挤压力-电流表定义了与每个挤压力级别对应的电流值。表格必须配置，以便随着级别的增加，挤压力和电流值均增加。
 
-  The upper and lower limits set for the squeezing force are used as the allowable range during playback or manual operation.
+  为挤压力设置的上下限用作播放或手动操作期间的允许范围。
 
 <p align=center>
 <img src="../../../../_assets/image_54_eng.PNG" ></img>
 <img src="../../../../_assets/image_11_eng.PNG" ></img>
-<em><p align="center">Figure 5.5 Gravitation direction and anti-gravitation direction</p></em>
+<em><p align="center">图 5.5 重力方向和反重力方向</p></em>
 </p>

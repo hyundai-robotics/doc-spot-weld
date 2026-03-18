@@ -1,34 +1,33 @@
-﻿### 4.6.1 Manual selection of multiple guns
+### 4.6.1 手动选择多个枪
 
 <p align="center">
  <img src="../../_assets/image_32_eng_.PNG" width="60%"></img>
- <em><p align="center">Figure 4.19 Screen with multi-gun applied</p></em>
+ <em><p align="center">图 4.19 应用多枪的屏幕</p></em>
 </p>
 
-The procedure for selecting G1 (master) and G2 (slave) as multiple guns through the servo tool change function is as follows.
+通过伺服工具更换功能选择 G1（主枪）和 G2（从枪）作为多个枪的程序如下。
 
-1. Select `R358` and then connect G1. After the connection is completed, the parameter related to the additional axis to which G1 is assigned should be set.
-2. Select `R358` and then connect G2. After the connection is completed, the parameter related to the additional axis to which G2 is assigned should be set.
-3. The state of the selected gun is indicated in state flag as follows.
+1. 选择 `R358` 然后连接 G1。连接完成后，应设置与 G1 分配的附加轴相关的参数。
+2. 选择 `R358` 然后连接 G2。连接完成后，应设置与 G2 分配的附加轴相关的参数。
+3. 所选枪的状态在状态标志中如下所示。
 
 <br>
 
 {% hint style="info" %}
-* `R210` for changing the master gun number
-  - Environment with a single gun  --> `R210 + 3`  --> Environment with a single gun (Example: G1  --> G3)
-  - Environment with multiple guns  --> `R210 + 1`  --> Environment with a single gun (Example: G1 and G3  --> G1)
-* `R214` for selecting multiple guns
-  -  When selecting another number different from the set gun number
+* `R210` 用于更改主枪编号
+  - 单枪环境  --> `R210 + 3`  --> 单枪环境（示例：G1  --> G3）
+  - 多枪环境  --> `R210 + 1`  --> 单枪环境（示例：G1 和 G3  --> G1）
+* `R214` 用于选择多个枪
+  -  当选择与设定枪编号不同的另一个编号
 
-      A. Environment with a single gun  --> `R214 + 3`  --> Environment with multiple guns (Example: G1  --> G1 and G3)
+      A. 单枪环境  --> `R214 + 3`  --> 多枪环境（示例：G1  --> G1 和 G3）
 
-      B. Environment with multiple guns  --> `R214 + 2`  --> Environment with multiple guns(Example: G1 and G3  --> G1, G3, and G2)
-  -  When selecting the same number as the set gun number
+      B. 多枪环境  --> `R214 + 2`  --> 多枪环境（示例：G1 和 G3  --> G1、G3 和 G2）
+  -  当选择与设定枪编号相同的编号
 
-      A. Environment with multiple guns  --> `R214 + 3`  -->  Environment with multiple guns(Example: G1, G3 and G2  --> G1 and G2)
+      A. 多枪环境  --> `R214 + 3`  -->  多枪环境（示例：G1、G3 和 G2  --> G1 和 G2）
 
-      B. Environment with multiple guns  --> `R214 + 1`  --> Environment with a single gun (Example: G1 and G2  --> G1)
+      B. 多枪环境  --> `R214 + 1`  --> 单枪环境（示例：G1 和 G2  --> G1）
 
-      C. The master gun number (G1) does not change.  
+      C. 主枪编号（G1）不变。  
 {% endhint %}
-

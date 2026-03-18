@@ -1,12 +1,10 @@
-﻿### 4.5.5 Servo gun change with position-variable fixed electrodes  
+### 4.5.5 带位置可变固定电极的伺服枪更换  
 
+当整个伺服枪被更换时，需要额外的设备，如ATC（自动换刀器）和枪架。然而，通过操作一个移动电极保持固定、仅更换固定电极的系统，则不需要额外设备，并且可以减少换装所需的时间。
 
+为了支持此功能，必须管理每个固定电极的磨损量和软限制。因此，要求进行类似于焊接枪更换（伺服工具更换）功能的操作。因此，在使用此功能之前，用户必须先熟悉焊接枪更换（伺服工具更换）功能。
 
-When the entire servo gun is replaced, additional equipment such as an ATC (Automatic Tool Changer) and a gun stand is required. However, by operating a system in which the moving electrode remains fixed and only the fixed electrode is changed, no additional equipment is necessary, and the time required for changeover can be reduced.
-
-To support this function, wear amount and soft limits must be managed for each fixed electrode. Therefore, an operation similar to the Welding Gun Change (Servo Tool Change) function is required. Accordingly, before using this function, users must first become familiar with the Welding Gun Change (Servo Tool Change) function.
-
-The difference between this function and the Servo Gun Change function is that no mechanical or electrical connection/disconnection operations are performed. In addition, since the motor and encoder information always remain the same, these data are not updated.
+该功能与伺服枪更换功能的区别在于不执行任何机械或电气连接/断开操作。此外，由于电机和编码器信息始终保持不变，因此这些数据不会被更新。
 
 <br>
 

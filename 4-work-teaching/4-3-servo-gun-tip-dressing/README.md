@@ -1,2 +1,1 @@
-﻿# 4.3 Servo gun trip dressing
-
+﻿# 4.3 伺服枪行程装饰

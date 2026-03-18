@@ -1,14 +1,14 @@
-﻿#### 6.2.2.3 Multi-Scheduled Program
+#### 6.2.2.3 多调度程序
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_14_eng.png"  width="70%"></img>
-<em><p align="center">Figure 6.14 Multi-Scheduled Program</p></em>
+<em><p align="center">图 6.14 多调度程序</p></em>
 </p>
 
 <br>
 
-A multi-scheduled program refers to a program in which the user can select a specific series.
-In this case, the series can be selected using the `[Series Number]` button.
+多调度程序是指用户可以选择特定系列的程序。
+在这种情况下，可以使用 `[Series Number]` 按钮选择系列。
 
-If you want to copy a specific single data item to a desired range of series, you can use the `[Batch Write Data]` button to access the batch write menu.
+如果您想将特定的单个数据项复制到所需系列的范围内，可以使用 `[Batch Write Data]` 按钮访问批量写入菜单。

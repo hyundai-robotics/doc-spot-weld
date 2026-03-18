@@ -1,40 +1,40 @@
-﻿#### 5.3.2.1.1 Multi-step squeezing force control
+#### 5.3.2.1.1 多步挤压力控制
 
-This function changes the pressurization force during pressurization in servo gun spot welding. The pressurization force can be changed either by generating a predefined profile or by a signal input.
+该功能在伺服枪点焊过程中改变加压力。加压力可以通过生成预定义的配置文件或通过信号输入进行更改。
 
 <p align=center>
 <img src="../../../../_assets/image_65_eng.PNG" width="70%"></img>
 <img src="../../../../_assets/image_37_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.12 Setting of multi-step squeezing force</p></em>
+<em><p align="center">图 5.12 多步挤压力设置</p></em>
 </p>
 
 <br>
 
-(1)  **Condition number**  
-  - Indicates the condition numbers for the multi-step squeezing condition and auxiliary conditions.  
+(1)  **条件编号**  
+  - 指示多步挤压条件和辅助条件的条件编号。  
 
-(2)  **Force change type**  
+(2)  **力变化类型**  
 
-   - Indicates the method to change the squeezing force. "Profile creation" is a method in which the point of time for change and the time required for change are designated and then the squeezing force is changed in order at the relevant point of time for change. "Signal input" is a method in which the squeezing force is changed when there is a signal input from an external device.
+   - 指示改变挤压力的方法。“配置文件创建”是一种方法，其中指定更改的时间点和所需的更改时间，然后在相关的时间点按顺序更改挤压力。“信号输入”是一种方法，当外部设备输入信号时更改挤压力。
 
-(3)  **State change process**  
-   - When a WI signal is input while executing multi-stage pressurization conditions, select whether to process the WI signal immediately upon receipt or to process the WI signal after all multi-stage pressurization conditions have been completed. 
+(3)  **状态变化过程**  
+   - 在执行多级加压条件时，如果输入了 WI 信号，则选择是立即处理 WI 信号还是在完成所有多级加压条件后处理 WI 信号。 
 
-(4)  **\<Profile creation>**  
-   - Will be activated when profile creation is selected as the method to change the squeezing force.
+(4)  **\<配置文件创建>**  
+   - 当选择配置文件创建作为更改挤压力的方法时将被激活。
 
-        * Point of time for change:  Specipies the point of time for starting multi-step squeezing by dividing the spot welding steps into `Initial squeezing force reached` -> `Welding execution output` -> `Welding completion input`.
-        * Time required for change:  The squeezing force will be changed after the time required for change after the point of time for change is reached.
-        * Squeezing force:  The target squeezing force to change to
-        * Output data:  Output value transmitted in 12-bit format upon completion of pressurization
+        * 更改时间点：通过将点焊步骤划分为 `Initial squeezing force reached` -> `焊接执行输出 (Welding execution output)` -> `Welding completion input` 来指定开始多步挤压的时间点。
+        * 所需更改时间：在达到更改时间点后，挤压力将在所需更改时间后更改。
+        * 挤压力：要更改为的目标挤压力
+        * 输出数据：在加压完成时以 12 位格式传输的输出值
   
-(5)  **\<Signal input>**  
-  - Will be activated when the selected method to change the squeezing force is input of a signal. The information necessary for communication with external devices needs to be entered.
+(5)  **\<信号输入>**  
+  - 当选择的更改挤压力的方法为信号输入时将被激活。需要输入与外部设备通信所需的信息。
 
-    * Communication range:  Range from minimum to maximum of the assigned signal
-    * Value range:  Minimum and maximum values of the assigned signal
-    * Squeezing force port:  The number of the signal assigned for input
-    * Port assignment:  The number of bits assigned to the signal
-    * Request for change:  Port for the input signal for the request for change
-    * Time of delay:  For inputting the time if a delay is needed after the input of the request
-    * Squeezing force:  The requested squeezing force to change to. You can designate the squeezing force or receive an input signal. When the squeezing force is designated, the squeezing force for which a signal is received will be ignored.
+    * 通信范围：指定信号的最小值和最大值范围
+    * 值范围：指定信号的最小值和最大值
+    * 挤压力端口：分配用于输入的信号编号
+    * 端口分配：分配给信号的位数
+    * 更改请求：用于输入更改请求信号的端口
+    * 延迟时间：如果在输入请求后需要延迟，输入的时间
+    * 挤压力：请求更改为的挤压力。您可以指定挤压力或接收输入信号。当指定挤压力时，将忽略接收到信号的挤压力。

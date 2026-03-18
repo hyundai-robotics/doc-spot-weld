@@ -1,27 +1,26 @@
-﻿# 5.6 Assignment of input and output signals common to  welders
+﻿# 5.6 焊机通用输入和输出信号的分配
 
-Assigns the common input and output signals, regardless of the welder number, and transfers their state to the outside or receives their input.
+分配通用的输入和输出信号，无论焊机编号如何，并将其状态传递到外部或接收其输入。
 
 <p align=center>
 <img src="../_assets/image_72_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.18 Assignment of input and output signals common to welders</p></em>
+<em><p align="center">图 5.18 焊机通用输入和输出信号的分配</p></em>
 </p>
 
-(1)  **Spot command execution method (sv)**
-  - To be used to output a signal if the "servo gun spot welding output method" in the spot gun common parameter setting menu is set to Wd-On.
+(1)  **点焊命令执行方法 (sv)**
+  - 当点枪通用参数设置菜单中的“伺服枪点焊输出方法”设置为 Wd-On 时，用于输出信号。
 
-(2)  **Panel thickness error**
-  - To be used to output a panel thickness abnormal signal generated during the welding by the servo gun.
+(2)  **面板厚度错误**
+  - 用于输出在伺服枪焊接过程中产生的面板厚度异常信号。
 
-(3)  **Moving electrode consumption amount reset**
-  - To be used to receive an input of the moving electrode consumption amount reset command as a signal.
+(3)  **移动电极消耗量复位**
+  - 用于接收将移动电极消耗量复位命令作为信号的输入。
 
-(4)  **Fixed electrode consumption amount reset**
-  - To be used to receive an input of the fixed electrode consumption amount reset command as a signal.
+(4)  **固定电极消耗量复位**
+  - 用于接收将固定电极消耗量复位命令作为信号的输入。
 
-(5)  **Command for wide opening**
-  - To be used to receive an input of the command for wide opening as a signal.
+(5)  **宽开口命令**
+  - 用于接收将宽开口命令作为信号的输入。
 
-(6)  **Command for narrow opening**
-  - To be used to receive an input of the command for narrow opening as a signal.
-
+(6)  **窄开口命令**
+  - 用于接收将窄开口命令作为信号的输入。

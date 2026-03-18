@@ -1,7 +1,7 @@
-﻿### 2.3.2 Manual setting
+### 2.3.2 手动设置
 
-The procedure for manually performing the default setting of the servo gun is as follows.
+手动执行伺服枪的默认设置的程序如下。
 
-1. Servo gun encoder offset setting
-2. Servo gun axis orign setting
-3. Servo gun soft limit setting
+1. 伺服枪编码器偏移设置
+2. 伺服枪轴原点设置
+3. 伺服枪软限制设置

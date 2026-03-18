@@ -1,10 +1,10 @@
-﻿### 4.2.1 Spot statement
+### 4.2.1 点焊说明
 
-If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the `[GUN]` key is turned on while the step is being recorded with the `[Record]` key, the `spot` statement will be recorded along with the `move` statement. (one-touch recording method)
+如果在点焊未完成时停止并重新启动点焊，则会再次执行点焊步骤。如果在利用 `[Record]` 键记录步骤时打开了 `[GUN]` 键，则 `spot` 语句将与 `move` 语句一起记录。（一键记录方法）
 
- When recording the welding step, if you make the fixed electrode contact the panel through a jogging operation and then record the `spot` statement in one-touch method, while squeezing the panel through a manual squeezing operation, the panel thickness will be set. Once the panel thickness is set, if you make the fixed electrode contact the panel through a jogging operation and then record the `spot` statement in one-touch method without a manual squeezing operation, the recording will take place by taking into consideration the position for which the panel thickness and the consumption amount are compensated.
+在记录焊接步骤时，如果通过操纵操作使固定电极接触面板，然后以一键方式记录 `spot` 语句，同时通过手动挤压操作挤压面板，则面板厚度将被设置。一旦面板厚度设置完成，如果通过操纵操作使固定电极接触面板，然后以一键方式记录 `spot` 语句而没有手动挤压操作，则记录将考虑面板厚度和消耗量补偿的位置。
 
-While the gun type is servo gun, if the `spot` statement exists during `[Position modification]`, the position will be automatically modified to a position for which the electrode consumption amount is compensated.
+当枪类型为伺服枪时，如果在 `[Position modification]` 期间存在 `spot` 语句，则位置将自动修改为补偿电极消耗量的位置。
 
 </br>
 
@@ -13,13 +13,13 @@ While the gun type is servo gun, if the `spot` statement exists during `[Positio
 
 <center>
 
-|   **Item**    |        **Content**       |
+|   **项目**    |        **内容**       |
 | :--------: |:---------: |
-|    **Gun number**    |  the welding gun number |
-|    **Condition number**   |  the welding condition |
-|   **Sequence number**  |  the welding sequence |
-|   **Pressure value**  |  the pressurization force value  |
-|   **Output data**  | the output value transmitted in 12-bit format |
+|    **枪编号**    |  焊接枪编号 |
+|    **条件编号**   |  焊接条件 |
+|   **序列编号**  |  焊接序列 |
+|   **压力值**  |  加压强度值  |
+|   **输出数据**  | 以12位格式传输的输出值 |
 
 </center>
 
@@ -27,14 +27,14 @@ While the gun type is servo gun, if the `spot` statement exists during `[Positio
 
 {% hint style="info" %}
 
-\[Example of use\]  
-- All parameters of  ```spot``` command can be entered in array format [ ] when using multiple guns.
+\[使用示例\]  
+- 使用多个枪时，```spot``` 命令的所有参数可以以数组格式 [ ] 输入。
 
 {% endhint %}
 
 {% hint style="info" %}
-\[Example of use\]  
-- When performing spot welding using servo guns 5 and 6 with welding conditions 7 and 8, welding sequences 9 and 10, and welding pressures of 100 kgf and 200 kgf, respectively.
+\[使用示例\]  
+- 当使用伺服枪 5 和 6 进行点焊，焊接条件为 7 和 8，焊接序列为 9 和 10，焊接压力分别为 100 kgf 和 200 kgf 时。
 
   ```spot gun=[5,6],cnd=[7,8],seq=[9,10],pre=[100,200]```
 

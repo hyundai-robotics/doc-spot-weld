@@ -1,49 +1,48 @@
-﻿### 3.1.1 Spot gun axis data
+### 3.1.1 点焊枪轴数据
 
-This indicates the data of the currently selected spot gun in real time.  
-(`[pane layout] - [F1: select] - spot gun data`)
-
+这表示当前选择的点焊枪的实时数据。  
+(`[pane layout] - [F1: 选择] - 点焊枪 数据 ([pane layout] - [F1: select] - spot gun data)`)
 
 <p align="center">
  <img src="../../_assets/image_18_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.1 Spot monitoring pane</p></em>
+ <em><p align="center">图 3.1 点焊监控面板</p></em>
 </p>
 
 <p align="center">
  <img src="../../_assets/image_89_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.2 Spot gun data monitoring</p></em>
+ <em><p align="center">图 3.2 点焊枪数据监控</p></em>
 </p>
 
 <br>
 
-*  Current data (servo gun)
+*  当前数据（伺服枪）
 
-      Cur indicates the feedback current of the axis of the servo gun and Cmd indicates the current limit command value (A).
+      Cur表示伺服枪轴的反馈电流，Cmd表示电流限制命令值（A）。
 
-*  Squeezing force data (servo gun)
+*  压力数据（伺服枪）
 
-     The command current and feedback current are converted into squeezing force and displayed using the 'squeezing force - current table' of the welding gun parameter. Cmd indicates the command squeezing force and Cur indicates the feedback squeeze.
+     命令电流和反馈电流被转换为压力，并使用焊枪参数的“压力 - 电流表”进行显示。Cmd表示命令压力，Cur表示反馈压力。
 
-*  Actual squeezing force during weling (servo gun)
+*  焊接过程中的实际压力（伺服枪）
 
-     Indicates the average squeezing force from the point of the matching of the squeezing force to the time of opening.
+     表示从压力匹配点到打开时间的平均压力。
 
-*  Distance between electrodes (servo gun)
+*  电极间距（伺服枪）
 
-     Indicates the distance (mm) from the axis origin to the moving electrode.
+     表示从轴原点到移动电极的距离（mm）。
 
-*   Electrode consumption amount (servo gun, equalizerless gun)  
+*   电极消耗量（伺服枪，无平衡枪）
 
-     Inidicates the consumption amount (mm) detected through gun search. (In the case of the equalizerless gun, only the consumption amount of the fixed electrode is managed.)
+     表示通过枪搜索检测的消耗量（mm）。 （对于无平衡枪，仅管理固定电极的消耗量。）
 
-*  Gun search status (servo gun, equalizerless gun) 
+*  枪搜索状态（伺服枪，无平衡枪）
 
-     Indicates whether gun search is performed.
+     表示是否进行了枪搜索。
 
-*   Welder number
+*   焊接机编号
 
-     Indicates the welder number corredponding to the currently selected gun number.
+     表示与当前选择的枪号对应的焊接机编号。
 
-*  SvClamp (servo gun)
+*  SvClamp（伺服枪）
 
-     Indicates the status of the clamping operation of the currently selected gun.
+     表示当前选择的枪的夹紧操作状态。

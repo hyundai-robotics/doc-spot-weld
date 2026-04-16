@@ -21,6 +21,7 @@
       * [2.3.2.3 Servo gun soft limit](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-2-manual-setting/3-servo-gun-soft-limit.md)
     * [2.3.3 Servo gun squeezing force - current table tunning](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/README.md)
       * [2.3.3.1 Manual tuning mode](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/1-manual-tuning-mode.md)
+      * [2.3.3.2 Auto tuning mode](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/2-auto-tuning-mode.md)
   * [2.4 Step 2. Application setting](2-servo-gun-initial-setting/2-4-step-2-application-setting/README.md)
     * [2.4.1 Automatic setting](2-servo-gun-initial-setting/2-4-step-2-application-setting/1-auto-setting.md)
   * [2.5 Step 3. Setting check](2-servo-gun-initial-setting/2-5-step-3-setting-check.md)

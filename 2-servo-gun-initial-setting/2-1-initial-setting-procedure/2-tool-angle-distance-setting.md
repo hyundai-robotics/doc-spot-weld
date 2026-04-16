@@ -4,7 +4,7 @@ When performing spot welding, the equalizing operation (the process in which the
 The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: [Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})).
 
 <p align="center">
- <img src="../../_assets/image_38_eng.PNG">
+ <img src="../../_assets/image_38_eng.png">
   <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun : {0˚, 180˚, 0˚}</p></em>
  </img>
 </p>

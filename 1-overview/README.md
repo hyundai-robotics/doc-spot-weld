@@ -23,6 +23,6 @@ This manual provides explanations based on the systems below. If the system used
 
 **[Essential manuals]**
 
-- [${cont_model} Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/README?cont_model=${cont_model})
+- [${cont_model} Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})
 
 - [${cont_model} Additional Axis Function Manual](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})

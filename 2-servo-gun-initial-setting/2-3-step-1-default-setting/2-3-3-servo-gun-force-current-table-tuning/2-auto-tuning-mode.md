@@ -26,17 +26,17 @@ If you need to forcibly stop the tuning during operation, press the `[Clear]` bu
 
 The settings are described below:
 
- -  Squeezing Force Gauge Manufacturer  
+ -  Squeeze system maker
 Select the manufacturer of the squeezing force gauge to be used.
 
- - Serial Port  
+ - Serial port  
 Select the number of the connected serial port.
 
- - Moving Electrode Direction  
+ - Direction of moving tip
 Select whether the moving direction of the servo gun electrode is in the gravity direction or the anti-gravity direction.
 
- - Number of Repetitions  
+ - Iteration number 
 Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1–10)
 
- - Commanded Squeezing Force  
+ - Commanded Squeeze[kgf]  
 Set the desired squeezing force range in five levels for the table.

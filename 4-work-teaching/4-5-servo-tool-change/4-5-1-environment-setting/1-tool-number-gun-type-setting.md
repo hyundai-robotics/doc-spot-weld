@@ -8,11 +8,11 @@ In the `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding g
 </p>
 
 
-The figure 4.14 shows a case in which two servo guns are set as below.
+The figure 4.14 shows a case in which four spot guns are set as below.
 
 * **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> Required to set the servo tool parameters
 * **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> Required to set the servo tool parameters
-* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> Not required to set the servo tool parameters
+* **Gun3**: Welder 1, tool number 3, Eq gun, additional axis X -> Not required to set the servo tool parameters
 * **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> Required to set the servo tool parameters
 
  In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.
@@ -23,6 +23,6 @@ The figure 4.14 shows a case in which two servo guns are set as below.
 
 {% hint style="warning" %}
  
- All welding guns used for welding gun change must use the same welding controller.
+ All welding guns used for servo tool change must use the same welder.
   
 {% endhint %}

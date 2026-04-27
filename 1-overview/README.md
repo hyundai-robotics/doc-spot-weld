@@ -1,22 +1,39 @@
 ﻿# 1. Overview
 
-This manual provides explanations based on the systems below. If the system used in the field is different from the ones described here, the worker on the site should refer to and use this manual according to the on-site system.
+This manual describes the controller settings and functions required when performing spot welding using Hyundai Robotics robots and controllers.
+Please refer to this manual and apply it appropriately to your on-site system conditions.
 
-*   **System specifications described in the manual**
+### Definition and Principle
 
-    Robot guns (for change of welding guns): A servo gun (G1), a servo gun (G2), an equalizerless gun (G3), and an equalizer-fitted gun (G4)
+Spot welding is a type of resistance welding in which two or more metal sheets (thin plates) are overlapped and pressed together by copper alloy electrodes. A high electric current is then passed through the materials, generating heat due to electrical resistance at the contact surfaces. This heat locally melts the metal, forming a weld joint. During the welding process, the molten metal solidifies and forms a round bonded zone called a nugget.
 
-    Stationary guns: Servo gun (G5), servo gun (G6), and equalizerless gun (G7)
+### Three Major Factors of Resistance Welding
 
-1.  Servo gun
+The quality of spot welding is primarily determined by the following three factors:
 
-    The servo gun is set as an additional axis of the robot. It is used in a way that the rotational force of the servo motor is transmitted to the ball screw to operate the gun tips, thereby controlling the squeezing and opening operations.
-2.  Equalizer-fitted gun
+  -  Welding Current  
+    The amount of current must be sufficient to generate enough heat to melt the metal at the interface.
 
-     This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signals, and is based on a method of mechanically performing the equalizing operation during welding.
-3.  Equalizerless gun
+  - Electrode Force (Pressure)  
+    Proper pressure ensures good contact between the workpieces and stabilizes the welding process. Too little force may cause spatter, while excessive force can reduce resistance and lower heat generation.
 
-    This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signal, and is based on a method in which the equalizing operation is performed by the robot as the gun has no cylinder for the equalizing operation for the welding.
+  - Welding Time  
+    This is the duration for which current is applied. It must be optimized to allow proper nugget formation without overheating or material damage.
+
+
+### Types of Spot Welding Guns
+  -  Servo Gun  
+    A servo gun operates by transmitting the rotational force of a servo motor to a ball screw, which drives the gun tip to perform pressing and opening motions. It is configured as an additional axis of the robot and controlled accordingly. During welding, the equalizing motion is performed by the robot.
+
+  - EQ Gun  
+    An EQ gun is a spot welding gun that uses pneumatic pressure for pressing and opening motions. It is controlled by welding conditions and welding (current output) signals. During welding, the equalizing motion is performed mechanically by the gun itself.
+
+  - EQ-less Gun  
+    An EQ-less gun is also a pneumatic-type spot welding gun that performs pressing and opening motions using air pressure. It is controlled by welding conditions and welding (current output) signals. However, since it does not have a cylinder for equalizing motion, this function is performed by the robot during welding.
+
+  - EQ-Brake Gun  
+    The EQ-Brake gun is similar to the EQ gun in its basic operation. However, it is specifically used in cases where a large reaction force is generated during welding. In this method, welding is performed while the brakes of each robot axis are engaged to maintain positional stability. This type of gun is only used with robot-mounted welding guns (robot guns).
+
    
 </br>
 </br>

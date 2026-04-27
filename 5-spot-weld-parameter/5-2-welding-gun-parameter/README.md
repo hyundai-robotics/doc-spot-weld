@@ -10,7 +10,7 @@ This section describes how to add a welding gun for spot welding operations and 
 <br>
 
 
-## General Settings
+### General Settings
 
 (1) Adding and Deleting Welding Guns
   - Use the `[+]` and `[-]` buttons on the right to add or delete spot welding guns.

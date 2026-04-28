@@ -1882,14 +1882,16 @@ S15	  move L, ...				#로봇이동
     - 용접 시퀀스 설정에 몇 가지 추가 설정이 포함됩니다.
     - 로봇 R1축에 부착하는 로봇건에 대해서만 지원합니다.
 
-{% hint style="warning" %}
-용접 중 로봇 축이 브레이크로 고정되므로, 해당 명령문 실행 시 명령문 독립 실행의 MOVE 문을 통한 로봇 이동은 불가합니다.
-{% endhint %}
-
 
 <br>
 
 건타입이 서보건 또는 EQless건인 경우는 각각의 건에 대한 개별 파라미터를 설정합니다.
+
+{% hint style="warning" %}
+Eq-Brake 건 타입은 용접 중 로봇 축이 브레이크로 고정되므로, 해당 명령문 실행 시 명령문 독립 실행의 MOVE 문을 통한 로봇 이동은 불가합니다.
+{% endhint %}
+
+
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/README.md)
 ### 5.2.1 서보건

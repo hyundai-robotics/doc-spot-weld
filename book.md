@@ -5,37 +5,54 @@
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
+{% include file="en/precautions.md" %}
 
 [__SOURCE](1-overview/README.md)
 # 1. Overview
 
-This manual provides explanations based on the systems below. If the system used in the field is different from the ones described here, the worker on the site should refer to and use this manual according to the on-site system.
+This manual describes the controller settings and functions required when performing spot welding using Hyundai Robotics robots and controllers.
+Please refer to this manual and apply it appropriately to your on-site system conditions.
 
-*   **System specifications described in the manual**
+### Definition and Principle
 
-    Robot guns (for change of welding guns): A servo gun (G1), a servo gun (G2), an equalizerless gun (G3), and an equalizer-fitted gun (G4)
+Spot welding is a type of resistance welding in which two or more metal sheets (thin plates) are overlapped and pressed together by copper alloy electrodes. A high electric current is then passed through the materials, generating heat due to electrical resistance at the contact surfaces. This heat locally melts the metal, forming a weld joint. During the welding process, the molten metal solidifies and forms a round bonded zone called a nugget.
 
-    Stationary guns: Servo gun (G5), servo gun (G6), and equalizerless gun (G7)
+### Three Major Factors of Resistance Welding
 
-1.  Servo gun
+The quality of spot welding is primarily determined by the following three factors:
 
-    The servo gun is set as an additional axis of the robot. It is used in a way that the rotational force of the servo motor is transmitted to the ball screw to operate the gun tips, thereby controlling the squeezing and opening operations.
-2.  Equalizer-fitted gun
+  -  Welding Current  
+    The amount of current must be sufficient to generate enough heat to melt the metal at the interface.
 
-     This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signals, and is based on a method of mechanically performing the equalizing operation during welding.
-3.  Equalizerless gun
+  - Electrode Force (Pressure)  
+    Proper pressure ensures good contact between the workpieces and stabilizes the welding process. Too little force may cause spatter, while excessive force can reduce resistance and lower heat generation.
 
-    This is a spot welding gun that performs squeezing and opening motions using pneumatic pressure and is controlled by the welding condition output signal and welding (electrification) output signal, and is based on a method in which the equalizing operation is performed by the robot as the gun has no cylinder for the equalizing operation for the welding.
+  - Welding Time  
+    This is the duration for which current is applied. It must be optimized to allow proper nugget formation without overheating or material damage.
+
+
+### Types of Spot Welding Guns
+  -  Servo Gun  
+    A servo gun operates by transmitting the rotational force of a servo motor to a ball screw, which drives the gun tip to perform pressing and opening motions. It is configured as an additional axis of the robot and controlled accordingly. During welding, the equalizing motion is performed by the robot.
+
+  - EQ Gun  
+    An EQ gun is a spot welding gun that uses pneumatic pressure for pressing and opening motions. It is controlled by welding conditions and welding (current output) signals. During welding, the equalizing motion is performed mechanically by the gun itself.
+
+  - EQ-less Gun  
+    An EQ-less gun is also a pneumatic-type spot welding gun that performs pressing and opening motions using air pressure. It is controlled by welding conditions and welding (current output) signals. However, since it does not have a cylinder for equalizing motion, this function is performed by the robot during welding.
+
+  - EQ-Brake Gun  
+    The EQ-Brake gun is similar to the EQ gun in its basic operation. However, it is specifically used in cases where a large reaction force is generated during welding. In this method, welding is performed while the brakes of each robot axis are engaged to maintain positional stability. This type of gun is only used with robot-mounted welding guns (robot guns).
+
    
 </br>
 </br>
 
 **[Essential manuals]**
 
-- [${cont_model} Controller Operation Manual](https://hyundai-robotics.gitbook.io/${cont_model}-operation-manual/)
+- [${cont_model} Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})
 
-- ${cont_model} Additional Axis Function Manual
+- [${cont_model} Additional Axis Function Manual](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
 
 [__SOURCE](1-overview/1-1-main-specification.md)
 # 1.1 Main specifications
@@ -209,7 +226,7 @@ When performing spot welding, the equalizing operation (the process in which the
 The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: [Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})).
 
 <p align="center">
- <img src="../../_assets/image_38_eng.PNG">
+ <img src="../../_assets/image_38_eng.png">
   <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun : {0˚, 180˚, 0˚}</p></em>
  </img>
 </p>
@@ -563,6 +580,49 @@ You can set and operate the servo gun using the function buttons on the right si
 * `[CTRL]` + `[Servo gun manual pressure]`: Squeezes the servo gun using the squeezing force at the current cursor position and applies the same control as in automatic mode.
 
 {% endhint %}
+[__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/2-auto-tuning-mode.md)
+#### 2.3.3.2 Auto tuning mode
+
+This function is used to automatically set the servo gun squeezing force–current table.
+To use this function, data communication between the squeezing force gauge and the robot controller must be available. Please make sure to check whether the selected squeezing force gauge is supported before use.
+
+
+<p align="center">
+ <img src="../../../_assets/image_25_eng.PNG" width=70%></img>
+ <em><p align="center">Figure 2.14-1 Servo Gun Auto Tuning Screen</p></em>
+</p>
+
+<br>
+
+
+Before using this function, position the squeezing force gauge on top of the fixed electrode as shown in the figure above, and manually move the moving electrode to bring it into contact with the gauge.
+
+Then, enter the servo gun squeezing force–current table auto tuning setting screen and press the `[Execute]` button to start tuning.
+
+During auto tuning, the moving electrode repeatedly moves several times. Therefore, the process must be carried out in manual mode with the motor turned ON. (If the motor is OFF, the process will stop.)
+
+If you need to forcibly stop the tuning during operation, press the `[Clear]` button. After completing the tuning, perform test squeezing for each force level. If there are any accuracy issues, repeat the tuning process.
+
+
+<br>
+
+
+The settings are described below:
+
+ -  Squeeze system maker
+Select the manufacturer of the squeezing force gauge to be used.
+
+ - Serial port  
+Select the number of the connected serial port.
+
+ - Direction of moving tip
+Select whether the moving direction of the servo gun electrode is in the gravity direction or the anti-gravity direction.
+
+ - Iteration number 
+Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1–10)
+
+ - Commanded Squeeze[kgf]  
+Set the desired squeezing force range in five levels for the table.
 [__SOURCE](2-servo-gun-initial-setting/2-4-step-2-application-setting/README.md)
 # 2.4 Step 2. Application setting
 
@@ -1195,26 +1255,45 @@ While the fixed and moving electrodes are squeezing, the current flows from the 
 [__SOURCE](4-work-teaching/4-2-spot-weld/1-spot-command-sentence.md)
 ### 4.2.1 Spot statement
 
-If the spot welding stops and restarts while spot welding is not completed, the spot welding step will be executed again. If the `[GUN]` key is turned on while the step is being recorded with the `[Record]` key, the `spot` statement will be recorded along with the `move` statement. (one-touch recording method)
-
- When recording the welding step, if you make the fixed electrode contact the panel through a jogging operation and then record the `spot` statement in one-touch method, while squeezing the panel through a manual squeezing operation, the panel thickness will be set. Once the panel thickness is set, if you make the fixed electrode contact the panel through a jogging operation and then record the `spot` statement in one-touch method without a manual squeezing operation, the recording will take place by taking into consideration the position for which the panel thickness and the consumption amount are compensated.
-
-While the gun type is servo gun, if the `spot` statement exists during `[Position modification]`, the position will be automatically modified to a position for which the electrode consumption amount is compensated.
+The Spot command performs a series of operations required for spot welding, including gun pressing, weld standby, and opening.
 
 </br>
 
-```spot gun=<gun number>,cnd=<condition number>,seq=<sequence number>,pre=<pressure>,out=<output data>```
+### Description
+  - Supports Servo Gun, EQ Gun, EQ-less Gun, and EQ-Brake Gun.
+  - For multi-gun configurations, parameters are entered in an array format.
+  - If the system is stopped before the spot welding process is completed and then restarted, the spot welding step is executed again.
+  - When recording a step using the `[Record]` key, if the LED of the `[GUN]` key is turned on, the `spot` command is recorded together with the `move` command (one-touch recording method).
+  - When recording a welding step:
+     - Bring the fixed electrode into contact with the panel using jog operation.
+     - Apply pressure to the panel using manual pressing.
+     - Then record the Spot command using the one-touch recording method.  
+       -> The panel thickness will be automatically set.
+  - After the panel thickness has been set, bring the fixed electrode into contact with the panel using jog operation. Then, record the `spot` command using the one-touch recording method without performing manual pressing.  
+-> The recorded position will automatically reflect compensation for both panel thickness and electrode wear.
+  - When the gun type is set to Servo Gun, if a `spot` command exists during `[POS.MOD]`, the position is automatically corrected to include compensation for electrode wear.
 
+<br>
+
+
+### Grammar
+```python
+spot gun=<gun number>,cnd=<condition number>,seq=<sequence number>,pre=<pressure>,out=<output data>
+```
+
+</br>
+
+### Parameters
 
 <center>
 
-|   **Item**    |        **Content**       |
-| :--------: |:---------: |
-|    **Gun number**    |  the welding gun number |
-|    **Condition number**   |  the welding condition |
-|   **Sequence number**  |  the welding sequence |
-|   **Pressure value**  |  the pressurization force value  |
-|   **Output data**  | the output value transmitted in 12-bit format |
+|   Item    |       Content      | Note |
+| :--------: |:---------: |:---------: |
+|    Gun number    |  the welding gun number | mandatory |
+|    Condition number   |  the welding condition |mandatory |
+|  Sequence number  |  the welding sequence |mandatory |
+|  Pressure value  |  the pressurization force value  |optional |
+|  Output data  | the output value transmitted in 12-bit format |optional |
 
 </center>
 
@@ -1223,7 +1302,7 @@ While the gun type is servo gun, if the `spot` statement exists during `[Positio
 {% hint style="info" %}
 
 \[Example of use\]  
-- All parameters of  ```spot``` command can be entered in array format [ ] when using multiple guns.
+- All parameters of  `spot` command can be entered in array format [ ] when using multiple guns.
 
 {% endhint %}
 
@@ -1231,7 +1310,9 @@ While the gun type is servo gun, if the `spot` statement exists during `[Positio
 \[Example of use\]  
 - When performing spot welding using servo guns 5 and 6 with welding conditions 7 and 8, welding sequences 9 and 10, and welding pressures of 100 kgf and 200 kgf, respectively.
 
-  ```spot gun=[5,6],cnd=[7,8],seq=[9,10],pre=[100,200]```
+  ```python
+  spot gun=[5,6],cnd=[7,8],seq=[9,10],pre=[100,200]
+  ```
 
 {% endhint %}
 [__SOURCE](4-work-teaching/4-2-spot-weld/4-2-2-weld-sequence-by-gun-type/README.md)
@@ -1412,11 +1493,11 @@ In the `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding g
 </p>
 
 
-The figure 4.14 shows a case in which two servo guns are set as below.
+The figure 4.14 shows a case in which four spot guns are set as below.
 
 * **Gun1**: Welder 1, tool number 1, servo gun, additional axis 2 -> Required to set the servo tool parameters
 * **Gun2**: Welder 1, tool number 2, servo gun, additional axis 1 -> Required to set the servo tool parameters
-* **Gun3**: Welder 1, tool number 3, stud gun, additional axis X -> Not required to set the servo tool parameters
+* **Gun3**: Welder 1, tool number 3, Eq gun, additional axis X -> Not required to set the servo tool parameters
 * **Gun4**: Welder 1, tool number 4, servo gun, additional axis 1 -> Required to set the servo tool parameters
 
  In the case of s gun set as servo gun, among the targets for servo tool change, the servo tool parameters of the concerned servo gun should be set as shown in the next section.
@@ -1427,7 +1508,7 @@ The figure 4.14 shows a case in which two servo guns are set as below.
 
 {% hint style="warning" %}
  
- All welding guns used for welding gun change must use the same welding controller.
+ All welding guns used for servo tool change must use the same welder.
   
 {% endhint %}
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/4-5-1-environment-setting/2-servo-tool-parameter-setting.md)
@@ -1435,9 +1516,9 @@ The figure 4.14 shows a case in which two servo guns are set as below.
 
  In the `[F2: system] - 4: Application parameter - 11: Servo tool change - 2: Servo tool parameter setting` menu, set the gun type and tool number targeted for the servo tool change.
 
-If the gun targeted for servo tool change is a servo gun, you need to set the parameter of the servo gun you want to use because the currently set parameter for the additional axis and the parameter of the servo gun you want to use may be different. When another welding gun is used with the welding gun change function, the set parameter will replace the value of the existing parameter for the additional axis, as shown in the figure below, the same setting items as the parameter for the additional axis are used.
+If the gun targeted for servo tool change is a Servo Gun, the currently set additional axis parameters may differ from the parameters of the Servo Gun to be used. Therefore, the parameters of the Servo Gun to be used must be set.
 
-
+The configured parameters will replace the values of the existing additional axis parameters, as shown in the figure below, when using another welding gun through the servo tool change function. Therefore, the same setting items as the additional axis parameters are used.
 
 <p align="center">
  <img src="../../../_assets/image_67_eng.PNG" width="75%"></img>
@@ -1447,7 +1528,7 @@ If the gun targeted for servo tool change is a servo gun, you need to set the pa
 
 The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
 
-
+The Servo Tool parameter setting items are mostly the same as the additional axis parameter setting items. The Servo Gun set in the Gun Number–corresponding Tool Number and Gun Type setting screen must be added. When the `[OK]` button is pressed, the additional axis number corresponding to the gun number is automatically set.
 
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>
@@ -1456,22 +1537,26 @@ The setting items of the parameter for the servo tool are mostly the same as the
 [__SOURCE](4-work-teaching/4-5-servo-tool-change/2-connection-separation-command.md)
 ### 4.5.2 Connection/disconnection commands 
 
-In the servo tool change environment, connection/separation of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
+In the servo tool change environment, connection/disconnection of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
 
 (1) R358
 
 This is a function for servo gun change by using a R code, and can be used in the motor on state (the enable switch is on) in manual mode.
 
-Operation = **R358, #1, #2, #3**
+ - Operation = `R358 --> 1 --> 2`
 
-| **Parameter** |   **#1**   | **#2** |    **#3**   |
-| :------: | :--------: | :----: | :---------: |
-|    Meaning    |    Connection/separation   |   Axis specification  |     Gun number     |
-|   Set value   | Connection=1, Separation=0 |  Servo gun=1 | The number of the gun targeted for change |
+| **Parameter** |   **#1**   | **#2** | 
+| :------: | :--------: | :----: | 
+|    Meaning    |    Connection/disconnection  |     Gun number     |
+|   Setting value   | Connection=1, Disconnection=0 | The number of the gun targeted for change |
 
-| Example of use | R358,1,1,2 (connects the servo gun G2) |
+ - Example of use  
+
+| Connection | Disconnection|
 | :--: | :--:|
-|      | R358,1,0 (separates the servo gun)      |
+| Gun #2 connection |Gun #1 disconnection|
+| `R358 + 1 + 2` | `R358 + 0 + 1` |
+|  ![](../../_assets/image_108_eng.PNG) | ![](../../_assets/image_109_eng.PNG)  |
 
 <br>
 
@@ -1479,15 +1564,22 @@ Operation = **R358, #1, #2, #3**
 
 This is a function for welding gun change through the execution of a work program. 
 
-```toolchng on/off/fixed,tg=<target for change>,is=<connection complete signal>,wait=<connection completion wait time>```
+```python
+toolchng on/off/fixed,tg=<target guns for change>,is=<connection complete signal>,wait=<connection complete wait time>
+```
 
-|     **on/off**  |       **on**       |      Connection of the servo tool     |      |
-| :-------------: | :----------------: | :-------------: | :------------------------: |
-|             |       **off**      |        Separation of the servo tool   |      |
-|      **Target for change**            |     **G1\~G16**    |         <p>Number of the welding gun to connect/separate </p><p>array [ ] for multi guns</p>         | Connection/separation of the relevant additional axis  |
-|                         **Mechanical connection completion check signal**                        |     **1~4096**    | <p>Number of the input signal for</p><p>mechanical connection completion</p><p>check</p> |    <p>Parameter to be ignored in off state</p><p></p>          |  |     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0-5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |          <p>Parameter to be ignored</p><p>in off state</p>          |
-|     <p><strong>Connection completion</strong></p><p><strong>wait time</strong></p>     | **\<0~5.0> (sec)** | <p>Connection completion wait time</p><p>(Limitless waiting if no parameter exists or the value is 0)</p> |  <p>Parameter to be ignored</p><p>in off state</p>  |
+<br>
 
+|    parameter |       input       |     function     |   note   |
+| :-----------: | :----------: | :---------: | :-----------: |
+|     connection |       on       |      connection of the servo tool     |      |
+|  disconnection |       off     |        disconnection of the servo tool   |      |
+|  fixed change |       fixed      |      power-on tool change   | single motor multi-tool     |
+|     target guns for change |     G1\~G16    |        numbers of the welding guns, <br> array [ ] for multi guns (ex. ["G1", "G2"])        | connection/disconnection of the relevant additional axes  |
+|mechanical connection check signal|     1~4096    | number of the input signal <br> for mechanical connection completion |    parameter to be ignored in off state |  
+| connection wait time  | <0~5.0> <br> (sec) | connection completion wait time <br> (limitless waiting if no parameter exists or the value is 0)</p> |  parameter to be ignored in off state  |
+
+<br>
 
 Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.
 
@@ -1821,13 +1913,65 @@ Sets the use environment related to spot welding to perform appropriate operatio
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/README.md)
 # 5.2 Welding gun parameter
 
-If the gun type is servo gun or equalizerless gun, individual parameters can be set for each gun.
+This section describes how to add a welding gun for spot welding operations and configure detailed settings according to the gun type.
 
+<p align=center>
+<img src="../../_assets/image_28_eng.png" width="70%"></img>
+<em><p align="center">Figure 5.2.0 Spot gun general settings</p></em>
+</p>
+
+<br>
+
+
+### General Settings
+
+(1) Adding and Deleting Welding Guns
+  - Use the `[+]` and `[-]` buttons on the right to add or delete spot welding guns.
+  - Up to 16 guns can be registered.
+
+(2) Tool Number  
+  - The geometric information of each gun must be stored in advance in the Tool Data.
+  - Enter the corresponding Tool Data number for each welding gun.
+
+(3) Welder Number
+  - Assign the welder connected to the corresponding gun number. When welding is performed with the selected gun, input/output signals are transmitted through the port configured for that welder.
+  - Up to four welders are supported, allowing simultaneous welding with a maximum of four spot welding guns.
+
+(4) Gun Type
+  - Servo Gun
+    - A gun that performs pressing and position control using a servo motor as an additional axis.
+    - When selected, the additional axis number must be entered additionally.
+    - The additional axis must be configured according to the servo gun specifications using the additional axis setup function.
+
+  - EQ Gun
+    - A pneumatic spot welding gun equipped with a built-in equalizing mechanism.
+    - When executing a spot welding command, the robot does not move to a clearance position as in the case of a servo gun.
+
+  - EQless Gun
+    - A pneumatic spot welding gun that does not have a built-in equalizing function.
+    - Therefore, equalizing is performed by robot control.
+    - When executing a spot welding command, the robot includes a movement to the clearance position.
+
+  - EQ-Brake Gun
+    - An EQ-type gun that performs equalizing while the robot axes are held by brakes to prevent displacement caused by welding reaction force.
+    - Additional settings are required in the welding sequence configuration.
+    - Supported only for robot-mounted guns attached to the robot R1 axis. For stationary guns, select the EQ gun type.
+
+
+
+
+<br>
+
+When the gun type is set to servo gun or equalizerless gun, individual parameters must be configured for each respective gun.
+
+{% hint style="warning" %}
+Since the Eq-Brake gun type engages the robot axis brakes during welding, robot motion via MOVE statements is disabled during the independent execution of the instruction.
+{% endhint %}
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/README.md)
 ### 5.2.1 Servo gun
 
- Servo guns are currently the most widely used type of spot welding gun. Since the servo gun is controlled as an additional axis separate from the robot axes, extensive control settings are required in addition to the auxiliary axis configuration.
+ Servo guns are currently the most widely used type of spot welding gun. Since the servo gun is controlled as an additional axis separate from the robot axes, extensive control settings are required in addition to the additional axis configuration.
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/5-2-1-servo-gun/1-basic-setting/README.md)
 ### 5.2.1.1 Servo gun default setting
@@ -2333,7 +2477,7 @@ The DeviceNet used in ${cont_model} is part of its industrial communication func
 
 
 <p align=center>
-<img src="../../_assets/6_2_eng.png"></img>
+<img src="../../_assets/6_2_eng.png" width="60%"></img>
 <em><p align="center">Figure 6.2 DeviceNet Communication Configuration</p></em>
 </p>
 
@@ -2807,7 +2951,7 @@ Please try again.
 
 |                  Code             |       Content                                                                  |       Measure                                                                                                   |
 | :----------------------------------------------------: | -------------------------------------- | ---------------------------------------------------- |
-|      <p>W0009 </p><p>Brake slip occurred</p><p>(the set value exceeded)</p>     | The brake slip measured during stud welding exceeded the brake deviation detection range set in the welding sequence.                  | Check the set brake deviation detection range, and, if necessary, change the value to a greater one.                                                               |
+|      <p>W0009 </p><p>Brake slip occurred</p><p>(the set value exceeded)</p>     | The brake slip measured during Eq-Brake welding exceeded the brake deviation detection range set in the welding sequence.                  | Check the set brake deviation detection range, and, if necessary, change the value to a greater one.                                                               |
 |       <p>W0105 </p><p>Electrode replacement required total consumption amount </p><p>exceeded</p>       | This warning occurs if the total consumption amount detected by gun search exceeded the electrode replacement required consumption amount (both of moving and fixed electrodes) set in the welding gun parameter.       | <ol><li>Check the set maximum electrode consumption amount.</li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol>        |
 |      <p>W0106 </p><p>The moving electrode exceeded </p><p>the electrode replacement required consumption amount</p>      | This warning occurs if the moving electrode consumption amount detected by gun search exceeded the (moving) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (moving) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol>   |
 |      <p>W0107 </p><p>The fixed electrode exceeded </p><p>the electrode replacement required consumption amount</p>     | This warning occurs if the fixed electrode consumption amount detected by gun search exceeded the (fixed) electrode replacement required consumption amount set in the welding gun parameter.             | <ol><li>Check the set (fixed) electrode replacement required consumption amount. </li><li>Check whether the gun search reference position is registered normally.</li><li>Replace the electrode.</li></ol> |

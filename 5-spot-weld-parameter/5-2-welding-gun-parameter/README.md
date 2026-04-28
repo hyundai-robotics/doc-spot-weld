@@ -51,3 +51,6 @@ This section describes how to add a welding gun for spot welding operations and 
 
 When the gun type is set to servo gun or equalizerless gun, individual parameters must be configured for each respective gun.
 
+{% hint style="warning" %}
+Since the Eq-Brake gun type engages the robot axis brakes during welding, robot motion via MOVE statements is disabled during the independent execution of the instruction.
+{% endhint %}

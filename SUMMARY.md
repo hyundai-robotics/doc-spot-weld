@@ -71,7 +71,7 @@
   * [4.7 서보건 용접 시 판넬두께 이상 검출](4-work-teaching/4-7-panel-thickness-abnormal-detection-when-servo-gun-welding.md)
   * [4.8 서보건 기반 작업물 핸들링](4-work-teaching/4-8-servo-gun-based-work-product-handling.md)
   * [4.9 스폿용접 타점 계산](4-work-teaching/4-9-spot-weld-calculation.md)
-  * [4.10 마모량 설정](4-work-teaching/4-10-amount-of-abrasion-setting.md)
+  * [4.10 스폿 시스템 변수](4-work-teaching/4-10-amount-of-abrasion-setting.md)
 * [5. 스폿용접 파라미터](5-spot-weld-parameter/README.md)
   * [5.1 사용환경 설정](5-spot-weld-parameter/5-1-use-environment-setting.md)
   * [5.2 용접건 파라미터](5-spot-weld-parameter/5-2-welding-gun-parameter/README.md)

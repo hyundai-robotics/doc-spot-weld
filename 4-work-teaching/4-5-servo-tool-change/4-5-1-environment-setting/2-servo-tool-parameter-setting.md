@@ -14,7 +14,7 @@ The configured parameters will replace the values of the existing additional axi
 
 The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
 
-The Servo Tool parameter setting items are mostly the same as the additional axis parameter setting items. The Servo Gun set in the Gun Number–corresponding Tool Number and Gun Type setting screen must be added. When the `[OK]` button is pressed, the additional axis number corresponding to the gun number is automatically set.
+The Servo Tool parameter setting items are mostly the same as the additional axis parameter setting items. The Servo Gun set in the Gun Number-corresponding Tool Number and Gun Type setting screen must be added. When the `[OK]` button is pressed, the additional axis number corresponding to the gun number is automatically set.
 
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>

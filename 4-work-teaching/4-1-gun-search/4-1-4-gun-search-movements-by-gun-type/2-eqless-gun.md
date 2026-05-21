@@ -19,6 +19,6 @@ As an equalizerless gun only manages the consumption amount on the fixed electro
 
 3. When the phototube detects a signal, the fixed electrode consumption amount is measured and the opening operation is executed.
 
-   Fixed electrode consumption  = sensor detection position − gun search recorded position
+   Fixed electrode consumption  = sensor detection position - gun search recorded position
 
 4. When the opening operation is completed, the fixed electrode consumption amount is updated.

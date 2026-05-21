@@ -583,7 +583,7 @@ You can set and operate the servo gun using the function buttons on the right si
 [__SOURCE](2-servo-gun-initial-setting/2-3-step-1-default-setting/2-3-3-servo-gun-force-current-table-tuning/2-auto-tuning-mode.md)
 #### 2.3.3.2 Auto tuning mode
 
-This function is used to automatically set the servo gun squeezing force–current table.
+This function is used to automatically set the servo gun squeezing force-current table.
 To use this function, data communication between the squeezing force gauge and the robot controller must be available. Please make sure to check whether the selected squeezing force gauge is supported before use.
 
 
@@ -597,7 +597,7 @@ To use this function, data communication between the squeezing force gauge and t
 
 Before using this function, position the squeezing force gauge on top of the fixed electrode as shown in the figure above, and manually move the moving electrode to bring it into contact with the gauge.
 
-Then, enter the servo gun squeezing force–current table auto tuning setting screen and press the `[Execute]` button to start tuning.
+Then, enter the servo gun squeezing force-current table auto tuning setting screen and press the `[Execute]` button to start tuning.
 
 During auto tuning, the moving electrode repeatedly moves several times. Therefore, the process must be carried out in manual mode with the motor turned ON. (If the motor is OFF, the process will stop.)
 
@@ -619,7 +619,7 @@ Select the number of the connected serial port.
 Select whether the moving direction of the servo gun electrode is in the gravity direction or the anti-gravity direction.
 
  - Iteration number 
-Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1–10)
+Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1-10)
 
  - Commanded Squeeze[kgf]  
 Set the desired squeezing force range in five levels for the table.
@@ -1244,7 +1244,7 @@ As an equalizerless gun only manages the consumption amount on the fixed electro
 
 3. When the phototube detects a signal, the fixed electrode consumption amount is measured and the opening operation is executed.
 
-   Fixed electrode consumption  = sensor detection position − gun search recorded position
+   Fixed electrode consumption  = sensor detection position - gun search recorded position
 
 4. When the opening operation is completed, the fixed electrode consumption amount is updated.
 [__SOURCE](4-work-teaching/4-2-spot-weld/README.md)
@@ -1528,7 +1528,7 @@ The configured parameters will replace the values of the existing additional axi
 
 The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
 
-The Servo Tool parameter setting items are mostly the same as the additional axis parameter setting items. The Servo Gun set in the Gun Number–corresponding Tool Number and Gun Type setting screen must be added. When the `[OK]` button is pressed, the additional axis number corresponding to the gun number is automatically set.
+The Servo Tool parameter setting items are mostly the same as the additional axis parameter setting items. The Servo Gun set in the Gun Number-corresponding Tool Number and Gun Type setting screen must be added. When the `[OK]` button is pressed, the additional axis number corresponding to the gun number is automatically set.
 
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>
@@ -1818,22 +1818,31 @@ The spot command executed in the sub task will not be calculated.
 
 
 [__SOURCE](4-work-teaching/4-10-amount-of-abrasion-setting.md)
-# 4.10 Consumption amount setting
+# 4.10 Spot system variables
 
-Consumption amount information for the spot gun can be accessed using spot system variables. The spot system variables display the wear amount of the moving electrode, the fixed electrode, and the total wear amount for each gun. These values can be modified or read using variable assignment statements in the command window.
 
+Some setting values can be accessed and controlled using spot system variables. These variables store the clearance values for each condition, individual wear values for the moving and fixed electrodes, and the total wear amount. As shown in the illustration below, you can read or modify these values by using variable assignment statements in the command window. 
 
 <p align="center">
  <img src="../_assets/image_93_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.23 Spot tip-consumption system variable</p></em>
+ <em><p align="center">Figure 4.23 Spot tip-consumption system variable usage</p></em>
 </p>
 
 </br>
 
+
+|category	|system variable	|content|
+|:--:	|:--:	|:--:|
+|welding condition|_spotcnd[#].fixed_tip_clearance|	fixed tip clearance value of the conditon nuymber(#)|
+|welding condition|_spotcnd[#].moving_tip_clearance|moving tip clearance value of the conditon nuymber(#)|
+|welding gun|_spotgun[#].fixed_tip_consump|	fixed tip consumption fo the gun number(#)|
+|welding gun|_spotgun[#].moving_tip_consump|	moving tip consumption fo the gun number(#)|
+|welding gun|_spotgun[#].total_tip_consump|	total consumption fo the gun number(#)|
+
 <br>
 
 {% hint style="warning" %}
-- This variable can apply only to servo and equalizerless guns. 
+- The cunsumption-related variables can apply only to servo and equalizerless guns. 
 - In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.  
 - Any manually set wear amount values will be overwritten by the measured values after a gun search is performed.  
 {% endhint %}

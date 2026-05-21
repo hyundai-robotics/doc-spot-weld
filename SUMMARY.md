@@ -71,7 +71,7 @@
   * [4.7 Detection of panel thickness abnormality during the welding with servo gun](4-work-teaching/4-7-panel-thickness-abnormal-detection-when-servo-gun-welding.md)
   * [4.8 Handling of workpieces with the servo gun](4-work-teaching/4-8-servo-gun-based-work-product-handling.md)
   * [4.9 Calculation of spots in spot welding](4-work-teaching/4-9-spot-weld-calculation.md)
-  * [4.10 Consumption amount setting](4-work-teaching/4-10-amount-of-abrasion-setting.md)
+  * [4.10 Spot system variables](4-work-teaching/4-10-amount-of-abrasion-setting.md)
 * [5. Spot welding parameters](5-spot-weld-parameter/README.md)
   * [5.1 Use environment setting](5-spot-weld-parameter/5-1-use-environment-setting.md)
   * [5.2 Welding gun parameter](5-spot-weld-parameter/5-2-welding-gun-parameter/README.md)

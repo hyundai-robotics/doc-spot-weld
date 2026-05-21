@@ -1,6 +1,6 @@
 ﻿#### 2.3.3.2 Auto tuning mode
 
-This function is used to automatically set the servo gun squeezing force–current table.
+This function is used to automatically set the servo gun squeezing force-current table.
 To use this function, data communication between the squeezing force gauge and the robot controller must be available. Please make sure to check whether the selected squeezing force gauge is supported before use.
 
 
@@ -14,7 +14,7 @@ To use this function, data communication between the squeezing force gauge and t
 
 Before using this function, position the squeezing force gauge on top of the fixed electrode as shown in the figure above, and manually move the moving electrode to bring it into contact with the gauge.
 
-Then, enter the servo gun squeezing force–current table auto tuning setting screen and press the `[Execute]` button to start tuning.
+Then, enter the servo gun squeezing force-current table auto tuning setting screen and press the `[Execute]` button to start tuning.
 
 During auto tuning, the moving electrode repeatedly moves several times. Therefore, the process must be carried out in manual mode with the motor turned ON. (If the motor is OFF, the process will stop.)
 
@@ -36,7 +36,7 @@ Select the number of the connected serial port.
 Select whether the moving direction of the servo gun electrode is in the gravity direction or the anti-gravity direction.
 
  - Iteration number 
-Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1–10)
+Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1-10)
 
  - Commanded Squeeze[kgf]  
 Set the desired squeezing force range in five levels for the table.

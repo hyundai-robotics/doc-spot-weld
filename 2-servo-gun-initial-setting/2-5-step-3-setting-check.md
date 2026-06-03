@@ -2,7 +2,7 @@
 
 When the application setting is completed, you can check the setting performed so far through the 'setting check' procedure. The setting check procedure can be executed only when the default and application settings are completed.
 
- As shown below, When '**Step 0. Pre-inspection**', '**Step 1. Default setting**', and '**Step 2. Application setting**' are completed, press the 『**Proceed with the prior-to-setting items**』 key or bring the focus onto the '**Step 3. Setting check**' section and then press the Enter key to progress the setting check procedure.
+ As shown below, When '**Step 0. Pre-inspection**', '**Step 1. Default setting**', and '**Step 2. Application setting**' are completed, press the `Proceed with the prior-to-setting items` key or bring the focus onto the '**Step 3. Setting check**' section and then press the Enter key to progress the setting check procedure.
 
 
 <p align="center">

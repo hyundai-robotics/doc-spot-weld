@@ -2,7 +2,7 @@
 
 Step 3. When Step 3. 'Setting check' is completed, it is now possible to move and squeeze the servo gun normally. However, for spot welding, it is necessary to set the inputs and outputs of the spot welding machine signals and other signals. In 'Signal setting', input and output signals related to spot welding can be set.
 
-As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \`Enter` key or, while previous items are completed, if you press the 『**Proceed with the prior-to-setting items**』 key, you can enter the screen for setting relevant items.
+As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \`Enter` key or, while previous items are completed, if you press the `Proceed with the prior-to-setting items` key, you can enter the screen for setting relevant items.
 
 <p align="center">
  <img src="../_assets/image_85_eng.PNG" width=70%></img>

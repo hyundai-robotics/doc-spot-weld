@@ -2,10 +2,18 @@
 [__SOURCE](README.md)
 # ${cont_model} Controller Function Manual - Spot Welding
 
+[__SOURCE](0-about-this-manual/README.md)
+# About the Manual
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
 {% include file="en/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# Safety Cautions
+
+{% include file="en/safety-notice.md" %}
 
 [__SOURCE](1-overview/README.md)
 # 1. Overview
@@ -907,18 +915,13 @@ Various necessary states related to spot welding will be indicate as shown in th
 </p>
 
 
--  Welding condition and welding sequence (panel thickness)
-
+-   Gun number, welding condition and welding sequence (panel thickness)
+    - Indicates the currently selected gun number or numbers of multiple guns.
     - Indicates the currently selected welding condition number and welding sequence number.
     - Indicates the currently set panel thickness. Accurate setting is required because the position of the axis of the servo gun will be automatically created based on the set panel thickness during the recording of the welding steps of the servo gun. It is also possible to perform manual setting with R220. When the recording of the welding steps is performed after the manual squeezing operation, the setting will be automatically performed by taking into consideration the current position of the servo gun.
 
 -  Tool number
-
     - Indicates the tool number corresponding to the currently selected gun number. In other words, if you change the gun number, the tool number will automatically change to the tool number set in `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`.
-
--  Gun number
-
-    - This indicates the currently selected gun number, numbers of multiple guns, and servo gun separation state (![](<../../_assets/image_39_eng.PNG>)). For example, if G5 and G6 are indicated, it means that stationary guns G5 and G6 are selected for simultaneous welding. In addition , there is a mark of a lock, so you can konw that the servo gun is disconnected. 
 
 
 [__SOURCE](3-Related-functions/3-2-servo-gun-simple-maintenance.md)

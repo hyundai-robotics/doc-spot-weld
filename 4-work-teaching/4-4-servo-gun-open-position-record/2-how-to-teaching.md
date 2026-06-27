@@ -1,14 +1,14 @@
-﻿### 4.4.2 How to teach
+### 4.4.2 教学方法
 
-(1)  In a state that the panel thickness is registered, proceed with teaching while keeping the moving electrode open and only the fixed electrode in contact with the panel.
+(1) 在已注册面板厚度的状态下，进行教学时保持移动电极开阔，仅固定电极与面板接触。
 
 
 
 <p align="center">
  <img src="../../_assets/image_83_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.13 Method of working when the panel thickness is the same</p></em>
+ <em><p align="center">图 4.13 面板厚度相同时的工作方法</p></em>
 </p>
 
-</br>
+<br>
 
-(2) When the panel thickness is changed, perform teaching after registering the panel thickness again.
+(2) 当面板厚度发生变化时，重新注册面板厚度后再进行教学。

@@ -1,1 +1,1 @@
-﻿# 8. Errors and warnings
+# 8. 错误和警告

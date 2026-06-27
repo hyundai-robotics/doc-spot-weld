@@ -1,1 +1,1 @@
-﻿# 6.2 Main Functions of the Welder Interface
+# 6.2 焊接接口的主要功能

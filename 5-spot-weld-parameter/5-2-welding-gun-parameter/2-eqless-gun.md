@@ -1,24 +1,23 @@
-﻿### 5.2.2. Equalizerless gun
+### 5.2.2. 无平衡器枪
 
-If the gun type is "equalizerless gun," the parameter setting screen for the equalizerless gun will be displayed as shown below.
+如果枪类型为“无平衡器枪”，将显示如下所示的无平衡器枪参数设置屏幕。
 
 
 <p align=center>
 <img src="../../_assets/image_42_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.8 Equalizerless gun setting</p></em>
+<em><p align="center">图 5.8 无平衡器枪设置</p></em>
 </p>
 
 <br>
 
-(1)  **Fixed tip maximum consumption (mm)**
-   - If the consumption amount measured by the `egunsea` statement exceeds the value set here, an error will be generated.
+(1)  **固定尖端最大消耗量 (mm)**
+   - 如果通过 `egunsea` 语句测量的消耗量超过这里设置的值，将会产生错误。
 
-(2)  **Fixed tip change consumption (mm)**
-   - If the consumption amount measured by the `egunsea` statement exceeds the value set here, a warning will be issued.
+(2)  **固定尖端更换消耗量 (mm)**
+   - 如果通过 `egunsea` 语句测量的消耗量超过这里设置的值，将会发出警告。
 
-(3)  **Bend offset per 100kgf**
-   - Sets the bend compensation amount per 100 kgf.
+(3)  **每 100kgf 的弯曲补偿**
+   - 设置每 100 kgf 的弯曲补偿量。
 
-(4)  **Installed site**
-   - Selects whether the chosen equalizerless gun is a robot gun or a stationary gun.
-
+(4)  **安装地点**
+   - 选择所选的无平衡器枪是机器人枪还是静止枪。

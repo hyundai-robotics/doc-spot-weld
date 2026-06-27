@@ -1,15 +1,14 @@
-﻿### 5.3.1 Common data
+### 5.3.1 通用数据
 
-Sets the data to be commonly applied regardless of the spot welding sequence.
-
+设置无论点焊顺序如何都要共同应用的数据。
 
 <p align=center>
 <img src="../../_assets/image_63_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.10 Common data setting</p></em>
+<em><p align="center">图 5.10 通用数据设置</p></em>
 </p>
 
-</br>
+<br>
 
-*  Number of re-weld attempts
+*  重焊尝试次数
 
-    If the welding completion (WI) signal is not received within the configured welding completion wait time, re-welding will be performed. The number of re-weld attempts can be set up to three. If the WI signal is still not received after the specified number of re-weld attempts, an error will be generated.
+    如果在配置的焊接完成等待时间内未收到焊接完成 (WI) 信号，将进行重焊。重焊尝试次数可以设置为最多三次。如果在指定的重焊尝试次数后仍未收到 WI 信号，将生成错误。

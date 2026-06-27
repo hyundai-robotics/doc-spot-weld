@@ -1,8 +1,8 @@
-﻿### 4.6.2 Support functions
+### 4.6.2 支持功能
 
-The functions to be provided for simultaneous weldig with multiple guns are as follows.
+同时进行多枪焊接时需要提供的功能如下：
 
-1. Manual opening and closing
-2. Manual squeezing
-3. `spot` statement
-4. `gunsea` statement
+1. 手动开启和关闭
+2. 手动挤压
+3. `点 (spot)` 语句
+4. `gunsea` 语句

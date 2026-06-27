@@ -1,2 +1,1 @@
-﻿#### 4.1.4 Gun search operation by gun type
-
+#### 4.1.4 按枪类型进行枪支搜索操作

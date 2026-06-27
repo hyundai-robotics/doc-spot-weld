@@ -1,18 +1,17 @@
-﻿### 3.1.4 State flag
+### 3.1.4 状态标志
 
-Various necessary states related to spot welding will be indicate as shown in the screen below.
+与点焊相关的各种必要状态将在下面的屏幕中指示。
 
 <p align="center">
  <img src="../../_assets/image_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.6 Indication of spot welding related states</p></em>
+ <em><p align="center">图 3.6 点焊相关状态的指示</p></em>
 </p>
 
 
--   Gun number, welding condition and welding sequence (panel thickness)
-    - Indicates the currently selected gun number or numbers of multiple guns.
-    - Indicates the currently selected welding condition number and welding sequence number.
-    - Indicates the currently set panel thickness. Accurate setting is required because the position of the axis of the servo gun will be automatically created based on the set panel thickness during the recording of the welding steps of the servo gun. It is also possible to perform manual setting with R220. When the recording of the welding steps is performed after the manual squeezing operation, the setting will be automatically performed by taking into consideration the current position of the servo gun.
+-   枪号、焊接条件和焊接顺序（面板厚度）
+    - 指示当前选定的枪号或多个枪的枪号。
+    - 指示当前选定的焊接条件编号和焊接顺序编号。
+    - 指示当前设置的面板厚度。由于伺服枪的轴位置将在记录伺服枪的焊接步骤时根据设置的面板厚度自动创建，因此需要准确设置。也可以使用 R220 进行手动设置。当在手动夹紧操作后进行焊接步骤的记录时，将会根据伺服枪的当前位置自动执行设置。
 
--  Tool number
-    - Indicates the tool number corresponding to the currently selected gun number. In other words, if you change the gun number, the tool number will automatically change to the tool number set in `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`.
-
+-  工具编号
+    - 指示与当前选定的枪号对应的工具编号。换句话说，如果您更改枪号，工具编号将自动更改为在 `[F2: 系统] - 4: 应用参数 - 1: 点焊焊接中 - 2: 焊枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)` 中设置的工具编号。

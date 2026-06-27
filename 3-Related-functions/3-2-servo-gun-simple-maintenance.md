@@ -1,19 +1,19 @@
-﻿# 3.2 Simple maintenance of the servo gun
+﻿# 3.2 简单维护伺服枪
 
-This provides support to simply conduct a series of settings to restart the servo gun from a single window after repairing it. When you press the \`CTRL`+\`GUN` keys on the initial screen, a dialog box for simple maintenance will be displayed.
+这提供支持，可以在修理后从单一窗口简单地进行一系列设置以重新启动伺服枪。当您在初始屏幕上按下 \`CTRL`+\`GUN` 键时，简单维护的对话框将显示出来。
 
 <p align="center">
  <img src="../_assets/image_26_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 3.7 Simple maintenance of the servo gun</p></em>
+ <em><p align="center">图 3.7 简单维护伺服枪</p></em>
 </p>
 
->*   **Serial encoder reset**  
->    Executes the "**encoder reset**" or "**error clear**" operation for the serial encoder attached to the servo gun motor. Power must be supplied again for the changed setting to be applied. When "encoder reset" is performed, the encoder information will be initialized after that, requiring you to newly perform the encoder offset setting, axis origin setting, and gun search reference position recording.
->*   **Encoder offset**  
->    Sets the encoder origin of the axis of the servo gun.  It should be set at the position where the moving electrode is maximally opened through the releasing of the brake manually.
->*   **Axis origin**  
->    Sets the axis origin of the servo gun. The axis origin of the servo gun should be set at the poistion where electrodes are in contact with each other after new electrodes are installed.
->*   **Gun search execution**  
->    Executes the gunsea command only by operating the axis of the servo gun at the current position.
->*   **Welding execution**  
->    Executes the spot command only by operating the axis of the servo gun at the current position.
+>*   **串行编码器重置**  
+>    执行附加到伺服枪电机的 "**编码器重置**" 或 "**错误清除**" 操作。必须重新提供电源以应用更改的设置。当执行 "编码器重置" 时，编码器信息将被初始化，此后您需要重新执行编码器偏置设置、轴原点设置和枪搜索参考位置记录。
+>*   **编码器偏置**  
+>    设置伺服枪轴的编码器原点。 应在通过手动释放刹车最大打开移动电极的位置设置。
+>*   **轴原点**  
+>    设置伺服枪的轴原点。伺服枪的轴原点应该设置在新电极安装后电极接触的位置。
+>*   **枪搜索执行**  
+>    仅通过在当前位置信息下操作伺服枪的轴执行 gunsea 命令。
+>*   **焊接执行**  
+>    仅通过在当前位置信息下操作伺服枪的轴执行点焊命令。

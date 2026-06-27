@@ -1,9 +1,9 @@
-﻿### 4.4.1.1 Manual input method
+### 4.4.1.1 手动输入方法
 
-Execute "**R220: Set the panel thickness**" to input the panel thickness.
+执行“**R220: 设置面板厚度**”以输入面板厚度。
 
 
 <p align="center">
  <img src="../../../_assets/image_14_eng.PNG" ></img>
- <em><p align="center">Figure 4.12 Panel thickness input</p></em>
+ <em><p align="center">图 4.12 面板厚度输入</p></em>
 </p>

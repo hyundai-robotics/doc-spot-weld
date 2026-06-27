@@ -1,2 +1,1 @@
-﻿# 5.  Spot welding parameters
-
+# 5. 点焊参数

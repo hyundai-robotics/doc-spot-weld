@@ -1,82 +1,81 @@
-﻿# 6.3 Abnormalities and Errors
+# 6.3 异常和错误
 
 <br>
 
-  - Code: There is an error in the characteristic data file.
-  - Description: A problem has occurred with the stored characteristic data file.
-Please update the characteristic data through Data Management  --> Import Characteristic Data.
-
-
-<br>
- 
-   - Code: The value exceeds the allowable range. [Range]
-   - Description: The entered value is outside the permitted range.
-Please re-enter a value within the valid range.
+  - Code: 特征数据文件中出现错误。
+  - Description: 存储的特征数据文件出现问题。
+请通过数据管理更新特征数据 --> 导入特征数据。
 
 <br>
 
-   - Code: The source welder number and the destination welder number are the same.
-   - Description: This error occurs in Data Copy when the same welder number is entered for both the source and destination.
+   - Code: 值超过允许范围。[范围]
+   - Description: 输入的值超出允许范围。
+请重新输入有效范围内的值。
 
 <br>
 
-   - Code: Class information was not saved correctly.
-   - Description: A problem has occurred with the class-related information in the characteristic data.
-Please update the characteristic data through Data Management  --> Import Characteristic Data.
+   - Code: 源焊机编号和目标焊机编号相同。
+   - Description: 当为源和目标输入相同的焊机编号时，会发生该错误。
 
 <br>
 
-   - Code: Error information was not saved correctly.
-   - Description: A problem has occurred in the welder-error-related information within the characteristic data.
-Please update the characteristic data through Data Management  --> Import Characteristic Data.
+   - Code: 类信息未正确保存。
+   - Description: 特征数据中的类相关信息出现问题。
+请通过数据管理更新特征数据 --> 导入特征数据。
 
 <br>
 
- - Code: Data transmission between the main board and the T/P has failed.
- - Description: This error appears when a communication fault occurs while writing or retrieving welder data.
-Please check the connection status between the controller and the T/P.
+   - Code: 错误信息未正确保存。
+   - Description: 在特征数据中与焊机错误相关的信息出现问题。
+请通过数据管理更新特征数据 --> 导入特征数据。
 
 <br>
 
-  -  Code: The welder is not connected.
-  -  Description: The welder with the specified number is not properly connected via DeviceNet.
-Please check the connection status.
+ - Code: 主板与T/P之间的数据传输失败。
+ - Description: 在写入或检索焊机数据时发生通信故障时，出现此错误。
+请检查控制器与T/P之间的连接状态。
 
 <br>
 
-  -  Code: Copy operation failed.
-  -  Description: Data copying between welders was not completed successfully.
-Please verify the welder's network and communication status, then try again.
+  -  Code: 焊机未连接。
+  -  Description: 指定编号的焊机未通过DeviceNet正确连接。
+请检查连接状态。
 
 <br>
 
- - Code: There is an error in the welder data file.
- - Description: A problem occurred while loading the welder data file.
-Please check whether the file exists and verify the integrity of the data.
+  -  Code: 复制操作失败。
+  -  Description: 焊机之间的数据复制未成功完成。
+请验证焊机的网络和通信状态，然后重试。
 
 <br>
 
-  - Code: Characteristic data was not saved correctly.
-  - Description: An error occurred while saving the characteristic data file.
-Please check that sufficient storage space is available on the T/P, then try again.
-<br>
-
-  - Code: Failed to save data.
-  - Description: An error occurred during the data saving process.
-Please ensure that there is enough storage space on the T/P and try again.
+ - Code: 焊机数据文件中出现错误。
+ - Description: 加载焊机数据文件时出现问题。
+请检查文件是否存在并验证数据的完整性。
 
 <br>
 
-   - Code: Welder versions do not match.
-   - Description: The versions of the welders involved in the data copy operation do not match, so the copy cannot be performed.
-Please check whether the file version or the welder version has been changed.
+  - Code: 特征数据未正确保存。
+  - Description: 保存特征数据文件时发生错误。
+请检查T/P上是否有足够的存储空间，然后重试。
+<br>
+
+  - Code: 数据保存失败。
+  - Description: 数据保存过程中发生错误。
+请确保T/P上有足够的存储空间，然后重试。
 
 <br>
 
-   - Code: Timeout occurred.
-   - Description: This occurs when communication between the main board and the T/P is unstable, or when the controller's processing time is excessively long.
-Please try again.
+   - Code: 焊机版本不匹配。
+   - Description: 涉及的数据复制操作的焊机版本不匹配，因此无法进行复制。
+请检查文件版本或焊机版本是否已更改。
+
 <br>
 
-   - Code: Data contains errors.
-   - Description: Some values in the backed-up data file fall outside the valid range.
+   - Code: 超时发生。
+   - Description: 这发生在主板与T/P之间的通信不稳定，或控制器的处理时间过长时。
+请重试。
+<br>
+
+   - Code: 数据包含错误。
+   - Description: 备份数据文件中的某些值超出有效范围。

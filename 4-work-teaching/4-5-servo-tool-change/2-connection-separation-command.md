@@ -1,23 +1,23 @@
-﻿### 4.5.2 Connection/disconnection commands 
+### 4.5.2 连接/断开命令
 
-In the servo tool change environment, connection/disconnection of the servo gun can be done in two ways as below. When the servo gun is connected, the gun number and tool number are automatically changed according to the set values, and when the servo gun is separated, the gun number and tool number are automatically changed to 0.
+在伺服工具更换环境中，伺服枪的连接/断开可以通过以下两种方式完成。当伺服枪连接时，枪号和工具号会根据设置的值自动更改，当伺服枪分离时，枪号和工具号会自动更改为0。
 
 (1) R358
 
-This is a function for servo gun change by using a R code, and can be used in the motor on state (the enable switch is on) in manual mode.
+这是通过使用R代码进行伺服枪更换的功能，可以在手动模式下电动机开启状态（启用开关开启）中使用。
 
- - Operation = `R358 --> 1 --> 2`
+ - 操作 = `R358 --> 1 --> 2`
 
-| **Parameter** |   **#1**   | **#2** | 
+| **参数** |   **#1**   | **#2** | 
 | :------: | :--------: | :----: | 
-|    Meaning    |    Connection/disconnection  |     Gun number     |
-|   Setting value   | Connection=1, Disconnection=0 | The number of the gun targeted for change |
+|    意思    |    连接/断开  |     枪号     |
+|   设置值   | 连接=1, 断开=0 |  目标更换的枪号 |
 
- - Example of use  
+ - 使用示例  
 
-| Connection | Disconnection|
-| :--: | :--:|
-| Gun #2 connection |Gun #1 disconnection|
+| 连接 | 断开 |
+| :--: | :--: |
+| 枪 #2 连接 | 枪 #1 断开 |
 | `R358 + 1 + 2` | `R358 + 0 + 1` |
 |  ![](../../_assets/image_108_eng.PNG) | ![](../../_assets/image_109_eng.PNG)  |
 
@@ -25,23 +25,23 @@ This is a function for servo gun change by using a R code, and can be used in th
 
 (2) toolchng
 
-This is a function for welding gun change through the execution of a work program. 
+这是通过执行作业程序进行焊接枪更换的功能。
 
 ```python
-toolchng on/off/fixed,tg=<target guns for change>,is=<connection complete signal>,wait=<connection complete wait time>
+toolchng on/off/fixed,tg=<目标更换的枪>,is=<连接完成信号>,wait=<连接完成等待时间>
 ```
 
 <br>
 
-|    parameter |       input       |     function     |   note   |
+|    参数 |       输入       |     功能     |   备注   |
 | :-----------: | :----------: | :---------: | :-----------: |
-|     connection |       on       |      connection of the servo tool     |      |
-|  disconnection |       off     |        disconnection of the servo tool   |      |
-|  fixed change |       fixed      |      power-on tool change   | single motor multi-tool     |
-|     target guns for change |     G1\~G16    |        numbers of the welding guns, <br> array [ ] for multi guns (ex. ["G1", "G2"])        | connection/disconnection of the relevant additional axes  |
-|mechanical connection check signal|     1~4096    | number of the input signal <br> for mechanical connection completion |    parameter to be ignored in off state |  
-| connection wait time  | <0~5.0> <br> (sec) | connection completion wait time <br> (limitless waiting if no parameter exists or the value is 0)</p> |  parameter to be ignored in off state  |
+|     连接 |       on       |      伺服工具的连接     |      |
+|  断开 |       off     |        伺服工具的断开   |      |
+|  固定更换 |       fixed      |      上电工具更换   | 单电机多工具     |
+|     目标更换的枪 |     G1\~G16    |        焊接枪的编号,<br> 多枪的数组 [ ]（例如：["G1", "G2"]）        | 相关附加轴的连接/断开  |
+|机械连接检查信号|     1~4096    | 机械连接完成的输入信号编号 |    关闭状态下忽略的参数 |  
+| 连接等待时间  | <0~5.0> <br> (秒) | 连接完成等待时间 <br>（如果没有参数或值为0，则无限等待）</p> |  关闭状态下忽略的参数  |
 
 <br>
 
-Connection completion will be finalized only after the mechanical connection and the internal processing of the robot controller are completed. The connection completion wait time is the time for waiting until both of the above two processes are completed.
+连接完成将在机械连接和机器人控制器的内部处理完成后最终确定。连接完成等待时间是等待以上两个过程完成的时间。

@@ -1,12 +1,12 @@
-﻿#### 6.2.2.2 Single Scheduled Program
+#### 6.2.2.2 单一定时程序
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_13_eng.png"  width="70%"></img>
-<em><p align="center">Figure 6.13 Single Scheduled Program</p></em>
+<em><p align="center">图 6.13 单一定时程序</p></em>
 </p>
 
 <br>
 
-A single scheduled program refers to a program that is applied commonly to all welding conditions, similar to a COMMON PROGRAM.
+单一定时程序是指适用于所有焊接条件的程序，类似于 COMMON PROGRAM。

@@ -1,22 +1,21 @@
-﻿### 4.5.1.2 Servo tool parameter setting
+### 4.5.1.2 伺服工具参数设置
 
- In the `[F2: system] - 4: Application parameter - 11: Servo tool change - 2: Servo tool parameter setting` menu, set the gun type and tool number targeted for the servo tool change.
+ 在`[F2: 系统] - 4: 应用参数 - 11: 伺服工具更换 - 2: 伺服工具参数设置 ([F2: system] - 4: Application parameter - 11: Servo tool change - 2: Servo tool parameter setting)`菜单中，设置目标伺服工具更换的枪型和工具编号。
 
-If the gun targeted for servo tool change is a Servo Gun, the currently set additional axis parameters may differ from the parameters of the Servo Gun to be used. Therefore, the parameters of the Servo Gun to be used must be set.
+如果目标伺服工具更换的枪是伺服枪，则当前设置的附加轴参数可能与将要使用的伺服枪的参数不同。因此，必须设置将要使用的伺服枪的参数。
 
-The configured parameters will replace the values of the existing additional axis parameters, as shown in the figure below, when using another welding gun through the servo tool change function. Therefore, the same setting items as the additional axis parameters are used.
+配置的参数将在通过伺服工具更换功能使用另一个焊接枪时替换现有附加轴参数的值，如下图所示。因此，使用与附加轴参数相同的设置项目。
 
 <p align="center">
  <img src="../../../_assets/image_67_eng.PNG" width="75%"></img>
- <em><p align="center">Figure 4.15 Application of the parameter for the additional axis during tool change</p></em>
+ <em><p align="center">图 4.15 工具更换期间附加轴参数的应用</p></em>
 </p>
 
+伺服工具的参数设置项目大多数与附加轴的参数设置项目相同。您需要在设置工具编号和枪型的屏幕中添加您设置的伺服枪，该枪对应于枪编号。当单击OK按钮时，枪编号对应的附加轴编号将自动设置。
 
-The setting items of the parameter for the servo tool are mostly the same as the setting items of the parameter for the additional axis. You need to add the servo gun that you have set in the screen for setting the tool number and gun type corresponding to the gun number. When the OK button is clicked, the additional axis number corresponding to the gun number will be automatically set.
-
-The Servo Tool parameter setting items are mostly the same as the additional axis parameter setting items. The Servo Gun set in the Gun Number-corresponding Tool Number and Gun Type setting screen must be added. When the `[OK]` button is pressed, the additional axis number corresponding to the gun number is automatically set.
+伺服工具参数设置项目大多数与附加轴参数设置项目相同。在枪编号对应的工具编号和枪型设置屏幕中设置的伺服枪必须添加。当按下`[OK]`按钮时，枪编号对应的附加轴编号将自动设置。
 
 <p align="center">
  <img src="../../../_assets/image_88_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.16 Additional axis parameter setting screen</p></em>
+ <em><p align="center">图 4.16 附加轴参数设置屏幕</p></em>
 </p>

@@ -1,12 +1,12 @@
-﻿# 4.4 Servo gun opening position recording
+# 4.4 伺服枪开启位置记录
 
-The recording of the spot welding step of the servo gun is usually performed according to the following procedure.
+伺服枪的点焊步骤的记录通常按照以下程序进行。
 
-1. Check that the state is the one-touch record state. (\[GUN] key LED turned on.)
-2. Contact the fixed electrode of the servo gun to the workpiece.
-3. Squeeze the moving electrode to the workpiece by performing manual squeezing operation.
-4. Press the `[Record]` key to record the Spot statement together with the  step. -> Automatic registration of the panel thickness
-5. Separate the moving electrode with a manual closing operation.
-6. Movement to the next position occurs.
+1. 检查状态是否为一键记录状态。（\[GUN] 键 LED 亮起。）
+2. 将伺服枪的固定电极接触到工件。
+3. 通过手动夹紧操作将移动电极夹紧到工件上。
+4. 按下 `[Record]` 键以记录点焊声明以及步骤。 -> 自动注册面板厚度
+5. 通过手动闭合操作分离移动电极。
+6. 移动到下一个位置。
 
- Servo gun opening position recording is a procedure without the steps (3) and (5) above, making it possible to save a significant amount of time. For this, the controller should know the thickness of the panel to weld.
+伺服枪开启位置记录是一种没有上述步骤 (3) 和 (5) 的程序，从而可以节省大量时间。为此，控制器应了解要焊接的面板的厚度。

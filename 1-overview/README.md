@@ -1,45 +1,44 @@
-﻿# 1. Overview
+﻿# 1. 概述
 
-This manual describes the controller settings and functions required when performing spot welding using Hyundai Robotics robots and controllers.
-Please refer to this manual and apply it appropriately to your on-site system conditions.
+本手册描述了在使用现代机器人和控制器进行点焊时所需的控制器设置和功能。
+请参考本手册，并根据您的现场系统条件适当地应用。
 
-### Definition and Principle
+### 定义和原理
 
-Spot welding is a type of resistance welding in which two or more metal sheets (thin plates) are overlapped and pressed together by copper alloy electrodes. A high electric current is then passed through the materials, generating heat due to electrical resistance at the contact surfaces. This heat locally melts the metal, forming a weld joint. During the welding process, the molten metal solidifies and forms a round bonded zone called a nugget.
+点焊是一种电阻焊接，其中两个或多个金属板（薄板）重叠并由铜合金电极夹紧。然后，通过材料传递高电流，由于接触表面的电阻产生热量。这个热量局部熔化金属，形成焊接接头。在焊接过程中，熔融金属冷却并形成一个称为焊珠的圆形结合区。
 
-### Three Major Factors of Resistance Welding
+### 电阻焊的三个主要因素
 
-The quality of spot welding is primarily determined by the following three factors:
+点焊的质量主要由以下三个因素决定：
 
-  -  Welding Current  
-    The amount of current must be sufficient to generate enough heat to melt the metal at the interface.
+  -  焊接电流  
+    电流的量必须足够以产生足够的热量来熔化接口处的金属。
 
-  - Electrode Force (Pressure)  
-    Proper pressure ensures good contact between the workpieces and stabilizes the welding process. Too little force may cause spatter, while excessive force can reduce resistance and lower heat generation.
+  - 电极力（压力）  
+    适当的压力确保工件之间良好的接触，并稳定焊接过程。压力不足可能导致飞溅，而过大的压力则会降低电阻并减少热量产生。
 
-  - Welding Time  
-    This is the duration for which current is applied. It must be optimized to allow proper nugget formation without overheating or material damage.
+  - 焊接时间  
+    这是施加电流的持续时间。必须优化以允许适当的焊珠形成，而不导致过热或材料损坏。
 
+### 点焊枪的类型
+  -  伺服枪  
+    伺服枪通过将伺服电机的旋转力传输到球螺杆，从而驱动枪头进行压下和打开动作。它被配置为机器人的额外轴并相应控制。在焊接过程中，由机器人执行均衡动作。
 
-### Types of Spot Welding Guns
-  -  Servo Gun  
-    A servo gun operates by transmitting the rotational force of a servo motor to a ball screw, which drives the gun tip to perform pressing and opening motions. It is configured as an additional axis of the robot and controlled accordingly. During welding, the equalizing motion is performed by the robot.
+  - EQ枪  
+    EQ枪是一种使用气动压力进行压下和打开动作的点焊枪。它由焊接条件和焊接（电流输出）信号控制。在焊接过程中，均衡动作由枪本身机械地执行。
 
-  - EQ Gun  
-    An EQ gun is a spot welding gun that uses pneumatic pressure for pressing and opening motions. It is controlled by welding conditions and welding (current output) signals. During welding, the equalizing motion is performed mechanically by the gun itself.
+  - 无EQ枪  
+    无EQ枪也是一种气动型点焊枪，使用气压进行压下和打开动作。它由焊接条件和焊接（电流输出）信号控制。然而，由于它没有用于均衡动作的气缸，因此这个功能在焊接过程中由机器人执行。
 
-  - EQ-less Gun  
-    An EQ-less gun is also a pneumatic-type spot welding gun that performs pressing and opening motions using air pressure. It is controlled by welding conditions and welding (current output) signals. However, since it does not have a cylinder for equalizing motion, this function is performed by the robot during welding.
-
-  - EQ-Brake Gun  
-    The EQ-Brake gun is similar to the EQ gun in its basic operation. However, it is specifically used in cases where a large reaction force is generated during welding. In this method, welding is performed while the brakes of each robot axis are engaged to maintain positional stability. This type of gun is only used with robot-mounted welding guns (robot guns).
+  - EQ刹车枪  
+    EQ刹车枪在基本操作上与EQ枪相似。然而，它主要用于焊接过程中产生较大反应力的情况。在这种方法中，焊接在每个机器人轴的刹车保持参与以维持位置稳定性。此类型的枪仅与机器人安装的焊接枪（机器人枪）一起使用。
 
    
-</br>
-</br>
+<br>
+<br>
 
-**[Essential manuals]**
+**[基本手册]**
 
-- [${cont_model} Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})
+- [${cont_model} 控制器操作手册](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/README?cont_model=${cont_model})
 
-- [${cont_model} Additional Axis Function Manual](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
+- [${cont_model} 附加轴功能手册](https://hrbook-hrc.web.app/#/view/doc-add-axes/zh/README?cont_model=${cont_model})

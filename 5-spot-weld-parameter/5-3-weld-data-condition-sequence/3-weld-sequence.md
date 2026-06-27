@@ -1,27 +1,25 @@
-﻿### 5.3.3 Welding sequence
+### 5.3.3 焊接顺序
 
-Sets the spot welding sequence to define robot operation according to the work environment.
+设置点焊顺序以根据工作环境定义机器人操作。
 
 
 <p align=center>
 <img src="../../_assets/image_1_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.14 Welding sequence setting</p></em>
+<em><p align="center">图 5.14 焊接顺序设置</p></em>
 </p>
 
-(1)  **Sequence number**
-  - Allows quick selection of the desired welding sequence. This number usually corresponds to the sequence name.
+(1)  **顺序编号**
+  - 允许快速选择所需的焊接顺序。此编号通常对应于顺序名称。
 
-(2)  **Welding signal output delay time (GWT)**
-  - Servo gun: Defines the waiting time before the welding signal is output after squeezing force matching is completed.
-  - Pneumatic gun: Defines the waiting time before the welding signal is output after execution of the `spot` statement.
+(2)  **焊接信号输出延迟时间 (GWT)**
+  - 伺服枪：定义焊接信号输出前的等待时间，直到挤压力匹配完成。
+  - 气动枪：定义执行 `点 (spot)` 语句后焊接信号输出前的等待时间。
 
-(3)  **Welding signal pulse output (0=level)**
-  - Specifies the duration for which the welding signal is output.
-If this value is set to 0, the welding signal continues to be output until the welding completion (WI) signal is received.
+(3)  **焊接信号脉冲输出 (0=水平)**
+  - 指定焊接信号输出的持续时间。如果此值设置为 0，则焊接信号将在接收到焊接完成 (WI) 信号之前继续输出。
 
-(4)  **Welding completion (WI) wait time**
-  - Specifies the waiting time for the welding completion (WI) signal to be received.
-If this value is set to 0, the system waits indefinitely until the signal is received.
+(4)  **焊接完成 (WI) 等待时间**
+  - 指定等待焊接完成 (WI) 信号接收的时间。如果此值设置为 0，则系统将无限期等待直到接收到信号。
 
-(5)  **Robot wait time after welding completion (RWT)**
-  - Generally specifies the waiting time for deposition detection after the welding completion (WI) signal is received. If this value is set to 0.0, deposition detection is not performed. When using the deposition detection signal, a value greater than 0.3 seconds (300 ms) is recommended. However, increasing this value will lengthen the welding time and increase the overall cycle time.
+(5)  **焊接完成后机器人等待时间 (RWT)**
+  - 通常指定焊接完成 (WI) 信号接收后用于沉积检测的等待时间。如果此值设置为 0.0，则不执行沉积检测。使用沉积检测信号时，建议设置大于 0.3 秒 (300 ms) 的值。但是，增加此值将延长焊接时间并增加整体循环时间。

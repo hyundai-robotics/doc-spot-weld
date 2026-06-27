@@ -1,36 +1,34 @@
-﻿
-#### 6.1.1 Advantages and Features
+#### 6.1.1 优势和特点
 
-### Advantages
+### 优势
 
-- Easy connection with other peripheral devices, reducing overall system setup time (Short start-up time)
+- 与其他外围设备的简单连接，减少整体系统设置时间（短启动时间）
 
-- Use of DeviceNet reduces wiring requirements (Lower capital costs)
+- 使用DeviceNet减少接线要求（降低资本成本）
 
-- Reduced downtime
+- 降低停机时间
 
-- A single controller : the robot Teach Pendant for robot and welder operations
+- 单一控制器：机器人教导终端用于机器人和焊机操作
 
-### Features
+### 特点
 
-- Ensures reliable communication between the robot controller and the welder through the DeviceNet message method.
+- 通过DeviceNet消息方法确保机器人控制器与焊机之间的可靠通信。
 
-- Supports connection of up to four welding timers (applicable to both servo guns and pneumatic guns).
+- 支持连接最多四个焊接定时器（适用于伺服枪和气动枪）。
 
-- No modification of the robot controller software is required even when the timer model is changed.
+- 即使更改定时器型号，也无需修改机器人控制器软件。
 
-- The robot controller can handle individual files such as welding schedules, common welding data, and stepper data.
+- 机器人控制器可以处理单个文件，例如焊接计划、常见焊接数据和步进数据。
 
-- Weld result data is managed by the controller, enabling sharing of error and abnormality history and allowing error analysis.
+- 焊接结果数据由控制器管理，能够共享错误和异常历史，并允许错误分析。
 
-- Welding quality can be improved by monitoring real-time weld results via the robot TP and modifying the schedule and stepper programs accordingly.
+- 通过机器人TP实时监控焊接结果，修改计划和步进程序，从而提高焊接质量。
 
 <Br>
 
-Table 6.1 File Types and Descriptions
+表6.1 文件类型和描述
 
-|File Type |	File Name <br> (# = Timer No.)  |	Description  |
+|文件类型 |	文件名 <br> (# = 定时器编号)  |	描述  |
 |:--:|:--:|:--:|
-|Timer characteristic data |	ROBOT.NS# |	Stores timer-related information |
-|Welding program data	| ROBOT.ND# |	Stores various welding program data |
-
+|定时器特性数据 |	ROBOT.NS# |	存储与定时器相关的信息 |
+|焊接程序数据	| ROBOT.ND# |	存储各种焊接程序数据 |

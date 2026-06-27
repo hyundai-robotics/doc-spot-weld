@@ -1,11 +1,11 @@
-﻿### 2.3.3 Servo gun squeezing force - current table tunning
+### 2.3.3 伺服枪挤压力 - 电流表调节
 
-To squeeze the various servo guns, which are to be installed to the robot, with the desired squeezing force, it is necessary to make the current supplied to the servo gun correspond to the generated squeezing force. For this, our company provides a servo gun squeezing force - current table. It is necessary to tune this table to match with the servo gun. The accuracy of this tuning determines the accuracy of the servo gun squeezing force. In consideratin of it, tuning must be performed before using the servo gun.
+为了以所需的挤压力挤压将安装到机器人上的各种伺服枪，必须使供应给伺服枪的电流与产生的挤压力相对应。为此，我们公司提供了伺服枪挤压力 - 电流表。必须对该表进行调节，以与伺服枪匹配。此调节的准确性决定了伺服枪挤压力的准确性。因此，调节必须在使用伺服枪之前进行。
 
-To use this function, it is necessary to select five representative values among the squeezing forces to be used. Tuning the servo gun squeezing force - current table is a process to find the currents that match with these five representative squeezing forces. This table can vary depending on the posture of the servo gun, so it is necessary to perform tuning for each case of when the direction of the moving electrode is in the gravity direction and in anti-gravity direction, and, through this method, squeezing can be performed with high accuracy in various postures of the servo gun.
+要使用此功能，必须在要使用的挤压力中选择五个代表性值。调节伺服枪挤压力 - 电流表的过程是找到与这五个代表性挤压力匹配的电流。这个表可能会根据伺服枪的姿态而有所不同，因此必须在每种情况下进行调节，即当移动电极的方向在重力方向和反重力方向时，通过这种方法，可以在伺服枪的各种姿态中以高精度进行挤压。
 
-Our company provide manual mode for the tuning of the servo gun squeezing force - current table.
+我们公司提供手动模式用于调节伺服枪挤压力 - 电流表。
 
-*   Tuning in manual mode
+*   手动模式下的调节
 
-    Tuning can be performed regardless of the communication with the squeezing force gauge, and the user can directly tune the table by inputting the measured squeezing force.
+    调节可以不考虑与挤压力计的通信进行，用户可以通过输入测量的挤压力来直接调节表格。

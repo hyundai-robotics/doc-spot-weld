@@ -1,39 +1,39 @@
-﻿### 2.1.2 Setting of the tool angle/distance
+### 2.1.2 工具角度/距离的设定
 
-When performing spot welding, the equalizing operation (the process in which the fixed electrode contacts the panel after passing through the clearance position) is essential. This operation requires the tool coordinate system to be set correctly. 
-The +Z axis of the tool coordinate system must be aligned in the direction from the fixed electrode toward the moving electrode. (Note: [Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})).
+在进行点焊时，均衡操作（固定电极在通过间隙位置后接触面板的过程）是必不可少的。此操作需要正确设置工具坐标系统。
+工具坐标系统的 +Z 轴必须与固定电极指向移动电极的方向对齐。（注意：[控制器操作手册](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/README?cont_model=${cont_model})）。
 
 <p align="center">
  <img src="../../_assets/image_38_eng.png">
-  <em><p align="center">Figure 2.3 Setting of the tool length and angle of the welding gun : {0˚, 180˚, 0˚}</p></em>
+  <em><p align="center">图 2.3 焊接枪的工具长度和角度的设定 : {0˚, 180˚, 0˚}</p></em>
  </img>
 </p>
 
 <br>
 
-*   Tool length
+*   工具长度
 
-    When setting the tool length, measure the distance from the center of the robot R1-axis flange to the tool tip (upper part of the fixed electrode) with a new, unused electrode installed.
+    在设置工具长度时，测量从机器人 R1 轴法兰中心到工具尖端（固定电极的上部）的距离，安装一个新、未使用的电极。
 
-    Use the reference tool coordinate system and follow its positive (+) axis directions.
-    Input the measured X, Y, and Z length values accordingly.
+    使用参考工具坐标系统，并按照其正 (+) 轴方向进行测量。
+    输入测量得到的 X、Y 和 Z 长度值。
 
-    Alternatively, the tool length can be set by using `[F1: Auto calibration]` function in the menu of tool data setting.
+    或者，可以通过菜单中的 `[F1: 自动 校准] ([F1: Auto calibration])` 功能设置工具长度。
 
 <br>
 
-*   Tool angle
+*   工具角度
 
-    Input the rotation angles (Rx, Ry, Rz) for the three axes based on the flange coordinate system, or use the `[F2: Angle calibration]` function.
+    根据法兰坐标系统输入三个轴的旋转角度 (Rx, Ry, Rz)，或使用 `[F2: 角度 校准] ([F2: Angle calibration])` 功能。
 
-    Set the tool angle so that the upward direction of the fixed electrode corresponds to +Z of the tool coordinate system.
+    设置工具角度，使固定电极的向上方向对应于工具坐标系统的 +Z。
 
-    To verify the setting:
+    为了验证设置：
 
-    1. Set the teach pendant coordinate system to `[crd.sys tool]` (4th button in the Status Display window).
+    1. 将教学挂件坐标系统设置为 `[crd.sys tool]` （在状态显示窗口中的第 4 个按钮）。
 
-    2. Press the `[Z+]` jog key.
+    2. 按下 `[Z+]` 移动键。
 
-    3. Check the movement direction.
+    3. 检查运动方向。
 
-    If the movement direction matches the squeezing direction of the fixed electrode (upward direction shown in Figure 2.3), the tool angle setting is correct.
+    如果运动方向与固定电极的挤压方向相匹配（图 2.3 中显示的向上方向），则工具角度设置是正确的。

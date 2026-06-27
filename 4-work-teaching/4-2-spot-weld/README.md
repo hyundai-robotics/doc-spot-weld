@@ -1,3 +1,3 @@
-﻿# 4.2 Spot welding
+﻿# 4.2 点焊
 
-While the fixed and moving electrodes are squeezing, the current flows from the welder, allowing the spot welding to be performed.
+在固定电极和移动电极挤压时，电流从焊接机流出，从而允许进行点焊。

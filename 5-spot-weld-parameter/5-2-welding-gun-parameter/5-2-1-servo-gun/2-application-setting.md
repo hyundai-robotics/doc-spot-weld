@@ -1,23 +1,23 @@
-﻿### 5.2.1.2 Servo gun application setting
+### 5.2.1.2 伺服枪应用设置
 
 
 <p align=center>
 <img src="../../../_assets/image_6_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.7 Servo gun application setting</p></em>
+<em><p align="center">图 5.7 伺服枪应用设置</p></em>
 </p>
 
 
-(1)  **Gun arm deflection amount (mm)**  
+(1)  **枪臂偏转量 (mm)**  
 
- - Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press 'Default value calculation', the value of 0.31 mm per 100 kgf will be set as the default value.
+ - 设置左侧设定的挤压力的枪臂偏转量。考虑到手动测量和填写数值是困难的，建议使用伺服枪自动设置。如果您按下“默认值计算”，将设置每 100 kgf 为 0.31 mm 的默认值。
  
-(2)  **Panel thickness compensation(mm)**  
+(2)  **面板厚度补偿 (mm)**  
 
-  - Sets the panel thickness compensation amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+  - 设置左侧设定的挤压力的面板厚度补偿量。考虑到手动测量和填写数值是困难的，建议使用伺服枪自动设置。
 
 {% hint style="warning" %}  
 
-When it comes to 'gun arm deflection amount compensation' and 'panel thickness measurement compensation', it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
+关于“枪臂偏转量补偿”和“面板厚度测量补偿”，由于手动测量和填写数值较难，建议使用伺服枪自动设置。
 
-The 'gun arm deflection amount compensation' value is a value used instead of the 'gun arm deflection amount/100 kgf\[mm]' among the servo gun parameters. When the 'gun arm deflection amount compensation' value is set, the already set 'gun arm deflection amount/100 kgf\[mm]' will not be used. On the contrary, if a 'gun arm deflection amount compensation' value is not set, the 'gun arm deflection amount/100 kgf\[mm] will be used.'  
+“枪臂偏转量补偿”值是伺服枪参数中用于替代“枪臂偏转量/100 kgf\[mm]”的值。当设定“枪臂偏转量补偿”值时，已设置的“枪臂偏转量/100 kgf\[mm]”将不被使用。相反，如果未设置“枪臂偏转量补偿”值，将使用“枪臂偏转量/100 kgf\[mm]”。  
 {% endhint %}

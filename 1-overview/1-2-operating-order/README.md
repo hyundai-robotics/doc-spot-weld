@@ -1,3 +1,3 @@
-﻿# 1.2 Operation sequence
+# 1.2 操作序列
 
-Two procedures are provided for the servo gun setting: manual setting and automatic setting.
+提供了两种伺服枪设置程序：手动设置和自动设置。

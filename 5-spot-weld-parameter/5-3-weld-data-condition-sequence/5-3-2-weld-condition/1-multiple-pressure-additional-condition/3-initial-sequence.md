@@ -1,14 +1,14 @@
-﻿#### 5.3.2.1.3 Initial sequence
+#### 5.3.2.1.3 初始顺序
 
-The multi-stage pressure setting conditions can be applied not only to spot welding but also to other welding applications such as dissimilar material joining. Some applications (e.g., RSR) require an input/output signal sequence after reaching the initial pressure.
+多阶段压力设置条件不仅可以应用于点焊，还可以应用于其他焊接应用，例如异种材料结合。一些应用（例如，RSR）在达到初始压力后需要输入/输出信号顺序。
 
-By registering the input/output signals required for the sequence procedure as shown below, the system proceeds to the multi-stage pressurization process after completing the signal input/output sequence once the initial pressure has been reached.
+通过注册如下所示的顺序程序所需的输入/输出信号，系统在达到初始压力后完成信号输入/输出序列后，进入多阶段加压处理。
 
-Up to five sequences are available, and users may configure as many as required.
+最多可提供五个顺序，用户可以根据需要配置多个。
 
 <br>
 
 <p align=center>
 <img src="../../../../_assets/image_56.png" width="70%"></img>
-<em><p align="center">Figure 5.13_1 Initial sequence setting</p></em>
+<em><p align="center">图 5.13_1 初始顺序设置</p></em>
 </p>

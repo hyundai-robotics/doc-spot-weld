@@ -1,24 +1,21 @@
-﻿#### 4.1.4.2 Equalizerless gun
+#### 4.1.4.2 无均衡器枪
 
-As an equalizerless gun only manages the consumption amount on the fixed electrode, so the gun search function here measures the fixed electrode consumption amount.
-
+由于无均衡器枪仅管理固定电极上的消耗量，因此这里的枪搜索功能测量固定电极的消耗量。
 
 <p align=center>
  <img src="../../../_assets/image_64_eng.PNG"></img>
  <img src="../../../_assets/image_34_eng.PNG" width="55%"></img>
- <em><p align="center">Figure 4.7 Gun search of an equalizerless gun</p></em>
+ <em><p align="center">图 4.7 无均衡器枪的枪搜索</p></em>
 </p>
 
 <br>
 
+1. 机器人移动到记录的步骤位置。
 
+2. 固定电极以搜索速度靠近并激活光电管接触信号。
 
-1. The robot moves to the recorded position of the step.
+3. 当光电管检测到信号时，测量固定电极的消耗量并执行开口操作。
 
-2. The fixed electrode approaches at the search speed and activates the phototube contact signal.
+   固定电极消耗 = 传感器检测位置 - 枪搜索记录位置
 
-3. When the phototube detects a signal, the fixed electrode consumption amount is measured and the opening operation is executed.
-
-   Fixed electrode consumption  = sensor detection position - gun search recorded position
-
-4. When the opening operation is completed, the fixed electrode consumption amount is updated.
+4. 当开口操作完成后，更新固定电极的消耗量。

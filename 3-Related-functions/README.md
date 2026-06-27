@@ -1,2 +1,1 @@
-﻿# 3. Related functions
-
+# 3. 相关功能

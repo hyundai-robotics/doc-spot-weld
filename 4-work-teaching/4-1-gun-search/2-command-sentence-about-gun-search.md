@@ -1,27 +1,27 @@
-﻿### 4.1.2 Commands related to gun search
+### 4.1.2 与枪搜索相关的命令
 
 
 (1) gunsea
 
- This is a statement to be used for executing gun search 1 when the gun type is servo gun or executing gun search 2 by using the squeezing force.
+ 这是一个用于执行枪搜索1的语句，当枪类型为伺服枪时，或通过使用挤压力执行枪搜索2。
 
 
 ```gunsea gun=<gun number>,sea=<search number>,pre=<squeezing force>,spd=<search speed>```
 
-|   **Item**   | <p align="center">   **Content**   </p>| 
+|   **项目**   | <p align="center">   **内容**   </p>| 
 |:--------: | ----------------------------------------------------------------- |
-|   **Gun number**  |  the gun number to measure the tip length (array[ ] for multi inputs)  | 
-|  **Search number**  |  the gun search 1 operation or gun search operation 2             |
-|   **Squeezing force**  |  the command squeezing force for detection of squeezing force matching.(array[ ] for multi inputs)       |
-|  **Search speed**  |the operation speed of the gun's axis for the search operation (10 mm/s recommended)|
+|   **枪编号**  |  用于测量尖端长度的枪编号 (array[ ] 用于多输入)  | 
+|  **搜索编号**  |  枪搜索1操作或枪搜索操作2             |
+|   **挤压力**  |  用于检测与挤压力匹配的命令挤压力。(array[ ] 用于多输入)       |
+|  **搜索速度**  | 枪的轴在搜索操作中的运行速度 (建议为10 mm/s)|
 
 
 <br>
 
 {% hint style="info" %}
-[Use example]    
+[使用示例]    
 
-A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing force 100 kgf and 200 kgf respectively
+执行伺服枪5和6的枪搜索1，平衡力分别为100 kgf和200 kgf
 
  --> ```gunsea gun=[5,6],sea=1,pre=[100,200],spd=50```
 
@@ -30,27 +30,27 @@ A case of executing gun search 1 for the servo guns 5 and 6 with the equalizing 
 ---
 (2) igunsea
 
-This is a statement to be used for executing gun search 2 based on the input signal when the gun type is servo gun.
+这是一个用于根据输入信号执行枪搜索2的语句，当枪类型为伺服枪时。
 
 ```igunsea gun=<gun number>,spd=<search speed>,di=<input signal>```
 
-|  **Item**  |   <p align="center">   **Content**   </p>  |
+|  **项目**  |   <p align="center">   **内容**   </p>  |
 | :------: | ---------------------------------------------------------------------- |
-| **Gun number** |  the gun number to search                  |
-| **Search speed** | the operation speed of the gun's axis for the search operation (10 mm/s recommended)|
-| **Input signal** |  the input signal address for the reception of the phottube output    |
+| **枪编号** |  用于搜索的枪编号                  |
+| **搜索速度** | 枪的轴在搜索操作中的运行速度 (建议为10 mm/s)|
+| **输入信号** |  用于接收光电管输出的输入信号地址    |
 
-</br>
+<br>
 
 ---
 (2) egunsea
 
-This is used when the gun type is equalizerless gun.
+当枪类型为无平衡器枪时使用。
 
 ```egunsea gun=<gun number>,spd=<search speed>,dist=<search distance>,di=<input signal>```
 
-|  **Item**  |  <p align="center">   **Content**   </p>   |
+|  **项目**  |  <p align="center">   **内容**   </p>   |
 | :------: | ---------------------------------------------------------------------- |
-| **Gun number** |   the gun number to search                                                            |
-| **Search speed** | the operation speed of the gun's axis for the search operation (10 mm/s recommended)  |
-| **Input signal** |  the input signal address for reception of the phot tube output |     
+| **枪编号** |   用于搜索的枪编号                                                            |
+| **搜索速度** | 枪的轴在搜索操作中的运行速度 (建议为10 mm/s)  |
+| **输入信号** |  用于接收光电管输出的输入信号地址 | 

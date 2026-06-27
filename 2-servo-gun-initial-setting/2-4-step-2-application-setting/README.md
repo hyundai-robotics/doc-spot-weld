@@ -1,36 +1,36 @@
-﻿# 2.4 Step 2. Application setting
+﻿# 2.4 步骤 2. 应用设置
 
-When the default setting is completed, the application setting can be performed. The application setting is the item that can be performed after the **squeezing force - current table tuning**. It consists of a procedure for setting the reference position for the gun search, a procedure for estimating the amount of the servo gun arm deflection during the squeeze operation, and a compensation procedure for accurate measurement of the panel thickness.
+当默认设置完成后，可以进行应用设置。应用设置是完成 **挤压力 - 电流表调优** 后可以执行的项目。它由设置枪搜索的参考位置的程序、估计挤压操作期间伺服枪臂偏转量的程序以及精确测量面板厚度的补偿程序组成。
 
-The application setting consists of three items as shown in the figure below.
+应用设置由下图所示的三个项目组成。
 
 <p align="center">
  <img src="../../_assets/image_58_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.15 Servo gun application setting screen</p></em>
+ <em><p align="center">图 2.15 伺服枪应用设置屏幕</p></em>
 </p>
 
 <br>
 
-1. **Gun search**
-     * Sets the reference position for measuring the consumption amount of the tip and checks the consumption amount once.
-     * For manual setting, refer to [4.1 Gun search](../../4-work-teaching/4-1-gun-search/README.md).
+1. **枪搜索**
+     * 设置测量尖端消耗量的参考位置，并检查一次消耗量。
+     * 手动设置请参见 [4.1 枪搜索](../../4-work-teaching/4-1-gun-search/README.md)。
 
-2. **Gun arm deflection amount compensation**
-      * The gun arm deflection amount compensation should be set to compensate for the gun arm deflection that occurs when the servo gun performs squeezing. Sets the deflection amount according to the squeeze force set in the squeezing force - current table.
-      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`, set the gun number that needs to be set and then press `[Advanced condition]` to enter.
+2. **枪臂偏转量补偿**
+      * 枪臂偏转量补偿应设置为补偿伺服枪在进行挤压时发生的枪臂偏转。根据在挤压力 - 电流表中设置的挤压力设置偏转量。
+      * 手动设置，请在上图中按下手动设置按钮，或者在 `[F2: 系统] - 4: 应用参数 - 1: 点焊焊接中 - 2: 焊枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)` 的屏幕中，设置需要设置的枪号，然后按 `[Advanced condition]` 进入。
 
-3. **Panel thickness measurement compensation**
-      * The panel thickness measurement compensation is a setting to improve the accuracy of the panel thickness measured with the ThickCheck command.
-      * For manual setting, press the Manual setting button in the figure above, or, in the screen of `[F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter`, set the gun number that needs to be set and the press the `[Advanced condition]` button to enter.
+3. **面板厚度测量补偿**
+      * 面板厚度测量补偿是提高使用 ThickCheck 命令测量的面板厚度精度的设置。
+      * 手动设置，请在上图中按下手动设置按钮，或者在 `[F2: 系统] - 4: 应用参数 - 1: 点焊焊接中 - 2: 焊枪参数 ([F2: system] - 4: Application parameter - 1: Spot welding - 2: Welding gun parameter)` 的屏幕中，设置需要设置的枪号，然后按 `[Advanced condition]` 按钮以进入。
 
-Among spot setting items, the 'gun search' setting is essential. If 'gun search' is not set, it is impossible to execute and teach commands related to spot welding (for example, spot gn=1,...). On the other hand, **gun arm deflection amount compensation** and **panel thickness measurement compensation** has nothing to do with the execution and teaching of commands related to spot welding, but are necessary settings for accurate operation and accurate panel thickness measurement.
+在点设置项中，'枪搜索' 设置是必不可少的。如果未设置 '枪搜索'，将无法执行和教授与点焊相关的命令（例如，点 gn=1,...）。另一方面，**枪臂偏转量补偿** 和 **面板厚度测量补偿** 与执行和教授与点焊相关的命令无关，但对于精确操作和准确的面板厚度测量是必要的设置。
 
-The application setting can be progressed in automatic setting and manual setting.
+应用设置可以通过自动设置和手动设置进行。
 
-(1) Automatic setting  
+(1) 自动设置  
 
-   * The servo gun automatically moves to execute **gun search**, **gun arm deflection amount compensation** and **panel thickness measurement compensation**. All items of the application setting can be performed automatically.  
+   * 伺服枪自动移动以执行 **枪搜索**、 **枪臂偏转量补偿** 和 **面板厚度测量补偿**。应用设置的所有项目都可以自动执行。  
   
-(2) Manual setting
+(2) 手动设置
 
-   * The user directly performs **gun search** and inputs the **gun arm deflection amount compensation** and **panel thickness measurement compensation** values.  
+   * 用户直接执行 **枪搜索** 并输入 **枪臂偏转量补偿** 和 **面板厚度测量补偿** 值。  

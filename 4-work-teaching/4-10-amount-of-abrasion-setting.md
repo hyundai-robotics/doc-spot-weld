@@ -1,28 +1,26 @@
-﻿# 4.10 Spot system variables
+﻿# 4.10 Spot 系统变量
 
-
-Some setting values can be accessed and controlled using spot system variables. These variables store the clearance values for each condition, individual wear values for the moving and fixed electrodes, and the total wear amount. As shown in the illustration below, you can read or modify these values by using variable assignment statements in the command window. 
+某些设置值可以通过 Spot 系统变量进行访问和控制。这些变量存储每种条件的间隙值、移动和固定电极的个体磨损值，以及总磨损量。如下面插图所示，您可以通过在命令窗口中使用变量赋值语句来读取或修改这些值。
 
 <p align="center">
  <img src="../_assets/image_93_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 4.23 Spot tip-consumption system variable usage</p></em>
+ <em><p align="center">图 4.23 Spot 尖端消耗系统变量使用</p></em>
 </p>
 
-</br>
-
+<br>
 
 |category	|system variable	|content|
 |:--:	|:--:	|:--:|
-|welding condition|_spotcnd[#].fixed_tip_clearance|	fixed tip clearance value of the conditon nuymber(#)|
-|welding condition|_spotcnd[#].moving_tip_clearance|moving tip clearance value of the conditon nuymber(#)|
-|welding gun|_spotgun[#].fixed_tip_consump|	fixed tip consumption fo the gun number(#)|
-|welding gun|_spotgun[#].moving_tip_consump|	moving tip consumption fo the gun number(#)|
-|welding gun|_spotgun[#].total_tip_consump|	total consumption fo the gun number(#)|
+|welding condition|_spotcnd[#].fixed_tip_clearance|	条件编号(#)的固定尖端间隙值|
+|welding condition|_spotcnd[#].moving_tip_clearance|	条件编号(#)的移动尖端间隙值|
+|welding gun|_spotgun[#].fixed_tip_consump|	枪编号(#)的固定尖端消耗|
+|welding gun|_spotgun[#].moving_tip_consump|	枪编号(#)的移动尖端消耗|
+|welding gun|_spotgun[#].total_tip_consump|	枪编号(#)的总消耗|
 
 <br>
 
 {% hint style="warning" %}
-- The cunsumption-related variables can apply only to servo and equalizerless guns. 
-- In the case of the equalizerless gun, the total consumption amount equals the fixed electrode consumption amount.  
-- Any manually set wear amount values will be overwritten by the measured values after a gun search is performed.  
+- 与消耗相关的变量只能应用于伺服和无平衡器枪。
+- 对于无平衡器枪，总消耗量等于固定电极消耗量。
+- 任何手动设置的磨损量将被测量值覆盖，在进行枪搜索后。
 {% endhint %}

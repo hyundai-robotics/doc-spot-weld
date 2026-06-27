@@ -1,10 +1,10 @@
-﻿### 1.2.1  Operation sequence that uses the servo gun automatic setting
+### 1.2.1  使用伺服枪自动设置的操作顺序
 
-The procedure for the servo gun automatic setting is as shown in the flowchart below.
+伺服枪自动设置的步骤如下图所示。
 
 ---
 
 <p align="center">
  <img src="../../_assets/image_78_eng.PNG" width="60%"></img>
- <em><p align="center">Figure 1.1 Operation sequence of the servo gun automatic setting </p></em>
+ <em><p align="center">图 1.1 伺服枪自动设置的操作顺序 </p></em>
 </p>

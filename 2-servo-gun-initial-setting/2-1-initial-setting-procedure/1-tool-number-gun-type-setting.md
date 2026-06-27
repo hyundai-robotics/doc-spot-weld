@@ -1,43 +1,41 @@
-﻿### 2.1.1 Setting of the tool number and gun type corresponding to the gun number
+### 2.1.1 设置与枪号对应的工具号和枪类型
 
-This function sets the tool number and gun type corresponding to each spot welding gun number.
+该功能设置与每个点焊枪号对应的工具号和枪类型。
 
-It allows various welding guns to be configured according to the welder and tool number assigned to each. Since the welding method differs depending on the gun type, these settings must be configured correctly.
+它允许根据分配给每个焊接工人和工具号配置各种焊接枪。由于焊接方法因枪类型而异，因此这些设置必须正确配置。
 
-Guns can be added using the `[+]` button on the right, and up to 16 guns can be registered.
+可以使用右侧的 `[+]` 按钮添加枪，最多可以注册 16 支枪。
 
 <p align="center">
  <img src="../../_assets/image_31_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.2 Gun default setting</p></em>
+ <em><p align="center">图 2.2 枪默认设置</p></em>
 </p>
 
-(1) Tool number  
-Tool refers to an object attached to the tip of the robot's R1 axis, and the robot must have the corresponding tool information registered. The tool number is the number assigned to match the corresponding gun number. The selected tool number must have the appropriate load estimation and tool data entered. Since each gun typically has a different shape, a unique tool number should be assigned to each gun number. Because stationary guns are not attached to the tip of the R1 axis, they may be assigned arbitrary tool settings without issue. During work teaching, if the gun number specified in the Spot command does not match the tool number specified in the `move` command, playback will not be possible. Please ensure these values are consistent.
+(1) 工具号  
+工具是指附加到机器人 R1 轴尖端的对象，机器人必须注册相应的工具信息。工具号是分配给相应枪号的编号。所选的工具号必须具有适当的负载估算和工具数据。由于每把枪通常具有不同的形状，因此每把枪号应分配一个独特的工具号。由于固定枪没有附加到 R1 轴的尖端，因此可以自由设置任意工具配置。在工作教学中，如果在点焊命令中指定的枪号与 `移动 (move)` 命令中指定的工具号不匹配，则无法播放。请确保这些值一致。
 
+(2) 焊接工人号  
+焊接工人号指定与相应枪号关联的焊接工人。当使用该枪进行焊接时，信号会输入到和输出自分配给所选焊接工人的端口。多个枪可以通过伺服工具更换功能共享同一个焊接工人。
 
+(3) 枪类型  
+枪类型指的是所选枪的类型。可以选择三种类型之一。  
+如果所选枪是伺服枪，则必须指定分配给该枪的附加轴的信息。对于附加轴信息，使用伺服工具更换功能时可以将相同的附加轴分配给多把枪。
 
-(2) Welder number
-Welder designates the welder associated with the corresponding gun number. When welding is performed with that gun, signals are input to and output from the ports assigned to the selected welder. Multiple guns can share and use the same welder through the servo tool change function.
-
-(3) Gun type
-Gun type indicates the type of the selected gun. One of three types can be chosen.
-If the selected gun is a servo gun, the information for the additional axis assigned to that gun must be specified. For the additional axis information, the same additional axis may be assigned to multiple guns when using the servo tool change function.
-
-</br>
+<br>
 
 {% hint style="info" %}
--	If the gun number corresponding to the tool number is not set, the tool number may be used for other purposes.
+-	如果未设置与工具号对应的枪号，则该工具号可能用于其他目的。
 
--	When setting the gun type as servo gun, it is required to set the additional axis number corresponding to the gun number in the following method.  
+-	当将枪类型设置为伺服枪时，要求以以下方式设置与枪号对应的附加轴号。
 
 {% endhint %}
 
 <center>
 
-|Gun number	|Gun usage|	Additional axis number|
+|枪号	|枪用途|	附加轴号|
 |:---:|:---:|:---:|
-|G1, G2|	Change of welding guns including the servo gun|	Additional axis 1|
-|G5|	Stationary servo gun 1|	Additional axis 2|
-|G6|	Stationary servo gun 2|	Additional axis 3|
+|G1, G2|	更换包括伺服枪的焊接枪|	附加轴 1|
+|G5|	固定伺服枪 1|	附加轴 2|
+|G6|	固定伺服枪 2|	附加轴 3|
 
 </center>

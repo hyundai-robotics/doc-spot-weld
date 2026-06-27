@@ -1,21 +1,21 @@
-﻿#### 2.3.2.1 Servo gun encoder offset setting
+#### 2.3.2.1 伺服枪编码器偏移设置
 
-Normally, when the encoder data is changed because of replacement of the servo gun motor, etc., the origin of the encoder should be set at a position that can match the same mechanical position. In the case of the servo gun, the setting should be performed with the moving electrode in the mechanically maximum open state.
+通常，当因为更换伺服枪电机等导致编码器数据发生变化时，编码器的原点应该设置在可以匹配相同机械位置的位置。在伺服枪的情况下，设置应在机械上最大打开状态下进行移动电极。
 
-The encoder compensation procedure for the axis of the servo gun is as follows.
+伺服枪轴的编码器补偿程序如下。
 
-(1) Manually release the brake of the axis of the servo gun and then open the moving electrode to the maximum.
+(1) 手动释放伺服枪轴的刹车，然后将移动电极打开到最大。
 
 <p align="center">
  <img src="../../../_assets/image_71_eng.PNG"></img>
- <em><p align="center">Figure 2.8 Servo gun's maximum open position</p></em>
+ <em><p align="center">图 2.8 伺服枪的最大打开位置</p></em>
 </p>
 
 <br>
 
-(2) In the default setting screen of the'**Servo gun auto setting**' menu, press the `Manual setting` button of the '**Encoder offset compensation**' menu (Figure 2.9), or select the relevant servo gun axis in  `[F2: system] - 3: Robot parameter - 4: Encoder offset` with the cursor and then press the `[Reset]` button. When the current encoder value becomes "**00400000**", press the `[F7: OK]` button. 
+(2) 在'**伺服枪自动设置**'菜单的默认设置屏幕中，按下 '**编码器偏移补偿**' 菜单的 `手动设置 (Manual setting)` 按钮（图 2.9），或者在 `[F2: 系统] - 3: 机器人参数 - 4: 编码器偏移 ([F2: system] - 3: Robot parameter - 4: Encoder offset)`中用光标选择相关伺服枪轴，然后按下 `[Reset]` 按钮。当当前编码器值变为 "**00400000**" 时，按下 `[F7: 确定] ([F7: OK])` 按钮。
 
 <p align="center">
  <img src="../../../_assets/image_36_eng.PNG" width=80%></img>
- <em><p align="center">Figure 2.9 Moving to the encoder offset compensation screen</p></em>
+ <em><p align="center">图 2.9 移动到编码器偏移补偿屏幕</p></em>
 </p>

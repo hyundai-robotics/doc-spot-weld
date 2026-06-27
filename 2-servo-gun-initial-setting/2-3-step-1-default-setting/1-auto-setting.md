@@ -1,67 +1,67 @@
-﻿### 2.3.1 Automatic setting
+### 2.3.1 自动设置
 
-Progress the automatic setting of the default setting of the servo gun by pressing the `[All auto setup]` button. As the moving electrode of the servo gun moves automatically, the following conditions must be satisfied in advance.
+通过按下 `[All auto setup]` 按钮，进行伺服枪默认设置的自动设置。当伺服枪的移动电极自动移动时，必须提前满足以下条件。
 
-* Moving and fixed electrodes with new tipes attached
-* No worker around the servo gun
-* No workpiece between the moving electrode and fixed electrode
-* Manual mode
-* Motor on
-* Prohibition of maximum opening of the moving electrode (a gap of certain distance from the maximum opening position)
+* 附有新类型的移动和固定电极
+* 伺服枪周围没有工作人员
+* 移动电极与固定电极之间没有工件
+* 手动模式
+* 电机开启
+* 禁止移动电极的最大开启（与最大开启位置之间保持一定距离）
 
-In the case of `[All auto setup]`, the following procedures will proceed automatically.
+在 `[All auto setup]` 的情况下，以下程序将自动进行。
 
-  *  (1) Encoder offset compensation  
-      - The moving electrode moves to the maximum opening position.  
-      - The servo gun stops at the maximum opening position and then encoder offset compenation will be executed.
-  *  (2) Axis origin setting
-      - The servo gun performs the squeezing operation three times and opening operation two times.
-      - After the third squeezing operation, the servo gun moves to the position where the two electrodes meet with each other.
-      - Confirms the relevant position with the user.
-      - Executes the setting of the axis origin.
-  *  (3) Soft limit setting  
-      - Will be automatically executed after the axis origin setting.
-  *  (4) Squeezing force - current table setting 
-      - Automatic change to the menu for the setting will occur.
+  *  (1) 编码器偏移补偿  
+      - 移动电极移动到最大开启位置。  
+      - 伺服枪停在最大开启位置，然后执行编码器偏移补偿。
+  *  (2) 轴原点设置
+      - 伺服枪执行三次挤压操作和两次开启操作。
+      - 在第三次挤压操作后，伺服枪移动到两个电极相遇的位置。
+      - 确认相关位置与用户。
+      - 执行轴原点设置。
+  *  (3) 软限制设置  
+      - 在轴原点设置后自动执行。
+  *  (4) 挤压力 - 电流表设置 
+      - 将自动切换到设置菜单。
 
-In the case of automatic setting of the servo gun's default setting, the servo gun's '**encoder offset compensation**' position and '**axis origin compensation**' position are automatically recognized, allowing the '**encoder offset compensation**', '**axis origin compensation**' and '**soft limit setting**' to proceed at the relevant positions. When it comes to automatic setting of the servo gun's default setting, the '**squeeze force - current table setting**' does not proceed automatically. Please refer to the chapter [2.3.3 Squeeze force - current table setting](./2-3-3-servo-gun-force-current-table-tuning/README.md) for setting.
+在伺服枪默认设置的自动设置情况下，伺服枪的 '**编码器偏移补偿**' 位置和 '**轴原点补偿**' 位置被自动识别，允许在相关位置进行 '**编码器偏移补偿**'、'**轴原点补偿**' 和 '**软限制设置**'。关于伺服枪默认设置的自动设置，'**挤压力 - 电流表设置**' 不会自动进行。请参考章节 [2.3.3 挤压力 - 电流表设置](./2-3-3-servo-gun-force-current-table-tuning/README.md) 进行设置。
 
-In the case of '**all automatic setting**', the servo gun moves to the position of the axis origin and performs confirmation with the user on the position of the axis origin. In this process, check the position of the moving electrode and the feedback current (1A or less). If the moving electrode are in a position of slightly contacting the fixed electrode, press '**Yes**' to continue the setting. If the feedback current is high or the moving electrode and the fixed electrode are not in contact, carry out fine adjustment using the jog key and then press 'Yes'. If you do not want automatic setting, please click '**No**' to end the setting.
+在 '**全自动设置**' 的情况下，伺服枪移动到轴原点的位置，并与用户确认轴原点的位置。在此过程中，检查移动电极的位置和反馈电流（1A 或更少）。如果移动电极与固定电极轻微接触，请按 '**是**' 继续设置。如果反馈电流较高或移动电极与固定电极未接触，请使用移位键进行微调，然后按 '**是**'。如果您不想进行自动设置，请点击 '**否**' 结束设置。
 
 <p align="center">
  <img src="../../_assets/image_76_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.6 Confirmation with the user on the position of the axis origin</p></em>
+ <em><p align="center">图 2.6 用户确认轴原点位置</p></em>
 </p>
 
 {% hint style="warning" %}
-`Warning` If the servo gun has a stopper other than a metal material such as a bumper attached at the maximum opening position of the servo gun, it may be difficult to estimate the maximum opening position. It is recommended to perform setting after removing the stopper.
+`警告 (Warning)` 如果伺服枪最大开启位置附有除金属材料（如缓冲器）之外的止动器，则可能难以估计最大开启位置。建议在移除止动器后进行设置。
 {% endhint %}
 
-The configuration and functionality of the servo gun default setting screen is as follows.
+伺服枪默认设置屏幕的配置和功能如下。
 
 <p align="center">
  <img src="../../_assets/image_62_eng.PNG" width="70%"></img>
- <em><p align="center">Figure 2.7 Configuration of the default setting</p></em>
+ <em><p align="center">图 2.7 默认设置的配置</p></em>
 </p>
 
 <br>
 
-1. **Status**: Shows the current setting status of the servo gun (X: Before setting, O: Either complete or changed)
+1. **状态**: 显示伺服枪当前的设置状态 (X: 设置前, O: 完成或已更改)
 
-2. **Individual auto-set**:  Supports the function of automatically setting the checked items only, not all. Pressing the `[Checked auto setup]` button will allow automatic setting to be performed only for the checked items.
+2. **单独自动设置**: 支持仅自动设置已检查的项目，而不是所有项目。按下 `[Checked auto setup]` 按钮，将只对已检查的项目进行自动设置。
 
-3. **Manual setting**: Moves to the screen for setting the relevant items.  
-    - Encoder offset compensation: Moves to the screen of `[F2: system] - 3: Robot parameter - 4: Encoder offset`
-    - Axis origin setting: Moves to the screen of `[F2: system] - 3: Robot parameter - 2: Axis origin`
-    - Soft limit setting: Moves to the screen of `[F2: system] - 3: Robot parameter - 3: Soft limit`
-    - Squeeze force - current table setting: Moves to the screen of `[F2: system] - 4: Application parameter - 1: Spot welding- 7: Servo gun squeeze force tuning`
+3. **手动设置**: 移动到相关项目的设置屏幕。  
+    - 编码器偏移补偿: 移动到屏幕 `[F2: 系统] - 3: 机器人参数 - 4: 编码器偏移 ([F2: system] - 3: Robot parameter - 4: Encoder offset)`
+    - 轴原点设置: 移动到屏幕 `[F2: 系统] - 3: 机器人参数 - 2: 轴原点 ([F2: system] - 3: Robot parameter - 2: Axis origin)`
+    - 软限制设置: 移动到屏幕 `[F2: 系统] - 3: 机器人参数 - 3: 软限位 ([F2: system] - 3: Robot parameter - 3: Soft limit)`
+    - 挤压力 - 电流表设置: 移动到屏幕 `[F2: 系统] - 4: 应用参数 - 1: Spot welding- 7: Servo gun squeeze force tuning ([F2: system] - 4: Application parameter - 1: Spot welding- 7: Servo gun squeeze force tuning)`
 
-4. **Guide**: Indicates the current status of settings or the cause and measure in case of occurrence of an error.
+4. **指南**: 指示当前的设置状态或在发生错误时的原因和措施。
 
-5. **Monitoring**: Indicates the current status of settings and the position of the servo gun, the feedback current, the set values, etc.
+5. **监控**: 指示当前的设置状态和伺服枪的位置、反馈电流、设定值等。
 
-6. `[All auto setup]`: Commands the execution of all automatic setting of all items
+6. `[All auto setup]`: 命令执行所有项目的全自动设置
 
-7. `[Checked auto setup]`: Automatically sets only the items that are designated as the items of individual automatic setting
+7. `[Checked auto setup]`: 仅自动设置被指定为单独自动设置的项目
 
-8. **Execution stop**: Stops the setting that is in progress.
+8. **执行停止**: 停止正在进行的设置。

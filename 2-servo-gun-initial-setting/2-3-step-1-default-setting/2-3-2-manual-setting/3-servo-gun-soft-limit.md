@@ -1,24 +1,23 @@
-﻿#### 2.3.2.3 Servo gun soft limit
+#### 2.3.2.3 伺服枪软限制
 
-In general, the soft limit of the servo gun should be set to 'Minimum' while the moving electrode is fully open, and set to 'Maximum' while the moving electrode is at the closest position with all tips removed.
+一般来说，伺服枪的软限制应在移动电极完全打开时设置为“最小”，并在移动电极在所有尖端移除的最靠近位置时设置为“最大”。
 
-The soft limit setting procedure for the axis of the servo gun.
+伺服枪轴的软限制设置程序。
 
-1. Manually operate the servo gun to bring it to the condition as shown in the figure below
+1. 手动操作伺服枪，使其达到下图所示的状态
 
 
 <p align="center">
  <img src="../../../_assets/image_90_eng.PNG" ></img>
  <img src="../../../_assets/image_2_eng.PNG" ></img>
- <em><p align="center">Figure 2.12 Setting of the servo gun soft limit</p></em>
+ <em><p align="center">图 2.12 伺服枪软限制的设置</p></em>
 </p>
 
 <br>
 
-2. In the default setting screen of the '**Servo gun automatic setting**' menu, press the `[Manual setting]` button of the '**Soft limit setting**' menu (Figure below), or select the relevant axis of the servo gun in `[F2: system] - 3: Robot parameter - 3: Soft limit` with the cursor and then press the `[Reset]` button. If the indication is performed normally, input by selecting the `[F7: OK]` button.
+2. 在“**伺服枪自动设置**”菜单的默认设置屏幕中，按下“**软限制设置**”菜单的 `[Manual setting]` 按钮（下图），或在 `[F2: 系统] - 3: 机器人参数 - 3: 软限位 ([F2: system] - 3: Robot parameter - 3: Soft limit)` 中选择伺服枪相关轴，然后按 `[Reset]` 按钮。如果指示正常进行，请选择 `[F7: 确定] ([F7: OK])` 按钮进行输入。
 
 <p align="center">
  <img src="../../../_assets/image_41_eng.PNG" width="80%"></img>
- <em><p align="center">Figure 2.13 Moving to the servo gun soft limit setting screen </p></em>
+ <em><p align="center">图 2.13 移动到伺服枪软限制设置屏幕 </p></em>
 </p>
-

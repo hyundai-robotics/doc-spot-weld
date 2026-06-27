@@ -1,22 +1,22 @@
-﻿### 4.2.1 Spot statement
+### 4.2.1 Spot statement
 
-The Spot command performs a series of operations required for spot welding, including gun pressing, weld standby, and opening.
+Spot命令执行点焊所需的一系列操作，包括枪压、焊接待机和打开。
 
-</br>
+<br>
 
 ### Description
-  - Supports Servo Gun, EQ Gun, EQ-less Gun, and EQ-Brake Gun.
-  - For multi-gun configurations, parameters are entered in an array format.
-  - If the system is stopped before the spot welding process is completed and then restarted, the spot welding step is executed again.
-  - When recording a step using the `[Record]` key, if the LED of the `[GUN]` key is turned on, the `spot` command is recorded together with the `move` command (one-touch recording method).
-  - When recording a welding step:
-     - Bring the fixed electrode into contact with the panel using jog operation.
-     - Apply pressure to the panel using manual pressing.
-     - Then record the Spot command using the one-touch recording method.  
-       -> The panel thickness will be automatically set.
-  - After the panel thickness has been set, bring the fixed electrode into contact with the panel using jog operation. Then, record the `spot` command using the one-touch recording method without performing manual pressing.  
--> The recorded position will automatically reflect compensation for both panel thickness and electrode wear.
-  - When the gun type is set to Servo Gun, if a `spot` command exists during `[POS.MOD]`, the position is automatically corrected to include compensation for electrode wear.
+  - 支持伺服枪、EQ枪、无EQ枪和EQ刹车枪。
+  - 对于多枪配置，参数以数组格式输入。
+  - 如果在点焊过程完成之前停止系统，然后重新启动，则点焊步骤将再次执行。
+  - 使用`[Record]`键记录步骤时，如果`[GUN]`键的LED灯亮起，则`点 (spot)`命令将与`移动 (move)`命令一起记录（一键录制方式）。
+  - 记录焊接步骤时：
+     - 使用手动操作将固定电极与面板接触。
+     - 使用手动压制将压力施加到面板上。
+     - 然后使用一键录制方式记录Spot命令。  
+       -> 面板厚度将自动设定。
+  - 设置面板厚度后，使用手动操作将固定电极与面板接触。然后，使用一键录制方式记录`点 (spot)`命令，而无需执行手动压制。  
+-> 记录的位置将自动反映面板厚度和电极磨损的补偿。
+  - 当枪类型设置为伺服枪时，如果在`[POS.MOD]`期间存在`点 (spot)`命令，则位置将自动校正，以包括电极磨损的补偿。
 
 <br>
 
@@ -26,7 +26,7 @@ The Spot command performs a series of operations required for spot welding, incl
 spot gun=<gun number>,cnd=<condition number>,seq=<sequence number>,pre=<pressure>,out=<output data>
 ```
 
-</br>
+<br>
 
 ### Parameters
 
@@ -34,26 +34,26 @@ spot gun=<gun number>,cnd=<condition number>,seq=<sequence number>,pre=<pressure
 
 |   Item    |       Content      | Note |
 | :--------: |:---------: |:---------: |
-|    Gun number    |  the welding gun number | mandatory |
-|    Condition number   |  the welding condition |mandatory |
-|  Sequence number  |  the welding sequence |mandatory |
-|  Pressure value  |  the pressurization force value  |optional |
-|  Output data  | the output value transmitted in 12-bit format |optional |
+|    Gun number    |  焊枪编号 | mandatory |
+|    Condition number   |  焊接条件 |mandatory |
+|  Sequence number  |  焊接顺序 |mandatory |
+|  Pressure value  |  压力值  |optional |
+|  Output data  | 以12位格式传输的输出值 |optional |
 
 </center>
 
-</br>
+<br>
 
 {% hint style="info" %}
 
 \[Example of use\]  
-- All parameters of  `spot` command can be entered in array format [ ] when using multiple guns.
+- 所有`点 (spot)`命令的参数可以在使用多个枪时以数组格式 [ ] 输入。
 
 {% endhint %}
 
 {% hint style="info" %}
 \[Example of use\]  
-- When performing spot welding using servo guns 5 and 6 with welding conditions 7 and 8, welding sequences 9 and 10, and welding pressures of 100 kgf and 200 kgf, respectively.
+- 在使用伺服枪5和6进行点焊的情况下，焊接条件为7和8，焊接顺序为9和10，焊接压力分别为100 kgf和200 kgf。
 
   ```python
   spot gun=[5,6],cnd=[7,8],seq=[9,10],pre=[100,200]

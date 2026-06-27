@@ -1,56 +1,52 @@
-﻿# 5.2 Welding gun parameter
+# 5.2 焊接枪参数
 
-This section describes how to add a welding gun for spot welding operations and configure detailed settings according to the gun type.
+本节描述如何为点焊操作添加焊接枪并根据枪类型配置详细设置。
 
 <p align=center>
 <img src="../../_assets/image_28_eng.png" width="70%"></img>
-<em><p align="center">Figure 5.2.0 Spot gun general settings</p></em>
+<em><p align="center">图5.2.0 点枪一般设置</p></em>
 </p>
 
 <br>
 
+### 一般设置
 
-### General Settings
+(1) 添加和删除焊接枪  
+  - 使用右侧的 `[+]` 和 `[-]` 按钮添加或删除点焊枪。  
+  - 最多可以注册16个枪。
 
-(1) Adding and Deleting Welding Guns
-  - Use the `[+]` and `[-]` buttons on the right to add or delete spot welding guns.
-  - Up to 16 guns can be registered.
+(2) 工具编号  
+  - 每个枪的几何信息必须提前存储在工具数据中。  
+  - 输入每个焊接枪对应的工具数据编号。
 
-(2) Tool Number  
-  - The geometric information of each gun must be stored in advance in the Tool Data.
-  - Enter the corresponding Tool Data number for each welding gun.
+(3) 焊工编号  
+  - 分配与对应枪编号连接的焊工。当使用选定的枪进行焊接时，输入/输出信号通过为该焊工配置的端口传输。  
+  - 最多支持四个焊工，允许最多四个点焊枪同时焊接。
 
-(3) Welder Number
-  - Assign the welder connected to the corresponding gun number. When welding is performed with the selected gun, input/output signals are transmitted through the port configured for that welder.
-  - Up to four welders are supported, allowing simultaneous welding with a maximum of four spot welding guns.
+(4) 枪类型  
+  - 伺服枪  
+    - 一种使用伺服电机作为附加轴进行压制和位置控制的枪。  
+    - 选择时，必须额外输入附加轴编号。  
+    - 附加轴必须根据伺服枪规格使用附加轴设置功能进行配置。
 
-(4) Gun Type
-  - Servo Gun
-    - A gun that performs pressing and position control using a servo motor as an additional axis.
-    - When selected, the additional axis number must be entered additionally.
-    - The additional axis must be configured according to the servo gun specifications using the additional axis setup function.
+  - EQ枪  
+    - 一种配备内置均衡机制的气动点焊枪。  
+    - 执行点焊命令时，机器人不会像伺服枪那样移动到清除位置。
 
-  - EQ Gun
-    - A pneumatic spot welding gun equipped with a built-in equalizing mechanism.
-    - When executing a spot welding command, the robot does not move to a clearance position as in the case of a servo gun.
+  - 无EQ枪  
+    - 一种没有内置均衡功能的气动点焊枪。  
+    - 因此，均衡由机器人控制执行。  
+    - 执行点焊命令时，机器人会包含移动到清除位置的动作。
 
-  - EQless Gun
-    - A pneumatic spot welding gun that does not have a built-in equalizing function.
-    - Therefore, equalizing is performed by robot control.
-    - When executing a spot welding command, the robot includes a movement to the clearance position.
-
-  - EQ-Brake Gun
-    - An EQ-type gun that performs equalizing while the robot axes are held by brakes to prevent displacement caused by welding reaction force.
-    - Additional settings are required in the welding sequence configuration.
-    - Supported only for robot-mounted guns attached to the robot R1 axis. For stationary guns, select the EQ gun type.
-
-
-
+  - EQ-刹车枪  
+    - 一种EQ类型的枪，通过刹车保持机器人轴以防止焊接反应力引起的位移。  
+    - 在焊接顺序配置中需要额外的设置。  
+    - 仅支持附加至机器人R1轴的机器人安装枪。对于固定枪，选择EQ枪类型。
 
 <br>
 
-When the gun type is set to servo gun or equalizerless gun, individual parameters must be configured for each respective gun.
+当枪类型设置为伺服枪或无均衡枪时，必须为每个相应枪配置单独参数。
 
 {% hint style="warning" %}
-Since the Eq-Brake gun type engages the robot axis brakes during welding, robot motion via MOVE statements is disabled during the independent execution of the instruction.
+由于EQ-刹车枪在焊接期间会激活机器人轴刹车，因此在独立执行指令期间通过MOVE语句禁用机器人运动。
 {% endhint %}

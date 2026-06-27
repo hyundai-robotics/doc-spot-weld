@@ -1,25 +1,25 @@
-﻿#### 6.2.1.2 Data Backup
+#### 6.2.1.2 数据备份
 
 
 <br>
 
 <p align=center>
 <img src="../../../_assets/6_6_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.6 Data Backup</p></em>
+<em><p align="center">图 6.6 数据备份</p></em>
 </p>
 
 <br>
 
 
-The Data Backup function is used when you want to back up the welder's configuration data to the ${cont_model} controller.
-Enter the number of the welder from which the data will be retrieved, then press OK to start the backup.
-The process takes approximately 1 to 2 minutes.
-Once the backup is completed, a message will appear stating: "Data has been successfully backed up."
+数据备份功能用于在您想要将焊机的配置数据备份到 ${cont_model} 控制器时使用。
+输入要从中检索数据的焊机编号，然后按 OK 开始备份。
+该过程大约需要 1 到 2 分钟。
+备份完成后，将出现一条消息，说明：“数据已成功备份。”
 
-The backed-up data can be effectively used in the following cases:
+备份的数据可以在以下情况下有效使用：
 
-- ① When you want to store a backup of the welder's configuration values
+- ① 当您想要存储焊机的配置值的备份时
 
-- ② When you want to modify the data of another welder connected to the ${cont_model} controller
+- ② 当您想要修改连接到 ${cont_model} 控制器的另一台焊机的数据时
 
-- ③ When you want to apply batch updates to welders connected to another ${cont_model} controller
+- ③ 当您想要对连接到另一台 ${cont_model} 控制器的焊机应用批量更新时

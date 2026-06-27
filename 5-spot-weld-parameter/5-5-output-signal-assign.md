@@ -1,33 +1,32 @@
-﻿# 5.5 Output signal assignment for each welder
+# 5.5 焊接机的输出信号分配
 
-Assigns the signals related to spot welding and transfers their state to the outside.
+分配与点焊相关的信号并将其状态传送到外部。
 
 <p align=center>
 <img src="../_assets/image_45_eng.PNG" width="70%"></img>
-<em><p align="center">Figure 5.17 Output signal assignment</p></em>
+<em><p align="center">图 5.17 输出信号分配</p></em>
 </p>
 
-(1)  **Welder number**
-  - Selects the welder number to set. Up to four welders can be added.
+(1)  **焊接机编号**
+  - 选择要设置的焊接机编号。最多可以添加四个焊接机。
 
-(2)  **Welding condition**
-  - Assigns the number of the signal to output the output data corresponding to the welding condition during the execution of the `spot` statement.
+(2)  **焊接条件**
+  - 分配信号的编号，以输出在执行 `点 (spot)` 语句期间对应焊接条件的输出数据。
 
-(3)  **Welding execution**
-  - To be used to output a command for welding to the welder during the execution of the `spot` statement.
+(3)  **焊接执行**
+  - 用于在执行 `点 (spot)` 语句期间向焊接机输出焊接命令。
 
-(4)  **Welder abnormal**
-  - To be used to output the entered spot welder abnormal signal to the outside.
+(4)  **焊接机异常**
+  - 用于向外部输出输入的点焊机异常信号。
 
-(5)  **Electrode consumption alarm**
-  - To be used to output a signal if the consumption amount detected by the gun search is larger than the electrode replacement required consumption amount.
+(5)  **电极消耗报警**
+  - 如果枪搜索检测到的消耗量大于电极更换所需的消耗量，则用于输出信号。
 
-(6) **Deposition error**
-  - To be used to output to the outside the state that deposition has occurred to the spot gun.
+(6) **沉积错误**
+  - 用于向外部输出点枪发生沉积的状态。
 
-(7)  **Servo gun squeezing in progress**
-  - This is a signal that is turned on when squeezing starts upon the execution of the `spot` statement and turned off when the opening procedure starts.
+(7)  **伺服枪挤压进行中**
+  - 当执行 `点 (spot)` 语句时，开始挤压时此信号开启，开启程序开始时此信号关闭。
 
-(8)  **Welding gun search in progress**
-  - This is a signal that is turned on when gun search starts upon the execution of the `gunsea`, `igunsea` or `egunsea` statement and turned off when the opening procedure starts.
-    
+(8)  **焊接枪搜索进行中**
+  - 当执行 `gunsea`、`igunsea` 或 `egunsea` 语句时，开始枪搜索时此信号开启，开启程序开始时此信号关闭。

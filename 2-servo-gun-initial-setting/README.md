@@ -1,2 +1,1 @@
-﻿# 2. Initial setting of the servo gun
-
+﻿# 2. 伺服枪的初始设置

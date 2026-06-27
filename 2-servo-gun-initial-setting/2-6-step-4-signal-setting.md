@@ -1,19 +1,17 @@
-﻿# 2.6 Step 4. Signal setting
+﻿# 2.6 第 4 步. 信号设置
 
-Step 3. When Step 3. 'Setting check' is completed, it is now possible to move and squeeze the servo gun normally. However, for spot welding, it is necessary to set the inputs and outputs of the spot welding machine signals and other signals. In 'Signal setting', input and output signals related to spot welding can be set.
+第 3 步. 当第 3 步. '设置检查' 完成后，伺服枪现在可以正常移动和挤压。然而，对于点焊，需要设置点焊机信号和其他信号的输入和输出。在 '信号设置' 中，可以设置与点焊相关的输入和输出信号。
 
-As shown in the figure below, move the cursor to '**Step 4. Input signal setting**' or '**Step 4. Output signal setting**' and then press the \`Enter` key or, while previous items are completed, if you press the `Proceed with the prior-to-setting items` key, you can enter the screen for setting relevant items.
+如下面的图所示，将光标移动到 '**第 4 步. 输入信号设置**' 或 '**第 4 步. 输出信号设置**'，然后按 `输入 (Enter)` 键，或者在完成前面的项目时，如果按 `继续前面的设置项目` 键，则可以进入相关项目的设置屏幕。
 
 <p align="center">
  <img src="../_assets/image_85_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.19 Servo gun signal setting</p></em>
+ <em><p align="center">图 2.19 伺服枪信号设置</p></em>
 </p>
 
 <br>
 
-1. **Input signal setting**
-       * Refer to the chapter [5.4 Input signal assignment](../5-spot-weld-parameter/5-4-input-signal-assign.md). 
-2. **Output signal setting**
-       * Refer to the chapter [5.5 Output signal assignment](../5-spot-weld-parameter/5-5-output-signal-assign.md).
- 
-
+1. **输入信号设置**
+       * 请参阅章节 [5.4 输入信号分配](../5-spot-weld-parameter/5-4-input-signal-assign.md)。 
+2. **输出信号设置**
+       * 请参阅章节 [5.5 输出信号分配](../5-spot-weld-parameter/5-5-output-signal-assign.md)。

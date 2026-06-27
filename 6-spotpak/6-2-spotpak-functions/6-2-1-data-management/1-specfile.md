@@ -1,4 +1,4 @@
-﻿### 6.2.1.1 Importing Characteristic Data
+### 6.2.1.1 导入特征数据
 
 
 
@@ -6,24 +6,24 @@
 
 <p align=center>
 <img src="../../../_assets/6_5_eng.png" width="70%"></img>
-<em><p align="center">Figure 6.5 Characteristic Data Import Screen</p></em>
+<em><p align="center">图 6.5 特征数据导入界面</p></em>
 </p>
 
 <br>
 
-The characteristic data is essential information that must be prepared in advance in order to use the welder interface functions.
-It contains the structure of the welder's configuration data, menu composition, and other necessary elements.
-All functions of the welder interface require this characteristic data.
+特征数据是使用焊接机接口功能前必须提前准备的重要信息。
+它包含焊接机配置数据的结构、菜单组成和其他必要元素。
+焊接机接口的所有功能都需要这些特征数据。
 
 <br>
 
-The functions of each part of the screen shown in Figure 6.5 are as follows:
-- ① Welder Status: Indicates the ON/OFF-LINE status of the welder.
-Red indicates ON-LINE, and black indicates OFF-LINE.
+图 6.5 中显示的屏幕每个部分的功能如下：
+- ① 焊接机状态：指示焊接机的在线/离线状态。
+红色表示在线，黑色表示离线。
 
-- ② Welder selection: Select the number of the welder from which the characteristic data will be downloaded.
+- ② 焊接机选择：选择要下载特征数据的焊接机编号。
 
-- ③ Characteristic Data: Displays characteristics related to the current welder using the downloaded characteristic data.
+- ③ 特征数据：使用下载的特征数据显示与当前焊接机相关的特性。
 
-- ④ `[Download]` Button: Downloads the characteristic data of the welder specified in [Select Welder Number].
-When the download is completed successfully, a message saying "Characteristic data has been saved." will appear.
+- ④ `[Download]` 按钮：下载在 [选择焊接机编号] 中指定的焊接机的特征数据。
+当下载成功完成后，将出现“特征数据已保存。”的消息。

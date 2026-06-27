@@ -1,7 +1,7 @@
-﻿# 3.1 Monitoring
+﻿# 3.1 监控
 
-Various current data and setting states that are used in spot welding are provided to the user in a way that they can be monitored. The monitoring screen related to spot welding is as follow.
+各种在点焊中使用的电流数据和设定状态以便于用户监控的方式提供给用户。与点焊相关的监控屏幕如下。
 
-* Spot welding gun axis data
-* Spot welding input and output signals
-* Spot welding operation information
+* 点焊枪轴数据
+* 点焊输入和输出信号
+* 点焊操作信息

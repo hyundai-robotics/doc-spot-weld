@@ -1,6 +1,6 @@
-﻿# 4.7  Detection of panel thickness abnormality
+# 4.7 检测面板厚度异常
 
- This is a function to measure the panel thickness during the welding with a servo gun to detect any abnormality with parts and any missing of installation of materials. The function can be executed simply by adding the `thickcheck` statement. Whether the panel thickness is abnormal should be determined based on whether the measured value is within the normal range.
+这是一个在焊接过程中使用伺服枪测量面板厚度以检测部件的任何异常和材料安装的缺失的功能。只需添加 `thickcheck` 指令即可简单执行该功能。面板厚度是否异常应基于测量值是否在正常范围内来判断。
 
 <br>
 
@@ -14,37 +14,35 @@ thickcheck thick=<thickness variable>, ref=<reference value>, tol=<tolerance val
 
 * **thick**
 
-    Specipies the variable to store the measured panel thickness by squeezing the servo gun.
+    指定通过挤压伺服枪来存储测量的面板厚度的变量。
 
 * **ref**
 
-    Specipies the normal panel thickness.
+    指定正常的面板厚度。
 
 * **tol**
 
-    Specipies the tolerance.
+    指定公差。
 
 * **addr(branch line)**
 
-   Specipies the method of handling when panel's abnormality is detected. If the branch line is not recorded, the situation "**E1493 Measured panel thickness exceeded the normal range**" occurs and then the robot stops and the output signal set in the "**Panel thickness abnormal**" section is turned on. If the branch line is recorded, the situation "**W0152 Measured panel thickness exceeded the normal range**" occurs and the robot continues to operate as the program jumps to the branch line. In this case, the output signal set in the "**Panel thickness abnormal**" section is turned on only for 200 ms.
+   指定检测到面板异常时的处理方法。如果未记录分支线，则会出现情况 "**E1493 测量的面板厚度超出正常范围**"，然后机器人停止，设置在 "**面板厚度异常**" 部分的输出信号被打开。如果记录了分支线，则会出现情况 "**W0152 测量的面板厚度超出正常范围**"，机器人继续运行，因为程序跳到分支线。在这种情况下，设置在 "**面板厚度异常**" 部分的输出信号仅打开 200 毫秒。
 
- *  Sample code 
+ *  示例代码 
 
 ```python
 
-S10   move L, ...                               # Move to a spot point
-      thickcheck thick=v0,ref=4.0,tol=1.0       # Check the panel thickness
-      spot gun=1, cnd=1, seq=1                  # perform spot welding
+S10   move L, ...                               # 移动到指定点
+      thickcheck thick=v0,ref=4.0,tol=1.0       # 检查面板厚度
+      spot gun=1, cnd=1, seq=1                  # 执行点焊
 
 ```
 <Br>
 
 {% hint style="warning" %}  
-The following should be in place first for accurate measurement of the panel.
+为了准确测量面板，以下应首先到位。
 
-1. Gun search (precise management of the consumption amounts of the moving and fixed electrodes)
-2. Setting of gun arm deflection amount (Setting of the gun arm deflection amount for each squeezing force)
-3. Setting of panel thickness(Setting of the panel thickness for each squeezing force)
+1. 枪搜索（对移动和固定电极的消耗量进行精确管理）
+2. 枪臂偏转量的设置（为每个挤压力设置枪臂偏转量）
+3. 面板厚度的设置（为每个挤压力设置面板厚度）
 {% endhint %}
-
-

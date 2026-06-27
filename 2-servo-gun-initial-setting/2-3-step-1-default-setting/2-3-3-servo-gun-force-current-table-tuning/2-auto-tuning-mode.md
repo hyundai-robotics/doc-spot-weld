@@ -1,42 +1,38 @@
-﻿#### 2.3.3.2 Auto tuning mode
+#### 2.3.3.2 自动调谐模式
 
-This function is used to automatically set the servo gun squeezing force-current table.
-To use this function, data communication between the squeezing force gauge and the robot controller must be available. Please make sure to check whether the selected squeezing force gauge is supported before use.
-
+此功能用于自动设置伺服枪挤压力-电流表。
+要使用此功能，挤压力计与机器人控制器之间的数据通信必须可用。在使用前请确保选定的挤压力计被支持。
 
 <p align="center">
  <img src="../../../_assets/image_25_eng.PNG" width=70%></img>
- <em><p align="center">Figure 2.14-1 Servo Gun Auto Tuning Screen</p></em>
+ <em><p align="center">图 2.14-1 伺服枪自动调谐屏幕</p></em>
 </p>
 
 <br>
 
+在使用此功能之前，请将挤压力计放置在固定电极的顶部，如上图所示，并手动移动移动电极使其与计量器接触。
 
-Before using this function, position the squeezing force gauge on top of the fixed electrode as shown in the figure above, and manually move the moving electrode to bring it into contact with the gauge.
+然后，进入伺服枪挤压力-电流表自动调谐设置屏幕，并按下`[Execute]`按钮以开始调谐。
 
-Then, enter the servo gun squeezing force-current table auto tuning setting screen and press the `[Execute]` button to start tuning.
+在自动调谐期间，移动电极会重复移动几次。因此，该过程必须在手动模式下进行，并且电机必须处于开启状态。(如果电机关闭，过程将停止。)
 
-During auto tuning, the moving electrode repeatedly moves several times. Therefore, the process must be carried out in manual mode with the motor turned ON. (If the motor is OFF, the process will stop.)
-
-If you need to forcibly stop the tuning during operation, press the `[Clear]` button. After completing the tuning, perform test squeezing for each force level. If there are any accuracy issues, repeat the tuning process.
-
+如果在操作期间需要强制停止调谐，请按下`[Clear]`按钮。在完成调谐后，对每个力级进行测试挤压。如果存在任何准确性问题，请重复调谐过程。
 
 <br>
 
+设置如下所述：
 
-The settings are described below:
+ - 挤压系统制造商  
+选择将要使用的挤压力计的制造商。
 
- -  Squeeze system maker
-Select the manufacturer of the squeezing force gauge to be used.
+ - 串口  
+选择连接的串口编号。
 
- - Serial port  
-Select the number of the connected serial port.
+ - 移动尖端方向  
+选择伺服枪电极的移动方向是沿重力方向还是反重力方向。
 
- - Direction of moving tip
-Select whether the moving direction of the servo gun electrode is in the gravity direction or the anti-gravity direction.
+ - 迭代次数  
+设置自动调谐的重复次数以减少指令电流的变化。(1-10)
 
- - Iteration number 
-Set the number of repetitions for auto tuning to reduce variation in the commanded current. (1-10)
-
- - Commanded Squeeze[kgf]  
-Set the desired squeezing force range in five levels for the table.
+ - 指令挤压[kgf]  
+为表格设置所需的挤压力范围，共五个级别。

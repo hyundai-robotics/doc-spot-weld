@@ -17,7 +17,7 @@
   If it is set to 0.0 mm, no abnormality will be detected.
 
 (4)  **Bend offset per 100kgf (mm)**  
-  Sets the gun arm deflection caused by the squeezing force as a deflection amount per 100 kgf. During spot welding, the squeezing operation is performed by calculating the gun arm deflection based on both this setting and the commanded squeezing force.
+  Sets the three dimensional gun arm deflection(x, y, z) caused by the squeezing force as a deflection amount per 100 kgf. During spot welding, the squeezing operation is performed by calculating the gun arm deflection based on both this setting and the commanded squeezing force.
 
 
 <p align=center>

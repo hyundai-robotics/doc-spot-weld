@@ -2005,7 +2005,7 @@ Since the Eq-Brake gun type engages the robot axis brakes during welding, robot 
   If it is set to 0.0 mm, no abnormality will be detected.
 
 (4)  **Bend offset per 100kgf (mm)**  
-  Sets the gun arm deflection caused by the squeezing force as a deflection amount per 100 kgf. During spot welding, the squeezing operation is performed by calculating the gun arm deflection based on both this setting and the commanded squeezing force.
+  Sets the three dimensional gun arm deflection(x, y, z) caused by the squeezing force as a deflection amount per 100 kgf. During spot welding, the squeezing operation is performed by calculating the gun arm deflection based on both this setting and the commanded squeezing force.
 
 
 <p align=center>
@@ -2108,7 +2108,7 @@ Since only digital data can be received, the sensor's analog output signal must 
 
 (1)  **Gun arm deflection amount (mm)**  
 
- - Sets the gun arm deflection amount for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press 'Default value calculation', the value of 0.31 mm per 100 kgf will be set as the default value.
+ - Sets the gun arm deflection amount of the z-direction for the squeezing force set on the left. Considering that it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting. If you press 'Default value calculation', the value of 0.31 mm per 100 kgf will be set as the default value.
  
 (2)  **Panel thickness compensation(mm)**  
 
@@ -2116,9 +2116,7 @@ Since only digital data can be received, the sensor's analog output signal must 
 
 {% hint style="warning" %}  
 
-When it comes to 'gun arm deflection amount compensation' and 'panel thickness measurement compensation', it is difficult to manually measure and fill in the values, it is recommended to use servo gun automatic setting.
-
-The 'gun arm deflection amount compensation' value is a value used instead of the 'gun arm deflection amount/100 kgf\[mm]' among the servo gun parameters. When the 'gun arm deflection amount compensation' value is set, the already set 'gun arm deflection amount/100 kgf\[mm]' will not be used. On the contrary, if a 'gun arm deflection amount compensation' value is not set, the 'gun arm deflection amount/100 kgf\[mm] will be used.'  
+The 'gun arm deflection amount compensation' value is a value used instead of the 'gun arm deflection amount/100 kgf\[mm]' among the servo gun parameters. When the 'gun arm deflection amount compensation' value is set, the already set 'z-direction gun arm deflection amount/100 kgf\[mm]' will not be used. On the contrary, if a 'gun arm deflection amount compensation' value is not set, the 'gun arm deflection amount/100 kgf\[mm] will be used.'  
 {% endhint %}
 
 [__SOURCE](5-spot-weld-parameter/5-2-welding-gun-parameter/2-eqless-gun.md)
@@ -2937,7 +2935,8 @@ Please try again.
 |        <p>E0154 </p><p>Maximum electrode </p><p>consumption amount exceeded</p>        | The total electrode consumption amount detected by gun search exceeded the maximum electrode consumption amount (of both moving and fixed electrodes) set in the welding gun parameter.                        | <ul><li> Check the maximum electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                   |
 |       <p>E0155 </p><p>Maximum moving electrode </p><p>consumption amount exceeded</p>       | The moving electrode consumption amount detected by gun search exceeded the maximum (moving) electrode consumption amount set in the welding gun parameter.                              | <ul><li>Check the maximum (moving) electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                |
 |       <p>E0156 </p><p>Maximum fixed electrode </p><p>consumption amount exceeded</p>       | The fixed electrode consumption amount detected by gun search exceeded the maximum (fixed) electrode consumption amount set in the welding gun parameter.                              | <ul><li>Check the maximum (fixed) electrode consumption amount in the welding gun parameter.</li><li>Replace the electrode.</li></ul>                                                |
-|        <p>E0171 </p><p>Gun opening time (five seconds) </p><p>exceeded</p>       | After the squeezing operation in the spot welding and gun search function was performed, the opening time exceeded five seconds.                                               | <ul><li>Check whether the gun has deposited to the welding workpiece or any interference has occurred.</li><li>Check whether deposition or interference has occurred to the gun of the moving side.</li></ul>                                |
+|        <p>E0171 </p><p>Gun opening time (five seconds) </p><p>exceeded</p>       | After the squeezing operation in the spot welding and gun search function was performed, the opening time exceeded five seconds.                                               | <ul><li>Check whether the gun has deposited to the welding workpiece or any interference has occurred.</li><li>Check whether deposition or interference has occurred to the gun of the moving side.</li></ul>|
+|        <p>E0356 </p><p>Servo gun position deviation </p><p>exceeded set value </p>       | The servo gun position deviation has exceeded set value.                                               | Increase the servo gun position deviation level.                                 |
 |         <p>E1036 </p><p>Electrification wait time</p><p>exceeded</p>        | During the execution of the welding by the servo gun, the welding completion (WI) signal has not been entered during the welding completion (WI) wait time in the welding sequence menu.                        | Check the wiring diagram of the welding completion (WI) signal and related peripheral facilities.                                                                                   |
 |     <p>E1038 </p><p>Position where the electrode consumption</p><p>amount compensation cannot be performed</p>    | At the time of recording the position by performing the electrode consumption amount compensation, the robot posture was created in a way that the electrode consumption amount compensation cannot be performed.                            | Required to make sure that the robot posture does not deviate from the operation area while trying to perform compensation for as much as the detected electrode consumption amount.                                                                      |
 |           <p>E1281 </p><p>The welder abnormal signal is entered.</p>          | Occurs when the welder abnormal signal is entered during welding.                                                           | 1) Check the welding power supply unit.                                                                                                    |
